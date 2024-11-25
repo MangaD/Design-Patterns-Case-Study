@@ -1,0 +1,29 @@
+plugins {
+	id 'java'
+}
+
+java {
+	sourceSets {
+		main {
+			java {
+				srcDirs = ['java'] // Main source files
+				exclude '**/*Test.java' // Exclude test files from main sources
+			}
+		}
+		test {
+			java {
+				srcDirs = ['java'] // Use the same directory for test files
+				include '**/*Test.java' // Only include test files
+			}
+		}
+	}
+}
+
+dependencies {
+	// Add JUnit 5 for testing
+	testImplementation 'org.junit.jupiter:junit-jupiter:5.9.3'
+}
+
+tasks.test {
+	useJUnitPlatform()
+}

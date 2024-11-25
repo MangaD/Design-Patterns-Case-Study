@@ -1,0 +1,4 @@
+rootProject.name = 'DesignPatternsCaseStudy'
+
+include 'Creational:Singleton'
+// Add more modules as needed
