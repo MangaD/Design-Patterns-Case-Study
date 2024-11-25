@@ -1,0 +1,59 @@
+stages:
+  - build
+  - test
+
+# C++ Build and Test
+build-cpp:
+  stage: build
+  image: gcc:latest
+  before_script:
+    - apt-get update
+    - apt-get install -y cmake libgtest-dev
+  script:
+    - mkdir -p build
+    - cd build
+    - cmake ..
+    - make
+  artifacts:
+    paths:
+      - build/
+
+test-cpp:
+  stage: test
+  image: gcc:latest
+  dependencies:
+    - build-cpp
+  before_script:
+    - apt-get update
+    - apt-get install -y cmake libgtest-dev
+  script:
+    - cd build
+    - ctest --output-on-failure
+
+# Java Build and Test
+build-java:
+  stage: build
+  image: gradle:8.11.1-jdk23-alpine
+  script:
+    - gradle build
+  artifacts:
+    paths:
+      - .gradle
+      - build
+
+test-java:
+  stage: test
+  image: gradle:8.11.1-jdk23-alpine
+  dependencies:
+    - build-java
+  script:
+    - gradle test
+
+# Python Build and Test
+test-python:
+  stage: test
+  image: python:3.11
+  before_script:
+    - pip install pytest
+  script:
+    - pytest

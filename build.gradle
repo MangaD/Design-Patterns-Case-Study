@@ -1,0 +1,27 @@
+// Parent build.gradle
+plugins {
+	id 'java' // Common plugin for all subprojects
+}
+
+subprojects {
+	apply plugin: 'java'
+
+	repositories {
+		mavenCentral()
+	}
+
+	dependencies {
+		testImplementation 'org.junit.jupiter:junit-jupiter:5.9.3'
+	}
+
+	// General Java configuration
+	java {
+		toolchain {
+			languageVersion.set(JavaLanguageVersion.of(23)) // Use Java 23
+		}
+	}
+
+	tasks.test {
+		useJUnitPlatform()
+	}
+}

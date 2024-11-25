@@ -1,0 +1,5 @@
+build/
+.vscode/
+.gradle/
+__pycache__
+.pytest_cache

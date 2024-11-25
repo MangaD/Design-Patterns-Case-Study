@@ -1,0 +1,68 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build-and-test-cpp:
+    name: Build and Test C++ Code
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y cmake g++ libgtest-dev
+
+      - name: Build and test C++ code
+        run: |
+          mkdir -p build
+          cd build
+          cmake ..
+          make
+          ctest --output-on-failure
+
+  build-and-test-java:
+    name: Build and Test Java Code
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up JDK
+        uses: actions/setup-java@v3
+        with:
+          java-version: '23'
+          distribution: 'oracle'
+
+      - name: Build and test Java code
+        run: |
+          gradle build
+          gradle test
+
+  build-and-test-python:
+    name: Build and Test Python Code
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: |
+          pip install pytest
+
+      - name: Run Python tests
+        run: |
+          pytest
