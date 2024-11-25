@@ -1,0 +1,7 @@
+
+@startuml
+Client --> Singleton : use
+class Singleton {
+    +getInstance()
+}
+@enduml
