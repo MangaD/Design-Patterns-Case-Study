@@ -1,4 +1,5 @@
 rootProject.name = 'DesignPatternsCaseStudy'
 
 include 'Creational:Singleton'
+include 'Creational:FactoryMethod'
 // Add more modules as needed
