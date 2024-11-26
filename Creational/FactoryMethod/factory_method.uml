@@ -1,0 +1,35 @@
+@startuml
+title Factory Method Pattern
+
+interface Product {
+    + use() : void
+}
+
+class ConcreteProductA {
+    + use() : void
+}
+class ConcreteProductB {
+    + use() : void
+}
+
+Product <|.. ConcreteProductA
+Product <|.. ConcreteProductB
+
+abstract class Creator {
+    + createProduct() : Product
+}
+
+class ConcreteCreatorA {
+    + createProduct() : Product
+}
+class ConcreteCreatorB {
+    + createProduct() : Product
+}
+
+Creator <|-- ConcreteCreatorA
+Creator <|-- ConcreteCreatorB
+
+ConcreteCreatorA o--> ConcreteProductA
+ConcreteCreatorB o--> ConcreteProductB
+
+@enduml
