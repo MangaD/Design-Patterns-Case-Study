@@ -1,0 +1,38 @@
+@startuml
+title Abstract Factory Pattern
+
+interface AbstractFactory {
+    + createProductA() : AbstractProductA
+    + createProductB() : AbstractProductB
+}
+
+interface AbstractProductA {
+    + operationA() : void
+}
+
+interface AbstractProductB {
+    + operationB() : void
+}
+
+class ConcreteFactory1 {
+    + createProductA() : ConcreteProductA1
+    + createProductB() : ConcreteProductB1
+}
+
+class ConcreteFactory2 {
+    + createProductA() : ConcreteProductA2
+    + createProductB() : ConcreteProductB2
+}
+
+class ConcreteProductA1 implements AbstractProductA
+class ConcreteProductA2 implements AbstractProductA
+class ConcreteProductB1 implements AbstractProductB
+class ConcreteProductB2 implements AbstractProductB
+
+AbstractFactory <|-- ConcreteFactory1
+AbstractFactory <|-- ConcreteFactory2
+AbstractProductA <|.. ConcreteProductA1
+AbstractProductA <|.. ConcreteProductA2
+AbstractProductB <|.. ConcreteProductB1
+AbstractProductB <|.. ConcreteProductB2
+@enduml
