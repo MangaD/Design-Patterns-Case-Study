@@ -53,10 +53,12 @@ Understanding design patterns is essential for writing robust, maintainable, and
 - **Command**: Encapsulates requests as objects.
 - **Iterator**: Provides sequential access to collections.
 - **Mediator**: Centralizes communication between objects.
+- **Memento**: Captures and restores an object's internal state.
 - **Observer**: Establishes a dependency between objects for event notification.
+- **State**: Allows an object to alter its behavior when its state changes.
 - **Strategy**: Enables selecting algorithms at runtime.
 - **Template Method**: Defines a skeleton of an algorithm.
-- **State**: Allows an object to alter its behavior when its state changes.
+- **Visitor**: Allows adding operations to objects without changing their structure.
 
 ---
 
