@@ -33,5 +33,6 @@ endfunction()
 add_design_pattern(Singleton Creational)
 add_design_pattern(FactoryMethod Creational)
 add_design_pattern(AbstractFactory Creational)
+add_design_pattern(Builder Creational)
 # Add more patterns as needed
 # Example: add_design_pattern(Bridge Structural)

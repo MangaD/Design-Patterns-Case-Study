@@ -1,0 +1,31 @@
+@startuml BuilderPattern
+
+title Builder Design Pattern
+
+interface Builder {
+    + buildPartA() : void
+    + buildPartB() : void
+    + getResult() : Product
+}
+
+class ConcreteBuilder {
+    + buildPartA() : void
+    + buildPartB() : void
+    + getResult() : Product
+}
+
+class Director {
+    + construct() : Product
+}
+
+class Product {
+    + partA : String
+    + partB : String
+    + toString() : String
+}
+
+Builder <|-- ConcreteBuilder
+Director --> Builder : "uses"
+ConcreteBuilder --> Product : "creates"
+
+@enduml
