@@ -1,0 +1,27 @@
+@startuml PrototypePattern
+
+title Prototype Design Pattern
+
+interface Prototype {
+    +clone() : Prototype
+}
+
+class ConcretePrototype1 {
+    +clone() : Prototype
+    -attribute1 : String
+}
+
+class ConcretePrototype2 {
+    +clone() : Prototype
+    -attribute2 : String
+}
+
+class Client {
+    +createNewObject(prototype : Prototype) : Prototype
+}
+
+Prototype <|.. ConcretePrototype1
+Prototype <|.. ConcretePrototype2
+Client --> Prototype : "uses"
+
+@enduml
