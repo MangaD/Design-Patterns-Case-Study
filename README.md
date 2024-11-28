@@ -139,6 +139,7 @@ DesignPatternsCaseStudy/
 
 ## Resources and References
 
+- [Design Patterns: Elements of Reusable Object-Oriented Software](https://www.amazon.com/Design-Patterns-Elements-Reusable-Object-Oriented/dp/0201633612)
 - [Refactoring.Guru - Design Patterns](https://refactoring.guru/design-patterns)
 
 ---
