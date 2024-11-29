@@ -4,4 +4,5 @@ include 'Creational:Singleton'
 include 'Creational:FactoryMethod'
 include 'Creational:AbstractFactory'
 include 'Creational:Builder'
+include 'Creational:Prototype'
 // Add more modules as needed

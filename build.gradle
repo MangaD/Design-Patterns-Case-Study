@@ -1,6 +1,7 @@
 // Parent build.gradle
 plugins {
 	id 'java' // Common plugin for all subprojects
+	id 'com.adarshr.test-logger' version '4.0.0' // Test Logger Plugin: https://stackoverflow.com/a/46533151/3049315
 }
 
 subprojects {
@@ -23,5 +24,19 @@ subprojects {
 
 	tasks.test {
 		useJUnitPlatform()
+
+		// Configuring the Test Logger Plugin
+		testLogging {
+			// Basic test logging
+			events 'passed', 'skipped', 'failed'
+		}
+	}
+
+	testlogger {
+		showStandardStreams = true // Show console output during tests
+		theme = 'mocha-parallel'   // Set a custom theme; options include 'plain', 'mocha', 'default', etc.
+		showPassed = true          // Display passed tests
+		showSkipped = true         // Display skipped tests
+		showFailed = true          // Display failed tests
 	}
 }
