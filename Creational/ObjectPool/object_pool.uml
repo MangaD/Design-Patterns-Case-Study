@@ -1,0 +1,32 @@
+@startuml ObjectPoolPattern
+
+title Generic Object Pool Design Pattern
+
+interface Reusable {
+    + use(): void
+    + reset(): void
+}
+
+interface ObjectPool {
+    + borrowObject(): Reusable
+    + returnObject(obj: Reusable): void
+}
+
+class ConcreteReusable {
+    + state: String
+    + use(): void
+    + reset(): void
+}
+
+class ConcreteObjectPool {
+    - pool: Queue<Reusable>
+    - maxSize: int
+    + borrowObject(): Reusable
+    + returnObject(obj: Reusable): void
+}
+
+Reusable <|.. ConcreteReusable
+ObjectPool <|.. ConcreteObjectPool
+ConcreteObjectPool --> ConcreteReusable : "manages"
+
+@enduml

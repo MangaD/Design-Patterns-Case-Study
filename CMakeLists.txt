@@ -17,11 +17,12 @@ function(add_design_pattern pattern_name category)
 
 	# Define source and test directories
 	set(SRC_DIR ${CMAKE_SOURCE_DIR}/${category}/${pattern_name}/cpp)
-	set(SOURCES ${SRC_DIR}/${snake_case_pattern_name}.cpp)
-	set(TEST_SOURCES ${SRC_DIR}/test_${snake_case_pattern_name}.cpp)
+
+	# Collect all source and test files in the directory
+	file(GLOB SOURCES "${SRC_DIR}/*.cpp")
 
 	# Add the test executable
-	add_executable(${snake_case_pattern_name}_test ${TEST_SOURCES} ${SOURCES})
+	add_executable(${snake_case_pattern_name}_test ${SOURCES})
 	target_link_libraries(${snake_case_pattern_name}_test PRIVATE GTest::GTest GTest::Main)
 	target_compile_options(${snake_case_pattern_name}_test PRIVATE -Wall -Wextra -Werror)
 
@@ -35,5 +36,6 @@ add_design_pattern(FactoryMethod Creational)
 add_design_pattern(AbstractFactory Creational)
 add_design_pattern(Builder Creational)
 add_design_pattern(Prototype Creational)
+add_design_pattern(ObjectPool Creational)
 # Add more patterns as needed
 # Example: add_design_pattern(Bridge Structural)

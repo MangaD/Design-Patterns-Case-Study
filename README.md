@@ -38,6 +38,7 @@ Understanding design patterns is essential for writing robust, maintainable, and
 - **Abstract Factory**: Creates families of related objects without specifying their concrete classes.
 - **Builder**: Constructs complex objects step by step.
 - **Prototype**: Creates new objects by copying existing ones.
+- **Object Pool**: Manages a pool of reusable objects, reducing the overhead of creating and destroying objects frequently.
 
 ### **Structural Patterns**
 - **Adapter**: Bridges incompatible interfaces.
