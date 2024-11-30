@@ -5,4 +5,5 @@ include 'Creational:FactoryMethod'
 include 'Creational:AbstractFactory'
 include 'Creational:Builder'
 include 'Creational:Prototype'
+include 'Creational:ObjectPool'
 // Add more modules as needed
