@@ -1,0 +1,21 @@
+@startuml ClassAdapter
+
+title Class Adapter Pattern
+
+interface Target {
+    + request(): void
+}
+
+class Adaptee {
+    + specificRequest(): void
+}
+
+class Adapter implements Target {
+    + request(): void
+    --
+    + specificRequest(): void
+}
+
+Adapter -|> Adaptee : Inherits
+
+@enduml

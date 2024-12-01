@@ -37,5 +37,6 @@ add_design_pattern(AbstractFactory Creational)
 add_design_pattern(Builder Creational)
 add_design_pattern(Prototype Creational)
 add_design_pattern(ObjectPool Creational)
+add_design_pattern(Adapter Structural)
 # Add more patterns as needed
 # Example: add_design_pattern(Bridge Structural)
