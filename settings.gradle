@@ -6,4 +6,5 @@ include 'Creational:AbstractFactory'
 include 'Creational:Builder'
 include 'Creational:Prototype'
 include 'Creational:ObjectPool'
+include 'Structural:Adapter'
 // Add more modules as needed
