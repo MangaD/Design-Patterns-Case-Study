@@ -1,6 +1,8 @@
 #include "object_adapter.hpp"
 #include <gtest/gtest.h> // GoogleTest framework for unit testing
 
+using namespace object_adapter;
+
 /**
  * @brief Fixture for testing the Adapter Pattern implementation.
  *
