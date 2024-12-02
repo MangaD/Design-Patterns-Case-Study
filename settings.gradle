@@ -7,4 +7,5 @@ include 'Creational:Builder'
 include 'Creational:Prototype'
 include 'Creational:ObjectPool'
 include 'Structural:Adapter'
+include 'Structural:Bridge'
 // Add more modules as needed
