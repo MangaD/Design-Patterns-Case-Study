@@ -1,0 +1,27 @@
+@startuml CompositePattern
+
+title Composite Design Pattern
+
+' Abstract Component
+interface Component {
+    + operation() : void
+}
+
+' Leaf
+class Leaf {
+    + operation() : void
+}
+
+' Composite
+class Composite {
+    - children : List<Component>
+    + operation() : void
+    + add(component : Component) : void
+    + remove(component : Component) : void
+}
+
+Component <|.. Leaf
+Component <|.. Composite
+Composite o-- Component : "contains"
+
+@enduml
