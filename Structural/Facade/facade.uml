@@ -1,0 +1,29 @@
+@startuml
+title Facade Pattern
+
+class Client {
+    + operation()
+}
+
+class Facade {
+    + operation()
+}
+
+class Subsystem1 {
+    + operation1()
+}
+
+class Subsystem2 {
+    + operation2()
+}
+
+class Subsystem3 {
+    + operation3()
+}
+
+Client --> Facade : "uses"
+Facade --> Subsystem1 : "delegates to"
+Facade --> Subsystem2 : "delegates to"
+Facade --> Subsystem3 : "delegates to"
+
+@enduml

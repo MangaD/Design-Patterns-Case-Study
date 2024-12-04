@@ -10,4 +10,5 @@ include 'Structural:Adapter'
 include 'Structural:Bridge'
 include 'Structural:Composite'
 include 'Structural:Decorator'
+include 'Structural:Facade'
 // Add more modules as needed
