@@ -1,0 +1,37 @@
+@startuml
+title Decorator Design Pattern
+
+interface Component {
+    + getDescription() : String
+    + cost() : double
+}
+
+class ConcreteComponent {
+    + getDescription() : String
+    + cost() : double
+}
+
+abstract class Decorator {
+    - component : Component
+    + Decorator(component: Component)
+    + getDescription() : String
+    + cost() : double
+}
+
+class ConcreteDecoratorA {
+    + getDescription() : String
+    + cost() : double
+}
+
+class ConcreteDecoratorB {
+    + getDescription() : String
+    + cost() : double
+}
+
+Component <|.. ConcreteComponent
+Component <|.. Decorator
+Decorator <|-- ConcreteDecoratorA
+Decorator <|-- ConcreteDecoratorB
+Decorator o-- Component : "wraps"
+
+@enduml
