@@ -1,0 +1,28 @@
+@startuml
+title Flyweight Design Pattern
+
+interface Flyweight {
+	+ operation(extrinsicState: String)
+}
+
+class ConcreteFlyweight {
+	- intrinsicState: String
+	+ operation(extrinsicState: String)
+}
+
+class FlyweightFactory {
+	- flyweights: Map<String, Flyweight>
+	+ getFlyweight(key: String): Flyweight
+}
+
+class Client {
+	+ extrinsicState: String
+	+ requestFlyweight(key: String)
+}
+
+Flyweight <|.. ConcreteFlyweight
+FlyweightFactory --> Flyweight : "creates or reuses"
+Client --> FlyweightFactory : "requests Flyweight"
+Client --> Flyweight : "uses with extrinsic state"
+
+@enduml
