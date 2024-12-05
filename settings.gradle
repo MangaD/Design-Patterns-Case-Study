@@ -12,4 +12,5 @@ include 'Structural:Composite'
 include 'Structural:Decorator'
 include 'Structural:Facade'
 include 'Structural:Flyweight'
+include 'Structural:Proxy'
 // Add more modules as needed
