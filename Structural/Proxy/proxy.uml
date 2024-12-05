@@ -1,0 +1,19 @@
+@startuml ProxyPattern
+
+interface Subject {
+    + request(): void
+}
+
+class RealSubject implements Subject {
+    + request(): void
+}
+
+class Proxy implements Subject {
+    - realSubject: RealSubject
+    + request(): void
+}
+
+Client --> Subject
+Proxy --> RealSubject : "delegates to"
+
+@enduml
