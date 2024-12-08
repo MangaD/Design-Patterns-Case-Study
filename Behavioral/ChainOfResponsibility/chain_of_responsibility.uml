@@ -1,0 +1,30 @@
+@startuml ChainOfResponsibility
+
+title Chain of Responsibility Pattern
+
+interface Handler {
+    + handleRequest(request: String): void
+    + setNextHandler(handler: Handler): void
+}
+
+abstract class AbstractHandler implements Handler {
+    - nextHandler: Handler
+    + handleRequest(request: String): void
+    + setNextHandler(handler: Handler): void
+}
+
+class ConcreteHandlerA extends AbstractHandler {
+    + handleRequest(request: String): void
+}
+
+class ConcreteHandlerB extends AbstractHandler {
+    + handleRequest(request: String): void
+}
+
+class Client {
+    + sendRequest(handler: Handler, request: String): void
+}
+
+Client --> Handler : "initiates request"
+
+@enduml
