@@ -14,4 +14,5 @@ include 'Structural:Facade'
 include 'Structural:Flyweight'
 include 'Structural:Proxy'
 include 'Behavioral:ChainOfResponsibility'
+include 'Behavioral:Command'
 // Add more modules as needed
