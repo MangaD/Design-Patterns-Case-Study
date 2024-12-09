@@ -1,0 +1,31 @@
+@startuml
+title Command Design Pattern
+
+interface Command {
+    + execute() : void
+    + undo() : void
+}
+
+class ConcreteCommand {
+    - receiver : Receiver
+    + execute() : void
+    + undo() : void
+}
+
+class Receiver {
+    + action() : void
+    + reverseAction() : void
+}
+
+class Invoker {
+    - command : Command
+    + setCommand(command : Command) : void
+    + pressButton() : void
+    + pressUndo() : void
+}
+
+Command <|-- ConcreteCommand
+ConcreteCommand --> Receiver
+Invoker --> Command : "uses"
+
+@enduml

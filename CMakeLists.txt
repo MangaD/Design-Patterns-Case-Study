@@ -45,5 +45,6 @@ add_design_pattern(Facade Structural)
 add_design_pattern(Flyweight Structural)
 add_design_pattern(Proxy Structural)
 add_design_pattern(ChainOfResponsibility Behavioral)
+add_design_pattern(Command Behavioral)
 # Add more patterns as needed
 # Example: add_design_pattern(Bridge Structural)
