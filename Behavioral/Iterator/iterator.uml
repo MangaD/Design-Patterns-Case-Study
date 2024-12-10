@@ -1,0 +1,28 @@
+@startuml IteratorPattern
+title Iterator Pattern - Generic UML
+
+interface Iterator {
+	+ hasNext() : bool
+	+ next() : Object
+}
+
+interface Aggregate {
+	+ createIterator() : Iterator
+}
+
+class ConcreteIterator {
+	- collection : List<Object>
+	- position : int
+	+ hasNext() : bool
+	+ next() : Object
+}
+
+class ConcreteAggregate {
+	- items : List<Object>
+	+ createIterator() : Iterator
+}
+
+Aggregate <|.. ConcreteAggregate
+Iterator <|.. ConcreteIterator
+ConcreteIterator --> ConcreteAggregate : "Accesses"
+@enduml

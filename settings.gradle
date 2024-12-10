@@ -15,4 +15,5 @@ include 'Structural:Flyweight'
 include 'Structural:Proxy'
 include 'Behavioral:ChainOfResponsibility'
 include 'Behavioral:Command'
+include 'Behavioral:Iterator'
 // Add more modules as needed
