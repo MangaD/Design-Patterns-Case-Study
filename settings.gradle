@@ -16,4 +16,5 @@ include 'Structural:Proxy'
 include 'Behavioral:ChainOfResponsibility'
 include 'Behavioral:Command'
 include 'Behavioral:Iterator'
+include 'Behavioral:Mediator'
 // Add more modules as needed

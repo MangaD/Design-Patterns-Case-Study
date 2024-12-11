@@ -1,0 +1,33 @@
+@startuml MediatorPattern
+
+title Mediator Design Pattern
+
+interface Mediator {
+	+ sendMessage(message: String, sender: Colleague): void
+	+ addColleague(colleague: Colleague): void
+}
+
+abstract class Colleague {
+	- mediator: Mediator
+	+ Colleague(mediator: Mediator)
+	+ send(message: String): void
+	+ receive(message: String): void
+}
+
+class ConcreteMediator {
+	- colleagues: List<Colleague>
+	+ sendMessage(message: String, sender: Colleague): void
+	+ addColleague(colleague: Colleague): void
+}
+
+class ConcreteColleague {
+	- name: String
+	+ send(message: String): void
+	+ receive(message: String): void
+}
+
+Mediator <|.. ConcreteMediator
+Colleague <|-- ConcreteColleague
+ConcreteColleague --> Mediator : communicates with
+
+@enduml
