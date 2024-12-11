@@ -17,4 +17,5 @@ include 'Behavioral:ChainOfResponsibility'
 include 'Behavioral:Command'
 include 'Behavioral:Iterator'
 include 'Behavioral:Mediator'
+include 'Behavioral:Memento'
 // Add more modules as needed

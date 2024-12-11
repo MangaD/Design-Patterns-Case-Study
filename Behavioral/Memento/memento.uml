@@ -1,0 +1,28 @@
+@startuml MementoPattern
+
+title Memento Pattern
+
+class Originator {
+    - state : String
+    + setState(state : String)
+    + getState() : String
+    + createMemento() : Memento
+    + restoreMemento(memento : Memento)
+}
+
+class Memento {
+    - state : String
+    + getState() : String
+}
+
+class Caretaker {
+    - mementos : List<Memento>
+    + addMemento(memento : Memento)
+    + getMemento(index : int) : Memento
+}
+
+Originator --> Memento : "creates"
+Originator --> Caretaker : "uses"
+Caretaker --> Memento : "manages"
+
+@enduml
