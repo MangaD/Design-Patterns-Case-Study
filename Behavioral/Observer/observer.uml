@@ -1,0 +1,35 @@
+@startuml Observer Pattern
+
+title Observer Pattern
+
+interface Observer {
+    + update() : void
+}
+
+class ConcreteObserver {
+    + update() : void
+    - subject : Subject
+}
+
+Observer <|-- ConcreteObserver
+
+interface Subject {
+    + attach(observer: Observer) : void
+    + detach(observer: Observer) : void
+    + notifyObservers() : void
+}
+
+class ConcreteSubject {
+    + attach(observer: Observer) : void
+    + detach(observer: Observer) : void
+    + notifyObservers() : void
+    - observers : List<Observer>
+    - state : String
+    + getState() : String
+    + setState(state: String) : void
+}
+
+Subject <|-- ConcreteSubject
+ConcreteSubject o--> Observer : "0..* observes"
+
+@enduml

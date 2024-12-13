@@ -49,5 +49,6 @@ add_design_pattern(Command Behavioral)
 add_design_pattern(Iterator Behavioral)
 add_design_pattern(Mediator Behavioral)
 add_design_pattern(Memento Behavioral)
+add_design_pattern(Observer Behavioral)
 # Add more patterns as needed
 # Example: add_design_pattern(Bridge Structural)
