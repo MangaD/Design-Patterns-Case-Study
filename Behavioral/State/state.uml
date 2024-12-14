@@ -1,0 +1,27 @@
+@startuml StatePattern
+
+title State Pattern
+
+class Context {
+    - state: State
+    + setState(state: State): void
+    + handleRequest(): void
+}
+
+interface State {
+    + handle(context: Context): void
+}
+
+class ConcreteStateA {
+    + handle(context: Context): void
+}
+
+class ConcreteStateB {
+    + handle(context: Context): void
+}
+
+Context --> State : "current state"
+State <|.. ConcreteStateA
+State <|.. ConcreteStateB
+
+@enduml

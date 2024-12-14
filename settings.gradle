@@ -19,4 +19,5 @@ include 'Behavioral:Iterator'
 include 'Behavioral:Mediator'
 include 'Behavioral:Memento'
 include 'Behavioral:Observer'
+include 'Behavioral:State'
 // Add more modules as needed
