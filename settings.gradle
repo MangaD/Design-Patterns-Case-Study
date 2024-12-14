@@ -20,4 +20,5 @@ include 'Behavioral:Mediator'
 include 'Behavioral:Memento'
 include 'Behavioral:Observer'
 include 'Behavioral:State'
+include 'Behavioral:Strategy'
 // Add more modules as needed
