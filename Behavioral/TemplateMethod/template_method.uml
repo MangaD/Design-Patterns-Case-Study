@@ -1,0 +1,30 @@
+@startuml
+title Template Method Pattern
+
+interface AbstractClass {
+    +templateMethod(): void
+    +{abstract} primitiveOperation1(): void
+    +{abstract} primitiveOperation2(): void
+    +hook(): void
+}
+
+class ConcreteClassA {
+    +primitiveOperation1(): void
+    +primitiveOperation2(): void
+}
+
+class ConcreteClassB {
+    +primitiveOperation1(): void
+    +primitiveOperation2(): void
+    +hook(): void
+}
+
+AbstractClass <|-- ConcreteClassA
+AbstractClass <|-- ConcreteClassB
+
+note top of AbstractClass
+Defines the skeleton of the algorithm
+and implements common steps.
+end note
+
+@enduml
