@@ -1,6 +1,8 @@
 #include "bridge.hpp"
 #include <gtest/gtest.h>
 
+using namespace bridge_pattern;
+
 /**
  * @brief Test the Abstraction with ConcreteImplementorA.
  */

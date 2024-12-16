@@ -1,5 +1,7 @@
+package Behavioral.State;
+
 /**
- * @brief Abstract State interface defining behavior for concrete states.
+ * Abstract State interface defining behavior for concrete states.
  */
 public interface State {
 	/**

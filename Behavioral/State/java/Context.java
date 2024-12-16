@@ -1,5 +1,7 @@
+package Behavioral.State;
+
 /**
- * @brief Context class maintaining a reference to a state instance.
+ * Context class maintaining a reference to a state instance.
  */
 public class Context {
 	private State currentState;

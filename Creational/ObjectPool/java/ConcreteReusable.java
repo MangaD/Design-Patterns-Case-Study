@@ -1,7 +1,9 @@
+package Creational.ObjectPool;
+
 import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
- * @brief Concrete implementation of the Reusable interface.
+ * Concrete implementation of the Reusable interface.
  *
  * Simulates a reusable object with a unique identifier and an "in-use" state.
  */
@@ -10,7 +12,7 @@ public class ConcreteReusable implements Reusable {
 	private final AtomicBoolean inUse;  // Indicates whether the object is currently in use
 
 	/**
-	 * @brief Constructor initializing the object with a unique ID.
+	 * Constructor initializing the object with a unique ID.
 	 * @param id The unique identifier for the object.
 	 */
 	public ConcreteReusable(String id) {

@@ -1,8 +1,10 @@
+package Creational.ObjectPool;
+
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
- * @brief Test suite for the Object Pool pattern.
+ * Test suite for the Object Pool pattern.
  *
  * Validates the functionality of the ObjectPool class, including borrowing,
  * returning, and handling edge cases with reusable objects.
@@ -10,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class ObjectPoolTest {
 
 	/**
-	 * @brief Test borrowing and returning a single object.
+	 * Test borrowing and returning a single object.
 	 *
 	 * Verifies that a single object can be borrowed, used, returned, and reused.
 	 */
@@ -35,7 +37,7 @@ public class ObjectPoolTest {
 	}
 
 	/**
-	 * @brief Test FIFO behavior with multiple objects in the pool.
+	 * Test FIFO behavior with multiple objects in the pool.
 	 *
 	 * Ensures objects are borrowed in the order they were added and that returned
 	 * objects are reused according to FIFO behavior.
@@ -65,7 +67,7 @@ public class ObjectPoolTest {
 	}
 
 	/**
-	 * @brief Test behavior when borrowing from an empty pool.
+	 * Test behavior when borrowing from an empty pool.
 	 *
 	 * Ensures that an exception is thrown when attempting to borrow from an
 	 * empty pool.
@@ -80,7 +82,7 @@ public class ObjectPoolTest {
 	}
 
 	/**
-	 * @brief Test returning null objects to the pool.
+	 * Test returning null objects to the pool.
 	 *
 	 * Ensures that returning a null object does not corrupt the pool or cause
 	 * unexpected behavior.
@@ -103,7 +105,7 @@ public class ObjectPoolTest {
 	}
 
 	/**
-	 * @brief Test multiple borrow and return cycles.
+	 * Test multiple borrow and return cycles.
 	 *
 	 * Verifies that the pool handles repeated borrowing and returning correctly
 	 * and maintains FIFO behavior.
@@ -142,7 +144,7 @@ public class ObjectPoolTest {
 	}
 
 	/**
-	 * @brief Test pool size consistency after multiple operations.
+	 * Test pool size consistency after multiple operations.
 	 *
 	 * Verifies that the pool maintains consistent size after borrowing,
 	 * returning, and reusing objects.
@@ -167,7 +169,7 @@ public class ObjectPoolTest {
 	}
 
 	/**
-	 * @brief Test duplicate return handling.
+	 * Test duplicate return handling.
 	 *
 	 * Ensures that returning the same object multiple times does not corrupt
 	 * the pool or create duplicates.

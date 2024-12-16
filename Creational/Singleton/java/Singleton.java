@@ -1,6 +1,7 @@
+package Creational.Singleton;
+
 /**
- * @file Singleton.java
- * @brief Implementation of the Singleton design pattern in Java.
+ * Implementation of the Singleton design pattern in Java.
  *
  * This class ensures that only one instance of the Singleton class
  * exists throughout the application's lifetime.
@@ -10,7 +11,7 @@ public class Singleton {
 	private static Singleton instance;
 
 	/**
-	 * @brief Private constructor to prevent instantiation.
+	 * Private constructor to prevent instantiation.
 	 *
 	 * This constructor is private to enforce the Singleton pattern
 	 * by preventing direct instantiation of the class.
@@ -20,7 +21,7 @@ public class Singleton {
 	}
 
 	/**
-	 * @brief Retrieves the single instance of the Singleton class.
+	 * Retrieves the single instance of the Singleton class.
 	 *
 	 * This method uses synchronized lazy initialization to ensure
 	 * thread safety while creating the Singleton instance.
@@ -35,7 +36,7 @@ public class Singleton {
 	}
 
 	/**
-	 * @brief An example method demonstrating Singleton functionality.
+	 * An example method demonstrating Singleton functionality.
 	 *
 	 * This method performs an example action to showcase how to use
 	 * the Singleton instance.

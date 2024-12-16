@@ -1,13 +1,8 @@
 #include "prototype.hpp"
 #include <iostream>
 
-/**
- * @brief Constructs a ConcretePrototype1 object.
- * 
- * Initializes the attribute with the provided value.
- * 
- * @param attribute A string representing the prototype's attribute.
- */
+using namespace prototype_pattern;
+
 ConcretePrototype1::ConcretePrototype1(const std::string& attribute)
 	: attribute(attribute) {}
 
@@ -31,13 +26,6 @@ void ConcretePrototype1::display() const {
 	std::cout << "ConcretePrototype1 with attribute: " << attribute << std::endl;
 }
 
-/**
- * @brief Constructs a ConcretePrototype2 object.
- * 
- * Initializes the attribute with the provided integer value.
- * 
- * @param attribute An integer representing the prototype's attribute.
- */
 ConcretePrototype2::ConcretePrototype2(int attribute)
 	: attribute(attribute) {}
 

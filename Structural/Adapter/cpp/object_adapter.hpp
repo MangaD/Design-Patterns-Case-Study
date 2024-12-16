@@ -4,13 +4,9 @@
 #include <iostream> // For std::cout
 
 /**
- * @brief Namespace encapsulating the Object Adapter implementation.
- *
- * This namespace contains classes and interfaces demonstrating the Object Adapter pattern.
- * The Object Adapter pattern works by using composition to adapt an existing interface
- * (Adaptee) to a desired interface (Target) that is expected by the client.
+ * @brief Namespace for the Object Adapter pattern.
  */
-namespace object_adapter {
+namespace object_adapter_pattern {
 
 	/**
 	 * @brief The Target interface defines the expected interface for the client.
@@ -86,6 +82,6 @@ namespace object_adapter {
 		}
 	};
 
-} // namespace object_adapter
+}  // namespace object_adapter
 
 #endif // OBJECT_ADAPTER_HPP

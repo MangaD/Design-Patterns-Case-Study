@@ -1,6 +1,8 @@
 #include "singleton.hpp"
 #include <iostream>
 
+using namespace singleton_pattern;
+
 /**
 * @brief Constructs the Singleton instance.
 * 

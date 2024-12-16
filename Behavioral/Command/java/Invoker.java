@@ -1,11 +1,20 @@
+package Behavioral.Command;
+
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @brief The Invoker class stores and executes commands.
+ * The Invoker class stores and executes commands.
  */
 public class Invoker {
 	private final List<Command> commandQueue = new ArrayList<>();
+
+	/**
+	 * Default constructor for Invoker.
+	 */
+	public Invoker() {
+		// Default constructor
+	}
 
 	/**
 	 * Adds a command to the queue.

@@ -2,6 +2,8 @@
 #include <gtest/gtest.h>
 #include <string>
 
+using namespace iterator_pattern;
+
 /**
  * @brief Test the ConcreteIterator's ability to traverse a collection.
  */

@@ -1,9 +1,19 @@
+package Creational.AbstractFactory;
+
 /**
- * @brief Concrete implementation of ProductA for Family 1.
+ * Concrete implementation of ProductA for Family 1.
  */
 public class ConcreteProductA1 implements ProductA {
+
 	/**
-	 * @brief Implementation of ProductA's operation for Family 1.
+	 * Default constructor for ConcreteProductA1.
+	 */
+	public ConcreteProductA1() {
+		// Default constructor
+	}
+
+	/**
+	 * Implementation of ProductA's operation for Family 1.
 	 * @return A string identifying the operation performed by ConcreteProductA1.
 	 */
 	@Override

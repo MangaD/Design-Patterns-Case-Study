@@ -1,7 +1,17 @@
+package Structural.Proxy;
+
 /**
- * @brief The RealSubject performs the actual work of handling requests.
+ * The RealSubject performs the actual work of handling requests.
  */
 public class RealSubject implements Subject {
+
+	/**
+	 * Default constructor for RealSubject.
+	 */
+	public RealSubject() {
+		// Default constructor
+	}
+
 	/**
 	 * Handles the request and simulates actual processing.
 	 * 

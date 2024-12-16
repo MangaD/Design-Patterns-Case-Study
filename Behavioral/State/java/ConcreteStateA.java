@@ -1,7 +1,16 @@
+package Behavioral.State;
+
 /**
- * @brief Concrete implementation of State representing State A.
+ * Concrete implementation of State representing State A.
  */
 public class ConcreteStateA implements State {
+
+	/**
+	 * Default constructor for ConcreteStateA.
+	 */
+	public ConcreteStateA() {
+		// Default constructor
+	}
 
 	@Override
 	public void handle(Context context) {

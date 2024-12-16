@@ -1,5 +1,7 @@
+package Structural.Adapter;
+
 /**
- * @brief The Target interface defines the domain-specific interface expected by the client.
+ * The Target interface defines the domain-specific interface expected by the client.
  *
  * The Target interface acts as a standard contract for clients that need to interact with
  * certain functionality. It abstracts away specific implementation details, allowing
@@ -7,7 +9,7 @@
  */
 public interface Target {
 	/**
-	 * @brief Standard method expected by the client.
+	 * Standard method expected by the client.
 	 * 
 	 * Implementations of this method provide functionality that aligns with
 	 * the client's expectations.

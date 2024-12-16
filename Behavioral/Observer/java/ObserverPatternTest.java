@@ -1,3 +1,5 @@
+package Behavioral.Observer;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -7,7 +9,7 @@ import java.io.PrintStream;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
- * @brief Unit tests for the Observer Pattern implementation.
+ * Unit tests for the Observer Pattern implementation.
  */
 class ObserverPatternTest {
 	private ConcreteSubject subject;
@@ -16,7 +18,7 @@ class ObserverPatternTest {
 	private ByteArrayOutputStream outputStream;
 
 	/**
-	 * @brief Sets up the test environment.
+	 * Sets up the test environment.
 	 *
 	 * Creates a subject, two observers, and redirects system output
 	 * to capture console logs for assertions.
@@ -33,7 +35,7 @@ class ObserverPatternTest {
 	}
 
 	/**
-	 * @brief Tests attaching observers and verifying they are notified.
+	 * Tests attaching observers and verifying they are notified.
 	 */
 	@Test
 	void testAttachAndNotifyObservers() {
@@ -48,7 +50,7 @@ class ObserverPatternTest {
 	}
 
 	/**
-	 * @brief Tests detaching an observer and verifying it no longer receives updates.
+	 * Tests detaching an observer and verifying it no longer receives updates.
 	 */
 	@Test
 	void testDetachObserver() {
@@ -64,7 +66,7 @@ class ObserverPatternTest {
 	}
 
 	/**
-	 * @brief Tests that the system behaves correctly when no observers are attached.
+	 * Tests that the system behaves correctly when no observers are attached.
 	 */
 	@Test
 	void testNoObservers() {
@@ -75,7 +77,7 @@ class ObserverPatternTest {
 	}
 
 	/**
-	 * @brief Tests attaching the same observer multiple times.
+	 * Tests attaching the same observer multiple times.
 	 */
 	@Test
 	void testAttachSameObserverMultipleTimes() {
@@ -90,7 +92,7 @@ class ObserverPatternTest {
 	}
 
 	/**
-	 * @brief Tests detaching an observer that was not attached.
+	 * Tests detaching an observer that was not attached.
 	 */
 	@Test
 	void testDetachNonexistentObserver() {
@@ -105,7 +107,7 @@ class ObserverPatternTest {
 	}
 
 	/**
-	 * @brief Tests attaching and detaching all observers in sequence.
+	 * Tests attaching and detaching all observers in sequence.
 	 */
 	@Test
 	void testAttachAndDetachAllObservers() {
@@ -125,7 +127,7 @@ class ObserverPatternTest {
 	}
 
 	/**
-	 * @brief Tests subject state retrieval after updates.
+	 * Tests subject state retrieval after updates.
 	 */
 	@Test
 	void testSubjectStateAfterUpdate() {

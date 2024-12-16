@@ -2,6 +2,8 @@
 #include <gtest/gtest.h>
 #include <sstream>
 
+using namespace chain_of_responsibility_pattern;
+
 /**
  * @brief Test the chain of responsibility pattern.
  */

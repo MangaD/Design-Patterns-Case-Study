@@ -1,9 +1,16 @@
-package behavioral.template_method;
+package Behavioral.TemplateMethod;
 
 /**
- * @brief Another concrete implementation of AbstractClass, with its own behavior.
+ * Another concrete implementation of AbstractClass, with its own behavior.
  */
 public class ConcreteClass2 extends AbstractClass {
+
+	/**
+	 * Default constructor for ConcreteClass2.
+	 */
+	public ConcreteClass2() {
+		super();
+	}
 
 	@Override
 	protected void requiredOperation1() {

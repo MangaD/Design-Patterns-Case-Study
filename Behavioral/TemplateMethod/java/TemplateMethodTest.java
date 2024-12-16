@@ -1,4 +1,4 @@
-package behavioral.template_method;
+package Behavioral.TemplateMethod;
 
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
@@ -6,12 +6,12 @@ import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
 /**
- * @brief Unit tests for the Template Method Pattern implementation.
+ * Unit tests for the Template Method Pattern implementation.
  */
 public class TemplateMethodTest {
 
 	/**
-	 * @brief Captures the standard output for validation.
+	 * Captures the standard output for validation.
 	 */
 	private String captureOutput(Runnable action) {
 		ByteArrayOutputStream outputStream = new ByteArrayOutputStream();

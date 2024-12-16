@@ -1,6 +1,8 @@
 #include "decorator.hpp"
 #include <gtest/gtest.h>
 
+using namespace decorator_pattern;
+
 /**
  * @brief Test the base ConcreteComponent.
  */

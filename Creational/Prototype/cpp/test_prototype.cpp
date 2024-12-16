@@ -1,6 +1,8 @@
 #include "prototype.hpp"
 #include <gtest/gtest.h>
 
+using namespace prototype_pattern;
+
 /**
  * @brief Test cloning functionality of ConcretePrototype1.
  *

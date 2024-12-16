@@ -1,10 +1,12 @@
+package Structural.Decorator;
+
 /**
- * @brief Another ConcreteDecorator that adds behavior to the Component.
+ * Another ConcreteDecorator that adds behavior to the Component.
  */
 public class ConcreteDecoratorB extends Decorator {
 
 	/**
-	 * @brief Constructor accepting a Component to wrap.
+	 * Constructor accepting a Component to wrap.
 	 * @param component The Component to wrap.
 	 */
 	public ConcreteDecoratorB(Component component) {

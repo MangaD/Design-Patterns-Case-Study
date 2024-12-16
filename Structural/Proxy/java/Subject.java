@@ -1,5 +1,7 @@
+package Structural.Proxy;
+
 /**
- * @brief The Subject interface defines the common operations for the Proxy and RealSubject.
+ * The Subject interface defines the common operations for the Proxy and RealSubject.
  */
 public interface Subject {
 	/**

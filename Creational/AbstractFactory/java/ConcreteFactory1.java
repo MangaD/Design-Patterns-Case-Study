@@ -1,11 +1,21 @@
+package Creational.AbstractFactory;
+
 /**
- * @brief Concrete Factory 1.
+ * Concrete Factory 1.
  * 
  * Creates products belonging to Family 1.
  */
 public class ConcreteFactory1 implements AbstractFactory {
+
 	/**
-	 * @brief Creates a ConcreteProductA1 instance.
+	 * Default constructor for ConcreteFactory1.
+	 */
+	public ConcreteFactory1() {
+		// Default constructor
+	}
+
+	/**
+	 * Creates a ConcreteProductA1 instance.
 	 * @return A ConcreteProductA1 instance.
 	 */
 	@Override
@@ -14,7 +24,7 @@ public class ConcreteFactory1 implements AbstractFactory {
 	}
 
 	/**
-	 * @brief Creates a ConcreteProductB1 instance.
+	 * Creates a ConcreteProductB1 instance.
 	 * @return A ConcreteProductB1 instance.
 	 */
 	@Override

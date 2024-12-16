@@ -2,6 +2,8 @@
 #include <gtest/gtest.h>
 #include <sstream>
 
+using namespace template_method_pattern;
+
 /**
  * @brief Utility class for capturing and validating output streams.
  *

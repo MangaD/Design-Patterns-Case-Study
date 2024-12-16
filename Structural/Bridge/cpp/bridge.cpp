@@ -1,5 +1,7 @@
 #include "bridge.hpp"
 
+using namespace bridge_pattern;
+
 // ConcreteImplementorA implementation
 std::string ConcreteImplementorA::operationImpl() const {
 	return "ConcreteImplementorA: Operation Implementation.";

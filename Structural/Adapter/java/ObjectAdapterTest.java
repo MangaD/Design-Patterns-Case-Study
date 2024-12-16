@@ -1,14 +1,16 @@
+package Structural.Adapter;
+
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
- * @brief Unit tests for the Object Adapter pattern.
+ * Unit tests for the Object Adapter pattern.
  */
 public class ObjectAdapterTest {
 
 	/**
-	 * @brief Test that the Adapter translates the Target's request to the Adaptee's specificRequest.
+	 * Test that the Adapter translates the Target's request to the Adaptee's specificRequest.
 	 */
 	@Test
 	public void testAdapterTranslatesRequest() {
@@ -25,7 +27,7 @@ public class ObjectAdapterTest {
 	}
 
 	/**
-	 * @brief Test that the Adapter wraps an Adaptee instance.
+	 * Test that the Adapter wraps an Adaptee instance.
 	 */
 	@Test
 	public void testAdapterWrapsAdaptee() {
@@ -42,7 +44,7 @@ public class ObjectAdapterTest {
 	}
 
 	/**
-	 * @brief Test that the Adapter throws an exception when initialized with a null Adaptee.
+	 * Test that the Adapter throws an exception when initialized with a null Adaptee.
 	 */
 	@Test
 	public void testAdapterThrowsForNullAdaptee() {

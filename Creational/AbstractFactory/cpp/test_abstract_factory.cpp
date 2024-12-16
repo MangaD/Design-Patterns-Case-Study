@@ -12,6 +12,8 @@
 #include <gtest/gtest.h>
 #include <memory>
 
+using namespace abstract_factory_pattern;
+
 /**
 * @brief Tests ConcreteFactory1.
 * 

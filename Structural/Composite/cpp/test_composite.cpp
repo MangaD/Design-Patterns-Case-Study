@@ -2,6 +2,8 @@
 #include <gtest/gtest.h>
 #include <sstream>
 
+using namespace composite_pattern;
+
 /**
  * @brief Captures console output for validation.
  */

@@ -1,11 +1,13 @@
+package Behavioral.Observer;
+
 /**
- * @brief Concrete implementation of an Observer in the Observer pattern.
+ * Concrete implementation of an Observer in the Observer pattern.
  */
 public class ConcreteObserver implements Observer {
 	private final String name;
 
 	/**
-	 * @brief Constructor for ConcreteObserver.
+	 * Constructor for ConcreteObserver.
 	 * @param name The name of the observer.
 	 */
 	public ConcreteObserver(String name) {
@@ -13,7 +15,7 @@ public class ConcreteObserver implements Observer {
 	}
 
 	/**
-	 * @brief Handles updates from the subject.
+	 * Handles updates from the subject.
 	 * @param state The updated state from the subject.
 	 */
 	@Override
@@ -22,7 +24,7 @@ public class ConcreteObserver implements Observer {
 	}
 
 	/**
-	 * @brief Gets the name of the observer.
+	 * Gets the name of the observer.
 	 * @return The name of the observer.
 	 */
 	public String getName() {

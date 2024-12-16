@@ -6,6 +6,11 @@
 #include <iostream>
 
 /**
+ * @brief Namespace for the Chain of Responsibility pattern.
+ */
+namespace chain_of_responsibility_pattern {
+
+/**
  * @brief The interface for handling requests in the chain.
  */
 class Handler {
@@ -92,5 +97,7 @@ public:
 		}
 	}
 };
+
+}  // namespace chain_of_responsibility_pattern
 
 #endif // CHAIN_OF_RESPONSIBILITY_HPP

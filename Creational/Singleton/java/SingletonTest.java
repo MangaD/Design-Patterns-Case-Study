@@ -1,9 +1,11 @@
+package Creational.Singleton;
+
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * @file SingletonTest.java
- * @brief Unit tests for the Singleton class.
+ * Unit tests for the Singleton class.
  *
  * This file contains tests to verify the correct behavior of the Singleton
  * class, ensuring it adheres to the Singleton pattern.
@@ -11,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class SingletonTest {
 
 	/**
-	 * @brief Test to verify that Singleton returns a single instance.
+	 * Test to verify that Singleton returns a single instance.
 	 *
 	 * This test ensures that the `getInstance()` method always returns
 	 * the same instance of the Singleton class.
@@ -26,7 +28,7 @@ public class SingletonTest {
 	}
 
 	/**
-	 * @brief Test the functionality of the Singleton's `doSomething()` method.
+	 * Test the functionality of the Singleton's `doSomething()` method.
 	 *
 	 * This test verifies that the `doSomething()` method produces
 	 * the expected output.

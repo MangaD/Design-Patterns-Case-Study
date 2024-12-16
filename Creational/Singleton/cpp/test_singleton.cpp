@@ -1,6 +1,8 @@
 #include "singleton.hpp"
 #include <gtest/gtest.h>
 
+using namespace singleton_pattern;
+
 /**
  * @file test_singleton.cpp
  * @brief Unit tests for the Singleton class using GoogleTest.

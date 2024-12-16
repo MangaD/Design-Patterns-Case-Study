@@ -1,9 +1,19 @@
+package Structural.Facade;
+
 /**
- * @brief Subsystem1 provides a specific functionality.
+ * Subsystem1 provides a specific functionality.
  */
 public class Subsystem1 {
+
 	/**
-	 * @brief Performs operation 1.
+	 * Default constructor for Subsystem1.
+	 */
+	public Subsystem1() {
+		// Default constructor
+	}
+
+	/**
+	 * Performs operation 1.
 	 * @return A string describing the operation.
 	 */
 	public String operation1() {

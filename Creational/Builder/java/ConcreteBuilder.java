@@ -1,5 +1,7 @@
+package Creational.Builder;
+
 /**
- * @brief Concrete implementation of the Builder interface.
+ * Concrete implementation of the Builder interface.
  *
  * Constructs a specific type of product by implementing the building steps
  * defined in the Builder interface.
@@ -8,14 +10,14 @@ public class ConcreteBuilder implements Builder {
 	private Product product;
 
 	/**
-	 * @brief Constructor initializes a new Product instance.
+	 * Constructor initializes a new Product instance.
 	 */
 	public ConcreteBuilder() {
 		this.product = new Product();
 	}
 
 	/**
-	 * @brief Builds Part A of the product.
+	 * Builds Part A of the product.
 	 *
 	 * Sets Part A to a specific value defined by this builder.
 	 */
@@ -25,7 +27,7 @@ public class ConcreteBuilder implements Builder {
 	}
 
 	/**
-	 * @brief Builds Part B of the product.
+	 * Builds Part B of the product.
 	 *
 	 * Sets Part B to a specific value defined by this builder.
 	 */
@@ -35,7 +37,7 @@ public class ConcreteBuilder implements Builder {
 	}
 
 	/**
-	 * @brief Retrieves the constructed product.
+	 * Retrieves the constructed product.
 	 * @return The fully constructed Product instance.
 	 */
 	@Override

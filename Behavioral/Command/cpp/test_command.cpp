@@ -1,6 +1,8 @@
 #include "command.hpp"
 #include <gtest/gtest.h>
 
+using namespace command_pattern;
+
 /**
  * @brief Test the execution of a single command.
  */

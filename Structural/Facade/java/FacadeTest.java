@@ -1,14 +1,16 @@
+package Structural.Facade;
+
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
- * @brief Tests the Facade pattern to ensure the interface simplifies interaction with subsystems.
+ * Tests the Facade pattern to ensure the interface simplifies interaction with subsystems.
  */
 public class FacadeTest {
 
 	/**
-	 * @brief Tests the Facade's ability to simplify subsystem interactions.
+	 * Tests the Facade's ability to simplify subsystem interactions.
 	 */
 	@Test
 	public void testFacadeOperation() {

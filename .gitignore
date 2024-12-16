@@ -1,6 +1,9 @@
 bin/
 build/
+docs/doxygen
+docs/java
 .vscode/
 .gradle/
 __pycache__
 .pytest_cache
+.mypy_cache

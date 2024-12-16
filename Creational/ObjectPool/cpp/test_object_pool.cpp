@@ -2,6 +2,8 @@
 #include "concrete_reusable.hpp"
 #include <gtest/gtest.h>
 
+using namespace object_pool_pattern;
+
 /**
  * @brief Test borrowing and returning objects in the object pool.
  *

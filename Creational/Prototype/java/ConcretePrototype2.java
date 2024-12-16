@@ -1,5 +1,7 @@
+package Creational.Prototype;
+
 /**
- * @brief Another concrete implementation of the Prototype interface.
+ * Another concrete implementation of the Prototype interface.
  *
  * Represents a prototype with an integer attribute.
  */
@@ -7,7 +9,7 @@ public class ConcretePrototype2 implements Prototype {
 	private int attribute; // The integer attribute for the prototype
 
 	/**
-	 * @brief Constructor to initialize the attribute.
+	 * Constructor to initialize the attribute.
 	 * 
 	 * @param attribute The value to initialize the prototype's attribute.
 	 */

@@ -1,12 +1,14 @@
+package Structural.Bridge;
+
 /**
- * @brief Defines the abstraction in the Bridge Pattern.
+ * Defines the abstraction in the Bridge Pattern.
  * Works independently of the implementation.
  */
 abstract class Abstraction {
 	protected Implementor implementor;
 
 	/**
-	 * @brief Constructs the abstraction with a given implementor.
+	 * Constructs the abstraction with a given implementor.
 	 * @param implementor The concrete implementor to bridge with.
 	 */
 	public Abstraction(Implementor implementor) {
@@ -14,18 +16,18 @@ abstract class Abstraction {
 	}
 
 	/**
-	 * @brief Performs an operation, to be defined by subclasses.
+	 * Performs an operation, to be defined by subclasses.
 	 */
 	public abstract void operation();
 }
 
 /**
- * @brief Refined abstraction that extends the base abstraction.
+ * Refined abstraction that extends the base abstraction.
  */
 class RefinedAbstraction extends Abstraction {
 
 	/**
-	 * @brief Constructs the refined abstraction with a given implementor.
+	 * Constructs the refined abstraction with a given implementor.
 	 * @param implementor The concrete implementor to bridge with.
 	 */
 	public RefinedAbstraction(Implementor implementor) {
@@ -33,7 +35,7 @@ class RefinedAbstraction extends Abstraction {
 	}
 
 	/**
-	 * @brief Performs the operation using the implementor.
+	 * Performs the operation using the implementor.
 	 */
 	@Override
 	public void operation() {
@@ -43,22 +45,22 @@ class RefinedAbstraction extends Abstraction {
 }
 
 /**
- * @brief Defines the interface for the implementor in the Bridge Pattern.
+ * Defines the interface for the implementor in the Bridge Pattern.
  */
 interface Implementor {
 	/**
-	 * @brief Defines the operation implemented by concrete implementors.
+	 * Defines the operation implemented by concrete implementors.
 	 */
 	void implementation();
 }
 
 /**
- * @brief Concrete implementor that provides a specific implementation.
+ * Concrete implementor that provides a specific implementation.
  */
 class ConcreteImplementorA implements Implementor {
 
 	/**
-	 * @brief Provides a concrete implementation of the operation.
+	 * Provides a concrete implementation of the operation.
 	 */
 	@Override
 	public void implementation() {
@@ -67,12 +69,12 @@ class ConcreteImplementorA implements Implementor {
 }
 
 /**
- * @brief Another concrete implementor that provides a different implementation.
+ * Another concrete implementor that provides a different implementation.
  */
 class ConcreteImplementorB implements Implementor {
 
 	/**
-	 * @brief Provides another concrete implementation of the operation.
+	 * Provides another concrete implementation of the operation.
 	 */
 	@Override
 	public void implementation() {

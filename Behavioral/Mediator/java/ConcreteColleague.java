@@ -1,7 +1,7 @@
-package mediator;
+package Behavioral.Mediator;
 
 /**
- * @brief Concrete implementation of the Colleague class.
+ * Concrete implementation of the Colleague class.
  *
  * Represents a participant in the communication facilitated by the mediator.
  */
@@ -9,7 +9,7 @@ public class ConcreteColleague extends Colleague {
 	private final String name;
 
 	/**
-	 * @brief Constructor to create a named colleague.
+	 * Constructor to create a named colleague.
 	 * @param mediator The mediator instance.
 	 * @param name The name of the colleague.
 	 */
@@ -24,7 +24,7 @@ public class ConcreteColleague extends Colleague {
 	}
 
 	/**
-	 * @brief Gets the name of the colleague.
+	 * Gets the name of the colleague.
 	 * @return The name.
 	 */
 	public String getName() {

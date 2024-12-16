@@ -3,6 +3,8 @@
 #include <sstream>
 #include <iostream>
 
+using namespace mediator_pattern;
+
 /**
  * @brief Fixture for testing the Mediator pattern.
  */

@@ -1,8 +1,10 @@
+package Behavioral.Iterator;
+
 import java.util.List;
 import java.util.NoSuchElementException;
 
 /**
- * @brief Concrete Iterator for traversing a collection.
+ * Concrete Iterator for traversing a collection.
  * 
  * Implements the Iterator interface and provides traversal logic.
  * @param <T> The type of elements in the collection.
@@ -12,7 +14,7 @@ public class ConcreteIterator<T> implements Iterator<T> {
 	private int position;             ///< Current position in the collection.
 
 	/**
-	 * @brief Constructor initializes the iterator with a collection.
+	 * Constructor initializes the iterator with a collection.
 	 * @param collection The collection to iterate over.
 	 */
 	public ConcreteIterator(List<T> collection) {

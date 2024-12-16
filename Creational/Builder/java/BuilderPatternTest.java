@@ -1,13 +1,15 @@
+package Creational.Builder;
+
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
- * @brief Unit tests for the Builder Pattern implementation.
+ * Unit tests for the Builder Pattern implementation.
  */
 public class BuilderPatternTest {
 
 	/**
-	 * @brief Test full product construction using ConcreteBuilder and Director.
+	 * Test full product construction using ConcreteBuilder and Director.
 	 *
 	 * Verifies that the Director correctly orchestrates the ConcreteBuilder
 	 * to construct a complete Product with all parts built.
@@ -27,7 +29,7 @@ public class BuilderPatternTest {
 	}
 
 	/**
-	 * @brief Test partial product construction directly through the ConcreteBuilder.
+	 * Test partial product construction directly through the ConcreteBuilder.
 	 *
 	 * Verifies that the ConcreteBuilder can construct a product incrementally
 	 * without the involvement of the Director.
@@ -46,7 +48,7 @@ public class BuilderPatternTest {
 	}
 
 	/**
-	 * @brief Test reusing a ConcreteBuilder for multiple products.
+	 * Test reusing a ConcreteBuilder for multiple products.
 	 *
 	 * Verifies that the ConcreteBuilder can be reused to construct multiple products
 	 * by resetting its internal state.

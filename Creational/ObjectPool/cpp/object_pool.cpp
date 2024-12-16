@@ -1,5 +1,7 @@
 #include "object_pool.hpp"
 
+using namespace object_pool_pattern;
+
 // ObjectPool implementation
 
 std::unique_ptr<Reusable> ObjectPool::borrowObject() {

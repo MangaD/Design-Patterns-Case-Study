@@ -1,3 +1,5 @@
+package Behavioral.Iterator;
+
 import org.junit.jupiter.api.Test;
 
 import java.util.NoSuchElementException;
@@ -5,7 +7,7 @@ import java.util.NoSuchElementException;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
- * @brief Unit tests for the Iterator pattern.
+ * Unit tests for the Iterator pattern.
  */
 public class IteratorPatternTest {
 

@@ -1,7 +1,17 @@
+package Behavioral.Visitor;
+
 /**
- * @brief Abstract base class for elements.
+ * Abstract base class for elements.
  */
 public abstract class Element {
+
+	/**
+	 * Default constructor for Element.
+	 */
+	public Element() {
+		// Default constructor
+	}
+
 	/**
 	 * Accept a Visitor.
 	 *

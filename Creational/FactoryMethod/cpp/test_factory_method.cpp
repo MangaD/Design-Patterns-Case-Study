@@ -1,8 +1,10 @@
 #include "factory_method.hpp"
 #include <gtest/gtest.h>
 
+using namespace factory_method_pattern;
+
 /**
- * @file factory_method_tests.cpp
+ * @file test_factory_method.cpp
  * @brief Unit tests for the Factory Method Design Pattern implementation.
  *
  * This file contains GoogleTest cases to validate the behavior of the Factory Method

@@ -1,6 +1,8 @@
 #include "builder.hpp"
 #include <iostream>
 
+using namespace builder_pattern;
+
 /**
 * @file builder.cpp
 * @brief Implementation of the Builder Pattern.
@@ -11,18 +13,10 @@
 
 // Product implementation
 
-/**
-* @brief Sets Part A of the product.
-* @param part A string representing Part A of the product.
-*/
 void Product::setPartA(const std::string& part) {
 	this->partA = part;
 }
 
-/**
-* @brief Sets Part B of the product.
-* @param part A string representing Part B of the product.
-*/
 void Product::setPartB(const std::string& part) {
 	this->partB = part;
 }
@@ -48,9 +42,11 @@ std::string Product::toString() const {
 * @param product The product whose details are printed.
 * @return The output stream with appended product details.
 */
-std::ostream& operator<<(std::ostream& os, const Product& product) {
-	os << product.toString();
-	return os;
+namespace builder_pattern { 
+	std::ostream& operator<<(std::ostream& os, const Product& product) {
+		os << product.toString();
+		return os;
+	}
 }
 
 // ConcreteBuilder implementation
@@ -95,13 +91,6 @@ std::shared_ptr<Product> ConcreteBuilder::getResult() {
 
 // Director implementation
 
-/**
-* @brief Constructs a new `Director` with a given builder.
-*
-* Initializes the director with a builder used to construct products.
-*
-* @param builder A pointer to the `Builder` instance.
-*/
 Director::Director(Builder* builder) : builder(builder) {}
 
 /**

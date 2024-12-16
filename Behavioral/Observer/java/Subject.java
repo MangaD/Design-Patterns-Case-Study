@@ -1,14 +1,23 @@
+package Behavioral.Observer;
+
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @brief Abstract class for subjects in the Observer pattern.
+ * Abstract class for subjects in the Observer pattern.
  */
 public abstract class Subject {
 	private final List<Observer> observers = new ArrayList<>();
 
 	/**
-	 * @brief Attaches an observer to the subject.
+	 * Default constructor for Subject.
+	 */
+	public Subject() {
+		// Default constructor
+	}
+
+	/**
+	 * Attaches an observer to the subject.
 	 * @param observer The observer to attach.
 	 */
 	public void attach(Observer observer) {
@@ -16,7 +25,7 @@ public abstract class Subject {
 	}
 
 	/**
-	 * @brief Detaches an observer from the subject.
+	 * Detaches an observer from the subject.
 	 * @param observer The observer to detach.
 	 */
 	public void detach(Observer observer) {
@@ -24,7 +33,8 @@ public abstract class Subject {
 	}
 
 	/**
-	 * @brief Notifies all attached observers of a change.
+	 * Notifies all attached observers of a change.
+	 * @param state The updated state from the subject.
 	 */
 	protected void notifyObservers(String state) {
 		for (Observer observer : observers) {

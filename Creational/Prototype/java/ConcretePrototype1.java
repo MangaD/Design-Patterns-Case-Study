@@ -1,5 +1,7 @@
+package Creational.Prototype;
+
 /**
- * @brief A concrete implementation of the Prototype interface.
+ * A concrete implementation of the Prototype interface.
  *
  * Represents a prototype with a string attribute.
  */
@@ -7,7 +9,7 @@ public class ConcretePrototype1 implements Prototype {
 	private String attribute; // The string attribute for the prototype
 
 	/**
-	 * @brief Constructor to initialize the attribute.
+	 * Constructor to initialize the attribute.
 	 * 
 	 * @param attribute The value to initialize the prototype's attribute.
 	 */

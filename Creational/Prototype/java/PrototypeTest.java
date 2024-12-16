@@ -1,13 +1,15 @@
+package Creational.Prototype;
+
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 /**
- * @brief Unit tests for the Prototype Design Pattern.
+ * Unit tests for the Prototype Design Pattern.
  */
 public class PrototypeTest {
 
 	/**
-	 * @brief Test cloning functionality of ConcretePrototype1.
+	 * Test cloning functionality of ConcretePrototype1.
 	 */
 	@Test
 	public void testCloneConcretePrototype1() {
@@ -24,7 +26,7 @@ public class PrototypeTest {
 	}
 
 	/**
-	 * @brief Test cloning functionality of ConcretePrototype2.
+	 * Test cloning functionality of ConcretePrototype2.
 	 */
 	@Test
 	public void testCloneConcretePrototype2() {
@@ -41,7 +43,7 @@ public class PrototypeTest {
 	}
 
 	/**
-	 * @brief Test modifying the cloned prototype.
+	 * Test modifying the cloned prototype.
 	 *
 	 * Verifies that modifying a cloned prototype does not affect the original.
 	 */
@@ -60,7 +62,7 @@ public class PrototypeTest {
 	}
 
 	/**
-	 * @brief Test cloning and verifying independence for multiple clones.
+	 * Test cloning and verifying independence for multiple clones.
 	 *
 	 * Verifies that multiple clones of the same prototype are independent of
 	 * each other and the original object.

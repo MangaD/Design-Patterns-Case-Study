@@ -2,6 +2,8 @@
 #include <gtest/gtest.h>
 #include <sstream>
 
+using namespace builder_pattern;
+
 /**
 * @file test_builder.cpp
 * @brief Unit tests for the Builder Pattern implementation.

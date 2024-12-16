@@ -1,5 +1,7 @@
+package Structural.Proxy;
+
 /**
- * @brief The Proxy controls access to the RealSubject.
+ * The Proxy controls access to the RealSubject.
  * 
  * The Proxy adds additional functionality such as authentication or lazy initialization.
  */

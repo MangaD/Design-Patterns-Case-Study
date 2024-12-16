@@ -1,9 +1,11 @@
+package Behavioral.Strategy;
+
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
- * @brief Unit tests for the Strategy Pattern implementation.
+ * Unit tests for the Strategy Pattern implementation.
  */
 public class StrategyPatternTest {
 

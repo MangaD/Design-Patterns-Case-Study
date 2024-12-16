@@ -1,13 +1,15 @@
+package Structural.Proxy;
+
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
- * @brief Unit tests for the Proxy pattern implementation.
+ * Unit tests for the Proxy pattern implementation.
  */
 public class ProxyPatternTest {
 
 	/**
-	 * @brief Test Proxy access with authentication.
+	 * Test Proxy access with authentication.
 	 */
 	@Test
 	public void testAccessWithAuthentication() {
@@ -26,7 +28,7 @@ public class ProxyPatternTest {
 	}
 
 	/**
-	 * @brief Test Proxy access without authentication.
+	 * Test Proxy access without authentication.
 	 */
 	@Test
 	public void testAccessWithoutAuthentication() {
@@ -43,7 +45,7 @@ public class ProxyPatternTest {
 	}
 
 	/**
-	 * @brief Test Proxy lazy initialization.
+	 * Test Proxy lazy initialization.
 	 */
 	@Test
 	public void testLazyInitialization() {

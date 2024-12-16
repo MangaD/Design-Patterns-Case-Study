@@ -1,10 +1,12 @@
+package Creational.ObjectPool;
+
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Set;
 
 /**
- * @brief Generic Object Pool for managing reusable objects.
+ * Generic Object Pool for managing reusable objects.
  *
  * The ObjectPool class provides a way to manage and reuse a pool of objects,
  * reducing the overhead of repeatedly creating and destroying objects. Objects
@@ -18,7 +20,7 @@ public class ObjectPool<T extends Reusable> {
 	private final Set<T> inPool; // Set to track objects currently in the pool
 
 	/**
-	 * @brief Constructs an empty ObjectPool.
+	 * Constructs an empty ObjectPool.
 	 */
 	public ObjectPool() {
 		this.pool = new LinkedList<>();
@@ -26,7 +28,7 @@ public class ObjectPool<T extends Reusable> {
 	}
 
 	/**
-	 * @brief Adds a reusable object to the pool.
+	 * Adds a reusable object to the pool.
 	 *
 	 * @param obj The reusable object to be added to the pool.
 	 * @throws IllegalArgumentException if the object is null.
@@ -43,7 +45,7 @@ public class ObjectPool<T extends Reusable> {
 	}
 
 	/**
-	 * @brief Borrows a reusable object from the pool.
+	 * Borrows a reusable object from the pool.
 	 *
 	 * @return A reusable object from the pool.
 	 * @throws IllegalStateException if the pool is empty.
@@ -58,7 +60,7 @@ public class ObjectPool<T extends Reusable> {
 	}
 
 	/**
-	 * @brief Returns a reusable object to the pool.
+	 * Returns a reusable object to the pool.
 	 *
 	 * The returned object is reset to its initial state before being added
 	 * back to the pool.
@@ -79,7 +81,7 @@ public class ObjectPool<T extends Reusable> {
 	}
 
 	/**
-	 * @brief Gets the current size of the pool.
+	 * Gets the current size of the pool.
 	 *
 	 * @return The number of reusable objects currently in the pool.
 	 */

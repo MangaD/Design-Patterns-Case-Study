@@ -3,6 +3,8 @@
 #include <memory>
 #include <sstream>
 
+using namespace state_pattern;
+
 // Helper function to capture console output for testing
 std::string captureOutput(const std::function<void()> &func) {
 	std::ostringstream buffer;

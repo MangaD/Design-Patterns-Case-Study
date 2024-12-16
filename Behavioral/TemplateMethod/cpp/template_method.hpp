@@ -4,6 +4,11 @@
 #include <iostream>
 
 /**
+ * @brief Namespace for the Template Method pattern.
+ */
+namespace template_method_pattern {
+
+/**
  * @brief Abstract base class defining the template method and its steps.
  */
 class AbstractClass {
@@ -78,5 +83,7 @@ protected:
 		std::cout << "ConcreteClass2: Required operation 2\n";
 	}
 };
+
+}  // namespace template_method_pattern
 
 #endif // TEMPLATE_METHOD_HPP

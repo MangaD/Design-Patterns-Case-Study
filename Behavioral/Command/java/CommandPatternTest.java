@@ -1,8 +1,10 @@
+package Behavioral.Command;
+
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 
 /**
- * @brief Unit tests for the Command Pattern implementation.
+ * Unit tests for the Command Pattern implementation.
  */
 public class CommandPatternTest {
 

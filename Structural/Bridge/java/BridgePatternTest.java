@@ -1,8 +1,10 @@
+package Structural.Bridge;
+
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
- * @brief Unit tests for the Bridge Pattern implementation.
+ * Unit tests for the Bridge Pattern implementation.
  */
 public class BridgePatternTest {
 

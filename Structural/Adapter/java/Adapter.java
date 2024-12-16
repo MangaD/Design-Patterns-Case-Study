@@ -1,5 +1,7 @@
+package Structural.Adapter;
+
 /**
- * @brief The Adapter class makes the Adaptee compatible with the Target interface.
+ * The Adapter class makes the Adaptee compatible with the Target interface.
  *
  * The Adapter implements the Target interface and translates calls from the client
  * to the Adaptee's methods. This enables the client to work seamlessly with Adaptee
@@ -9,7 +11,7 @@ public class Adapter implements Target {
 	private final Adaptee adaptee; // Composition: Adapter holds a reference to Adaptee.
 
 	/**
-	 * @brief Constructs the Adapter with an Adaptee instance.
+	 * Constructs the Adapter with an Adaptee instance.
 	 *
 	 * @param adaptee The Adaptee instance to adapt.
 	 * @throws IllegalArgumentException if the adaptee is null.
@@ -22,7 +24,7 @@ public class Adapter implements Target {
 	}
 
 	/**
-	 * @brief Implements the Target interface by delegating to the Adaptee.
+	 * Implements the Target interface by delegating to the Adaptee.
 	 *
 	 * This method translates the Target's `request()` call into a call
 	 * to the Adaptee's `specificRequest()` method.

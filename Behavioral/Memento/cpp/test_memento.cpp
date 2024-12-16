@@ -1,6 +1,8 @@
 #include "memento.hpp"
 #include <gtest/gtest.h>
 
+using namespace memento_pattern;
+
 /**
  * @brief Test the Memento pattern for saving and restoring state.
  */

@@ -2,6 +2,8 @@
 
 #include <iostream>
 
+using namespace state_pattern;
+
 // Context Implementation
 Context::Context(std::unique_ptr<State> initialState) : state(std::move(initialState)) {}
 

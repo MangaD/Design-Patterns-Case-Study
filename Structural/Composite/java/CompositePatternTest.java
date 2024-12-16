@@ -1,13 +1,15 @@
+package Structural.Composite;
+
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
- * @brief Unit tests for the Composite Design Pattern implementation.
+ * Unit tests for the Composite Design Pattern implementation.
  */
 public class CompositePatternTest {
 
 	/**
-	 * @brief Test the operation of a Leaf object.
+	 * Test the operation of a Leaf object.
 	 */
 	@Test
 	public void testLeafOperation() {
@@ -16,7 +18,7 @@ public class CompositePatternTest {
 	}
 
 	/**
-	 * @brief Test adding and retrieving children in a Composite.
+	 * Test adding and retrieving children in a Composite.
 	 */
 	@Test
 	public void testCompositeAddAndGetChild() {
@@ -32,7 +34,7 @@ public class CompositePatternTest {
 	}
 
 	/**
-	 * @brief Test removing a child from a Composite.
+	 * Test removing a child from a Composite.
 	 */
 	@Test
 	public void testCompositeRemoveChild() {
@@ -46,7 +48,7 @@ public class CompositePatternTest {
 	}
 
 	/**
-	 * @brief Test the operation of a Composite with children.
+	 * Test the operation of a Composite with children.
 	 */
 	@Test
 	public void testCompositeOperation() {

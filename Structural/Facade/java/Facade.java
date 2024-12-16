@@ -1,5 +1,7 @@
+package Structural.Facade;
+
 /**
- * @brief The Facade provides a simplified interface to the subsystems.
+ * The Facade provides a simplified interface to the subsystems.
  *
  * The Facade delegates requests from the client to the appropriate subsystems,
  * hiding their complexity.
@@ -10,7 +12,7 @@ public class Facade {
 	private Subsystem3 subsystem3;
 
 	/**
-	 * @brief Constructs the Facade with subsystem instances.
+	 * Constructs the Facade with subsystem instances.
 	 */
 	public Facade() {
 		this.subsystem1 = new Subsystem1();
@@ -19,7 +21,7 @@ public class Facade {
 	}
 
 	/**
-	 * @brief Executes a high-level operation by coordinating subsystems.
+	 * Executes a high-level operation by coordinating subsystems.
 	 * @return A string describing the combined operations.
 	 */
 	public String operation() {

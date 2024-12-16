@@ -5,6 +5,9 @@
 #include <memory>
 #include <string>
 
+/**
+ * @brief Namespace for the Proxy pattern.
+ */
 namespace proxy_pattern {
 
 	/**
@@ -72,6 +75,6 @@ namespace proxy_pattern {
 		}
 	};
 
-} // namespace proxy_pattern
+}  // namespace proxy_pattern
 
 #endif // PROXY_HPP

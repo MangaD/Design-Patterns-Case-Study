@@ -2,7 +2,7 @@
 #include <gtest/gtest.h>
 #include <sstream>
 
-using namespace class_adapter;
+using namespace class_adapter_pattern;
 
 /**
  * @brief Test Fixture for the Class Adapter Pattern.

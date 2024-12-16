@@ -1,5 +1,7 @@
+package Behavioral.Command;
+
 /**
- * @brief The Command interface declares a method for executing commands.
+ * The Command interface declares a method for executing commands.
  */
 public interface Command {
 	/**

@@ -1,8 +1,17 @@
+package Behavioral.Strategy;
+
 /**
- * @brief The Context class maintains a reference to a Strategy object and delegates the execution to it.
+ * The Context class maintains a reference to a Strategy object and delegates the execution to it.
  */
 public class Context {
 	private Strategy strategy;
+
+	/**
+	 * Default constructor for Context.
+	 */
+	public Context() {
+		// Default constructor
+	}
 
 	/**
 	 * Set the current strategy.

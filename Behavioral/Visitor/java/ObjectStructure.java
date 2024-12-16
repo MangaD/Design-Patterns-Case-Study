@@ -1,11 +1,20 @@
+package Behavioral.Visitor;
+
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @brief ObjectStructure manages a collection of elements and processes them with visitors.
+ * ObjectStructure manages a collection of elements and processes them with visitors.
  */
 public class ObjectStructure {
 	private final List<Element> elements = new ArrayList<>();
+
+	/**
+	 * Default constructor for ObjectStructure.
+	 */
+	public ObjectStructure() {
+		// Default constructor
+	}
 
 	/**
 	 * Add an element to the structure.

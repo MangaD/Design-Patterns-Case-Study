@@ -2,6 +2,8 @@
 #include <gtest/gtest.h>
 #include <sstream>
 
+using namespace visitor_pattern;
+
 /**
  * @brief Test Visitor Pattern functionality.
  */

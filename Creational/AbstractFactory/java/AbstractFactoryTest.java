@@ -1,8 +1,10 @@
+package Creational.AbstractFactory;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;
 
 /**
- * @brief Unit tests for the Abstract Factory Pattern implementation.
+ * Unit tests for the Abstract Factory Pattern implementation.
  * 
  * These tests verify the correct creation of products by different factories
  * and ensure compatibility between products of the same family.
@@ -10,7 +12,7 @@ import org.junit.jupiter.api.Test;
 public class AbstractFactoryTest {
 
 	/**
-	 * @brief Tests the functionality of ConcreteFactory1.
+	 * Tests the functionality of ConcreteFactory1.
 	 * 
 	 * Verifies that ConcreteFactory1 creates ConcreteProductA1 and ConcreteProductB1.
 	 */
@@ -26,7 +28,7 @@ public class AbstractFactoryTest {
 	}
 
 	/**
-	 * @brief Tests the functionality of ConcreteFactory2.
+	 * Tests the functionality of ConcreteFactory2.
 	 * 
 	 * Verifies that ConcreteFactory2 creates ConcreteProductA2 and ConcreteProductB2.
 	 */
@@ -42,7 +44,7 @@ public class AbstractFactoryTest {
 	}
 
 	/**
-	 * @brief Tests compatibility of products within the same factory.
+	 * Tests compatibility of products within the same factory.
 	 * 
 	 * Ensures that products created by the same factory are compatible within their family.
 	 */

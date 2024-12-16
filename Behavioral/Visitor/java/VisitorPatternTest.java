@@ -1,3 +1,5 @@
+package Behavioral.Visitor;
+
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -5,7 +7,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
 /**
- * @brief Unit tests for the Visitor pattern implementation.
+ * Unit tests for the Visitor pattern implementation.
  */
 public class VisitorPatternTest {
 

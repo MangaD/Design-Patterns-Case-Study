@@ -56,3 +56,58 @@ add_design_pattern(TemplateMethod Behavioral)
 add_design_pattern(Visitor Behavioral)
 # Add more patterns as needed
 # Example: add_design_pattern(Bridge Structural)
+
+# Enable the Doxygen module
+find_package(Doxygen)
+
+# Configure Doxygen options
+set(DOXYGEN_PROJECT_NAME "Design Patterns Case Study - C++")
+set(DOXYGEN_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/docs/doxygen)
+set(DOXYGEN_GENERATE_HTML YES)
+set(DOXYGEN_GENERATE_LATEX NO)
+set(DOXYGEN_EXTRACT_ALL YES)
+set(DOXYGEN_RECURSIVE YES)
+set(DOXYGEN_STRIP_FROM_PATH ${CMAKE_SOURCE_DIR})
+set(DOXYGEN_GENERATE_TREEVIEW YES)
+
+# Restrict files to only C++ sources and headers
+set(DOXYGEN_FILE_PATTERNS "*.cpp" "*.hpp")
+
+if (DOXYGEN_FOUND)
+	message(STATUS "-- Doxygen documentation enabled through 'doxygen' target.")
+
+	# Add a target for generating documentation
+	doxygen_add_docs(doc
+		${CMAKE_SOURCE_DIR}/Creational
+		${CMAKE_SOURCE_DIR}/Structural
+		${CMAKE_SOURCE_DIR}/Behavioral
+		COMMENT "Generating API documentation with Doxygen"
+	)
+endif()
+
+# Collect all Java source files
+file(GLOB_RECURSE JAVA_SOURCES
+	"${CMAKE_SOURCE_DIR}/Creational/*.java"
+	"${CMAKE_SOURCE_DIR}/Structural/*.java"
+	"${CMAKE_SOURCE_DIR}/Behavioral/*.java"
+)
+
+# Filter out test files
+list(FILTER JAVA_SOURCES EXCLUDE REGEX ".*Test\\.java$")
+
+add_custom_target(javadoc
+	COMMAND javadoc -d ${CMAKE_SOURCE_DIR}/docs/java ${JAVA_SOURCES}
+	COMMENT "Generating Java documentation with Javadoc"
+	VERBATIM
+)
+
+add_custom_target(sphinx
+	COMMAND sphinx-build -b html ${CMAKE_SOURCE_DIR}/docs ${CMAKE_SOURCE_DIR}/docs/sphinx
+	COMMENT "Generating Python documentation with Sphinx"
+	VERBATIM
+)
+
+add_custom_target(all_docs
+	DEPENDS doc javadoc sphinx
+	COMMENT "Generating documentation for all languages"
+)

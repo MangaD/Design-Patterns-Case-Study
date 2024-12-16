@@ -1,15 +1,17 @@
+package Structural.Flyweight;
+
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
- * @brief Unit tests for the Flyweight Pattern.
+ * Unit tests for the Flyweight Pattern.
  */
 public class FlyweightTest {
 
 	@Test
 	/**
-	 * @brief Test FlyweightFactory ensures shared Flyweights for identical intrinsic states.
+	 * Test FlyweightFactory ensures shared Flyweights for identical intrinsic states.
 	 */
 	public void testFlyweightFactoryReusesFlyweights() {
 		FlyweightFactory factory = new FlyweightFactory();
@@ -24,7 +26,7 @@ public class FlyweightTest {
 
 	@Test
 	/**
-	 * @brief Test Flyweight operation with extrinsic state.
+	 * Test Flyweight operation with extrinsic state.
 	 */
 	public void testFlyweightOperation() {
 		FlyweightFactory factory = new FlyweightFactory();
@@ -49,7 +51,7 @@ public class FlyweightTest {
 
 	@Test
 	/**
-	 * @brief Test FlyweightFactory stores and lists Flyweights correctly.
+	 * Test FlyweightFactory stores and lists Flyweights correctly.
 	 */
 	public void testFlyweightFactoryList() {
 		FlyweightFactory factory = new FlyweightFactory();

@@ -1,14 +1,16 @@
+package Behavioral.Memento;
+
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
- * @brief Unit tests for the Memento pattern.
+ * Unit tests for the Memento pattern.
  */
 public class MementoPatternTest {
 
 	/**
-	 * @brief Test the Memento pattern for saving and restoring state.
+	 * Test the Memento pattern for saving and restoring state.
 	 */
 	@Test
 	public void testSaveAndRestoreState() {
@@ -32,7 +34,7 @@ public class MementoPatternTest {
 	}
 
 	/**
-	 * @brief Test the Caretaker's handling of multiple Mementos.
+	 * Test the Caretaker's handling of multiple Mementos.
 	 */
 	@Test
 	public void testCaretakerStoresMultipleMementos() {
@@ -54,7 +56,7 @@ public class MementoPatternTest {
 	}
 
 	/**
-	 * @brief Test the Caretaker's exception handling for invalid indices.
+	 * Test the Caretaker's exception handling for invalid indices.
 	 */
 	@Test
 	public void testInvalidMementoIndex() {

@@ -1,5 +1,7 @@
+package Creational.FactoryMethod;
+
 /**
- * @brief Abstract Creator class in the Factory Method design pattern.
+ * Abstract Creator class in the Factory Method design pattern.
  * 
  * The Creator class declares the factory method `createProduct`, which
  * must be implemented by concrete subclasses to create specific types of
@@ -7,8 +9,16 @@
  * utilizes the product created by the factory method.
  */
 public abstract class Creator {
+
 	/**
-	 * @brief Factory method to create a product.
+	 * Default constructor for Creator.
+	 */
+	public Creator() {
+		// Default constructor
+	}
+
+	/**
+	 * Factory method to create a product.
 	 * 
 	 * This method is abstract and must be overridden by subclasses to
 	 * specify the type of product to be created. The factory method
@@ -20,7 +30,7 @@ public abstract class Creator {
 	public abstract Product createProduct();
 
 	/**
-	 * @brief A common operation that demonstrates the use of the product.
+	 * A common operation that demonstrates the use of the product.
 	 * 
 	 * This method creates a product using the factory method and performs
 	 * an operation on it. This demonstrates the separation of product

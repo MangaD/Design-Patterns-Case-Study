@@ -1,7 +1,17 @@
+package Behavioral.Command;
+
 /**
- * @brief The Receiver class contains the actual business logic for the commands.
+ * The Receiver class contains the actual business logic for the commands.
  */
 public class Receiver {
+
+	/**
+	 * Default constructor for Receiver.
+	 */
+	public Receiver() {
+		// Default constructor
+	}
+
 	/**
 	 * Executes Action A.
 	 */

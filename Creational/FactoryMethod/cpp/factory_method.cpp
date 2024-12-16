@@ -1,5 +1,7 @@
 #include "factory_method.hpp"
 
+using namespace factory_method_pattern;
+
 /**
 * @brief Implements the behavior for ConcreteProductA.
 * 

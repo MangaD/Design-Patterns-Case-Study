@@ -4,72 +4,79 @@
 #include <memory>
 #include <string>
 
-// Forward declarations
-class Context;
+/**
+ * @brief Namespace for the State pattern.
+ */
+namespace state_pattern {
 
-// Base State Class
-class State {
-public:
-	virtual ~State() = default;
+	// Forward declarations
+	class Context;
 
-	/**
-	 * @brief Handle the request and optionally change the state.
-	 * @param context Reference to the context object.
-	 */
-	virtual void handle(Context &context) const = 0;
-};
+	// Base State Class
+	class State {
+	public:
+		virtual ~State() = default;
 
-// Context Class
-class Context {
-private:
-	std::unique_ptr<State> state; ///< Current state of the context.
-public:
-	/**
-	 * @brief Constructor that initializes the context with an initial state.
-	 * @param initialState Initial state of the context.
-	 */
-	explicit Context(std::unique_ptr<State> initialState);
+		/**
+		* @brief Handle the request and optionally change the state.
+		* @param context Reference to the context object.
+		*/
+		virtual void handle(Context &context) const = 0;
+	};
 
-	/**
-	 * @brief Sets the state of the context.
-	 * @param newState New state to transition to.
-	 */
-	void setState(std::unique_ptr<State> newState);
+	// Context Class
+	class Context {
+	private:
+		std::unique_ptr<State> state; ///< Current state of the context.
+	public:
+		/**
+		* @brief Constructor that initializes the context with an initial state.
+		* @param initialState Initial state of the context.
+		*/
+		explicit Context(std::unique_ptr<State> initialState);
 
-	/**
-	 * @brief Triggers the handle method of the current state.
-	 */
-	void request();
+		/**
+		* @brief Sets the state of the context.
+		* @param newState New state to transition to.
+		*/
+		void setState(std::unique_ptr<State> newState);
 
-	/**
-	 * @brief Gets the name of the current state (for testing/logging purposes).
-	 * @return Name of the current state.
-	 */
-	std::string getStateName() const;
-};
+		/**
+		* @brief Triggers the handle method of the current state.
+		*/
+		void request();
 
-// Concrete State A
-class ConcreteStateA : public State {
-public:
-	void handle(Context &context) const override;
+		/**
+		* @brief Gets the name of the current state (for testing/logging purposes).
+		* @return Name of the current state.
+		*/
+		std::string getStateName() const;
+	};
 
-	/**
-	 * @brief Get the name of this state.
-	 * @return State name as a string.
-	 */
-	static std::string getName();
-};
+	// Concrete State A
+	class ConcreteStateA : public State {
+	public:
+		void handle(Context &context) const override;
 
-// Concrete State B
-class ConcreteStateB : public State {
-public:
-	void handle(Context &context) const override;
+		/**
+		* @brief Get the name of this state.
+		* @return State name as a string.
+		*/
+		static std::string getName();
+	};
 
-	/**
-	 * @brief Get the name of this state.
-	 * @return State name as a string.
-	 */
-	static std::string getName();
-};
+	// Concrete State B
+	class ConcreteStateB : public State {
+	public:
+		void handle(Context &context) const override;
+
+		/**
+		* @brief Get the name of this state.
+		* @return State name as a string.
+		*/
+		static std::string getName();
+	};
+
+}  // namespace state_pattern
 
 #endif // STATE_HPP

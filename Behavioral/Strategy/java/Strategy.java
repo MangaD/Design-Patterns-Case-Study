@@ -1,5 +1,7 @@
+package Behavioral.Strategy;
+
 /**
- * @brief The Strategy interface declares the common behavior for all supported algorithms.
+ * The Strategy interface declares the common behavior for all supported algorithms.
  */
 public interface Strategy {
 	/**

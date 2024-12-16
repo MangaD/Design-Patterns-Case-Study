@@ -1,14 +1,16 @@
+package Structural.Flyweight;
+
 import java.util.Objects;
 
 /**
- * @brief Concrete implementation of the Flyweight interface.
+ * Concrete implementation of the Flyweight interface.
  * Represents a shared object with intrinsic state.
  */
 public class ConcreteFlyweight implements Flyweight {
 	private final String intrinsicState;
 
 	/**
-	 * @brief Constructor initializes the intrinsic state of the Flyweight.
+	 * Constructor initializes the intrinsic state of the Flyweight.
 	 * @param intrinsicState Shared state for the Flyweight.
 	 */
 	public ConcreteFlyweight(String intrinsicState) {

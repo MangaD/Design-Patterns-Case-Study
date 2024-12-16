@@ -3,6 +3,8 @@
 #include <sstream>
 #include <string>
 
+using namespace strategy_pattern;
+
 /**
  * @brief Captures console output for test verification.
  */

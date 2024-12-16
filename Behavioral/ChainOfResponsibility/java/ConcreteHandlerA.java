@@ -1,7 +1,17 @@
+package Behavioral.ChainOfResponsibility;
+
 /**
- * @brief A concrete handler that processes specific requests.
+ * A concrete handler that processes specific requests.
  */
 public class ConcreteHandlerA extends AbstractHandler {
+
+	/**
+	 * Default constructor for ConcreteHandlerA.
+	 */
+	public ConcreteHandlerA() {
+		// Default constructor
+	}
+
 	@Override
 	public void handleRequest(String request) {
 		if ("A".equals(request)) {

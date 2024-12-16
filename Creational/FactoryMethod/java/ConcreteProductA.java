@@ -1,13 +1,23 @@
+package Creational.FactoryMethod;
+
 /**
- * @brief Concrete implementation of the Product interface.
+ * Concrete implementation of the Product interface.
  * 
  * ConcreteProductA represents a specific type of product that implements
  * the behavior defined in the Product interface. It provides a unique
  * implementation for the `use` method.
  */
 public class ConcreteProductA implements Product {
+
 	/**
-	 * @brief Implements the behavior for ConcreteProductA.
+	 * Default constructor for ConcreteProductA.
+	 */
+	public ConcreteProductA() {
+		// Default constructor
+	}
+
+	/**
+	 * Implements the behavior for ConcreteProductA.
 	 * 
 	 * This method returns a string that describes the behavior of
 	 * ConcreteProductA when used.

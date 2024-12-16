@@ -1,6 +1,8 @@
 #include "flyweight.hpp"
 #include <gtest/gtest.h>
 
+using namespace	flyweight_pattern;
+
 /**
  * @brief Test the creation and reuse of Flyweight objects in the FlyweightFactory.
  */

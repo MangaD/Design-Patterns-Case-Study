@@ -1,11 +1,8 @@
 #include "concrete_reusable.hpp"
 #include <iostream>
 
-/**
- * @brief Constructs a reusable object with a unique identifier.
- * 
- * @param id A unique identifier for the reusable object.
- */
+using namespace object_pool_pattern;
+
 ConcreteReusable::ConcreteReusable(const std::string& id) : id(id) {}
 
 /**

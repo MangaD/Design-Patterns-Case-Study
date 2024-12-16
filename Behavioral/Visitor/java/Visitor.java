@@ -1,5 +1,7 @@
+package Behavioral.Visitor;
+
 /**
- * @brief Visitor interface declaring operations for different element types.
+ * Visitor interface declaring operations for different element types.
  */
 public interface Visitor {
 	/**

@@ -1,8 +1,10 @@
+package Behavioral.State;
+
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
- * @brief Unit tests for the State pattern implementation.
+ * Unit tests for the State pattern implementation.
  */
 public class StatePatternTest {
 

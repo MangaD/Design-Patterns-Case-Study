@@ -1,14 +1,16 @@
+package Structural.Composite;
+
 /**
- * @brief The Component interface declares common operations for both leaf and composite objects.
+ * The Component interface declares common operations for both leaf and composite objects.
  */
 public interface Component {
 	/**
-	 * @brief Performs an operation on the component.
+	 * Performs an operation on the component.
 	 */
 	void operation();
 
 	/**
-	 * @brief Adds a child component.
+	 * Adds a child component.
 	 * This method is optional and can throw UnsupportedOperationException for leaf nodes.
 	 * 
 	 * @param component The child component to add.
@@ -18,7 +20,7 @@ public interface Component {
 	}
 
 	/**
-	 * @brief Removes a child component.
+	 * Removes a child component.
 	 * This method is optional and can throw UnsupportedOperationException for leaf nodes.
 	 * 
 	 * @param component The child component to remove.
@@ -28,7 +30,7 @@ public interface Component {
 	}
 
 	/**
-	 * @brief Retrieves a child component at the specified index.
+	 * Retrieves a child component at the specified index.
 	 * This method is optional and can throw UnsupportedOperationException for leaf nodes.
 	 * 
 	 * @param index The index of the child component to retrieve.

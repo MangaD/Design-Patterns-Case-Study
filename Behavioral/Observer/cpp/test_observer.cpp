@@ -3,6 +3,8 @@
 #include <memory>
 #include <sstream>
 
+using namespace observer_pattern;
+
 // Custom stream to capture output for assertions
 std::ostringstream outputStream;
 

@@ -1,6 +1,8 @@
 #include "facade.hpp"
 #include <gtest/gtest.h>
 
+using namespace facade_pattern;
+
 /**
  * @brief Tests the Facade pattern to ensure the interface simplifies interaction with subsystems.
  */

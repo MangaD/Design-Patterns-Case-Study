@@ -1,13 +1,23 @@
+package Creational.FactoryMethod;
+
 /**
- * @brief Concrete implementation of the Creator class.
+ * Concrete implementation of the Creator class.
  * 
  * ConcreteCreatorA is responsible for creating instances of ConcreteProductA.
  * It overrides the factory method (`createProduct`) to instantiate and return
  * the specific product type (ConcreteProductA).
  */
 public class ConcreteCreatorA extends Creator {
+
 	/**
-	 * @brief Factory method implementation for creating ConcreteProductA.
+	 * Default constructor for ConcreteCreatorA.
+	 */
+	public ConcreteCreatorA() {
+		// Default constructor
+	}
+
+	/**
+	 * Factory method implementation for creating ConcreteProductA.
 	 * 
 	 * This method overrides the abstract factory method in the Creator class
 	 * to provide a specific implementation that returns an instance of 

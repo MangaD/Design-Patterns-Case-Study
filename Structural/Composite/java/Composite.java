@@ -1,8 +1,10 @@
+package Structural.Composite;
+
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @brief Represents the Composite object in the Composite pattern.
+ * Represents the Composite object in the Composite pattern.
  * A Composite can contain both Leaf and other Composite objects.
  */
 public class Composite implements Component {
@@ -10,7 +12,7 @@ public class Composite implements Component {
 	private final List<Component> children = new ArrayList<>();
 
 	/**
-	 * @brief Constructor for the Composite.
+	 * Constructor for the Composite.
 	 * 
 	 * @param name The name of the Composite.
 	 */
@@ -19,7 +21,7 @@ public class Composite implements Component {
 	}
 
 	/**
-	 * @brief Performs the operation on the Composite and its children.
+	 * Performs the operation on the Composite and its children.
 	 */
 	@Override
 	public void operation() {
@@ -30,7 +32,7 @@ public class Composite implements Component {
 	}
 
 	/**
-	 * @brief Adds a child component to the Composite.
+	 * Adds a child component to the Composite.
 	 * 
 	 * @param component The child component to add.
 	 */
@@ -40,7 +42,7 @@ public class Composite implements Component {
 	}
 
 	/**
-	 * @brief Removes a child component from the Composite.
+	 * Removes a child component from the Composite.
 	 * 
 	 * @param component The child component to remove.
 	 */
@@ -50,7 +52,7 @@ public class Composite implements Component {
 	}
 
 	/**
-	 * @brief Retrieves a child component at the specified index.
+	 * Retrieves a child component at the specified index.
 	 * 
 	 * @param index The index of the child component to retrieve.
 	 * @return The child component.

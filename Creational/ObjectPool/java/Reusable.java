@@ -1,5 +1,7 @@
+package Creational.ObjectPool;
+
 /**
- * @brief Interface for objects managed by the ObjectPool.
+ * Interface for objects managed by the ObjectPool.
  *
  * The Reusable interface defines the contract for objects that can be managed
  * and reused by an {@link ObjectPool}. Implementing classes must provide
@@ -8,7 +10,7 @@
 public interface Reusable {
 
 	/**
-	 * @brief Performs the primary action of the reusable object.
+	 * Performs the primary action of the reusable object.
 	 *
 	 * This method simulates the usage of the object. Classes implementing this
 	 * interface can define the specific behavior when the object is "used."
@@ -16,7 +18,7 @@ public interface Reusable {
 	void use();
 
 	/**
-	 * @brief Resets the reusable object to its initial state.
+	 * Resets the reusable object to its initial state.
 	 *
 	 * This method is invoked when the object is returned to the pool, ensuring
 	 * that it is ready for reuse. Classes implementing this interface must

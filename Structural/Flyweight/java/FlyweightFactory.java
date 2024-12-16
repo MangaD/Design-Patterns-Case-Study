@@ -1,8 +1,10 @@
+package Structural.Flyweight;
+
 import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @brief Factory for creating and managing Flyweight objects.
+ * Factory for creating and managing Flyweight objects.
  *
  * Ensures that shared Flyweight objects are reused rather than created multiple times.
  */
@@ -10,7 +12,14 @@ public class FlyweightFactory {
 	private final Map<String, Flyweight> flyweights = new HashMap<>();
 
 	/**
-	 * @brief Retrieves a Flyweight object with the given intrinsic state.
+	 * Default constructor for FlyweightFactory.
+	 */
+	public FlyweightFactory() {
+		// Default constructor
+	}
+
+	/**
+	 * Retrieves a Flyweight object with the given intrinsic state.
 	 * If the Flyweight does not exist, it is created and stored.
 	 * 
 	 * @param intrinsicState The shared intrinsic state of the Flyweight.
@@ -22,7 +31,7 @@ public class FlyweightFactory {
 	}
 
 	/**
-	 * @brief Displays the current Flyweights managed by the factory.
+	 * Displays the current Flyweights managed by the factory.
 	 */
 	public void listFlyweights() {
 		System.out.println("Flyweights in Factory:");

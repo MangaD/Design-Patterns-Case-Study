@@ -1,7 +1,17 @@
+package Behavioral.Visitor;
+
 /**
- * @brief Concrete implementation of an element, ElementB.
+ * Concrete implementation of an element, ElementB.
  */
 public class ElementB extends Element {
+
+	/**
+	 * Default constructor for ElementB.
+	 */
+	public ElementB() {
+		super();
+	}
+
 	/**
 	 * Perform ElementB-specific behavior.
 	 *
@@ -12,7 +22,9 @@ public class ElementB extends Element {
 	}
 
 	/**
-	 * @copydoc Element#accept(Visitor)
+	 * Accept a Visitor.
+	 *
+	 * @param visitor The Visitor to accept.
 	 */
 	@Override
 	public void accept(Visitor visitor) {

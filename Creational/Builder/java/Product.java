@@ -1,5 +1,7 @@
+package Creational.Builder;
+
 /**
- * @brief Represents the complex product being built.
+ * Represents the complex product being built.
  *
  * The Product class includes parts `partA` and `partB`, representing
  * different components of the product. It provides methods to set these
@@ -10,7 +12,14 @@ public class Product {
 	private String partB; // Represents Part B of the product
 
 	/**
-	 * @brief Sets Part A of the product.
+	 * Default constructor for Product.
+	 */
+	public Product() {
+		// Default constructor
+	}
+
+	/**
+	 * Sets Part A of the product.
 	 * @param partA A string representing Part A.
 	 */
 	public void setPartA(String partA) {
@@ -18,7 +27,7 @@ public class Product {
 	}
 
 	/**
-	 * @brief Sets Part B of the product.
+	 * Sets Part B of the product.
 	 * @param partB A string representing Part B.
 	 */
 	public void setPartB(String partB) {
@@ -26,7 +35,7 @@ public class Product {
 	}
 
 	/**
-	 * @brief Provides a string representation of the product.
+	 * Provides a string representation of the product.
 	 * @return A string describing the product's parts.
 	 */
 	@Override

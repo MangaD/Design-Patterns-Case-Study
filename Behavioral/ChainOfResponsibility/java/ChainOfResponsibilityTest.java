@@ -1,9 +1,11 @@
+package Behavioral.ChainOfResponsibility;
+
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
- * @brief Test cases for the Chain of Responsibility Pattern.
+ * Test cases for the Chain of Responsibility Pattern.
  */
 public class ChainOfResponsibilityTest {
 	@Test

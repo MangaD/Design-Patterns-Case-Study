@@ -4,13 +4,9 @@
 #include <string>
 
 /**
- * @brief Namespace encapsulating the Class Adapter implementation.
- * 
- * This namespace contains classes and interfaces demonstrating the Class Adapter pattern.
- * The Class Adapter uses multiple inheritance to adapt an incompatible interface (Adaptee)
- * to a desired interface (Target) that is expected by the client.
+ * @brief Namespace for the Class Adapter pattern.
  */
-namespace class_adapter {
+namespace class_adapter_pattern {
 
 	/**
 	 * @brief Interface representing the Target.
@@ -72,6 +68,6 @@ namespace class_adapter {
 		}
 	};
 
-} // namespace class_adapter
+}  // namespace class_adapter
 
 #endif // CLASS_ADAPTER_HPP

@@ -1,8 +1,10 @@
+package Structural.Decorator;
+
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
- * @brief Unit tests for the Decorator Pattern.
+ * Unit tests for the Decorator Pattern.
  */
 public class DecoratorPatternTest {
 
