@@ -53,5 +53,6 @@ add_design_pattern(Observer Behavioral)
 add_design_pattern(State Behavioral)
 add_design_pattern(Strategy Behavioral)
 add_design_pattern(TemplateMethod Behavioral)
+add_design_pattern(Visitor Behavioral)
 # Add more patterns as needed
 # Example: add_design_pattern(Bridge Structural)

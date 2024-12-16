@@ -22,4 +22,5 @@ include 'Behavioral:Observer'
 include 'Behavioral:State'
 include 'Behavioral:Strategy'
 include 'Behavioral:TemplateMethod'
+include 'Behavioral:Visitor'
 // Add more modules as needed

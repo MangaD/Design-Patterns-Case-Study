@@ -1,0 +1,51 @@
+@startuml VisitorPattern
+
+title Visitor Pattern - Generic UML Diagram
+
+interface Visitor {
+	+ visitElementA(elementA: ElementA)
+	+ visitElementB(elementB: ElementB)
+}
+
+class ConcreteVisitorA {
+	+ visitElementA(elementA: ElementA)
+	+ visitElementB(elementB: ElementB)
+}
+
+class ConcreteVisitorB {
+	+ visitElementA(elementA: ElementA)
+	+ visitElementB(elementB: ElementB)
+}
+
+interface Element {
+	+ accept(visitor: Visitor)
+}
+
+class ElementA {
+	+ accept(visitor: Visitor)
+	+ operationA()
+}
+
+class ElementB {
+	+ accept(visitor: Visitor)
+	+ operationB()
+}
+
+class ObjectStructure {
+	+ addElement(element: Element)
+	+ removeElement(element: Element)
+	+ accept(visitor: Visitor)
+}
+
+Visitor <|-- ConcreteVisitorA
+Visitor <|-- ConcreteVisitorB
+
+Element <|-- ElementA
+Element <|-- ElementB
+
+ElementA --> Visitor : "accept(visitor)"
+ElementB --> Visitor : "accept(visitor)"
+ObjectStructure o-- Element
+ObjectStructure --> Visitor : "accept(visitor)"
+
+@enduml
