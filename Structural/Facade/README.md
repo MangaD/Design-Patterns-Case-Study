@@ -36,7 +36,7 @@ This pattern promotes **encapsulation** and **separation of concerns**, making c
 
 The UML diagram below illustrates the Facade Pattern. The **Facade** provides a simplified interface to the **Subsystems**, while the **Client** interacts with the facade without directly accessing the subsystems.
 
-![UML Diagram](facade.png)
+![UML Diagram](http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/MangaD/Design-Patterns-Case-Study/refs/heads/main/Structural/Facade/facade.puml)
 
 ---
 

@@ -33,7 +33,7 @@ This pattern is especially useful when creating objects that require many config
 
 The UML diagram below illustrates the Builder Pattern, showing how the `Director` uses a `Builder` to construct a `Product`.
 
-![UML Diagram](builder.png)
+![UML Diagram](http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/MangaD/Design-Patterns-Case-Study/refs/heads/main/Creational/Builder/builder.puml)
 
 ---
 

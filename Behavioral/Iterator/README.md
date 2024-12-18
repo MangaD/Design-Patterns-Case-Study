@@ -38,7 +38,7 @@ This pattern is particularly useful when:
 
 The UML diagram below illustrates the Iterator Pattern, showing the relationship between the `Iterator` interface, `ConcreteIterator`, `Aggregate`, and `ConcreteAggregate`:
 
-![UML Diagram](iterator.png)
+![UML Diagram](http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/MangaD/Design-Patterns-Case-Study/refs/heads/main/Behavioral/Iterator/iterator.puml)
 
 ---
 

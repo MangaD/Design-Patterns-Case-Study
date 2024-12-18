@@ -38,7 +38,7 @@ This pattern is particularly useful when:
 
 The UML diagram below illustrates the Proxy Pattern, showing the relationship between the **Proxy**, **Real Subject**, and the **Client**.
 
-![UML Diagram](proxy.png)
+![UML Diagram](http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/MangaD/Design-Patterns-Case-Study/refs/heads/main/Structural/Proxy/proxy.puml)
 
 ---
 

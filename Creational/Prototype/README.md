@@ -34,7 +34,7 @@ This pattern is particularly useful when the cost of creating new objects is hig
 
 The UML diagram below illustrates the Prototype Pattern, showing how a client clones objects using the prototype interface:
 
-![UML Diagram](prototype.png)
+![UML Diagram](http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/MangaD/Design-Patterns-Case-Study/refs/heads/main/Creational/Prototype/prototype.puml)
 
 ---
 

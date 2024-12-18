@@ -33,7 +33,7 @@ This pattern is particularly useful in scenarios where object creation and destr
 
 The UML diagram below illustrates the Object Pool Pattern, showing how a client interacts with the pool to borrow and return objects:
 
-![UML Diagram](object_pool.png)
+![UML Diagram](http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/MangaD/Design-Patterns-Case-Study/refs/heads/main/Creational/ObjectPool/object_pool.puml)
 
 ---
 

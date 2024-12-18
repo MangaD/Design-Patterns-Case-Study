@@ -33,7 +33,7 @@ The Abstract Factory encapsulates the creation logic for groups of related objec
 
 The UML diagram below illustrates the Abstract Factory Pattern. Each concrete factory creates multiple products that belong to the same family.
 
-![UML Diagram](abstract_factory.png)
+![UML Diagram](http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/MangaD/Design-Patterns-Case-Study/refs/heads/main/Creational/AbstractFactory/abstract_factory.puml)
 
 ---
 

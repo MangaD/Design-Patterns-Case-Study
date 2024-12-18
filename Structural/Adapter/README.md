@@ -55,7 +55,7 @@ The Adapter Pattern is particularly useful in the following scenarios:
 The **Class Adapter** uses inheritance to adapt the Adaptee to the Target interface. This approach requires that the Adapter inherit from both the Target and Adaptee, which is possible in languages supporting multiple inheritance (e.g., C++). It is less flexible but can directly override Adaptee behavior if necessary.
 
 #### UML for Class Adapter
-![UML Diagram](class_adapter.png)
+![UML Diagram](http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/MangaD/Design-Patterns-Case-Study/refs/heads/main/Structural/Adapter/class_adapter.puml)
 
 ---
 
@@ -64,7 +64,7 @@ The **Class Adapter** uses inheritance to adapt the Adaptee to the Target interf
 The **Object Adapter** uses composition to adapt the Adaptee to the Target interface. The Adapter holds a reference to the Adaptee and delegates requests to it. This approach is more flexible because the Adapter can work with multiple Adaptee instances.
 
 #### UML for Object Adapter
-![UML Diagram](object_adapter.png)
+![UML Diagram](http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/MangaD/Design-Patterns-Case-Study/refs/heads/main/Structural/Adapter/object_adapter.puml)
 
 ---
 

@@ -37,7 +37,7 @@ This allows for easy swapping of algorithms, adherence to the **Open-Closed Prin
 
 The UML diagram below illustrates the Strategy Pattern, where the `Context` class delegates algorithm execution to a `Strategy` object.
 
-![UML Diagram](strategy.png)
+![UML Diagram](http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/MangaD/Design-Patterns-Case-Study/refs/heads/main/Behavioral/Strategy/strategy.puml)
 
 ---
 

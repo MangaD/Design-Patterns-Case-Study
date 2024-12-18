@@ -41,7 +41,7 @@ The main goal of the Factory Method Pattern is to promote **loose coupling** by 
 
 The diagram below illustrates the Factory Method Pattern, showing how the abstract creator delegates the creation of products to concrete subclasses.
 
-![UML Diagram](factory_method.png)
+![UML Diagram](http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/MangaD/Design-Patterns-Case-Study/refs/heads/main/Creational/FactoryMethod/factory_method.puml)
 
 ---
 

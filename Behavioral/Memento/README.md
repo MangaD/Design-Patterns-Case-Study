@@ -41,7 +41,7 @@ This pattern is particularly useful when:
 
 The UML diagram below illustrates the relationships between the Originator, Memento, and Caretaker in the Memento Pattern.
 
-![Memento UML Diagram](memento.png)
+![UML Diagram](http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/MangaD/Design-Patterns-Case-Study/refs/heads/main/Behavioral/Memento/memento.puml)
 
 ---
 

@@ -40,7 +40,7 @@ This pattern is particularly useful when:
 
 The UML diagram below illustrates the Flyweight Pattern. A `Flyweight` interface defines common operations, and a `FlyweightFactory` manages shared instances.
 
-![UML Diagram](flyweight.png)
+![UML Diagram](http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/MangaD/Design-Patterns-Case-Study/refs/heads/main/Structural/Flyweight/flyweight.puml)
 
 ---
 

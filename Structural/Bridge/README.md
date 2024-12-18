@@ -34,7 +34,7 @@ This pattern is especially useful when a class hierarchy grows too large due to 
 
 The UML diagram below illustrates the Bridge Pattern, showing how an abstraction uses a bridge to communicate with an implementation.
 
-![UML Diagram](bridge.png)
+![UML Diagram](http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/MangaD/Design-Patterns-Case-Study/refs/heads/main/Structural/Bridge/bridge.puml)
 
 - **Abstraction**: Defines the high-level control logic.
 - **Refined Abstraction**: Extends the `Abstraction` to add specific behaviors.

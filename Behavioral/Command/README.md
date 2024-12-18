@@ -40,7 +40,7 @@ This pattern is particularly useful for decoupling the **invoker** (the object m
 
 The UML diagram below illustrates the Command Pattern, showing how the `Invoker` interacts with `Command` objects to execute requests on `Receiver` objects.
 
-![UML Diagram](command.png)
+![UML Diagram](http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/MangaD/Design-Patterns-Case-Study/refs/heads/main/Behavioral/Command/command.puml)
 
 - **Command**: Declares the interface for executing an operation.
 - **ConcreteCommand**: Implements the `Command` interface and defines the relationship between the `Receiver` and the action.

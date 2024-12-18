@@ -33,7 +33,7 @@ This pattern is often used when the extension of functionality via inheritance i
 
 The UML diagram below illustrates the Decorator Pattern. It shows how the decorator adds behavior to the component dynamically while maintaining the component interface.
 
-![UML Diagram](decorator.png)
+![UML Diagram](http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/MangaD/Design-Patterns-Case-Study/refs/heads/main/Structural/Decorator/decorator.puml)
 
 ---
 

@@ -40,7 +40,7 @@ This pattern is particularly useful when:
 
 The UML diagram below illustrates the Singleton Pattern. The static `getInstance` method ensures a single instance of the class is created and shared.
 
-![UML Diagram](singleton.png)
+![UML Diagram](http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/MangaD/Design-Patterns-Case-Study/refs/heads/main/Creational/Singleton/singleton.puml)
 
 ---
 

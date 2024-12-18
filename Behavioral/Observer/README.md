@@ -37,7 +37,7 @@ Consider a subscription service where users subscribe to receive updates (e.g., 
 
 The UML diagram below illustrates the Observer Pattern, showing the relationship between the subject and its observers:
 
-![Observer UML Diagram](observer.png)
+![UML Diagram](http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/MangaD/Design-Patterns-Case-Study/refs/heads/main/Behavioral/Observer/observer.puml)
 
 ---
 

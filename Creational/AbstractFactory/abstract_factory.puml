@@ -31,8 +31,5 @@ class ConcreteProductB2 implements AbstractProductB
 
 AbstractFactory <|-- ConcreteFactory1
 AbstractFactory <|-- ConcreteFactory2
-AbstractProductA <|.. ConcreteProductA1
-AbstractProductA <|.. ConcreteProductA2
-AbstractProductB <|.. ConcreteProductB1
-AbstractProductB <|.. ConcreteProductB2
+
 @enduml

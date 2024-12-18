@@ -42,7 +42,7 @@ The Visitor Pattern is particularly useful when:
 
 The UML diagram below illustrates the Visitor Pattern, showcasing how the Visitor interacts with Elements and their structure.
 
-![UML Diagram](visitor.png)
+![UML Diagram](http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/MangaD/Design-Patterns-Case-Study/refs/heads/main/Behavioral/Visitor/visitor.puml)
 
 ---
 

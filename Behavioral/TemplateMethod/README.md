@@ -48,7 +48,7 @@ This pattern is particularly useful when:
 
 The UML diagram below illustrates the Template Method Pattern, showing how the base class defines the algorithm structure and subclasses override specific steps:
 
-![Template Method UML Diagram](template_method.png)
+![UML Diagram](http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/MangaD/Design-Patterns-Case-Study/refs/heads/main/Behavioral/TemplateMethod/template_method.puml)
 
 ---
 

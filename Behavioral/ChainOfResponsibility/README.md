@@ -39,7 +39,7 @@ This pattern is particularly useful in scenarios where:
 
 The UML diagram below illustrates the Chain of Responsibility Pattern, highlighting the flow of requests between the client and the chain of handlers.
 
-![UML Diagram](chain_of_responsibility.png)
+![UML Diagram](http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/MangaD/Design-Patterns-Case-Study/refs/heads/main/Behavioral/ChainOfResponsibility/chain_of_responsibility.puml)
 
 ---
 

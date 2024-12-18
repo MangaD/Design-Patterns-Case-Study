@@ -36,7 +36,7 @@ This pattern is particularly useful when dealing with a system of objects that m
 
 The UML diagram below illustrates the Composite Pattern, showing the relationships between the **Component**, **Leaf**, and **Composite**.
 
-![UML Diagram](composite.png)
+![UML Diagram](http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/MangaD/Design-Patterns-Case-Study/refs/heads/main/Structural/Composite/composite.puml)
 
 ---
 

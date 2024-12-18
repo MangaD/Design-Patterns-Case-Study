@@ -36,7 +36,7 @@ This pattern is particularly useful when:
 
 The UML diagram below illustrates the Mediator Pattern, showing how colleagues communicate exclusively through the mediator.
 
-![UML Diagram](mediator.png)
+![UML Diagram](http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/MangaD/Design-Patterns-Case-Study/refs/heads/main/Behavioral/Mediator/mediator.puml)
 
 ---
 
