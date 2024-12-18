@@ -1,5 +1,5 @@
 """
-@brief This module implements the Facade pattern in Python.
+This module implements the Facade pattern in Python.
 """
 
 class Subsystem1:
@@ -9,6 +9,7 @@ class Subsystem1:
 	def operation1(self) -> str:
 		"""
 		Perform operation 1.
+
 		:return: A string describing the operation.
 		"""
 		return "Subsystem1: Operation 1\n"
@@ -21,6 +22,7 @@ class Subsystem2:
 	def operation2(self) -> str:
 		"""
 		Perform operation 2.
+
 		:return: A string describing the operation.
 		"""
 		return "Subsystem2: Operation 2\n"
@@ -33,6 +35,7 @@ class Subsystem3:
 	def operation3(self) -> str:
 		"""
 		Perform operation 3.
+		
 		:return: A string describing the operation.
 		"""
 		return "Subsystem3: Operation 3\n"

@@ -1,7 +1,10 @@
 bin/
 build/
 docs/doxygen
-docs/java
+docs/javadoc
+docs/source/*_api.rst
+docs/source/*_pattern.rst
+docs/source/*_patterns.rst
 .vscode/
 .gradle/
 __pycache__

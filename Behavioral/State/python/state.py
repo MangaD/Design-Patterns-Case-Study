@@ -51,6 +51,11 @@ class ConcreteStateA(State):
 	ConcreteStateA implements the behavior associated with a state.
 	"""
 	def handle(self, context: Context):
+		"""
+		Handle the request, log the current state and transition to ConcreteStateB.
+
+		:param context: The context in which the state operates, allowing state transitions.
+		"""
 		logger.info("ConcreteStateA: Handling request.")
 		logger.info("ConcreteStateA: Transitioning to ConcreteStateB.")
 		context.set_state(ConcreteStateB())
@@ -60,6 +65,11 @@ class ConcreteStateB(State):
 	ConcreteStateB implements the behavior associated with a state.
 	"""
 	def handle(self, context: Context):
+		"""
+		Handle the request, log the current state and transition to ConcreteStateA.
+
+		:param context: The context in which the state operates, allowing state transitions.
+		"""
 		logger.info("ConcreteStateB: Handling request.")
 		logger.info("ConcreteStateB: Transitioning to ConcreteStateA.")
 		context.set_state(ConcreteStateA())

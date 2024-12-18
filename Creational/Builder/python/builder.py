@@ -10,6 +10,12 @@ class Product:
 	"""
 
 	def __init__(self):
+		"""
+		Initializes the Product instance.
+
+		Sets the attributes `part_a` and `part_b` to None, which represent the
+		individual parts of the product.
+		"""
 		self.part_a = None  # Represents Part A of the product
 		self.part_b = None  # Represents Part B of the product
 
@@ -75,6 +81,11 @@ class ConcreteBuilder(Builder):
 	"""
 
 	def __init__(self):
+		"""
+		Initializes a new instance of the ConcreteBuilder class.
+
+		Initializes the builder with a new instance of the Product class.
+		"""
 		self.product = Product()
 
 	def build_part_a(self):

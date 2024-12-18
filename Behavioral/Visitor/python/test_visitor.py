@@ -2,6 +2,11 @@ import pytest
 from visitor import ElementA, ElementB, ConcreteVisitorA, ConcreteVisitorB, ObjectStructure
 
 def test_element_a_visitor_a(caplog):
+	"""
+	Test visiting an ElementA instance with a ConcreteVisitorA.
+
+	Checks that the correct operation is executed and the expected log message is produced.
+	"""
 	with caplog.at_level("INFO"):
 		element = ElementA()
 		visitor = ConcreteVisitorA()
@@ -10,6 +15,11 @@ def test_element_a_visitor_a(caplog):
 
 
 def test_element_b_visitor_a(caplog):
+	"""
+	Test visiting an ElementB instance with a ConcreteVisitorA.
+
+	Checks that the correct operation is executed and the expected log message is produced.
+	"""
 	with caplog.at_level("INFO"):
 		element = ElementB()
 		visitor = ConcreteVisitorA()
@@ -18,6 +28,11 @@ def test_element_b_visitor_a(caplog):
 
 
 def test_element_a_visitor_b(caplog):
+	"""
+	Test visiting an ElementA instance with a ConcreteVisitorB.
+
+	Checks that the correct operation is executed and the expected log message is produced.
+	"""
 	with caplog.at_level("INFO"):
 		element = ElementA()
 		visitor = ConcreteVisitorB()
@@ -26,6 +41,11 @@ def test_element_a_visitor_b(caplog):
 
 
 def test_element_b_visitor_b(caplog):
+	"""
+	Test visiting an ElementB instance with a ConcreteVisitorB.
+
+	Checks that the correct operation is executed and the expected log message is produced.
+	"""
 	with caplog.at_level("INFO"):
 		element = ElementB()
 		visitor = ConcreteVisitorB()
@@ -34,6 +54,11 @@ def test_element_b_visitor_b(caplog):
 
 
 def test_object_structure_with_visitor_a(caplog):
+	"""
+	Test visiting elements in an ObjectStructure with a ConcreteVisitorA.
+
+	Checks that the correct operations are executed and the expected log messages are produced.
+	"""
 	with caplog.at_level("INFO"):
 		structure = ObjectStructure()
 		structure.add_element(ElementA())
@@ -47,6 +72,11 @@ def test_object_structure_with_visitor_a(caplog):
 
 
 def test_object_structure_with_visitor_b(caplog):
+	"""
+	Test visiting elements in an ObjectStructure with a ConcreteVisitorB.
+
+	Checks that the correct operations are executed and the expected log messages are produced.
+	"""
 	with caplog.at_level("INFO"):
 		structure = ObjectStructure()
 		structure.add_element(ElementA())

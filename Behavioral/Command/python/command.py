@@ -44,6 +44,8 @@ class ConcreteCommandA(Command):
 
 	def __init__(self, receiver: Receiver) -> None:
 		"""
+		Initialize the ConcreteCommandA with the specified receiver.
+
 		:param receiver: The receiver instance to operate on.
 		"""
 		self._receiver = receiver
@@ -62,6 +64,8 @@ class ConcreteCommandB(Command):
 
 	def __init__(self, receiver: Receiver) -> None:
 		"""
+		Initialize the ConcreteCommandB with the specified receiver.
+
 		:param receiver: The receiver instance to operate on.
 		"""
 		self._receiver = receiver
@@ -87,6 +91,7 @@ class Invoker:
 	def add_command(self, command: Command) -> None:
 		"""
 		Add a command to the queue.
+		
 		:param command: The command to add.
 		"""
 		self._command_queue.append(command)

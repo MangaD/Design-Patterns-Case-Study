@@ -7,6 +7,7 @@ class Target(Protocol):
 	def request(self) -> str:
 		"""
 		Handles the request in a format expected by the client.
+
 		:return: A string response.
 		"""
 		pass
@@ -18,6 +19,7 @@ class Adaptee:
 	def specific_request(self) -> str:
 		"""
 		Provides functionality that needs to be adapted.
+
 		:return: A specific string response.
 		"""
 		return "Adaptee: Specific request called."
@@ -27,6 +29,12 @@ class Adapter(Target):
 	Adapts the Adaptee to the Target interface.
 	"""
 	def __init__(self, adaptee: Adaptee):
+		"""
+		Initializes the Adapter with an Adaptee instance.
+
+		:param adaptee: The Adaptee instance to be adapted. Must not be None.
+		:raises ValueError: If the provided Adaptee instance is None.
+		"""
 		if not adaptee:
 			raise ValueError("Adaptee cannot be None")
 		self._adaptee = adaptee
@@ -34,6 +42,7 @@ class Adapter(Target):
 	def request(self) -> str:
 		"""
 		Translates the Target's request to the Adaptee's specific_request.
+		
 		:return: A string response translated by the Adapter.
 		"""
 		return f"Adapter: Translating request to Adaptee's specific_request.\n{self._adaptee.specific_request()}"

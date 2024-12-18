@@ -8,6 +8,7 @@ class Strategy(Protocol):
 	def execute(self) -> str:
 		"""
 		Execute the strategy's algorithm.
+
 		:return: A string result of the algorithm.
 		"""
 		pass
@@ -21,6 +22,7 @@ class ConcreteStrategyA:
 	def execute(self) -> str:
 		"""
 		Execute ConcreteStrategyA's algorithm.
+
 		:return: A string result indicating the execution.
 		"""
 		return "Executing strategy A."
@@ -34,6 +36,7 @@ class ConcreteStrategyB:
 	def execute(self) -> str:
 		"""
 		Execute ConcreteStrategyB's algorithm.
+
 		:return: A string result indicating the execution.
 		"""
 		return "Executing strategy B."
@@ -53,6 +56,7 @@ class Context:
 	def set_strategy(self, strategy: Strategy) -> None:
 		"""
 		Set the current strategy.
+
 		:param strategy: The strategy to use.
 		"""
 		self._strategy = strategy
@@ -60,6 +64,7 @@ class Context:
 	def execute_strategy(self) -> str:
 		"""
 		Execute the current strategy's algorithm.
+		
 		:return: The result of the algorithm as a string.
 		:raises ValueError: If no strategy is set.
 		"""

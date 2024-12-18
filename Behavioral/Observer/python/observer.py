@@ -13,6 +13,7 @@ class Observer(Protocol):
 	def update(self, state: str) -> None:
 		"""
 		Called by the subject to notify the observer of a state change.
+		
 		:param state: The updated state.
 		"""
 		pass
@@ -23,12 +24,16 @@ class Subject:
 	Manages observers and notifies them of state changes.
 	"""
 	def __init__(self):
+		"""
+		Initialize the Subject with an empty list of observers and a default state.
+		"""
 		self._observers: List[Observer] = []
 		self._state: str = ""
 
 	def attach(self, observer: Observer) -> None:
 		"""
 		Add an observer to the subject.
+
 		:param observer: The observer to attach.
 		"""
 		if observer not in self._observers:
@@ -38,6 +43,7 @@ class Subject:
 	def detach(self, observer: Observer) -> None:
 		"""
 		Remove an observer from the subject.
+
 		:param observer: The observer to detach.
 		"""
 		if observer in self._observers:
@@ -54,6 +60,7 @@ class Subject:
 	def set_state(self, state: str) -> None:
 		"""
 		Update the subject's state and notify observers.
+
 		:param state: The new state to set.
 		"""
 		self._state = state
@@ -63,6 +70,7 @@ class Subject:
 	def get_state(self) -> str:
 		"""
 		Retrieve the current state of the subject.
+
 		:return: The current state.
 		"""
 		return self._state
@@ -73,11 +81,17 @@ class ConcreteObserver:
 	Concrete implementation of an observer.
 	"""
 	def __init__(self, name: str):
+		"""
+		Initialize the concrete observer with a given name.
+
+		:param name: The name of the observer.
+		"""
 		self.name = name
 
 	def update(self, state: str) -> None:
 		"""
 		Receive an update from the subject.
+
 		:param state: The updated state.
 		"""
 		logger.info("Observer %s received update. New state: %s", self.name, state)
@@ -85,6 +99,7 @@ class ConcreteObserver:
 	def __str__(self) -> str:
 		"""
 		String representation of the observer.
+
 		:return: Observer's name.
 		"""
 		return self.name

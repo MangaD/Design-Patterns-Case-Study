@@ -1,5 +1,5 @@
 """
-@brief Unit tests for the Facade pattern.
+Unit tests for the Facade pattern.
 """
 
 import unittest
