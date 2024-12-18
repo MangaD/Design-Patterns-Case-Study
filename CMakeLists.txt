@@ -96,7 +96,7 @@ file(GLOB_RECURSE JAVA_SOURCES
 list(FILTER JAVA_SOURCES EXCLUDE REGEX ".*Test\\.java$")
 
 add_custom_target(javadoc
-	COMMAND javadoc -d ${CMAKE_SOURCE_DIR}/docs/java ${JAVA_SOURCES}
+	COMMAND javadoc -d ${CMAKE_SOURCE_DIR}/docs/javadoc ${JAVA_SOURCES}
 	COMMENT "Generating Java documentation with Javadoc"
 	VERBATIM
 )

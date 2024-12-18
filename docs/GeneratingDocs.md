@@ -53,10 +53,10 @@ To generate unified and comprehensive documentation for a multi-language project
 - **Install Sphinx**:
   - Install Sphinx and the autodoc extension:
     ```bash
-    pip install sphinx sphinx-rtd-theme
+    pip install sphinx sphinx-autodoc-typehints sphinx-rtd-theme
     ```
 - **Initialize Sphinx**:
-  - Run `sphinx-quickstart` and configure it to output HTML.
+  - Run `sphinx-quickstart` in the `docs` directory and configure it to output HTML.
   - In the `conf.py` file, set up autodoc for Python:
     ```python
     extensions = ['sphinx.ext.autodoc', 'sphinx.ext.napoleon']

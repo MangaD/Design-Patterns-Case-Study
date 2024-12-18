@@ -7,6 +7,12 @@ logger = logging.getLogger("observer")
 
 
 def test_attach_and_notify_observers(caplog):
+	"""
+	Test attaching multiple observers and verifying notifications.
+
+	Tests that attaching multiple observers and changing the subject state
+	result in all observers being notified of the change.
+	"""
 	subject = Subject()
 	observer1 = ConcreteObserver("Observer1")
 	observer2 = ConcreteObserver("Observer2")
@@ -25,6 +31,13 @@ def test_attach_and_notify_observers(caplog):
 
 
 def test_detach_observer(caplog):
+	"""
+	Test detaching an observer and verifying it no longer receives updates.
+
+	Ensures that after detaching an observer, it does not receive notifications
+	when the subject's state changes, while other attached observers do.
+	"""
+
 	subject = Subject()
 	observer1 = ConcreteObserver("Observer1")
 	observer2 = ConcreteObserver("Observer2")
@@ -43,6 +56,14 @@ def test_detach_observer(caplog):
 
 
 def test_no_observers(caplog):
+	"""
+	Test that the system behaves correctly when no observers are attached.
+	
+	Ensures that when the subject's state is changed without any observers 
+	attached, no observer notifications occur, and only the subject's state 
+	update is logged.
+	"""
+
 	subject = Subject()
 
 	# Set state without any observers
@@ -54,6 +75,12 @@ def test_no_observers(caplog):
 
 
 def test_attach_same_observer_multiple_times(caplog):
+	"""
+	Test attaching the same observer multiple times.
+
+	Verifies that attaching the same observer multiple times results in only
+	one notification when the subject's state changes.
+	"""
 	subject = Subject()
 	observer1 = ConcreteObserver("Observer1")
 
@@ -69,6 +96,12 @@ def test_attach_same_observer_multiple_times(caplog):
 
 
 def test_state_retrieval():
+	"""
+	Test subject state retrieval after update.
+	
+	Verifies that the subject's state is updated correctly and can be retrieved
+	using the get_state method.
+	"""
 	subject = Subject()
 	subject.set_state("State5")
 	assert subject.get_state() == "State5"

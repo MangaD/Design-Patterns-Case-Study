@@ -23,6 +23,9 @@ class Subject:
 	Manages observers and notifies them of state changes.
 	"""
 	def __init__(self):
+		"""
+		Initialize the Subject with an empty list of observers and a default state.
+		"""
 		self._observers: List[Observer] = []
 		self._state: str = ""
 
@@ -73,6 +76,10 @@ class ConcreteObserver:
 	Concrete implementation of an observer.
 	"""
 	def __init__(self, name: str):
+		"""
+		Initialize the concrete observer with a given name.
+		:param name: The name of the observer.
+		"""
 		self.name = name
 
 	def update(self, state: str) -> None:

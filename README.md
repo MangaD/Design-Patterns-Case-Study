@@ -95,13 +95,16 @@ DesignPatternsCaseStudy/
 ### **C++**
 - **Build System**: CMake
 - **Unit Testing**: GoogleTest
+- **Documentation**: Doxygen
 
 ### **Java**
 - **Build System**: Gradle
 - **Unit Testing**: JUnit
+- **Documentation**: JavaDocs
 
 ### **Python**
-- **Unit Testing**: unittest
+- **Unit Testing**: unittest, pytest
+- **Documentation**: Sphinx
 
 ---
 

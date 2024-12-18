@@ -29,9 +29,17 @@ class ConcreteComponent(Component):
 	"""
 
 	def get_description(self) -> str:
+		"""
+		Returns a string description of the component.
+		:return: A string representing the description.
+		"""
 		return "Concrete Component"
 
 	def cost(self) -> float:
+		"""
+		Get the cost of the component.
+		:return: The cost as a float.
+		"""
 		return 10.0
 
 
@@ -70,9 +78,17 @@ class ConcreteDecoratorA(Decorator):
 	"""
 
 	def get_description(self) -> str:
+		"""
+		Returns the description of the component with Feature A added.
+		:return: A string description including Feature A.
+		"""
 		return f"{self._component.get_description()} + Feature A"
 
 	def cost(self) -> float:
+		"""
+		Get the cost of the decorated component with Feature A added.
+		:return: The cost as a float with Feature A added.
+		"""
 		return self._component.cost() + 5.0
 
 
@@ -82,7 +98,15 @@ class ConcreteDecoratorB(Decorator):
 	"""
 
 	def get_description(self) -> str:
+		"""
+		Returns the description of the component with Feature B added.
+		:return: A string description including Feature B.
+		"""
 		return f"{self._component.get_description()} + Feature B"
 
 	def cost(self) -> float:
+		"""
+		Get the cost of the decorated component with Feature B added.
+		:return: The cost as a float with Feature B added.
+		"""
 		return self._component.cost() + 7.5

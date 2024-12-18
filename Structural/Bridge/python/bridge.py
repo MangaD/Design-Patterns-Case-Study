@@ -23,6 +23,9 @@ class ConcreteImplementorA(Implementor):
 	"""
 
 	def implementation(self) -> None:
+		"""
+		Provides a concrete implementation of the operation.
+		"""
 		logger.info("ConcreteImplementorA: Performing implementation.")
 
 class ConcreteImplementorB(Implementor):
@@ -31,6 +34,9 @@ class ConcreteImplementorB(Implementor):
 	"""
 
 	def implementation(self) -> None:
+		"""
+		Provides a concrete implementation of the operation.
+		"""
 		logger.info("ConcreteImplementorB: Performing implementation.")
 
 class Abstraction:

@@ -27,6 +27,12 @@ class Adapter(Target):
 	Adapts the Adaptee to the Target interface.
 	"""
 	def __init__(self, adaptee: Adaptee):
+		"""
+		Initializes the Adapter with an Adaptee instance.
+
+		:param adaptee: The Adaptee instance to be adapted. Must not be None.
+		:raises ValueError: If the provided Adaptee instance is None.
+		"""
 		if not adaptee:
 			raise ValueError("Adaptee cannot be None")
 		self._adaptee = adaptee

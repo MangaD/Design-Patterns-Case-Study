@@ -62,12 +62,26 @@ class ConcreteClass1(AbstractClass):
 	"""
 
 	def required_operation1(self) -> None:
+		"""
+		A required operation that must be implemented by subclasses.
+		In this case, this method adds its own behavior before or after
+		calling the base implementation.
+		"""		
 		logger.info("ConcreteClass1: Required operation 1")
 
 	def required_operation2(self) -> None:
+		"""
+		A required operation that must be implemented by subclasses.
+		In this case, this method adds its own behavior before or after
+		calling the base implementation.
+		"""
 		logger.info("ConcreteClass1: Required operation 2")
 
 	def hook(self) -> None:
+		"""
+		A hook that can be overridden by subclasses.
+		This implementation provides a specific behavior.
+		"""
 		logger.info("ConcreteClass1: Overridden hook implementation")
 
 
@@ -77,9 +91,17 @@ class ConcreteClass2(AbstractClass):
 	"""
 
 	def required_operation1(self) -> None:
+		"""
+		A required operation that must be implemented by subclasses.
+		In this case, this method calls the base implementation.
+		"""
 		logger.info("ConcreteClass2: Required operation 1")
 
 	def required_operation2(self) -> None:
+		"""
+		A required operation that must be implemented by subclasses.
+		In this case, this method calls the base implementation.
+		"""
 		logger.info("ConcreteClass2: Required operation 2")
 
 	# No need to override the hook; the default implementation is used.

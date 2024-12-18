@@ -7,6 +7,11 @@ class MockTarget(Target):
 	A mock implementation of the Target protocol for testing purposes.
 	"""
 	def request(self) -> str:
+		"""
+		Handles the request in a format expected by the client.
+		
+		:return: A string response.
+		"""
 		return "MockTarget: Request handled."
 
 

@@ -14,6 +14,9 @@ class Handler(ABC):
 	"""
 
 	def __init__(self):
+		"""
+		Initializes the handler with no next handler in the chain.
+		"""
 		self._next_handler: Optional[Handler] = None
 
 	def set_next(self, handler: Handler) -> Handler:
@@ -40,6 +43,10 @@ class AbstractHandler(Handler):
 	"""
 
 	def handle_request(self, request: str) -> None:
+		"""
+		Forwards the request to the next handler if available.
+		:param request: The request to handle.
+		"""
 		if self._next_handler:
 			self._next_handler.handle_request(request)
 
@@ -50,6 +57,10 @@ class ConcreteHandlerA(AbstractHandler):
 	"""
 
 	def handle_request(self, request: str) -> None:
+		"""
+		Handles the request if applicable or forwards it to the next handler.
+		:param request: The request to handle.
+		"""
 		if request == 'A':
 			logger.info(f"ConcreteHandlerA handled request: {request}")
 		else:
@@ -63,6 +74,10 @@ class ConcreteHandlerB(AbstractHandler):
 	"""
 
 	def handle_request(self, request: str) -> None:
+		"""
+		Handles the request if it matches 'B', otherwise forwards it to the next handler.
+		:param request: The request to handle.
+		"""
 		if request == 'B':
 			logger.info(f"ConcreteHandlerB handled request: {request}")
 		else:
