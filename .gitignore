@@ -2,9 +2,12 @@ bin/
 build/
 docs/doxygen
 docs/javadoc
+docs/build
+docs/source/Behavioral
+docs/source/Creational
+docs/source/Structural
+docs/source/*.gen.rst
 docs/source/*_api.rst
-docs/source/*_pattern.rst
-docs/source/*_patterns.rst
 .vscode/
 .gradle/
 __pycache__

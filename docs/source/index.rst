@@ -14,12 +14,13 @@ Welcome to the Design Patterns Case Study Documentation!
    :maxdepth: 2
    :caption: Contents:
 
-   introduction
-   creational_patterns
-   structural_patterns
-   behavioral_patterns
-   gof
-   references
+   introduction.gen
+   creational_patterns.gen
+   structural_patterns.gen
+   behavioral_patterns.gen
+   gof.gen
+   references.gen
+   cpp_api_index.gen
    python_api
 
 Indices and tables
@@ -29,3 +30,6 @@ Indices and tables
 * :ref:`modindex`
 * :ref:`search`
 
+Java API Documentation
+=======================
+`Javadoc <../../javadoc/index.html>`_

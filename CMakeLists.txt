@@ -63,9 +63,15 @@ find_package(Doxygen)
 # Configure Doxygen options
 set(DOXYGEN_PROJECT_NAME "Design Patterns Case Study - C++")
 set(DOXYGEN_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/docs/doxygen)
+set(DOXYGEN_XML_OUTPUT ${CMAKE_SOURCE_DIR}/docs/doxygen/xml)
 set(DOXYGEN_GENERATE_HTML YES)
+set(DOXYGEN_GENERATE_XML YES)  # Required for Breathe
 set(DOXYGEN_GENERATE_LATEX NO)
 set(DOXYGEN_EXTRACT_ALL YES)
+set(DOXYGEN_EXTRACT_PRIVATE YES)
+set(DOXYGEN_EXTRACT_STATIC YES)
+set(DOXYGEN_EXTRACT_LOCAL_CLASSES YES)
+set(DOXYGEN_FULL_PATH_NAMES YES)
 set(DOXYGEN_RECURSIVE YES)
 set(DOXYGEN_STRIP_FROM_PATH ${CMAKE_SOURCE_DIR})
 set(DOXYGEN_GENERATE_TREEVIEW YES)
@@ -102,10 +108,12 @@ add_custom_target(javadoc
 )
 
 add_custom_target(sphinx
-	COMMAND sphinx-build -b html ${CMAKE_SOURCE_DIR}/docs ${CMAKE_SOURCE_DIR}/docs/sphinx
+	#COMMAND ${CMAKE_COMMAND} --build . --target doc  # Generate Doxygen docs
+	COMMAND sphinx-build -b html ${CMAKE_SOURCE_DIR}/docs/source ${CMAKE_SOURCE_DIR}/docs/build
 	COMMENT "Generating Python documentation with Sphinx"
 	VERBATIM
 )
+
 
 add_custom_target(all_docs
 	DEPENDS doc javadoc sphinx

@@ -1,12 +1,13 @@
 import os
 
-def generate_pattern_rst_files(base_dir, category, output_dir):
+def generate_pattern_rst_files(base_dir, category, output_dir, suffix=".gen.rst"):
 	"""
 	Generate individual .rst files for each design pattern and the main category file.
 
 	:param base_dir: The base directory containing the design patterns.
 	:param category: The category name (e.g., Behavioral, Structural, Creational).
 	:param output_dir: The directory to write the generated .rst files.
+	:param suffix: The suffix to append to generated file names.
 	"""
 	category_dir = os.path.join(base_dir, category)
 	patterns = sorted(os.listdir(category_dir))
@@ -17,7 +18,7 @@ def generate_pattern_rst_files(base_dir, category, output_dir):
 
 	# Generate individual .rst files
 	for pattern in patterns:
-		pattern_rst_path = os.path.join(output_dir, f"{pattern.lower()}_pattern.rst")
+		pattern_rst_path = os.path.join(output_dir, f"{pattern.lower()}_pattern{suffix}")
 		with open(pattern_rst_path, 'w') as pattern_rst_file:
 			pattern_rst_file.write(".. toctree::\n")
 			pattern_rst_file.write("   :hidden:\n\n")
@@ -25,7 +26,7 @@ def generate_pattern_rst_files(base_dir, category, output_dir):
 			pattern_rst_file.write("   :parser: myst_parser.sphinx_\n")
 
 	# Generate the category .rst file
-	category_rst_path = os.path.join(output_dir, f"{category.lower()}_patterns.rst")
+	category_rst_path = os.path.join(output_dir, f"{category.lower()}_patterns{suffix}")
 	with open(category_rst_path, 'w') as category_rst_file:
 		category_rst_file.write(f"{category} Patterns\n")
 		category_rst_file.write("=" * (len(category) + 9) + "\n\n")
@@ -34,7 +35,7 @@ def generate_pattern_rst_files(base_dir, category, output_dir):
 		category_rst_file.write("   :maxdepth: 1\n\n")
 
 		for pattern in patterns:
-			category_rst_file.write(f"   {pattern.lower()}_pattern\n")
+			category_rst_file.write(f"   {pattern.lower()}_pattern{suffix.replace('.rst', '')}\n")
 
 
 def get_category_description(category):
@@ -57,6 +58,6 @@ if __name__ == "__main__":
 	base_dir = os.path.abspath("../../")
 	output_dir = os.path.abspath("./")  # Current directory for generated .rst files
 
-	# Generate .rst files for each category
+	# Generate .rst files for each category with the `gen` suffix
 	for category in ["Behavioral", "Structural", "Creational"]:
-		generate_pattern_rst_files(base_dir, category, output_dir)
+		generate_pattern_rst_files(base_dir, category, output_dir, suffix=".gen.rst")
