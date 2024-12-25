@@ -66,3 +66,55 @@ jobs:
       - name: Run Python tests
         run: |
           pytest
+
+  deploy-docs:
+    name: Deploy Sphinx Documentation
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Set up JDK
+        uses: actions/setup-java@v3
+        with:
+          java-version: '23'
+          distribution: 'oracle'
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y cmake g++ libgtest-dev doxygen
+
+      - name: Install Sphinx dependencies
+        run: |
+          pip install sphinx breathe sphinx-autodoc-typehints sphinx-rtd-theme myst-parser[linkify]
+
+      - name: Build Sphinx documentation
+        run: |
+          cd docs
+          make html
+
+      #- name: Deploy to GitHub Pages
+      #  uses: peaceiris/actions-gh-pages@v3
+      #  with:
+      #    github_token: ${{ secrets.GITHUB_TOKEN }}
+      #    publish_dir: docs/build/html
+
+      # GitHub Actions bots only have default read permissions.
+      # A PAT allows it to perform write operations, such as pushing updates to the gh-pages branch.
+      - name: Deploy to GitHub Pages
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          cd docs/build/html
+          git init
+          git add .
+          git commit -m "Deploy updated documentation [skip ci]" || echo "No changes to commit"
+          git branch -M gh-pages
+          git remote add origin https://x-access-token:${{ secrets.GH_PAGES_TOKEN }}@github.com/${{ github.repository }}.git
+          git push --force origin gh-pages
