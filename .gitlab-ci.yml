@@ -1,6 +1,7 @@
 stages:
   - build
   - test
+  - deploy
 
 # C++ Build and Test
 build-cpp:
@@ -57,3 +58,33 @@ test-python:
     - pip install pytest
   script:
     - pytest
+
+# Sphinx Documentation Build
+build-docs:
+  stage: build
+  image: python:3.11
+  before_script:
+    - pip install sphinx breathe sphinx-autodoc-typehints sphinx-rtd-theme myst-parser[linkify]
+    - apt-get update && apt-get install -y cmake doxygen g++ libgtest-dev openjdk-17-jdk
+  script:
+    - cd docs
+    - make html
+  artifacts:
+    paths:
+      - docs/build/html/
+      - docs/javadoc/
+    expire_in: 1 week
+
+# Deploy to GitLab Pages
+pages:
+  stage: deploy
+  image: alpine:latest
+  dependencies:
+    - build-docs
+  script:
+    - mkdir -p public
+    - cp -r docs/build/html/* public/
+    - cp -r docs/javadoc public/javadoc
+  artifacts:
+    paths:
+      - public
