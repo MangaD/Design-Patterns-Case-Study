@@ -6,6 +6,7 @@
 # Configuration file for the Sphinx documentation builder.
 
 import os
+import shutil
 import sys
 import subprocess
 from datetime import datetime
@@ -97,6 +98,22 @@ def generate_javadoc():
 		print(f"Error while running CMake or building JavaDoc: {e}")
 		raise
 
+	# Copy the generated Javadoc to the build/html directory
+	src_javadoc_dir = os.path.abspath("../javadoc")
+	dest_javadoc_dir = os.path.join(os.path.abspath('..'), 'build', 'html', 'javadoc')
+	if os.path.exists(dest_javadoc_dir):
+		shutil.rmtree(dest_javadoc_dir)
+	shutil.copytree(src_javadoc_dir, dest_javadoc_dir)
+	print(f"Copied Javadoc to {dest_javadoc_dir}")
+
+# Ensure the javadoc directory exists before building
+def ensure_javadoc_dir():
+	javadoc_dir = os.path.join(os.path.abspath('.'), 'javadoc')
+	if not os.path.exists(javadoc_dir):
+		os.makedirs(javadoc_dir)
+
+ensure_javadoc_dir()
+
 # Call the Javadoc generation function
 generate_javadoc()
 
@@ -165,7 +182,7 @@ html_js_files = [
 	'custom.js',  # Add your custom JavaScript file
 ]
 
-html_extra_path = [os.path.abspath("../javadoc")]
+html_extra_path = ["javadoc"]
 
 # -- Intersphinx mapping -----------------------------------------------------
 intersphinx_mapping = {

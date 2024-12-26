@@ -72,7 +72,6 @@ build-docs:
   artifacts:
     paths:
       - docs/build/html/
-      - docs/javadoc/
     expire_in: 1 week
 
 # Deploy to GitLab Pages
@@ -84,7 +83,6 @@ pages:
   script:
     - mkdir -p public
     - cp -r docs/build/html/* public/
-    - cp -r docs/javadoc public/javadoc
   artifacts:
     paths:
       - public

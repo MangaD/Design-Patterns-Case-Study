@@ -32,4 +32,4 @@ Indices and tables
 
 Java API Documentation
 =======================
-`Javadoc <../../javadoc/index.html>`_
+`Javadoc <javadoc/index.html>`_
