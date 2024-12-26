@@ -64,10 +64,10 @@ build-docs:
   stage: build
   image: python:3.11
   before_script:
-    - pip install sphinx breathe sphinx-autodoc-typehints sphinx-rtd-theme myst-parser[linkify]
+    - cd docs
+    - pip install -U -r requirements.txt
     - apt-get update && apt-get install -y cmake doxygen g++ libgtest-dev openjdk-17-jdk
   script:
-    - cd docs
     - make html
   artifacts:
     paths:
