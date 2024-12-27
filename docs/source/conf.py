@@ -184,6 +184,17 @@ html_js_files = [
 
 html_extra_path = ["javadoc"]
 
+# https://sphinx-rtd-theme.readthedocs.io/en/latest/configuring.html
+html_context = {
+	"display_github": True,                       # Enable the GitHub link
+	"github_user": "MangaD",                      # GitHub username
+	"github_repo": "Design-Patterns-Case-Study",  # GitHub repository name
+	"github_version": "main",                     # Branch name
+	"conf_py_path": "/docs/source/",              # Path to the documentation root
+	"github_url": "https://github.com/MangaD/Design-Patterns-Case-Study",
+	"gitlab_url": "https://gitlab.com/MangaD/design-patterns-case-study"
+}
+
 # -- Intersphinx mapping -----------------------------------------------------
 intersphinx_mapping = {
 	'python': ('https://docs.python.org/3', None),
