@@ -12,9 +12,10 @@ build:
   apt_packages:
     - cmake
     - doxygen
-    - default-jdk
+    - openjdk-17-jdk
     - g++
     - libgtest-dev
+
   #commands:
     #- mkdir -p build
     #- cd build

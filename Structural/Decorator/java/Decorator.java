@@ -4,7 +4,9 @@ package Structural.Decorator;
  * The Decorator class wraps a Component and adds functionality dynamically.
  */
 public abstract class Decorator implements Component {
-	/// The wrapped Component.
+	/**
+	 * The wrapped Component.
+	 */
 	protected Component component;
 
 	/**

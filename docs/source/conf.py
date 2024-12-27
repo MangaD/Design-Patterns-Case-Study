@@ -5,6 +5,7 @@
 
 # Configuration file for the Sphinx documentation builder.
 
+import logging
 import os
 import shutil
 import sys
@@ -17,6 +18,8 @@ sys.path.insert(0, os.path.abspath(os.path.dirname(__file__)))
 from generate_python_api import generate_python_api_rst
 from generate_pattern_rst import generate_pattern_rst_files
 from generate_cpp_rst import generate_cpp_rst
+
+logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
 
 for category in ["Behavioral","Structural", "Creational"]:
 	generate_pattern_rst_files(
@@ -67,7 +70,7 @@ def generate_doxygen_docs():
 		subprocess.check_call(["cmake", "-B", build_dir, "-S", os.path.abspath("../../")])
 		subprocess.check_call(["cmake", "--build", build_dir, "--target", "doc"])
 	except subprocess.CalledProcessError as e:
-		print(f"Error while running CMake or building Doxygen: {e}")
+		logging.error(f"Error while running CMake or building Doxygen: {e}")
 		raise
 
 generate_doxygen_docs()
@@ -82,39 +85,47 @@ generate_cpp_rst(
 # -- Run CMake to Generate JavaDoc Documentation ------------------------------
 def generate_javadoc():
 	"""
-	Generate Javadoc documentation.
+	Generate Javadoc documentation and copy to Sphinx source directory.
 	"""
-	# Define the build directory
-	build_dir = os.path.abspath("../../build")
+	# Calculate the base directories dynamically
+	conf_dir = os.path.abspath(os.path.dirname(__file__))
+	project_root = os.path.abspath(os.path.join(conf_dir, "../../"))
+	build_dir = os.path.join(project_root, "build")
+	cmake_file = os.path.join(project_root, "CMakeLists.txt")
+	src_javadoc_dir = os.path.join(project_root, "docs", "javadoc")
+	dest_javadoc_dir = os.path.join(conf_dir, "javadoc")  # docs/source/javadoc
 
 	# Ensure the build directory exists
 	os.makedirs(build_dir, exist_ok=True)
 
-	# Run CMake to configure and build the Doxygen target
+	# Check for CMakeLists.txt in the project root
+	if not os.path.exists(cmake_file):
+		logging.error(f"CMakeLists.txt not found in {project_root}")
+		raise FileNotFoundError(f"CMakeLists.txt not found in {project_root}")
+
+	# Run Javadoc generation via CMake
 	try:
-		subprocess.check_call(["cmake", "-B", build_dir, "-S", os.path.abspath("../../")])
+		subprocess.check_call(["cmake", "-B", build_dir, "-S", project_root])
 		subprocess.check_call(["cmake", "--build", build_dir, "--target", "javadoc"])
 	except subprocess.CalledProcessError as e:
-		print(f"Error while running CMake or building JavaDoc: {e}")
+		logging.error(f"Error while running CMake or building Javadoc: {e}")
 		raise
 
-	# Copy the generated Javadoc to the build/html directory
-	src_javadoc_dir = os.path.abspath("../javadoc")
-	dest_javadoc_dir = os.path.join(os.path.abspath('..'), 'build', 'html', 'javadoc')
+	# Copy the generated Javadoc to docs/source/javadoc
 	if os.path.exists(dest_javadoc_dir):
 		shutil.rmtree(dest_javadoc_dir)
+
+	# Create a "javadoc" directory in source, because `html_extra_path`
+	# flattens the directory structure.
+	if not os.path.exists(dest_javadoc_dir):
+		os.makedirs(dest_javadoc_dir)
+
+	# Copy the generated Javadoc to docs/source/javadoc/javadoc
+	dest_javadoc_dir = os.path.join(dest_javadoc_dir, "javadoc")
+
 	shutil.copytree(src_javadoc_dir, dest_javadoc_dir)
-	print(f"Copied Javadoc to {dest_javadoc_dir}")
+	logging.info(f"Copied Javadoc to {dest_javadoc_dir}")
 
-# Ensure the javadoc directory exists before building
-def ensure_javadoc_dir():
-	javadoc_dir = os.path.join(os.path.abspath('.'), 'javadoc')
-	if not os.path.exists(javadoc_dir):
-		os.makedirs(javadoc_dir)
-
-ensure_javadoc_dir()
-
-# Call the Javadoc generation function
 generate_javadoc()
 
 # -- Project information -----------------------------------------------------
@@ -183,6 +194,7 @@ html_js_files = [
 ]
 
 html_extra_path = ["javadoc"]
+logging.info(f"Setting html_extra_path: {html_extra_path}")
 
 # https://sphinx-rtd-theme.readthedocs.io/en/latest/configuring.html
 html_context = {

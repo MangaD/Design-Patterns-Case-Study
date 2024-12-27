@@ -6,7 +6,9 @@ package Behavioral.Mediator;
  * Colleagues communicate with each other through the Mediator.
  */
 public abstract class Colleague {
-	/// Reference to the Mediator
+	/**
+	 *  Reference to the Mediator
+	 */
 	protected Mediator mediator;
 
 	/**

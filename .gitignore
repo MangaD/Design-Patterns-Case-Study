@@ -2,6 +2,7 @@ bin/
 build/
 docs/doxygen
 docs/javadoc
+docs/source/javadoc
 docs/build
 docs/source/Behavioral
 docs/source/Creational

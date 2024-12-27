@@ -109,11 +109,11 @@ add_custom_target(javadoc
 
 add_custom_target(sphinx
 	#COMMAND ${CMAKE_COMMAND} --build . --target doc  # Generate Doxygen docs
+	#COMMAND ${CMAKE_COMMAND} --build . --target javadoc  # Generate Java docs
 	COMMAND sphinx-build -b html ${CMAKE_SOURCE_DIR}/docs/source ${CMAKE_SOURCE_DIR}/docs/build
 	COMMENT "Generating Python documentation with Sphinx"
 	VERBATIM
 )
-
 
 add_custom_target(all_docs
 	DEPENDS doc javadoc sphinx
