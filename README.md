@@ -1,6 +1,7 @@
 # Design Patterns Case Study
 
-[![CI](https://github.com/MangaD/Design-Patterns-Case-Study/actions/workflows/ci.yml/badge.svg)](https://github.com/MangaD/Design-Patterns-Case-Study/actions/workflows/ci.yml) [![pipeline status](https://gitlab.com/MangaD/design-patterns-case-study/badges/main/pipeline.svg)](https://gitlab.com/MangaD/design-patterns-case-study/-/commits/main)
+[![CI](https://github.com/MangaD/Design-Patterns-Case-Study/actions/workflows/ci.yml/badge.svg)](https://github.com/MangaD/Design-Patterns-Case-Study/actions/workflows/ci.yml) [![pipeline status](https://gitlab.com/MangaD/design-patterns-case-study/badges/main/pipeline.svg)](https://gitlab.com/MangaD/design-patterns-case-study/-/commits/main) [![Documentation Status](https://readthedocs.org/projects/design-patterns-case-study/badge/?version=latest)](https://design-patterns-case-study.readthedocs.io/en/latest/?badge=latest)
+
 
 This repository is a comprehensive exploration of **Object-Oriented Design Patterns**, implemented in **C++**, **Java**, and **Python**. It is designed as a hands-on learning resource for understanding, implementing, and applying design patterns in real-world software development.
 
