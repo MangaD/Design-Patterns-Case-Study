@@ -1,0 +1,6 @@
+command_pattern::ConcreteCommand
+================================
+
+.. doxygenclass:: command_pattern::ConcreteCommand
+   :project: Design Patterns C++
+   :members:

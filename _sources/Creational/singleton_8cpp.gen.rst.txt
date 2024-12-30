@@ -1,0 +1,7 @@
+Singleton  Source
+=================
+
+.. doxygenfile:: singleton.cpp
+   :project: Design Patterns C++
+   :no-link:
+

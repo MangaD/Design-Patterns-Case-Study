@@ -1,0 +1,6 @@
+flyweight_pattern::ConcreteFlyweight
+====================================
+
+.. doxygenclass:: flyweight_pattern::ConcreteFlyweight
+   :project: Design Patterns C++
+   :members:

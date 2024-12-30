@@ -1,0 +1,6 @@
+MediatorTest
+============
+
+.. doxygenclass:: MediatorTest
+   :project: Design Patterns C++
+   :members:

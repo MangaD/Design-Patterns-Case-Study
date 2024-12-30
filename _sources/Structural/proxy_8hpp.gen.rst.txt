@@ -1,0 +1,24 @@
+Proxy  Header
+=============
+
+.. doxygenfile:: proxy.hpp
+   :project: Design Patterns C++
+   :no-link:
+
+Inner Classes
+-------------
+
+.. toctree::
+   :maxdepth: 1
+
+   classproxy__pattern_1_1Subject.gen
+   classproxy__pattern_1_1RealSubject.gen
+   classproxy__pattern_1_1Proxy.gen
+
+Inner Namespaces
+----------------
+
+.. toctree::
+   :maxdepth: 1
+
+   namespaceproxy__pattern.gen

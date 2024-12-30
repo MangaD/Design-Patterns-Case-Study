@@ -1,0 +1,6 @@
+builder_pattern
+===============
+
+.. doxygennamespace:: builder_pattern
+   :project: Design Patterns C++
+   :members:

@@ -1,0 +1,24 @@
+Composite  Header
+=================
+
+.. doxygenfile:: composite.hpp
+   :project: Design Patterns C++
+   :no-link:
+
+Inner Classes
+-------------
+
+.. toctree::
+   :maxdepth: 1
+
+   classcomposite__pattern_1_1Component.gen
+   classcomposite__pattern_1_1Leaf.gen
+   classcomposite__pattern_1_1Composite.gen
+
+Inner Namespaces
+----------------
+
+.. toctree::
+   :maxdepth: 1
+
+   namespacecomposite__pattern.gen

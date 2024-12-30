@@ -1,0 +1,30 @@
+Abstract  Factory  Header
+=========================
+
+.. doxygenfile:: abstract_factory.hpp
+   :project: Design Patterns C++
+   :no-link:
+
+Inner Classes
+-------------
+
+.. toctree::
+   :maxdepth: 1
+
+   classabstract__factory__pattern_1_1AbstractProductA.gen
+   classabstract__factory__pattern_1_1AbstractProductB.gen
+   classabstract__factory__pattern_1_1ConcreteProductA1.gen
+   classabstract__factory__pattern_1_1ConcreteProductA2.gen
+   classabstract__factory__pattern_1_1ConcreteProductB1.gen
+   classabstract__factory__pattern_1_1ConcreteProductB2.gen
+   classabstract__factory__pattern_1_1AbstractFactory.gen
+   classabstract__factory__pattern_1_1ConcreteFactory1.gen
+   classabstract__factory__pattern_1_1ConcreteFactory2.gen
+
+Inner Namespaces
+----------------
+
+.. toctree::
+   :maxdepth: 1
+
+   namespaceabstract__factory__pattern.gen

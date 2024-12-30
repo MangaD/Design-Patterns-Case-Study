@@ -1,0 +1,6 @@
+observer_pattern::ConcreteObserver
+==================================
+
+.. doxygenclass:: observer_pattern::ConcreteObserver
+   :project: Design Patterns C++
+   :members:

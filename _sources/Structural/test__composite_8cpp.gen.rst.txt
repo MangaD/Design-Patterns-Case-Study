@@ -1,0 +1,14 @@
+Test  Composite  Source
+=======================
+
+.. doxygenfile:: test_composite.cpp
+   :project: Design Patterns C++
+   :no-link:
+
+Inner Classes
+-------------
+
+.. toctree::
+   :maxdepth: 1
+
+   classOutputCapturer.gen

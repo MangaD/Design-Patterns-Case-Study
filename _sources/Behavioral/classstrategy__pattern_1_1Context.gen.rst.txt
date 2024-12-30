@@ -1,0 +1,6 @@
+strategy_pattern::Context
+=========================
+
+.. doxygenclass:: strategy_pattern::Context
+   :project: Design Patterns C++
+   :members:

@@ -1,0 +1,6 @@
+observer_pattern::ConcreteSubject
+=================================
+
+.. doxygenclass:: observer_pattern::ConcreteSubject
+   :project: Design Patterns C++
+   :members:

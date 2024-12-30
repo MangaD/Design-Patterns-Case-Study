@@ -1,0 +1,6 @@
+prototype_pattern::Prototype
+============================
+
+.. doxygenclass:: prototype_pattern::Prototype
+   :project: Design Patterns C++
+   :members:

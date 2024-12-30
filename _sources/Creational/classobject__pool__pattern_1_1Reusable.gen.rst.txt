@@ -1,0 +1,6 @@
+object_pool_pattern::Reusable
+=============================
+
+.. doxygenclass:: object_pool_pattern::Reusable
+   :project: Design Patterns C++
+   :members:

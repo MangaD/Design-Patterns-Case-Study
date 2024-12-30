@@ -1,0 +1,7 @@
+Factory  Method  Source
+=======================
+
+.. doxygenfile:: factory_method.cpp
+   :project: Design Patterns C++
+   :no-link:
+

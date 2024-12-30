@@ -1,0 +1,6 @@
+chain_of_responsibility_pattern::ConcreteHandlerB
+=================================================
+
+.. doxygenclass:: chain_of_responsibility_pattern::ConcreteHandlerB
+   :project: Design Patterns C++
+   :members:

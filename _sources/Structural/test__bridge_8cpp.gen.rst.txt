@@ -1,0 +1,7 @@
+Test  Bridge  Source
+====================
+
+.. doxygenfile:: test_bridge.cpp
+   :project: Design Patterns C++
+   :no-link:
+

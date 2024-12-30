@@ -1,0 +1,22 @@
+Concrete  Reusable  Header
+==========================
+
+.. doxygenfile:: concrete_reusable.hpp
+   :project: Design Patterns C++
+   :no-link:
+
+Inner Classes
+-------------
+
+.. toctree::
+   :maxdepth: 1
+
+   classobject__pool__pattern_1_1ConcreteReusable.gen
+
+Inner Namespaces
+----------------
+
+.. toctree::
+   :maxdepth: 1
+
+   namespaceobject__pool__pattern.gen

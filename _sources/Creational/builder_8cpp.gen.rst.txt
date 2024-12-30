@@ -1,0 +1,15 @@
+Builder  Source
+===============
+
+.. doxygenfile:: builder.cpp
+   :project: Design Patterns C++
+   :no-link:
+
+
+Inner Namespaces
+----------------
+
+.. toctree::
+   :maxdepth: 1
+
+   namespacebuilder__pattern.gen

@@ -1,0 +1,8 @@
+Strategy API Documentation
+============================
+
+.. automodule:: Behavioral.Strategy.python.strategy
+   :members:
+   :undoc-members:
+   :show-inheritance:
+

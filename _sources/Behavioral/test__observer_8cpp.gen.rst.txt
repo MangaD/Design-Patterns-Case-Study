@@ -1,0 +1,14 @@
+Test  Observer  Source
+======================
+
+.. doxygenfile:: test_observer.cpp
+   :project: Design Patterns C++
+   :no-link:
+
+Inner Classes
+-------------
+
+.. toctree::
+   :maxdepth: 1
+
+   classTestObserver.gen

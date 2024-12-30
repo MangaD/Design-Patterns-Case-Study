@@ -1,0 +1,6 @@
+composite_pattern
+=================
+
+.. doxygennamespace:: composite_pattern
+   :project: Design Patterns C++
+   :members:

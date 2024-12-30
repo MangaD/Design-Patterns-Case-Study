@@ -1,0 +1,14 @@
+Test  Template  Method  Source
+==============================
+
+.. doxygenfile:: test_template_method.cpp
+   :project: Design Patterns C++
+   :no-link:
+
+Inner Classes
+-------------
+
+.. toctree::
+   :maxdepth: 1
+
+   classOutputCapture.gen

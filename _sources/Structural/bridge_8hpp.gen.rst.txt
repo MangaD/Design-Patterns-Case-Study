@@ -1,0 +1,26 @@
+Bridge  Header
+==============
+
+.. doxygenfile:: bridge.hpp
+   :project: Design Patterns C++
+   :no-link:
+
+Inner Classes
+-------------
+
+.. toctree::
+   :maxdepth: 1
+
+   classbridge__pattern_1_1Implementor.gen
+   classbridge__pattern_1_1ConcreteImplementorA.gen
+   classbridge__pattern_1_1ConcreteImplementorB.gen
+   classbridge__pattern_1_1Abstraction.gen
+   classbridge__pattern_1_1RefinedAbstraction.gen
+
+Inner Namespaces
+----------------
+
+.. toctree::
+   :maxdepth: 1
+
+   namespacebridge__pattern.gen

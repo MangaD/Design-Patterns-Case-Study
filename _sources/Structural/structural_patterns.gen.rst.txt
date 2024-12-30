@@ -1,0 +1,80 @@
+Structural Patterns
+===================
+
+Namespaces
+----------
+
+.. toctree::
+   :maxdepth: 1
+
+   namespacebridge__pattern.gen
+   namespaceclass__adapter__pattern.gen
+   namespacecomposite__pattern.gen
+   namespacedecorator__pattern.gen
+   namespacefacade__pattern.gen
+   namespaceflyweight__pattern.gen
+   namespaceobject__adapter__pattern.gen
+   namespaceproxy__pattern.gen
+
+Files
+-----
+
+.. toctree::
+   :maxdepth: 1
+
+   bridge_8cpp.gen
+   bridge_8hpp.gen
+   class__adapter_8hpp.gen
+   composite_8hpp.gen
+   decorator_8hpp.gen
+   facade_8hpp.gen
+   flyweight_8hpp.gen
+   object__adapter_8hpp.gen
+   proxy_8hpp.gen
+   test__bridge_8cpp.gen
+   test__class__adapter_8cpp.gen
+   test__composite_8cpp.gen
+   test__decorator_8cpp.gen
+   test__facade_8cpp.gen
+   test__flyweight_8cpp.gen
+   test__object__adapter_8cpp.gen
+   test__proxy_8cpp.gen
+
+Classes
+-------
+
+.. toctree::
+   :maxdepth: 1
+
+   classAdapterPatternTest.gen
+   classClassAdapterTest.gen
+   classOutputCapturer.gen
+   classbridge__pattern_1_1Abstraction.gen
+   classbridge__pattern_1_1ConcreteImplementorA.gen
+   classbridge__pattern_1_1ConcreteImplementorB.gen
+   classbridge__pattern_1_1Implementor.gen
+   classbridge__pattern_1_1RefinedAbstraction.gen
+   classclass__adapter__pattern_1_1Adaptee.gen
+   classclass__adapter__pattern_1_1Adapter.gen
+   classclass__adapter__pattern_1_1Target.gen
+   classcomposite__pattern_1_1Component.gen
+   classcomposite__pattern_1_1Composite.gen
+   classcomposite__pattern_1_1Leaf.gen
+   classdecorator__pattern_1_1Component.gen
+   classdecorator__pattern_1_1ConcreteComponent.gen
+   classdecorator__pattern_1_1ConcreteDecoratorA.gen
+   classdecorator__pattern_1_1ConcreteDecoratorB.gen
+   classdecorator__pattern_1_1Decorator.gen
+   classfacade__pattern_1_1Facade.gen
+   classfacade__pattern_1_1Subsystem1.gen
+   classfacade__pattern_1_1Subsystem2.gen
+   classfacade__pattern_1_1Subsystem3.gen
+   classflyweight__pattern_1_1ConcreteFlyweight.gen
+   classflyweight__pattern_1_1Flyweight.gen
+   classflyweight__pattern_1_1FlyweightFactory.gen
+   classobject__adapter__pattern_1_1Adaptee.gen
+   classobject__adapter__pattern_1_1Adapter.gen
+   classobject__adapter__pattern_1_1Target.gen
+   classproxy__pattern_1_1Proxy.gen
+   classproxy__pattern_1_1RealSubject.gen
+   classproxy__pattern_1_1Subject.gen

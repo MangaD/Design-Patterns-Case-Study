@@ -1,0 +1,25 @@
+Chain  Of  Responsibility  Header
+=================================
+
+.. doxygenfile:: chain_of_responsibility.hpp
+   :project: Design Patterns C++
+   :no-link:
+
+Inner Classes
+-------------
+
+.. toctree::
+   :maxdepth: 1
+
+   classchain__of__responsibility__pattern_1_1Handler.gen
+   classchain__of__responsibility__pattern_1_1AbstractHandler.gen
+   classchain__of__responsibility__pattern_1_1ConcreteHandlerA.gen
+   classchain__of__responsibility__pattern_1_1ConcreteHandlerB.gen
+
+Inner Namespaces
+----------------
+
+.. toctree::
+   :maxdepth: 1
+
+   namespacechain__of__responsibility__pattern.gen

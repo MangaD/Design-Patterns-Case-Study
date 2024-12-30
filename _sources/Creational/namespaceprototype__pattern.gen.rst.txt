@@ -1,0 +1,6 @@
+prototype_pattern
+=================
+
+.. doxygennamespace:: prototype_pattern
+   :project: Design Patterns C++
+   :members:

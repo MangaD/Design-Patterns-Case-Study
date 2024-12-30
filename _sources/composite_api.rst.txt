@@ -1,0 +1,8 @@
+Composite API Documentation
+=============================
+
+.. automodule:: Structural.Composite.python.composite
+   :members:
+   :undoc-members:
+   :show-inheritance:
+

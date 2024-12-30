@@ -1,0 +1,6 @@
+visitor_pattern::ConcreteVisitorA
+=================================
+
+.. doxygenclass:: visitor_pattern::ConcreteVisitorA
+   :project: Design Patterns C++
+   :members:

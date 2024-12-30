@@ -1,0 +1,7 @@
+Test  Command  Source
+=====================
+
+.. doxygenfile:: test_command.cpp
+   :project: Design Patterns C++
+   :no-link:
+

@@ -1,0 +1,25 @@
+Builder  Header
+===============
+
+.. doxygenfile:: builder.hpp
+   :project: Design Patterns C++
+   :no-link:
+
+Inner Classes
+-------------
+
+.. toctree::
+   :maxdepth: 1
+
+   classbuilder__pattern_1_1Product.gen
+   classbuilder__pattern_1_1Builder.gen
+   classbuilder__pattern_1_1ConcreteBuilder.gen
+   classbuilder__pattern_1_1Director.gen
+
+Inner Namespaces
+----------------
+
+.. toctree::
+   :maxdepth: 1
+
+   namespacebuilder__pattern.gen

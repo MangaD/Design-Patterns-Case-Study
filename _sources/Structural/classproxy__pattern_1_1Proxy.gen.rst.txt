@@ -1,0 +1,6 @@
+proxy_pattern::Proxy
+====================
+
+.. doxygenclass:: proxy_pattern::Proxy
+   :project: Design Patterns C++
+   :members:

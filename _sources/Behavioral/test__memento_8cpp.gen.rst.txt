@@ -1,0 +1,7 @@
+Test  Memento  Source
+=====================
+
+.. doxygenfile:: test_memento.cpp
+   :project: Design Patterns C++
+   :no-link:
+

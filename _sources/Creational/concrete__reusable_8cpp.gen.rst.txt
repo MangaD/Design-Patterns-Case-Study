@@ -1,0 +1,7 @@
+Concrete  Reusable  Source
+==========================
+
+.. doxygenfile:: concrete_reusable.cpp
+   :project: Design Patterns C++
+   :no-link:
+

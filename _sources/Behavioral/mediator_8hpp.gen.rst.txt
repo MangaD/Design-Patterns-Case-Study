@@ -1,0 +1,25 @@
+Mediator  Header
+================
+
+.. doxygenfile:: mediator.hpp
+   :project: Design Patterns C++
+   :no-link:
+
+Inner Classes
+-------------
+
+.. toctree::
+   :maxdepth: 1
+
+   classmediator__pattern_1_1Mediator.gen
+   classmediator__pattern_1_1Colleague.gen
+   classmediator__pattern_1_1ConcreteMediator.gen
+   classmediator__pattern_1_1ConcreteColleague.gen
+
+Inner Namespaces
+----------------
+
+.. toctree::
+   :maxdepth: 1
+
+   namespacemediator__pattern.gen

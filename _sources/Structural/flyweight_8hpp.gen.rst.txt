@@ -1,0 +1,24 @@
+Flyweight  Header
+=================
+
+.. doxygenfile:: flyweight.hpp
+   :project: Design Patterns C++
+   :no-link:
+
+Inner Classes
+-------------
+
+.. toctree::
+   :maxdepth: 1
+
+   classflyweight__pattern_1_1Flyweight.gen
+   classflyweight__pattern_1_1ConcreteFlyweight.gen
+   classflyweight__pattern_1_1FlyweightFactory.gen
+
+Inner Namespaces
+----------------
+
+.. toctree::
+   :maxdepth: 1
+
+   namespaceflyweight__pattern.gen

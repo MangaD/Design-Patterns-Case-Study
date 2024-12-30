@@ -1,0 +1,6 @@
+chain_of_responsibility_pattern::AbstractHandler
+================================================
+
+.. doxygenclass:: chain_of_responsibility_pattern::AbstractHandler
+   :project: Design Patterns C++
+   :members:

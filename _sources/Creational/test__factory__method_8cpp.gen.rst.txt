@@ -1,0 +1,7 @@
+Test  Factory  Method  Source
+=============================
+
+.. doxygenfile:: test_factory_method.cpp
+   :project: Design Patterns C++
+   :no-link:
+

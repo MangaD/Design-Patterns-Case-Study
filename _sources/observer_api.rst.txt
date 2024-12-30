@@ -1,0 +1,8 @@
+Observer API Documentation
+============================
+
+.. automodule:: Behavioral.Observer.python.observer
+   :members:
+   :undoc-members:
+   :show-inheritance:
+

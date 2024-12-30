@@ -1,0 +1,7 @@
+Test  Decorator  Source
+=======================
+
+.. doxygenfile:: test_decorator.cpp
+   :project: Design Patterns C++
+   :no-link:
+

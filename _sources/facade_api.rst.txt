@@ -1,0 +1,8 @@
+Facade API Documentation
+==========================
+
+.. automodule:: Structural.Facade.python.facade
+   :members:
+   :undoc-members:
+   :show-inheritance:
+

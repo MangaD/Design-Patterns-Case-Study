@@ -1,0 +1,6 @@
+command_pattern::Invoker
+========================
+
+.. doxygenclass:: command_pattern::Invoker
+   :project: Design Patterns C++
+   :members:

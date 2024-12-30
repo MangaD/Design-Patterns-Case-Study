@@ -1,0 +1,6 @@
+iterator_pattern::Aggregate
+===========================
+
+.. doxygenclass:: iterator_pattern::Aggregate
+   :project: Design Patterns C++
+   :members:

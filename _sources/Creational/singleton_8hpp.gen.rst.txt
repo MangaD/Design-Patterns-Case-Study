@@ -1,0 +1,22 @@
+Singleton  Header
+=================
+
+.. doxygenfile:: singleton.hpp
+   :project: Design Patterns C++
+   :no-link:
+
+Inner Classes
+-------------
+
+.. toctree::
+   :maxdepth: 1
+
+   classsingleton__pattern_1_1Singleton.gen
+
+Inner Namespaces
+----------------
+
+.. toctree::
+   :maxdepth: 1
+
+   namespacesingleton__pattern.gen

@@ -1,0 +1,8 @@
+Singleton API Documentation
+=============================
+
+.. automodule:: Creational.Singleton.python.singleton
+   :members:
+   :undoc-members:
+   :show-inheritance:
+

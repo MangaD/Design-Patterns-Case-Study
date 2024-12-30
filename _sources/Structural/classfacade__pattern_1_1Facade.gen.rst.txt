@@ -1,0 +1,6 @@
+facade_pattern::Facade
+======================
+
+.. doxygenclass:: facade_pattern::Facade
+   :project: Design Patterns C++
+   :members:

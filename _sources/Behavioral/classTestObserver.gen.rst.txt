@@ -1,0 +1,6 @@
+TestObserver
+============
+
+.. doxygenclass:: TestObserver
+   :project: Design Patterns C++
+   :members:

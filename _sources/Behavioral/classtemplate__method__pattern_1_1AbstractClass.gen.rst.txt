@@ -1,0 +1,6 @@
+template_method_pattern::AbstractClass
+======================================
+
+.. doxygenclass:: template_method_pattern::AbstractClass
+   :project: Design Patterns C++
+   :members:

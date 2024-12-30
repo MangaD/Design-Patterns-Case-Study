@@ -1,0 +1,7 @@
+Object  Pool  Source
+====================
+
+.. doxygenfile:: object_pool.cpp
+   :project: Design Patterns C++
+   :no-link:
+

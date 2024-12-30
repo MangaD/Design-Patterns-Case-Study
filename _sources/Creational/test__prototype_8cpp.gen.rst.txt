@@ -1,0 +1,7 @@
+Test  Prototype  Source
+=======================
+
+.. doxygenfile:: test_prototype.cpp
+   :project: Design Patterns C++
+   :no-link:
+

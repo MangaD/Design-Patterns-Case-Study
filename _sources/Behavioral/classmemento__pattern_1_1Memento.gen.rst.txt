@@ -1,0 +1,6 @@
+memento_pattern::Memento
+========================
+
+.. doxygenclass:: memento_pattern::Memento
+   :project: Design Patterns C++
+   :members:

@@ -1,0 +1,6 @@
+decorator_pattern::ConcreteComponent
+====================================
+
+.. doxygenclass:: decorator_pattern::ConcreteComponent
+   :project: Design Patterns C++
+   :members:

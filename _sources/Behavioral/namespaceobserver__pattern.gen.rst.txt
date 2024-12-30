@@ -1,0 +1,6 @@
+observer_pattern
+================
+
+.. doxygennamespace:: observer_pattern
+   :project: Design Patterns C++
+   :members:

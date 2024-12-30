@@ -1,0 +1,8 @@
+TemplateMethod API Documentation
+==================================
+
+.. automodule:: Behavioral.TemplateMethod.python.template_method
+   :members:
+   :undoc-members:
+   :show-inheritance:
+

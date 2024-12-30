@@ -1,0 +1,8 @@
+FactoryMethod API Documentation
+=================================
+
+.. automodule:: Creational.FactoryMethod.python.factory_method
+   :members:
+   :undoc-members:
+   :show-inheritance:
+

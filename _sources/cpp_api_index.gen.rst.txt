@@ -1,0 +1,13 @@
+C++ API Documentation
+======================
+
+The following sections contain categorized C++ patterns:
+
+.. toctree::
+   :caption: C++ API Documentation
+   :maxdepth: 1
+   :titlesonly:
+
+   Behavioral Patterns <Behavioral/behavioral_patterns.gen>
+   Creational Patterns <Creational/creational_patterns.gen>
+   Structural Patterns <Structural/structural_patterns.gen>

@@ -1,0 +1,6 @@
+abstract_factory_pattern::ConcreteProductB1
+===========================================
+
+.. doxygenclass:: abstract_factory_pattern::ConcreteProductB1
+   :project: Design Patterns C++
+   :members:

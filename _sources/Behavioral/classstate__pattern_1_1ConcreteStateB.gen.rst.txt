@@ -1,0 +1,6 @@
+state_pattern::ConcreteStateB
+=============================
+
+.. doxygenclass:: state_pattern::ConcreteStateB
+   :project: Design Patterns C++
+   :members:

@@ -1,0 +1,6 @@
+factory_method_pattern::ConcreteCreatorB
+========================================
+
+.. doxygenclass:: factory_method_pattern::ConcreteCreatorB
+   :project: Design Patterns C++
+   :members:

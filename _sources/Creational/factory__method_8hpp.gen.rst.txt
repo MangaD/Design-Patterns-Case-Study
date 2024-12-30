@@ -1,0 +1,27 @@
+Factory  Method  Header
+=======================
+
+.. doxygenfile:: factory_method.hpp
+   :project: Design Patterns C++
+   :no-link:
+
+Inner Classes
+-------------
+
+.. toctree::
+   :maxdepth: 1
+
+   classfactory__method__pattern_1_1Product.gen
+   classfactory__method__pattern_1_1ConcreteProductA.gen
+   classfactory__method__pattern_1_1ConcreteProductB.gen
+   classfactory__method__pattern_1_1Creator.gen
+   classfactory__method__pattern_1_1ConcreteCreatorA.gen
+   classfactory__method__pattern_1_1ConcreteCreatorB.gen
+
+Inner Namespaces
+----------------
+
+.. toctree::
+   :maxdepth: 1
+
+   namespacefactory__method__pattern.gen

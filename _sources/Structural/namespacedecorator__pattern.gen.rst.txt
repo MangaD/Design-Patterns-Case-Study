@@ -1,0 +1,6 @@
+decorator_pattern
+=================
+
+.. doxygennamespace:: decorator_pattern
+   :project: Design Patterns C++
+   :members:

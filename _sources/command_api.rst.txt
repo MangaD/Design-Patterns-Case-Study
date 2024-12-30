@@ -1,0 +1,8 @@
+Command API Documentation
+===========================
+
+.. automodule:: Behavioral.Command.python.command
+   :members:
+   :undoc-members:
+   :show-inheritance:
+

@@ -1,0 +1,28 @@
+Visitor  Header
+===============
+
+.. doxygenfile:: visitor.hpp
+   :project: Design Patterns C++
+   :no-link:
+
+Inner Classes
+-------------
+
+.. toctree::
+   :maxdepth: 1
+
+   classvisitor__pattern_1_1Visitor.gen
+   classvisitor__pattern_1_1Element.gen
+   classvisitor__pattern_1_1ElementA.gen
+   classvisitor__pattern_1_1ElementB.gen
+   classvisitor__pattern_1_1ConcreteVisitorA.gen
+   classvisitor__pattern_1_1ConcreteVisitorB.gen
+   classvisitor__pattern_1_1ObjectStructure.gen
+
+Inner Namespaces
+----------------
+
+.. toctree::
+   :maxdepth: 1
+
+   namespacevisitor__pattern.gen

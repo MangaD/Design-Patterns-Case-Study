@@ -1,0 +1,6 @@
+ConsoleOutput
+=============
+
+.. doxygenclass:: ConsoleOutput
+   :project: Design Patterns C++
+   :members:

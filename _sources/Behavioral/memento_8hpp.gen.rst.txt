@@ -1,0 +1,24 @@
+Memento  Header
+===============
+
+.. doxygenfile:: memento.hpp
+   :project: Design Patterns C++
+   :no-link:
+
+Inner Classes
+-------------
+
+.. toctree::
+   :maxdepth: 1
+
+   classmemento__pattern_1_1Memento.gen
+   classmemento__pattern_1_1Originator.gen
+   classmemento__pattern_1_1Caretaker.gen
+
+Inner Namespaces
+----------------
+
+.. toctree::
+   :maxdepth: 1
+
+   namespacememento__pattern.gen

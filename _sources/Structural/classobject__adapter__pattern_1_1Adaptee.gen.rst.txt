@@ -1,0 +1,6 @@
+object_adapter_pattern::Adaptee
+===============================
+
+.. doxygenclass:: object_adapter_pattern::Adaptee
+   :project: Design Patterns C++
+   :members:
