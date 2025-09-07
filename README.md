@@ -53,6 +53,7 @@ Understanding design patterns is essential for writing robust, maintainable, and
 ### **Behavioral Patterns**
 - **Chain of Responsibility**: Passes requests along a chain of handlers.
 - **Command**: Encapsulates requests as objects.
+- **Interpreter**: Defines a grammatical representation for a language and provides an interpreter to deal with this grammar.
 - **Iterator**: Provides sequential access to collections.
 - **Mediator**: Centralizes communication between objects.
 - **Memento**: Captures and restores an object's internal state.
@@ -85,6 +86,7 @@ DesignPatternsCaseStudy/
 ├── Behavioral/             # Behavioral design patterns
 │   ├── ChainOfResponsibility/
 │   ├── Command/
+|   ├── Interpreter/
 │   ├── Iterator/
 │   └── Mediator/
 ```

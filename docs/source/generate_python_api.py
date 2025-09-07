@@ -7,6 +7,7 @@ def generate_python_api_rst():
 		'Behavioral': [
 			'ChainOfResponsibility',
 			'Command',
+			'Interpreter',
 			'Iterator',
 			'Mediator',
 			'Memento',

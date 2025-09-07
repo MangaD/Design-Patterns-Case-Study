@@ -17,6 +17,7 @@ Behavioral patterns are particularly useful when designing systems where:
 |----------------------------|----------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------|
 | **Chain of Responsibility** | Passes requests along a chain of handlers.                                | Decouples sender and receiver, allowing multiple handlers to process requests.                       |
 | **Command**                | Encapsulates a request as an object, allowing parameterization and queuing. | Decouples request execution from request initiation, supporting undo/redo operations.                |
+| **Interpreter**            | Defines a grammatical representation for a language and provides an interpreter to deal with this grammar. | Useful for parsing and evaluating expressions in domain-specific languages.                          |
 | **Iterator**               | Provides a way to access elements of a collection sequentially.            | Supports different traversal methods without exposing the collection’s implementation.               |
 | **Mediator**               | Centralizes communication between objects.                                | Reduces dependencies by allowing objects to communicate indirectly through a mediator.               |
 | **Memento**                | Captures and restores an object’s internal state without violating encapsulation. | Enables undo functionality by saving and restoring previous states.                                  |
@@ -86,7 +87,27 @@ Behavioral patterns are particularly useful when designing systems where:
 
 ---
 
-### **3. Iterator**
+### **3. Interpreter**
+
+**Intent**:
+- Define a grammatical representation for a language and provide an interpreter to process sentences in the language.
+
+**Common Applications**:
+- Parsing and evaluating expressions in domain-specific languages (DSLs).
+- Interpreting configuration files, mathematical expressions, or simple scripting languages.
+
+**Key Characteristics**:
+- Encapsulates grammar rules as classes.
+- Supports extensibility for new grammar rules.
+- Useful for languages with simple grammars.
+
+**Trade-offs**:
+- Can become complex and inefficient for large or complex grammars.
+- Not suitable for general-purpose language parsing.
+
+---
+
+### **4. Iterator**
 
 **Intent**:
 - Provide a way to access elements of a collection sequentially without exposing the underlying implementation.
@@ -105,7 +126,7 @@ Behavioral patterns are particularly useful when designing systems where:
 
 ---
 
-### **4. Mediator**
+### **5. Mediator**
 
 **Intent**:
 - Centralize and simplify communication between objects.
@@ -124,7 +145,7 @@ Behavioral patterns are particularly useful when designing systems where:
 
 ---
 
-### **5. Memento**
+### **6. Memento**
 
 **Intent**:
 - Capture an object’s internal state to restore it later.
@@ -143,7 +164,7 @@ Behavioral patterns are particularly useful when designing systems where:
 
 ---
 
-### **6. Observer**
+### **7. Observer**
 
 **Intent**:
 - Notify multiple observers when a subject changes its state.
@@ -162,7 +183,7 @@ Behavioral patterns are particularly useful when designing systems where:
 
 ---
 
-### **7. State**
+### **8. State**
 
 **Intent**:
 - Allow an object to change its behavior based on its state.
@@ -181,7 +202,7 @@ Behavioral patterns are particularly useful when designing systems where:
 
 ---
 
-### **8. Strategy**
+### **9. Strategy**
 
 **Intent**:
 - Define a family of algorithms and make them interchangeable.
@@ -200,7 +221,7 @@ Behavioral patterns are particularly useful when designing systems where:
 
 ---
 
-### **9. Template Method**
+### **10. Template Method**
 
 **Intent**:
 - Define the skeleton of an algorithm, deferring specific steps to subclasses.
@@ -219,7 +240,7 @@ Behavioral patterns are particularly useful when designing systems where:
 
 ---
 
-### **10. Visitor**
+### **11. Visitor**
 
 **Intent**:
 - Perform operations on elements of an object structure without modifying their classes.
@@ -244,6 +265,7 @@ Behavioral patterns are particularly useful when designing systems where:
 |----------------------------|-------------------------------------------|--------------------------------------------------------------------------|
 | **Chain of Responsibility** | Delegating requests to multiple handlers. | Logging, request processing pipelines.                                   |
 | **Command**                | Encapsulating requests as objects.        | GUI buttons, undo/redo functionality.                                    |
+| **Interpreter**            | Parsing and evaluating expressions.       | DSLs, configuration file parsing.                                       |
 | **Iterator**               | Sequential access to collections.         | Traversing arrays, lists, or trees.                                      |
 | **Mediator**               | Centralizing communication.               | Chat systems, UI controllers.                                           |
 | **Memento**                | Capturing and restoring object state.     | Undo systems, system snapshots.                                         |

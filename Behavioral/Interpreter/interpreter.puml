@@ -1,0 +1,27 @@
+
+@startuml
+title Interpreter Pattern (Boolean Grammar)
+
+interface Expression {
+  +interpret(ctx: Context): boolean
+}
+
+class Constant
+class Variable
+class Not
+class And
+class Or
+class Context
+
+Expression <|-- Constant
+Expression <|-- Variable
+Expression <|-- Not
+Expression <|-- And
+Expression <|-- Or
+
+Not o-- Expression : expr
+And o-- Expression : left
+And o-- Expression : right
+Or  o-- Expression : left
+Or  o-- Expression : right
+@enduml
