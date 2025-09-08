@@ -9,7 +9,7 @@
  * <pre>
  *   Expr   := OrExpr
  *   OrExpr := AndExpr { '|' AndExpr }
- *   AndExpr:= NotExpr { '&' NotExpr }
+ *   AndExpr:= NotExpr { '&amp;' NotExpr }
  *   NotExpr:= '!' NotExpr | Primary
  *   Primary:= 'true' | 'false' | Identifier | '(' Expr ')'
  *   Identifier := [A-Za-z_][A-Za-z0-9_]*
@@ -17,7 +17,7 @@
  *
  * Example usage:
  * <pre>
- *   Expression expr = new Parser("!(x & y) | z").parse();
+ *   Expression expr = new Parser("!(x &amp; y) | z").parse();
  * </pre>
  *
  * @author David
@@ -75,7 +75,7 @@ public final class Parser {
     }
 
     /**
-     * Parses an AND expression (AndExpr := NotExpr { '&' NotExpr }).
+     * Parses an AND expression (AndExpr := NotExpr { '&amp;' NotExpr }).
      *
      * @return the parsed AND expression
      */
