@@ -1,3 +1,4 @@
+package Behavioral.Interpreter;
 
 /**
  * Minimal recursive-descent parser for a boolean domain-specific language (DSL).
