@@ -66,7 +66,7 @@ build-docs:
   before_script:
     - cd docs
     - pip install -U -r requirements.txt
-    - apt-get update && apt-get install -y cmake doxygen g++ libgtest-dev openjdk-17-jdk
+    - apt-get update && apt-get install -y cmake doxygen g++ libgtest-dev openjdk-21-jdk
   script:
     - make html
   artifacts:
