@@ -39,7 +39,7 @@ jobs:
       - name: Set up JDK
         uses: actions/setup-java@v3
         with:
-          java-version: '23'
+          java-version: '24'
           distribution: 'oracle'
 
       - name: Build and test Java code
@@ -82,7 +82,7 @@ jobs:
       - name: Set up JDK
         uses: actions/setup-java@v3
         with:
-          java-version: '23'
+          java-version: '24'
           distribution: 'oracle'
 
       - name: Install dependencies

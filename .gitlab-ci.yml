@@ -34,7 +34,7 @@ test-cpp:
 # Java Build and Test
 build-java:
   stage: build
-  image: gradle:8.11.1-jdk23-alpine
+  image: gradle:9.0.0-jdk24-alpine
   script:
     - gradle build
   artifacts:

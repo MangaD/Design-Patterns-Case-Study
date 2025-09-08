@@ -25,10 +25,10 @@ subprojects {
         testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
     }
 
-    // Java toolchain (Gradle will provision JDK 23 if available)
+    // Java toolchain (Gradle will provision JDK 24 if available)
     java {
         toolchain {
-            languageVersion = JavaLanguageVersion.of(23)
+            languageVersion = JavaLanguageVersion.of(24)
         }
     }
 
