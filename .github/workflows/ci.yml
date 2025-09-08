@@ -100,23 +100,18 @@ jobs:
           cd docs
           make html
 
-      #- name: Deploy to GitHub Pages
-      #  uses: peaceiris/actions-gh-pages@v3
-      #  with:
-      #    github_token: ${{ secrets.GITHUB_TOKEN }}
-      #    publish_dir: docs/build/html
-
-      # GitHub Actions bots only have default read permissions.
-      # A PAT allows it to perform write operations, such as pushing updates to the gh-pages branch.
-      - name: Deploy to GitHub Pages
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          cd docs/build/html
-          touch .nojekyll
-          git init
-          git add .
-          git commit -m "Deploy updated documentation [skip ci]" || echo "No changes to commit"
-          git branch -M gh-pages
-          git remote add origin https://x-access-token:${{ secrets.GH_PAGES_TOKEN }}@github.com/${{ github.repository }}.git
-          git push --force origin gh-pages
+      ##################################
+      # 🚀 Deploy to GitHub Pages
+      ##################################
+      - name: Upload documentation to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs/build/html
+          publish_branch: gh-pages          # explicit (default)
+          keep_files: false                 # remove anything that isn't in publish_dir
+          force_orphan: true                # recreate gh-pages as a single clean commit
+      # In the repository settings, go to Actions -> General -> Workflow permissions
+      # and enable Read and write permissions.
+      # After the workflow runs successfully, go to Settings -> Pages -> Branch
+      # select `gh-pages` and click "Save".
