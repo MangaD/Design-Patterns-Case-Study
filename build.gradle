@@ -1,42 +1,51 @@
-// Parent build.gradle
+// Parent build.gradle (Gradle 9.0.0 compatible)
 plugins {
-	id 'java' // Common plugin for all subprojects
-	id 'com.adarshr.test-logger' version '4.0.0' // Test Logger Plugin: https://stackoverflow.com/a/46533151/3049315
+    id 'java' // root project only
+    id 'com.adarshr.test-logger' version '4.0.0' apply false
+	// ^ Test Logger Plugin: https://stackoverflow.com/a/46533151/3049315
+    //   declare the plugin here, apply it in subprojects
+}
+
+allprojects {
+    repositories {
+        mavenCentral()
+    }
 }
 
 subprojects {
-	apply plugin: 'java'
+    apply plugin: 'java'
+    apply plugin: 'com.adarshr.test-logger'
 
-	repositories {
-		mavenCentral()
-	}
+    dependencies {
+        // Align all JUnit 5 modules
+        testImplementation platform('org.junit:junit-bom:5.13.4')
+        // Jupiter API + engine (+ params) via the aggregate
+        testImplementation 'org.junit.jupiter:junit-jupiter'
+        // Ensure the platform launcher is present at runtime (Gradle 9+ is strict)
+        testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+    }
 
-	dependencies {
-		testImplementation 'org.junit.jupiter:junit-jupiter:5.9.3'
-	}
+    // Java toolchain (Gradle will provision JDK 23 if available)
+    java {
+        toolchain {
+            languageVersion = JavaLanguageVersion.of(23)
+        }
+    }
 
-	// General Java configuration
-	java {
-		toolchain {
-			languageVersion.set(JavaLanguageVersion.of(23)) // Use Java 23
-		}
-	}
+    // Use configuration avoidance for all Test tasks (Gradle 9 best practice)
+    tasks.withType(Test).configureEach {
+        useJUnitPlatform()
+        testLogging {
+            events 'passed', 'skipped', 'failed'
+        }
+    }
 
-	tasks.test {
-		useJUnitPlatform()
-
-		// Configuring the Test Logger Plugin
-		testLogging {
-			// Basic test logging
-			events 'passed', 'skipped', 'failed'
-		}
-	}
-
-	testlogger {
-		showStandardStreams = true // Show console output during tests
-		theme = 'mocha-parallel'   // Set a custom theme; options include 'plain', 'mocha', 'default', etc.
-		showPassed = true          // Display passed tests
-		showSkipped = true         // Display skipped tests
-		showFailed = true          // Display failed tests
-	}
+    // Test Logger plugin defaults for all Test tasks
+    testlogger {
+        showStandardStreams true // Show console output during tests
+        theme 'mocha-parallel'   // Set a custom theme; options include 'plain', 'mocha', 'default', etc.
+        showPassed true          // Display passed tests
+        showSkipped true         // Display skipped tests
+        showFailed true          // Display failed tests
+    }
 }

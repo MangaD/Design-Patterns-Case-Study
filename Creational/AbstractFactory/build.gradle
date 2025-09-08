@@ -1,7 +1,3 @@
-plugins {
-	id 'java'
-}
-
 java {
 	sourceSets {
 		main {
@@ -17,13 +13,4 @@ java {
 			}
 		}
 	}
-}
-
-dependencies {
-	// Add JUnit 5 for testing
-	testImplementation 'org.junit.jupiter:junit-jupiter:5.9.3'
-}
-
-tasks.test {
-	useJUnitPlatform()
 }
