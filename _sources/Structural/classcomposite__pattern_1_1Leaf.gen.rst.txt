@@ -1,0 +1,6 @@
+composite_pattern::Leaf
+=======================
+
+.. doxygenclass:: composite_pattern::Leaf
+   :project: Design Patterns C++
+   :members:

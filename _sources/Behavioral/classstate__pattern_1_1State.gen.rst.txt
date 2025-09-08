@@ -1,0 +1,6 @@
+state_pattern::State
+====================
+
+.. doxygenclass:: state_pattern::State
+   :project: Design Patterns C++
+   :members:

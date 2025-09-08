@@ -1,0 +1,47 @@
+Python API Documentation
+=========================
+
+Behavioral Patterns
+-------------------
+
+.. toctree::
+   :maxdepth: 2
+
+   chain_of_responsibility_api
+   command_api
+   interpreter_api
+   iterator_api
+   mediator_api
+   memento_api
+   observer_api
+   state_api
+   strategy_api
+   template_method_api
+   visitor_api
+
+Structural Patterns
+-------------------
+
+.. toctree::
+   :maxdepth: 2
+
+   adapter_api
+   bridge_api
+   composite_api
+   decorator_api
+   facade_api
+   flyweight_api
+   proxy_api
+
+Creational Patterns
+-------------------
+
+.. toctree::
+   :maxdepth: 2
+
+   abstract_factory_api
+   builder_api
+   factory_method_api
+   object_pool_api
+   prototype_api
+   singleton_api

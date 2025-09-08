@@ -1,0 +1,7 @@
+Abstract  Factory  Source
+=========================
+
+.. doxygenfile:: abstract_factory.cpp
+   :project: Design Patterns C++
+   :no-link:
+

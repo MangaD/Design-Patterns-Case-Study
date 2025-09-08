@@ -1,0 +1,6 @@
+mediator_pattern::ConcreteColleague
+===================================
+
+.. doxygenclass:: mediator_pattern::ConcreteColleague
+   :project: Design Patterns C++
+   :members:

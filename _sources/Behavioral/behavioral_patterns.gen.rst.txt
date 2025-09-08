@@ -1,0 +1,108 @@
+Behavioral Patterns
+===================
+
+Namespaces
+----------
+
+.. toctree::
+   :maxdepth: 1
+
+   namespacechain__of__responsibility__pattern.gen
+   namespacecommand__pattern.gen
+   namespaceinterpreter__pattern.gen
+   namespaceiterator__pattern.gen
+   namespacemediator__pattern.gen
+   namespacememento__pattern.gen
+   namespaceobserver__pattern.gen
+   namespacestate__pattern.gen
+   namespacestrategy__pattern.gen
+   namespacetemplate__method__pattern.gen
+   namespacevisitor__pattern.gen
+
+Files
+-----
+
+.. toctree::
+   :maxdepth: 1
+
+   chain__of__responsibility_8hpp.gen
+   command_8hpp.gen
+   interpreter_8hpp.gen
+   iterator_8hpp.gen
+   mediator_8hpp.gen
+   memento_8hpp.gen
+   observer_8hpp.gen
+   state_8cpp.gen
+   state_8hpp.gen
+   strategy_8hpp.gen
+   template__method_8hpp.gen
+   test__chain__of__responsibility_8cpp.gen
+   test__command_8cpp.gen
+   test__interpreter_8cpp.gen
+   test__iterator_8cpp.gen
+   test__mediator_8cpp.gen
+   test__memento_8cpp.gen
+   test__observer_8cpp.gen
+   test__state_8cpp.gen
+   test__strategy_8cpp.gen
+   test__template__method_8cpp.gen
+   test__visitor_8cpp.gen
+   visitor_8hpp.gen
+
+Classes
+-------
+
+.. toctree::
+   :maxdepth: 1
+
+   classConsoleOutput.gen
+   classMediatorTest.gen
+   classOutputCapture.gen
+   classTestObserver.gen
+   classchain__of__responsibility__pattern_1_1AbstractHandler.gen
+   classchain__of__responsibility__pattern_1_1ConcreteHandlerA.gen
+   classchain__of__responsibility__pattern_1_1ConcreteHandlerB.gen
+   classchain__of__responsibility__pattern_1_1Handler.gen
+   classcommand__pattern_1_1Command.gen
+   classcommand__pattern_1_1ConcreteCommand.gen
+   classcommand__pattern_1_1Invoker.gen
+   classcommand__pattern_1_1Receiver.gen
+   classinterpreter__pattern_1_1And.gen
+   classinterpreter__pattern_1_1Constant.gen
+   classinterpreter__pattern_1_1Expression.gen
+   classinterpreter__pattern_1_1Not.gen
+   classinterpreter__pattern_1_1Or.gen
+   classinterpreter__pattern_1_1Variable.gen
+   classiterator__pattern_1_1Aggregate.gen
+   classiterator__pattern_1_1ConcreteAggregate.gen
+   classiterator__pattern_1_1ConcreteIterator.gen
+   classiterator__pattern_1_1Iterator.gen
+   classmediator__pattern_1_1Colleague.gen
+   classmediator__pattern_1_1ConcreteColleague.gen
+   classmediator__pattern_1_1ConcreteMediator.gen
+   classmediator__pattern_1_1Mediator.gen
+   classmemento__pattern_1_1Caretaker.gen
+   classmemento__pattern_1_1Memento.gen
+   classmemento__pattern_1_1Originator.gen
+   classobserver__pattern_1_1ConcreteObserver.gen
+   classobserver__pattern_1_1ConcreteSubject.gen
+   classobserver__pattern_1_1Observer.gen
+   classobserver__pattern_1_1Subject.gen
+   classstate__pattern_1_1ConcreteStateA.gen
+   classstate__pattern_1_1ConcreteStateB.gen
+   classstate__pattern_1_1Context.gen
+   classstate__pattern_1_1State.gen
+   classstrategy__pattern_1_1ConcreteStrategyA.gen
+   classstrategy__pattern_1_1ConcreteStrategyB.gen
+   classstrategy__pattern_1_1Context.gen
+   classstrategy__pattern_1_1Strategy.gen
+   classtemplate__method__pattern_1_1AbstractClass.gen
+   classtemplate__method__pattern_1_1ConcreteClass1.gen
+   classtemplate__method__pattern_1_1ConcreteClass2.gen
+   classvisitor__pattern_1_1ConcreteVisitorA.gen
+   classvisitor__pattern_1_1ConcreteVisitorB.gen
+   classvisitor__pattern_1_1Element.gen
+   classvisitor__pattern_1_1ElementA.gen
+   classvisitor__pattern_1_1ElementB.gen
+   classvisitor__pattern_1_1ObjectStructure.gen
+   classvisitor__pattern_1_1Visitor.gen

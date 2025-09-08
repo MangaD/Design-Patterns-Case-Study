@@ -1,0 +1,7 @@
+Test  Singleton  Source
+=======================
+
+.. doxygenfile:: test_singleton.cpp
+   :project: Design Patterns C++
+   :no-link:
+

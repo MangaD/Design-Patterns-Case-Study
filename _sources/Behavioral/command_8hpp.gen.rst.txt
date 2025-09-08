@@ -1,0 +1,25 @@
+Command  Header
+===============
+
+.. doxygenfile:: command.hpp
+   :project: Design Patterns C++
+   :no-link:
+
+Inner Classes
+-------------
+
+.. toctree::
+   :maxdepth: 1
+
+   classcommand__pattern_1_1Command.gen
+   classcommand__pattern_1_1Receiver.gen
+   classcommand__pattern_1_1ConcreteCommand.gen
+   classcommand__pattern_1_1Invoker.gen
+
+Inner Namespaces
+----------------
+
+.. toctree::
+   :maxdepth: 1
+
+   namespacecommand__pattern.gen

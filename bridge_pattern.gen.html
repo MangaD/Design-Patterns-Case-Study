@@ -1,0 +1,470 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bridge Pattern &mdash; Design Patterns Case Study 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=8d563738"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/custom.js?v=f12ea912"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Composite Pattern" href="composite_pattern.gen.html" />
+    <link rel="prev" title="Adapter Pattern" href="adapter_pattern.gen.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Design Patterns Case Study
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.gen.html">Design Patterns Case Study</a></li>
+<li class="toctree-l1"><a class="reference internal" href="creational_patterns.gen.html">Creational Patterns</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="structural_patterns.gen.html">Structural Patterns</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="adapter_pattern.gen.html">Adapter Pattern</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Bridge Pattern</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#category">Category</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#overview"><strong>Overview</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#key-characteristics"><strong>Key Characteristics</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#uml-diagram"><strong>UML Diagram</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#implementation-walkthrough"><strong>Implementation Walkthrough</strong></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#participants"><strong>Participants</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#example-device-remote-control"><strong>Example: Device Remote Control</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#applications"><strong>Applications</strong></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#when-to-use-the-bridge-pattern"><strong>When to Use the Bridge Pattern</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#common-use-cases"><strong>Common Use Cases</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#advantages-and-disadvantages"><strong>Advantages and Disadvantages</strong></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#advantages"><strong>Advantages</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#disadvantages"><strong>Disadvantages</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#key-takeaways"><strong>Key Takeaways</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="composite_pattern.gen.html">Composite Pattern</a></li>
+<li class="toctree-l2"><a class="reference internal" href="decorator_pattern.gen.html">Decorator Pattern</a></li>
+<li class="toctree-l2"><a class="reference internal" href="facade_pattern.gen.html">Facade Pattern</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flyweight_pattern.gen.html">Flyweight Pattern</a></li>
+<li class="toctree-l2"><a class="reference internal" href="proxy_pattern.gen.html">Proxy Pattern</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="behavioral_patterns.gen.html">Behavioral Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gof.gen.html">The Gang of Four</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.gen.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cpp_api_index.gen.html">C++ API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_api.html">Python API Documentation</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Design Patterns Case Study</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="structural_patterns.gen.html">Structural Patterns</a></li>
+      <li class="breadcrumb-item active">Bridge Pattern</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/MangaD/Design-Patterns-Case-Study/blob/main/docs/source/bridge_pattern.gen.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="toctree-wrapper compound">
+</div>
+<section id="bridge-pattern">
+<h1>Bridge Pattern<a class="headerlink" href="#bridge-pattern" title="Link to this heading"></a></h1>
+<section id="category">
+<h2>Category<a class="headerlink" href="#category" title="Link to this heading"></a></h2>
+<p>Structural Design Pattern</p>
+</section>
+<hr class="docutils" />
+<section id="overview">
+<h2><strong>Overview</strong><a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p>The <strong>Bridge Pattern</strong> is a <strong>structural design pattern</strong> that separates an abstraction from its implementation, allowing them to evolve independently. It achieves this by introducing an interface as a bridge between high-level abstractions and low-level implementations.</p>
+<p>This pattern is especially useful when a class hierarchy grows too large due to multiple variations of abstractions and implementations. By decoupling the abstraction from its implementation, the pattern promotes flexibility, scalability, and maintainability.</p>
+</section>
+<hr class="docutils" />
+<section id="key-characteristics">
+<h2><strong>Key Characteristics</strong><a class="headerlink" href="#key-characteristics" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p><strong>Decoupling</strong>:</p>
+<ul class="simple">
+<li><p>Separates the abstraction (high-level) from the implementation (low-level).</p></li>
+<li><p>Reduces dependency between components, improving modularity.</p></li>
+</ul>
+</li>
+<li><p><strong>Bridge Interface</strong>:</p>
+<ul class="simple">
+<li><p>Acts as a communication layer between abstractions and implementations.</p></li>
+</ul>
+</li>
+<li><p><strong>Independent Evolution</strong>:</p>
+<ul class="simple">
+<li><p>Abstractions and implementations can be extended or modified independently.</p></li>
+</ul>
+</li>
+<li><p><strong>Composition Over Inheritance</strong>:</p>
+<ul class="simple">
+<li><p>Uses composition to share implementations rather than inheritance, avoiding an explosion of subclasses.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="uml-diagram">
+<h2><strong>UML Diagram</strong><a class="headerlink" href="#uml-diagram" title="Link to this heading"></a></h2>
+<p>The UML diagram below illustrates the Bridge Pattern, showing how an abstraction uses a bridge to communicate with an implementation.</p>
+<p><img alt="UML Diagram" src="http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/MangaD/Design-Patterns-Case-Study/refs/heads/main/Structural/Bridge/bridge.puml" /></p>
+<ul class="simple">
+<li><p><strong>Abstraction</strong>: Defines the high-level control logic.</p></li>
+<li><p><strong>Refined Abstraction</strong>: Extends the <code class="docutils literal notranslate"><span class="pre">Abstraction</span></code> to add specific behaviors.</p></li>
+<li><p><strong>Implementor</strong>: Provides an interface for low-level operations.</p></li>
+<li><p><strong>Concrete Implementor</strong>: Implements the operations defined by the <code class="docutils literal notranslate"><span class="pre">Implementor</span></code>.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="implementation-walkthrough">
+<h2><strong>Implementation Walkthrough</strong><a class="headerlink" href="#implementation-walkthrough" title="Link to this heading"></a></h2>
+<section id="participants">
+<h3><strong>Participants</strong><a class="headerlink" href="#participants" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>Abstraction</strong>:</p>
+<ul class="simple">
+<li><p>Defines the high-level interface for the client to use.</p></li>
+<li><p>Contains a reference to the <code class="docutils literal notranslate"><span class="pre">Implementor</span></code> interface.</p></li>
+</ul>
+</li>
+<li><p><strong>Refined Abstraction</strong>:</p>
+<ul class="simple">
+<li><p>Extends <code class="docutils literal notranslate"><span class="pre">Abstraction</span></code> to add additional functionality or logic.</p></li>
+</ul>
+</li>
+<li><p><strong>Implementor</strong>:</p>
+<ul class="simple">
+<li><p>Defines the low-level interface for concrete implementations.</p></li>
+</ul>
+</li>
+<li><p><strong>Concrete Implementor</strong>:</p>
+<ul class="simple">
+<li><p>Implements the operations defined in the <code class="docutils literal notranslate"><span class="pre">Implementor</span></code> interface.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="example-device-remote-control">
+<h3><strong>Example: Device Remote Control</strong><a class="headerlink" href="#example-device-remote-control" title="Link to this heading"></a></h3>
+<p>Imagine you are building a remote control system for devices such as TVs and radios. Each device (TV, radio) has its specific implementation, but the remote control abstraction remains consistent across all devices.</p>
+<section id="abstraction-remotecontrol">
+<h4><strong>Abstraction: RemoteControl</strong><a class="headerlink" href="#abstraction-remotecontrol" title="Link to this heading"></a></h4>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm"> * @brief High-level abstraction for remote controls.</span>
+<span class="cm"> */</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">abstract</span><span class="w"> </span><span class="kd">class</span> <span class="nc">RemoteControl</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">protected</span><span class="w"> </span><span class="n">Device</span><span class="w"> </span><span class="n">device</span><span class="p">;</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">RemoteControl</span><span class="p">(</span><span class="n">Device</span><span class="w"> </span><span class="n">device</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">device</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">device</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">abstract</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">togglePower</span><span class="p">();</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">abstract</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">volumeUp</span><span class="p">();</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">abstract</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">volumeDown</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="refined-abstraction-advancedremotecontrol">
+<h4><strong>Refined Abstraction: AdvancedRemoteControl</strong><a class="headerlink" href="#refined-abstraction-advancedremotecontrol" title="Link to this heading"></a></h4>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm"> * @brief A refined abstraction adding advanced functionalities.</span>
+<span class="cm"> */</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">AdvancedRemoteControl</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">RemoteControl</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">AdvancedRemoteControl</span><span class="p">(</span><span class="n">Device</span><span class="w"> </span><span class="n">device</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">super</span><span class="p">(</span><span class="n">device</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">mute</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">device</span><span class="p">.</span><span class="na">setVolume</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Device muted.&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">togglePower</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">device</span><span class="p">.</span><span class="na">setPower</span><span class="p">(</span><span class="o">!</span><span class="n">device</span><span class="p">.</span><span class="na">getPower</span><span class="p">());</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Power toggled.&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">volumeUp</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">device</span><span class="p">.</span><span class="na">setVolume</span><span class="p">(</span><span class="n">device</span><span class="p">.</span><span class="na">getVolume</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Volume increased.&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">volumeDown</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">device</span><span class="p">.</span><span class="na">setVolume</span><span class="p">(</span><span class="n">device</span><span class="p">.</span><span class="na">getVolume</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Volume decreased.&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="implementor-device">
+<h4><strong>Implementor: Device</strong><a class="headerlink" href="#implementor-device" title="Link to this heading"></a></h4>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm"> * @brief Interface for device operations.</span>
+<span class="cm"> */</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">Device</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">getPower</span><span class="p">();</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">setPower</span><span class="p">(</span><span class="kt">boolean</span><span class="w"> </span><span class="n">power</span><span class="p">);</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="nf">getVolume</span><span class="p">();</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">setVolume</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">volume</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="concrete-implementors">
+<h4><strong>Concrete Implementors</strong><a class="headerlink" href="#concrete-implementors" title="Link to this heading"></a></h4>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm"> * @brief Concrete implementation for a TV.</span>
+<span class="cm"> */</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Television</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">Device</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="n">power</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">volume</span><span class="p">;</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">getPower</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">power</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">setPower</span><span class="p">(</span><span class="kt">boolean</span><span class="w"> </span><span class="n">power</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">power</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">power</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">getVolume</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">volume</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">setVolume</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">volume</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">volume</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">volume</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * @brief Concrete implementation for a Radio.</span>
+<span class="cm"> */</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Radio</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">Device</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="n">power</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">volume</span><span class="p">;</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">getPower</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">power</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">setPower</span><span class="p">(</span><span class="kt">boolean</span><span class="w"> </span><span class="n">power</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">power</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">power</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">getVolume</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">volume</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">setVolume</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">volume</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">volume</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">volume</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="client-code">
+<h4><strong>Client Code</strong><a class="headerlink" href="#client-code" title="Link to this heading"></a></h4>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">BridgePatternDemo</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Device</span><span class="w"> </span><span class="n">tv</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Television</span><span class="p">();</span>
+<span class="w">        </span><span class="n">Device</span><span class="w"> </span><span class="n">radio</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Radio</span><span class="p">();</span>
+
+<span class="w">        </span><span class="n">RemoteControl</span><span class="w"> </span><span class="n">basicRemote</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">AdvancedRemoteControl</span><span class="p">(</span><span class="n">tv</span><span class="p">);</span>
+<span class="w">        </span><span class="n">basicRemote</span><span class="p">.</span><span class="na">togglePower</span><span class="p">();</span>
+<span class="w">        </span><span class="n">basicRemote</span><span class="p">.</span><span class="na">volumeUp</span><span class="p">();</span>
+<span class="w">        </span><span class="p">((</span><span class="n">AdvancedRemoteControl</span><span class="p">)</span><span class="w"> </span><span class="n">basicRemote</span><span class="p">).</span><span class="na">mute</span><span class="p">();</span>
+
+<span class="w">        </span><span class="n">RemoteControl</span><span class="w"> </span><span class="n">advancedRemote</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">AdvancedRemoteControl</span><span class="p">(</span><span class="n">radio</span><span class="p">);</span>
+<span class="w">        </span><span class="n">advancedRemote</span><span class="p">.</span><span class="na">togglePower</span><span class="p">();</span>
+<span class="w">        </span><span class="n">advancedRemote</span><span class="p">.</span><span class="na">volumeDown</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+<hr class="docutils" />
+<section id="applications">
+<h2><strong>Applications</strong><a class="headerlink" href="#applications" title="Link to this heading"></a></h2>
+<section id="when-to-use-the-bridge-pattern">
+<h3><strong>When to Use the Bridge Pattern</strong><a class="headerlink" href="#when-to-use-the-bridge-pattern" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>When you need to decouple an abstraction from its implementation.</p></li>
+<li><p>When both abstractions and implementations are likely to change independently.</p></li>
+<li><p>When you want to avoid a large class hierarchy caused by combining multiple dimensions of variations.</p></li>
+</ol>
+</section>
+<section id="common-use-cases">
+<h3><strong>Common Use Cases</strong><a class="headerlink" href="#common-use-cases" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>UI Frameworks</strong>:</p>
+<ul class="simple">
+<li><p>Decoupling platform-specific rendering from high-level UI components.</p></li>
+</ul>
+</li>
+<li><p><strong>File Management</strong>:</p>
+<ul class="simple">
+<li><p>Abstracting file handling logic (e.g., CSV, JSON) from storage backends (e.g., local, cloud).</p></li>
+</ul>
+</li>
+<li><p><strong>Device Management</strong>:</p>
+<ul class="simple">
+<li><p>Managing different devices (e.g., printers, scanners) with consistent abstractions.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+</section>
+<hr class="docutils" />
+<section id="advantages-and-disadvantages">
+<h2><strong>Advantages and Disadvantages</strong><a class="headerlink" href="#advantages-and-disadvantages" title="Link to this heading"></a></h2>
+<section id="advantages">
+<h3><strong>Advantages</strong><a class="headerlink" href="#advantages" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>Flexibility</strong>:</p>
+<ul class="simple">
+<li><p>Abstractions and implementations can vary independently.</p></li>
+</ul>
+</li>
+<li><p><strong>Modularity</strong>:</p>
+<ul class="simple">
+<li><p>Simplifies the codebase by separating responsibilities.</p></li>
+</ul>
+</li>
+<li><p><strong>Scalability</strong>:</p>
+<ul class="simple">
+<li><p>Makes it easy to add new abstractions or implementations without affecting existing code.</p></li>
+</ul>
+</li>
+<li><p><strong>Reduces Class Explosion</strong>:</p>
+<ul class="simple">
+<li><p>Avoids subclass combinations by replacing inheritance with composition.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="disadvantages">
+<h3><strong>Disadvantages</strong><a class="headerlink" href="#disadvantages" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>Complexity</strong>:</p>
+<ul class="simple">
+<li><p>Introduces additional layers, making the design more complex.</p></li>
+</ul>
+</li>
+<li><p><strong>Overhead</strong>:</p>
+<ul class="simple">
+<li><p>May add extra indirection, impacting performance in some scenarios.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+</section>
+<hr class="docutils" />
+<section id="key-takeaways">
+<h2><strong>Key Takeaways</strong><a class="headerlink" href="#key-takeaways" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>The <strong>Bridge Pattern</strong> is a powerful structural design pattern for decoupling abstraction and implementation.</p></li>
+<li><p>It promotes scalability, flexibility, and maintainability by allowing independent extensions of both dimensions.</p></li>
+<li><p>While it introduces complexity, its advantages in modularity and scalability outweigh the trade-offs in most scenarios.</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="adapter_pattern.gen.html" class="btn btn-neutral float-left" title="Adapter Pattern" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="composite_pattern.gen.html" class="btn btn-neutral float-right" title="Composite Pattern" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, David Gonçalves.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

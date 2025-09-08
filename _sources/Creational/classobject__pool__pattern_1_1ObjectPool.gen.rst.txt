@@ -1,0 +1,6 @@
+object_pool_pattern::ObjectPool
+===============================
+
+.. doxygenclass:: object_pool_pattern::ObjectPool
+   :project: Design Patterns C++
+   :members:

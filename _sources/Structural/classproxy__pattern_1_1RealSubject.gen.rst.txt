@@ -1,0 +1,6 @@
+proxy_pattern::RealSubject
+==========================
+
+.. doxygenclass:: proxy_pattern::RealSubject
+   :project: Design Patterns C++
+   :members:

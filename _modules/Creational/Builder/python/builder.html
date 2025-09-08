@@ -1,0 +1,304 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Creational.Builder.python.builder &mdash; Design Patterns Case Study 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../../../_static/custom.js?v=f12ea912"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../index.html" class="icon icon-home">
+            Design Patterns Case Study
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../introduction.gen.html">Design Patterns Case Study</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../creational_patterns.gen.html">Creational Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../structural_patterns.gen.html">Structural Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../behavioral_patterns.gen.html">Behavioral Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../gof.gen.html">The Gang of Four</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../references.gen.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../cpp_api_index.gen.html">C++ API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../python_api.html">Python API Documentation</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Design Patterns Case Study</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">Creational.Builder.python.builder</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for Creational.Builder.python.builder</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">ABC</span><span class="p">,</span> <span class="n">abstractmethod</span>
+
+<div class="viewcode-block" id="Product">
+<a class="viewcode-back" href="../../../../builder_api.html#Creational.Builder.python.builder.Product">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">Product</span><span class="p">:</span>
+<span class="w">	</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">	Represents the complex product being built.</span>
+
+<span class="sd">	The Product class contains attributes `part_a` and `part_b`, which represent</span>
+<span class="sd">	the individual parts of the product. It provides methods to set these parts</span>
+<span class="sd">	and a string representation to display the constructed product.</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="Product.__init__">
+<a class="viewcode-back" href="../../../../builder_api.html#Creational.Builder.python.builder.Product.__init__">[docs]</a>
+	<span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">		</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Initializes the Product instance.</span>
+
+<span class="sd">		Sets the attributes `part_a` and `part_b` to None, which represent the</span>
+<span class="sd">		individual parts of the product.</span>
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">part_a</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># Represents Part A of the product</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">part_b</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># Represents Part B of the product</span></div>
+
+
+<div class="viewcode-block" id="Product.set_part_a">
+<a class="viewcode-back" href="../../../../builder_api.html#Creational.Builder.python.builder.Product.set_part_a">[docs]</a>
+	<span class="k">def</span><span class="w"> </span><span class="nf">set_part_a</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">part_a</span><span class="p">):</span>
+<span class="w">		</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Sets Part A of the product.</span>
+
+<span class="sd">		:param part_a: A string representing Part A of the product.</span>
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">part_a</span> <span class="o">=</span> <span class="n">part_a</span></div>
+
+
+<div class="viewcode-block" id="Product.set_part_b">
+<a class="viewcode-back" href="../../../../builder_api.html#Creational.Builder.python.builder.Product.set_part_b">[docs]</a>
+	<span class="k">def</span><span class="w"> </span><span class="nf">set_part_b</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">part_b</span><span class="p">):</span>
+<span class="w">		</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Sets Part B of the product.</span>
+
+<span class="sd">		:param part_b: A string representing Part B of the product.</span>
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">part_b</span> <span class="o">=</span> <span class="n">part_b</span></div>
+
+
+	<span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">		</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Returns a string representation of the product.</span>
+
+<span class="sd">		:return: A string describing the product&#39;s parts.</span>
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;Product [PartA: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">part_a</span><span class="si">}</span><span class="s2">, PartB: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">part_b</span><span class="si">}</span><span class="s2">]&quot;</span></div>
+
+
+
+<div class="viewcode-block" id="Builder">
+<a class="viewcode-back" href="../../../../builder_api.html#Creational.Builder.python.builder.Builder">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">Builder</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
+<span class="w">	</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">	Abstract interface for constructing a Product.</span>
+
+<span class="sd">	Defines methods for building different parts of a product and retrieving</span>
+<span class="sd">	the final constructed result.</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="Builder.build_part_a">
+<a class="viewcode-back" href="../../../../builder_api.html#Creational.Builder.python.builder.Builder.build_part_a">[docs]</a>
+	<span class="nd">@abstractmethod</span>
+	<span class="k">def</span><span class="w"> </span><span class="nf">build_part_a</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">		</span><span class="sd">&quot;&quot;&quot;Builds Part A of the product.&quot;&quot;&quot;</span>
+		<span class="k">pass</span></div>
+
+
+<div class="viewcode-block" id="Builder.build_part_b">
+<a class="viewcode-back" href="../../../../builder_api.html#Creational.Builder.python.builder.Builder.build_part_b">[docs]</a>
+	<span class="nd">@abstractmethod</span>
+	<span class="k">def</span><span class="w"> </span><span class="nf">build_part_b</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">		</span><span class="sd">&quot;&quot;&quot;Builds Part B of the product.&quot;&quot;&quot;</span>
+		<span class="k">pass</span></div>
+
+
+<div class="viewcode-block" id="Builder.get_result">
+<a class="viewcode-back" href="../../../../builder_api.html#Creational.Builder.python.builder.Builder.get_result">[docs]</a>
+	<span class="nd">@abstractmethod</span>
+	<span class="k">def</span><span class="w"> </span><span class="nf">get_result</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Product</span><span class="p">:</span>
+<span class="w">		</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Retrieves the constructed product.</span>
+
+<span class="sd">		:return: The constructed Product instance.</span>
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="k">pass</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="ConcreteBuilder">
+<a class="viewcode-back" href="../../../../builder_api.html#Creational.Builder.python.builder.ConcreteBuilder">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">ConcreteBuilder</span><span class="p">(</span><span class="n">Builder</span><span class="p">):</span>
+<span class="w">	</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">	Concrete implementation of the Builder interface.</span>
+
+<span class="sd">	Constructs a specific type of product by implementing the building steps</span>
+<span class="sd">	defined in the Builder interface.</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="ConcreteBuilder.__init__">
+<a class="viewcode-back" href="../../../../builder_api.html#Creational.Builder.python.builder.ConcreteBuilder.__init__">[docs]</a>
+	<span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">		</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Initializes a new instance of the ConcreteBuilder class.</span>
+
+<span class="sd">		Initializes the builder with a new instance of the Product class.</span>
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">product</span> <span class="o">=</span> <span class="n">Product</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="ConcreteBuilder.build_part_a">
+<a class="viewcode-back" href="../../../../builder_api.html#Creational.Builder.python.builder.ConcreteBuilder.build_part_a">[docs]</a>
+	<span class="k">def</span><span class="w"> </span><span class="nf">build_part_a</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">		</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Builds Part A of the product.</span>
+
+<span class="sd">		Sets Part A to a specific value defined by this builder.</span>
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">product</span><span class="o">.</span><span class="n">set_part_a</span><span class="p">(</span><span class="s2">&quot;Part A built by ConcreteBuilder&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="ConcreteBuilder.build_part_b">
+<a class="viewcode-back" href="../../../../builder_api.html#Creational.Builder.python.builder.ConcreteBuilder.build_part_b">[docs]</a>
+	<span class="k">def</span><span class="w"> </span><span class="nf">build_part_b</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">		</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Builds Part B of the product.</span>
+
+<span class="sd">		Sets Part B to a specific value defined by this builder.</span>
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">product</span><span class="o">.</span><span class="n">set_part_b</span><span class="p">(</span><span class="s2">&quot;Part B built by ConcreteBuilder&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="ConcreteBuilder.get_result">
+<a class="viewcode-back" href="../../../../builder_api.html#Creational.Builder.python.builder.ConcreteBuilder.get_result">[docs]</a>
+	<span class="k">def</span><span class="w"> </span><span class="nf">get_result</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Product</span><span class="p">:</span>
+<span class="w">		</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Retrieves the constructed product.</span>
+
+<span class="sd">		:return: The fully constructed Product instance.</span>
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">product</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="Director">
+<a class="viewcode-back" href="../../../../builder_api.html#Creational.Builder.python.builder.Director">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">Director</span><span class="p">:</span>
+<span class="w">	</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">	Orchestrates the construction process.</span>
+
+<span class="sd">	The Director class uses a Builder to construct a Product in a predefined sequence.</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="Director.__init__">
+<a class="viewcode-back" href="../../../../builder_api.html#Creational.Builder.python.builder.Director.__init__">[docs]</a>
+	<span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">builder</span><span class="p">:</span> <span class="n">Builder</span><span class="p">):</span>
+<span class="w">		</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Initializes the Director with a builder.</span>
+
+<span class="sd">		:param builder: The Builder instance to use for constructing the product.</span>
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">builder</span> <span class="o">=</span> <span class="n">builder</span></div>
+
+
+<div class="viewcode-block" id="Director.construct">
+<a class="viewcode-back" href="../../../../builder_api.html#Creational.Builder.python.builder.Director.construct">[docs]</a>
+	<span class="k">def</span><span class="w"> </span><span class="nf">construct</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">		</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Constructs the product by invoking the builder&#39;s methods in sequence.</span>
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">builder</span><span class="o">.</span><span class="n">build_part_a</span><span class="p">()</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">builder</span><span class="o">.</span><span class="n">build_part_b</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="Director.get_product">
+<a class="viewcode-back" href="../../../../builder_api.html#Creational.Builder.python.builder.Director.get_product">[docs]</a>
+	<span class="k">def</span><span class="w"> </span><span class="nf">get_product</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">		</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Retrieves the constructed product from the builder.</span>
+
+<span class="sd">		:return: The constructed Product instance.</span>
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">builder</span><span class="o">.</span><span class="n">get_result</span><span class="p">()</span></div>
+</div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, David Gonçalves.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

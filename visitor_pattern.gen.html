@@ -1,0 +1,522 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Visitor Pattern &mdash; Design Patterns Case Study 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=8d563738"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/custom.js?v=f12ea912"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="The Gang of Four" href="gof.gen.html" />
+    <link rel="prev" title="Template Method Pattern" href="templatemethod_pattern.gen.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Design Patterns Case Study
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.gen.html">Design Patterns Case Study</a></li>
+<li class="toctree-l1"><a class="reference internal" href="creational_patterns.gen.html">Creational Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="structural_patterns.gen.html">Structural Patterns</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="behavioral_patterns.gen.html">Behavioral Patterns</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="chainofresponsibility_pattern.gen.html">Chain of Responsibility Pattern</a></li>
+<li class="toctree-l2"><a class="reference internal" href="command_pattern.gen.html">Command Pattern</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interpreter_pattern.gen.html">Interpreter Pattern</a></li>
+<li class="toctree-l2"><a class="reference internal" href="iterator_pattern.gen.html">Iterator Pattern</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mediator_pattern.gen.html">Mediator Pattern</a></li>
+<li class="toctree-l2"><a class="reference internal" href="memento_pattern.gen.html">Memento Pattern</a></li>
+<li class="toctree-l2"><a class="reference internal" href="observer_pattern.gen.html">Observer Pattern</a></li>
+<li class="toctree-l2"><a class="reference internal" href="state_pattern.gen.html">State Pattern</a></li>
+<li class="toctree-l2"><a class="reference internal" href="strategy_pattern.gen.html">Strategy Pattern</a></li>
+<li class="toctree-l2"><a class="reference internal" href="templatemethod_pattern.gen.html">Template Method Pattern</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Visitor Pattern</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#category">Category</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#key-characteristics">Key Characteristics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#uml-diagram">UML Diagram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#implementation-walkthrough">Implementation Walkthrough</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#participants">Participants</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#example-a-file-system-scanner">Example: A File System Scanner</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#output">Output</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#applications">Applications</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#when-to-use-the-visitor-pattern">When to Use the Visitor Pattern</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#common-use-cases">Common Use Cases</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#advantages-and-disadvantages">Advantages and Disadvantages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#advantages">Advantages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#disadvantages">Disadvantages</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#key-takeaways">Key Takeaways</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="gof.gen.html">The Gang of Four</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.gen.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cpp_api_index.gen.html">C++ API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_api.html">Python API Documentation</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Design Patterns Case Study</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="behavioral_patterns.gen.html">Behavioral Patterns</a></li>
+      <li class="breadcrumb-item active">Visitor Pattern</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/MangaD/Design-Patterns-Case-Study/blob/main/docs/source/visitor_pattern.gen.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="toctree-wrapper compound">
+</div>
+<section id="visitor-pattern">
+<h1>Visitor Pattern<a class="headerlink" href="#visitor-pattern" title="Link to this heading"></a></h1>
+<section id="category">
+<h2>Category<a class="headerlink" href="#category" title="Link to this heading"></a></h2>
+<p>Behavioral Design Pattern</p>
+</section>
+<hr class="docutils" />
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p>The <strong>Visitor Pattern</strong> is a <strong>behavioral design pattern</strong> that allows you to separate algorithms from the objects on which they operate. It enables you to define a new operation for a group of objects without modifying their structures.</p>
+<p>This pattern involves two main participants:</p>
+<ul class="simple">
+<li><p><strong>Visitor</strong>: Defines a set of operations that can be applied to elements in the object structure.</p></li>
+<li><p><strong>Element</strong>: Accepts a visitor and allows it to perform operations defined in the visitor.</p></li>
+</ul>
+<p>The Visitor Pattern is particularly useful when:</p>
+<ul class="simple">
+<li><p>You need to perform multiple unrelated operations on objects without cluttering their code.</p></li>
+<li><p>Object structures are stable, but new behaviors need to be added frequently.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="key-characteristics">
+<h2>Key Characteristics<a class="headerlink" href="#key-characteristics" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p><strong>Separation of Concerns</strong>:</p>
+<ul class="simple">
+<li><p>Encapsulates operations in a visitor class, separating them from the object structure.</p></li>
+</ul>
+</li>
+<li><p><strong>Open/Closed Principle</strong>:</p>
+<ul class="simple">
+<li><p>Allows adding new operations without modifying existing element classes.</p></li>
+</ul>
+</li>
+<li><p><strong>Double Dispatch</strong>:</p>
+<ul class="simple">
+<li><p>Ensures that the correct visitor operation is executed for the given element by utilizing both the type of the visitor and the element.</p></li>
+</ul>
+</li>
+<li><p><strong>Complexity Management</strong>:</p>
+<ul class="simple">
+<li><p>Ideal for operations that span multiple classes, reducing code duplication and improving maintainability.</p></li>
+</ul>
+</li>
+<li><p><strong>Scalability</strong>:</p>
+<ul class="simple">
+<li><p>Facilitates the addition of new operations (via new visitors) without changing the object structure.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="uml-diagram">
+<h2>UML Diagram<a class="headerlink" href="#uml-diagram" title="Link to this heading"></a></h2>
+<p>The UML diagram below illustrates the Visitor Pattern, showcasing how the Visitor interacts with Elements and their structure.</p>
+<p><img alt="UML Diagram" src="http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/MangaD/Design-Patterns-Case-Study/refs/heads/main/Behavioral/Visitor/visitor.puml" /></p>
+</section>
+<hr class="docutils" />
+<section id="implementation-walkthrough">
+<h2>Implementation Walkthrough<a class="headerlink" href="#implementation-walkthrough" title="Link to this heading"></a></h2>
+<section id="participants">
+<h3>Participants<a class="headerlink" href="#participants" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>Visitor</strong>:</p>
+<ul class="simple">
+<li><p>Declares operations for each type of element in the object structure.</p></li>
+</ul>
+</li>
+<li><p><strong>Concrete Visitor</strong>:</p>
+<ul class="simple">
+<li><p>Implements specific behavior for each element type.</p></li>
+</ul>
+</li>
+<li><p><strong>Element</strong>:</p>
+<ul class="simple">
+<li><p>Declares an <code class="docutils literal notranslate"><span class="pre">accept</span></code> method that accepts a visitor and delegates the operation to it.</p></li>
+</ul>
+</li>
+<li><p><strong>Concrete Element</strong>:</p>
+<ul class="simple">
+<li><p>Implements the <code class="docutils literal notranslate"><span class="pre">accept</span></code> method and provides additional behavior specific to the element.</p></li>
+</ul>
+</li>
+<li><p><strong>Object Structure</strong>:</p>
+<ul class="simple">
+<li><p>A collection of elements that can be visited.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="example-a-file-system-scanner">
+<h3>Example: A File System Scanner<a class="headerlink" href="#example-a-file-system-scanner" title="Link to this heading"></a></h3>
+<p>Imagine a system where files and folders need to be processed differently for operations like:</p>
+<ul class="simple">
+<li><p>Calculating total size.</p></li>
+<li><p>Checking permissions.</p></li>
+<li><p>Logging details.</p></li>
+</ul>
+<p>The Visitor Pattern separates these operations into distinct visitor classes without modifying the file and folder structures.</p>
+<section id="element-interface">
+<h4>Element Interface<a class="headerlink" href="#element-interface" title="Link to this heading"></a></h4>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm"> * @brief Represents an element in the file system.</span>
+<span class="cm"> */</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">FileSystemElement</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">accept</span><span class="p">(</span><span class="n">Visitor</span><span class="w"> </span><span class="n">visitor</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="concrete-elements">
+<h4>Concrete Elements<a class="headerlink" href="#concrete-elements" title="Link to this heading"></a></h4>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm"> * @brief Represents a File element in the file system.</span>
+<span class="cm"> */</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">File</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">FileSystemElement</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="p">;</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">File</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">size</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">getName</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">getSize</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">size</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">accept</span><span class="p">(</span><span class="n">Visitor</span><span class="w"> </span><span class="n">visitor</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">visitor</span><span class="p">.</span><span class="na">visit</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * @brief Represents a Folder element in the file system.</span>
+<span class="cm"> */</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Folder</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">FileSystemElement</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">FileSystemElement</span><span class="o">&gt;</span><span class="w"> </span><span class="n">children</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">Folder</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">getName</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">FileSystemElement</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getChildren</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">children</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="n">FileSystemElement</span><span class="w"> </span><span class="n">element</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">children</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">element</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">accept</span><span class="p">(</span><span class="n">Visitor</span><span class="w"> </span><span class="n">visitor</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">visitor</span><span class="p">.</span><span class="na">visit</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="visitor-interface">
+<h4>Visitor Interface<a class="headerlink" href="#visitor-interface" title="Link to this heading"></a></h4>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm"> * @brief Declares operations for each element type in the file system.</span>
+<span class="cm"> */</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">Visitor</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">visit</span><span class="p">(</span><span class="n">File</span><span class="w"> </span><span class="n">file</span><span class="p">);</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">visit</span><span class="p">(</span><span class="n">Folder</span><span class="w"> </span><span class="n">folder</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="concrete-visitors">
+<h4>Concrete Visitors<a class="headerlink" href="#concrete-visitors" title="Link to this heading"></a></h4>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm"> * @brief Visitor to calculate the total size of the file system.</span>
+<span class="cm"> */</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">SizeCalculatorVisitor</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">Visitor</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">totalSize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">visit</span><span class="p">(</span><span class="n">File</span><span class="w"> </span><span class="n">file</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">totalSize</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">file</span><span class="p">.</span><span class="na">getSize</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">visit</span><span class="p">(</span><span class="n">Folder</span><span class="w"> </span><span class="n">folder</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">FileSystemElement</span><span class="w"> </span><span class="n">child</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">folder</span><span class="p">.</span><span class="na">getChildren</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">child</span><span class="p">.</span><span class="na">accept</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">getTotalSize</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">totalSize</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * @brief Visitor to log details of the file system.</span>
+<span class="cm"> */</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">LoggerVisitor</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">Visitor</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">visit</span><span class="p">(</span><span class="n">File</span><span class="w"> </span><span class="n">file</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;File: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">file</span><span class="p">.</span><span class="na">getName</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;, Size: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">file</span><span class="p">.</span><span class="na">getSize</span><span class="p">());</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">visit</span><span class="p">(</span><span class="n">Folder</span><span class="w"> </span><span class="n">folder</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Folder: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">folder</span><span class="p">.</span><span class="na">getName</span><span class="p">());</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">FileSystemElement</span><span class="w"> </span><span class="n">child</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">folder</span><span class="p">.</span><span class="na">getChildren</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">child</span><span class="p">.</span><span class="na">accept</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="client-code">
+<h4>Client Code<a class="headerlink" href="#client-code" title="Link to this heading"></a></h4>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">VisitorPatternDemo</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Build file system</span>
+<span class="w">        </span><span class="n">Folder</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Folder</span><span class="p">(</span><span class="s">&quot;root&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">File</span><span class="w"> </span><span class="n">file1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">File</span><span class="p">(</span><span class="s">&quot;file1.txt&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">);</span>
+<span class="w">        </span><span class="n">File</span><span class="w"> </span><span class="n">file2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">File</span><span class="p">(</span><span class="s">&quot;file2.txt&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">200</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Folder</span><span class="w"> </span><span class="n">subFolder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Folder</span><span class="p">(</span><span class="s">&quot;subFolder&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">File</span><span class="w"> </span><span class="n">file3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">File</span><span class="p">(</span><span class="s">&quot;file3.txt&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">300</span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">root</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">file1</span><span class="p">);</span>
+<span class="w">        </span><span class="n">root</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">file2</span><span class="p">);</span>
+<span class="w">        </span><span class="n">subFolder</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">file3</span><span class="p">);</span>
+<span class="w">        </span><span class="n">root</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">subFolder</span><span class="p">);</span>
+
+<span class="w">        </span><span class="c1">// Use SizeCalculatorVisitor</span>
+<span class="w">        </span><span class="n">SizeCalculatorVisitor</span><span class="w"> </span><span class="n">sizeVisitor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">SizeCalculatorVisitor</span><span class="p">();</span>
+<span class="w">        </span><span class="n">root</span><span class="p">.</span><span class="na">accept</span><span class="p">(</span><span class="n">sizeVisitor</span><span class="p">);</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Total size: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">sizeVisitor</span><span class="p">.</span><span class="na">getTotalSize</span><span class="p">());</span>
+
+<span class="w">        </span><span class="c1">// Use LoggerVisitor</span>
+<span class="w">        </span><span class="n">LoggerVisitor</span><span class="w"> </span><span class="n">loggerVisitor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">LoggerVisitor</span><span class="p">();</span>
+<span class="w">        </span><span class="n">root</span><span class="p">.</span><span class="na">accept</span><span class="p">(</span><span class="n">loggerVisitor</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="output">
+<h3>Output<a class="headerlink" href="#output" title="Link to this heading"></a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Total</span> <span class="n">size</span><span class="p">:</span> <span class="mi">600</span>
+<span class="n">Folder</span><span class="p">:</span> <span class="n">root</span>
+<span class="n">File</span><span class="p">:</span> <span class="n">file1</span><span class="o">.</span><span class="n">txt</span><span class="p">,</span> <span class="n">Size</span><span class="p">:</span> <span class="mi">100</span>
+<span class="n">File</span><span class="p">:</span> <span class="n">file2</span><span class="o">.</span><span class="n">txt</span><span class="p">,</span> <span class="n">Size</span><span class="p">:</span> <span class="mi">200</span>
+<span class="n">Folder</span><span class="p">:</span> <span class="n">subFolder</span>
+<span class="n">File</span><span class="p">:</span> <span class="n">file3</span><span class="o">.</span><span class="n">txt</span><span class="p">,</span> <span class="n">Size</span><span class="p">:</span> <span class="mi">300</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="applications">
+<h2>Applications<a class="headerlink" href="#applications" title="Link to this heading"></a></h2>
+<section id="when-to-use-the-visitor-pattern">
+<h3>When to Use the Visitor Pattern<a class="headerlink" href="#when-to-use-the-visitor-pattern" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>Multiple Operations</strong>:</p>
+<ul class="simple">
+<li><p>When you need to perform multiple unrelated operations on objects in a structure.</p></li>
+</ul>
+</li>
+<li><p><strong>Stable Structure</strong>:</p>
+<ul class="simple">
+<li><p>When the object structure is unlikely to change but new operations are frequently required.</p></li>
+</ul>
+</li>
+<li><p><strong>Separation of Concerns</strong>:</p>
+<ul class="simple">
+<li><p>To separate operations from the data structures they act upon.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="common-use-cases">
+<h3>Common Use Cases<a class="headerlink" href="#common-use-cases" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>Compilers</strong>:</p>
+<ul class="simple">
+<li><p>Traversing and interpreting abstract syntax trees.</p></li>
+</ul>
+</li>
+<li><p><strong>File Systems</strong>:</p>
+<ul class="simple">
+<li><p>Performing operations like size calculation, permission checking, or logging.</p></li>
+</ul>
+</li>
+<li><p><strong>Graphics Editors</strong>:</p>
+<ul class="simple">
+<li><p>Applying filters or effects to objects in a scene graph.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+</section>
+<hr class="docutils" />
+<section id="advantages-and-disadvantages">
+<h2>Advantages and Disadvantages<a class="headerlink" href="#advantages-and-disadvantages" title="Link to this heading"></a></h2>
+<section id="advantages">
+<h3>Advantages<a class="headerlink" href="#advantages" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>Simplifies Object Structures</strong>:</p>
+<ul class="simple">
+<li><p>Moves unrelated operations out of the object structure.</p></li>
+</ul>
+</li>
+<li><p><strong>Open/Closed Principle</strong>:</p>
+<ul class="simple">
+<li><p>New operations can be added by creating new visitors.</p></li>
+</ul>
+</li>
+<li><p><strong>Flexibility</strong>:</p>
+<ul class="simple">
+<li><p>Supports different operations without modifying the elements.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="disadvantages">
+<h3>Disadvantages<a class="headerlink" href="#disadvantages" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>Violation of Encapsulation</strong>:</p>
+<ul class="simple">
+<li><p>Visitors may access internal state, breaking encapsulation.</p></li>
+</ul>
+</li>
+<li><p><strong>Complexity</strong>:</p>
+<ul class="simple">
+<li><p>Adding a new element requires updating all visitors.</p></li>
+</ul>
+</li>
+<li><p><strong>Coupling</strong>:</p>
+<ul class="simple">
+<li><p>Tightly couples visitors with element classes.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+</section>
+<hr class="docutils" />
+<section id="key-takeaways">
+<h2>Key Takeaways<a class="headerlink" href="#key-takeaways" title="Link to this heading"></a></h2>
+<p>The <strong>Visitor Pattern</strong> decouples algorithms from the objects they operate on, promoting flexibility and adherence to the Open/Closed Principle. It is ideal for stable object structures requiring frequent addition of new operations. However, careful consideration is needed to manage its potential complexity and coupling.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="templatemethod_pattern.gen.html" class="btn btn-neutral float-left" title="Template Method Pattern" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="gof.gen.html" class="btn btn-neutral float-right" title="The Gang of Four" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, David Gonçalves.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

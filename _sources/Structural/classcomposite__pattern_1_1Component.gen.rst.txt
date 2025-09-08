@@ -1,0 +1,6 @@
+composite_pattern::Component
+============================
+
+.. doxygenclass:: composite_pattern::Component
+   :project: Design Patterns C++
+   :members:

@@ -1,0 +1,24 @@
+Prototype  Header
+=================
+
+.. doxygenfile:: prototype.hpp
+   :project: Design Patterns C++
+   :no-link:
+
+Inner Classes
+-------------
+
+.. toctree::
+   :maxdepth: 1
+
+   classprototype__pattern_1_1Prototype.gen
+   classprototype__pattern_1_1ConcretePrototype1.gen
+   classprototype__pattern_1_1ConcretePrototype2.gen
+
+Inner Namespaces
+----------------
+
+.. toctree::
+   :maxdepth: 1
+
+   namespaceprototype__pattern.gen

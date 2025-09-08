@@ -1,0 +1,6 @@
+mediator_pattern
+================
+
+.. doxygennamespace:: mediator_pattern
+   :project: Design Patterns C++
+   :members:

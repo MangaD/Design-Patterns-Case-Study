@@ -1,0 +1,318 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Composite API Documentation &mdash; Design Patterns Case Study 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=8d563738"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/custom.js?v=f12ea912"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Decorator API Documentation" href="decorator_api.html" />
+    <link rel="prev" title="Bridge API Documentation" href="bridge_api.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Design Patterns Case Study
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.gen.html">Design Patterns Case Study</a></li>
+<li class="toctree-l1"><a class="reference internal" href="creational_patterns.gen.html">Creational Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="structural_patterns.gen.html">Structural Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="behavioral_patterns.gen.html">Behavioral Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gof.gen.html">The Gang of Four</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.gen.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cpp_api_index.gen.html">C++ API Documentation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="python_api.html">Python API Documentation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="python_api.html#behavioral-patterns">Behavioral Patterns</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="python_api.html#structural-patterns">Structural Patterns</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="adapter_api.html">Adapter API Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bridge_api.html">Bridge API Documentation</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Composite API Documentation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Structural.Composite.python.composite.Component"><code class="docutils literal notranslate"><span class="pre">Component</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Structural.Composite.python.composite.Leaf"><code class="docutils literal notranslate"><span class="pre">Leaf</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Structural.Composite.python.composite.Composite"><code class="docutils literal notranslate"><span class="pre">Composite</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="decorator_api.html">Decorator API Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="facade_api.html">Facade API Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="flyweight_api.html">Flyweight API Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="proxy_api.html">Proxy API Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="python_api.html#creational-patterns">Creational Patterns</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Design Patterns Case Study</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="python_api.html">Python API Documentation</a></li>
+      <li class="breadcrumb-item active">Composite API Documentation</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/MangaD/Design-Patterns-Case-Study/blob/main/docs/source/composite_api.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-Structural.Composite.python.composite">
+<span id="composite-api-documentation"></span><h1>Composite API Documentation<a class="headerlink" href="#module-Structural.Composite.python.composite" title="Link to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="Structural.Composite.python.composite.Component">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Component</span></span><a class="reference internal" href="_modules/Structural/Composite/python/composite.html#Component"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Structural.Composite.python.composite.Component" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/abc.html#abc.ABC" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></a></p>
+<p>The Component interface declares common operations for both leaf and composite objects.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="Structural.Composite.python.composite.Component.operation">
+<em class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">operation</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Structural/Composite/python/composite.html#Component.operation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Structural.Composite.python.composite.Component.operation" title="Link to this definition"></a></dt>
+<dd><p>Perform an operation on the component.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Structural.Composite.python.composite.Component.add">
+<span class="sig-name descname"><span class="pre">add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">component</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Structural/Composite/python/composite.html#Component.add"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Structural.Composite.python.composite.Component.add" title="Link to this definition"></a></dt>
+<dd><p>Optionally, add a child component to the composite.
+Raises NotImplementedError for leaf components.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>component</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="#Structural.Composite.python.composite.Component" title="Structural.Composite.python.composite.Component"><code class="xref py py-class docutils literal notranslate"><span class="pre">Component</span></code></a></span>) – The child component to add.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Structural.Composite.python.composite.Component.remove">
+<span class="sig-name descname"><span class="pre">remove</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">component</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Structural/Composite/python/composite.html#Component.remove"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Structural.Composite.python.composite.Component.remove" title="Link to this definition"></a></dt>
+<dd><p>Optionally, remove a child component from the composite.
+Raises NotImplementedError for leaf components.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>component</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="#Structural.Composite.python.composite.Component" title="Structural.Composite.python.composite.Component"><code class="xref py py-class docutils literal notranslate"><span class="pre">Component</span></code></a></span>) – The child component to remove.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Structural.Composite.python.composite.Component.get_child">
+<span class="sig-name descname"><span class="pre">get_child</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Structural/Composite/python/composite.html#Component.get_child"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Structural.Composite.python.composite.Component.get_child" title="Link to this definition"></a></dt>
+<dd><p>Optionally, retrieve a child component at a specific index.
+Raises NotImplementedError for leaf components.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>index</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></span>) – The index of the child component.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="#Structural.Composite.python.composite.Component" title="Structural.Composite.python.composite.Component"><code class="xref py py-class docutils literal notranslate"><span class="pre">Component</span></code></a></span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The child component.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="Structural.Composite.python.composite.Leaf">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Leaf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Structural/Composite/python/composite.html#Leaf"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Structural.Composite.python.composite.Leaf" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#Structural.Composite.python.composite.Component" title="Structural.Composite.python.composite.Component"><code class="xref py py-class docutils literal notranslate"><span class="pre">Component</span></code></a></p>
+<p>Represents the Leaf object in the Composite pattern.
+A Leaf has no children and defines behavior for primitive objects.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>)</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="Structural.Composite.python.composite.Leaf.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Structural/Composite/python/composite.html#Leaf.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Structural.Composite.python.composite.Leaf.__init__" title="Link to this definition"></a></dt>
+<dd><p>Initialize the Leaf with a name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>name</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span>) – The name of the leaf.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Structural.Composite.python.composite.Leaf.operation">
+<span class="sig-name descname"><span class="pre">operation</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Structural/Composite/python/composite.html#Leaf.operation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Structural.Composite.python.composite.Leaf.operation" title="Link to this definition"></a></dt>
+<dd><p>Perform the operation specific to the leaf.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="Structural.Composite.python.composite.Composite">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Composite</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Structural/Composite/python/composite.html#Composite"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Structural.Composite.python.composite.Composite" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#Structural.Composite.python.composite.Component" title="Structural.Composite.python.composite.Component"><code class="xref py py-class docutils literal notranslate"><span class="pre">Component</span></code></a></p>
+<p>Represents the Composite object in the Composite pattern.
+A Composite can contain both Leaf and other Composite objects.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>)</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="Structural.Composite.python.composite.Composite.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Structural/Composite/python/composite.html#Composite.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Structural.Composite.python.composite.Composite.__init__" title="Link to this definition"></a></dt>
+<dd><p>Initialize the Composite with a name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>name</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span>) – The name of the composite.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Structural.Composite.python.composite.Composite.operation">
+<span class="sig-name descname"><span class="pre">operation</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Structural/Composite/python/composite.html#Composite.operation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Structural.Composite.python.composite.Composite.operation" title="Link to this definition"></a></dt>
+<dd><p>Perform the operation on the composite and its children.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Structural.Composite.python.composite.Composite.add">
+<span class="sig-name descname"><span class="pre">add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">component</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Structural/Composite/python/composite.html#Composite.add"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Structural.Composite.python.composite.Composite.add" title="Link to this definition"></a></dt>
+<dd><p>Add a child component to the composite.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>component</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="#Structural.Composite.python.composite.Component" title="Structural.Composite.python.composite.Component"><code class="xref py py-class docutils literal notranslate"><span class="pre">Component</span></code></a></span>) – The child component to add.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Structural.Composite.python.composite.Composite.remove">
+<span class="sig-name descname"><span class="pre">remove</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">component</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Structural/Composite/python/composite.html#Composite.remove"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Structural.Composite.python.composite.Composite.remove" title="Link to this definition"></a></dt>
+<dd><p>Remove a child component from the composite.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>component</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="#Structural.Composite.python.composite.Component" title="Structural.Composite.python.composite.Component"><code class="xref py py-class docutils literal notranslate"><span class="pre">Component</span></code></a></span>) – The child component to remove.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Structural.Composite.python.composite.Composite.get_child">
+<span class="sig-name descname"><span class="pre">get_child</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Structural/Composite/python/composite.html#Composite.get_child"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Structural.Composite.python.composite.Composite.get_child" title="Link to this definition"></a></dt>
+<dd><p>Retrieve a child component at a specific index.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>index</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></span>) – The index of the child component.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="#Structural.Composite.python.composite.Component" title="Structural.Composite.python.composite.Component"><code class="xref py py-class docutils literal notranslate"><span class="pre">Component</span></code></a></span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The child component.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="bridge_api.html" class="btn btn-neutral float-left" title="Bridge API Documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="decorator_api.html" class="btn btn-neutral float-right" title="Decorator API Documentation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, David Gonçalves.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

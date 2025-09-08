@@ -1,0 +1,27 @@
+Interpreter  Header
+===================
+
+.. doxygenfile:: interpreter.hpp
+   :project: Design Patterns C++
+   :no-link:
+
+Inner Classes
+-------------
+
+.. toctree::
+   :maxdepth: 1
+
+   classinterpreter__pattern_1_1Expression.gen
+   classinterpreter__pattern_1_1Constant.gen
+   classinterpreter__pattern_1_1Variable.gen
+   classinterpreter__pattern_1_1Not.gen
+   classinterpreter__pattern_1_1And.gen
+   classinterpreter__pattern_1_1Or.gen
+
+Inner Namespaces
+----------------
+
+.. toctree::
+   :maxdepth: 1
+
+   namespaceinterpreter__pattern.gen

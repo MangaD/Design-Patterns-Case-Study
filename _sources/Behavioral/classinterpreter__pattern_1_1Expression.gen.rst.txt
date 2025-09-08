@@ -1,0 +1,6 @@
+interpreter_pattern::Expression
+===============================
+
+.. doxygenclass:: interpreter_pattern::Expression
+   :project: Design Patterns C++
+   :members:

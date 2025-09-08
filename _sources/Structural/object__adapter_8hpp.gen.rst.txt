@@ -1,0 +1,24 @@
+Object  Adapter  Header
+=======================
+
+.. doxygenfile:: object_adapter.hpp
+   :project: Design Patterns C++
+   :no-link:
+
+Inner Classes
+-------------
+
+.. toctree::
+   :maxdepth: 1
+
+   classobject__adapter__pattern_1_1Target.gen
+   classobject__adapter__pattern_1_1Adaptee.gen
+   classobject__adapter__pattern_1_1Adapter.gen
+
+Inner Namespaces
+----------------
+
+.. toctree::
+   :maxdepth: 1
+
+   namespaceobject__adapter__pattern.gen

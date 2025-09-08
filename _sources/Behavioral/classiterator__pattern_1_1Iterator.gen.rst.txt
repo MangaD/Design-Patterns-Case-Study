@@ -1,0 +1,6 @@
+iterator_pattern::Iterator
+==========================
+
+.. doxygenclass:: iterator_pattern::Iterator
+   :project: Design Patterns C++
+   :members:

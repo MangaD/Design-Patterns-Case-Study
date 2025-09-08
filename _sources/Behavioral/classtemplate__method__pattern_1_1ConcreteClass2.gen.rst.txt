@@ -1,0 +1,6 @@
+template_method_pattern::ConcreteClass2
+=======================================
+
+.. doxygenclass:: template_method_pattern::ConcreteClass2
+   :project: Design Patterns C++
+   :members:

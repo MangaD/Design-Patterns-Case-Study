@@ -1,0 +1,401 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>builder_pattern &mdash; Design Patterns Case Study 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/custom.js?v=f12ea912"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="factory_method_pattern" href="namespacefactory__method__pattern.gen.html" />
+    <link rel="prev" title="abstract_factory_pattern" href="namespaceabstract__factory__pattern.gen.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Design Patterns Case Study
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction.gen.html">Design Patterns Case Study</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../creational_patterns.gen.html">Creational Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../structural_patterns.gen.html">Structural Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../behavioral_patterns.gen.html">Behavioral Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gof.gen.html">The Gang of Four</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../references.gen.html">References</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../cpp_api_index.gen.html">C++ API Documentation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../Behavioral/behavioral_patterns.gen.html">Behavioral Patterns</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="creational_patterns.gen.html">Creational Patterns</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="creational_patterns.gen.html#namespaces">Namespaces</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="namespaceabstract__factory__pattern.gen.html">abstract_factory_pattern</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">builder_pattern</a></li>
+<li class="toctree-l4"><a class="reference internal" href="namespacefactory__method__pattern.gen.html">factory_method_pattern</a></li>
+<li class="toctree-l4"><a class="reference internal" href="namespaceobject__pool__pattern.gen.html">object_pool_pattern</a></li>
+<li class="toctree-l4"><a class="reference internal" href="namespaceprototype__pattern.gen.html">prototype_pattern</a></li>
+<li class="toctree-l4"><a class="reference internal" href="namespacesingleton__pattern.gen.html">singleton_pattern</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="creational_patterns.gen.html#files">Files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="creational_patterns.gen.html#classes">Classes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Structural/structural_patterns.gen.html">Structural Patterns</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../python_api.html">Python API Documentation</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Design Patterns Case Study</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../cpp_api_index.gen.html">C++ API Documentation</a></li>
+          <li class="breadcrumb-item"><a href="creational_patterns.gen.html">Creational Patterns</a></li>
+      <li class="breadcrumb-item active">builder_pattern</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/MangaD/Design-Patterns-Case-Study/blob/main/docs/source/Creational/namespacebuilder__pattern.gen.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="builder-pattern">
+<h1>builder_pattern<a class="headerlink" href="#builder-pattern" title="Link to this heading"></a></h1>
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv415builder_pattern">
+<span id="_CPPv315builder_pattern"></span><span id="_CPPv215builder_pattern"></span><span id="builder_pattern"></span><span class="target" id="namespacebuilder__pattern"></span><span class="k"><span class="pre">namespace</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">builder_pattern</span></span></span><br /></dt>
+<dd><p>Overloads the output stream operator for the <code class="docutils literal notranslate"><a class="reference internal" href="#classbuilder__pattern_1_1Product"><span class="std std-ref"><span class="pre">Product</span></span></a></code> class. </p>
+<p>Namespace for the <a class="reference internal" href="#classbuilder__pattern_1_1Builder"><span class="std std-ref">Builder</span></a> pattern.</p>
+<p>Allows the details of the <code class="docutils literal notranslate"><a class="reference internal" href="#classbuilder__pattern_1_1Product"><span class="std std-ref"><span class="pre">Product</span></span></a></code> to be printed to an output stream.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Param os<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The output stream to write to. </p>
+</dd>
+<dt class="field-even">Param product<span class="colon">:</span></dt>
+<dd class="field-even"><p>The product whose details are printed. </p>
+</dd>
+<dt class="field-odd">Return<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The output stream with appended product details. </p>
+</dd>
+</dl>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N15builder_patternlsERNSt7ostreamERK7Product">
+<span id="_CPPv3N15builder_patternlsERNSt7ostreamERK7Product"></span><span id="_CPPv2N15builder_patternlsERNSt7ostreamERK7Product"></span><span id="builder_pattern::lshift-operator__osR.ProductCR"></span><span class="target" id="namespacebuilder__pattern_1aec7c2121218a1b6309db244e420bbb18"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">ostream</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">&lt;&lt;</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">ostream</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">os</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="builder_8hpp.gen.html#_CPPv4N15builder_pattern7ProductE" title="builder_pattern::Product"><span class="n"><span class="pre">Product</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">product</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p>Allows the details of the <code class="docutils literal notranslate"><a class="reference internal" href="#classbuilder__pattern_1_1Product"><span class="std std-ref"><span class="pre">Product</span></span></a></code> to be printed to an output stream.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>os</strong> – The output stream. </p></li>
+<li><p><strong>product</strong> – The product to be printed. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The output stream with product details appended. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N15builder_pattern7BuilderE">
+<span id="_CPPv3N15builder_pattern7BuilderE"></span><span id="_CPPv2N15builder_pattern7BuilderE"></span><span id="builder_pattern::Builder"></span><span class="target" id="classbuilder__pattern_1_1Builder"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Builder</span></span></span><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;builder.hpp&gt;</em></div>
+<p>Abstract interface for constructing a <a class="reference internal" href="#classbuilder__pattern_1_1Product"><span class="std std-ref">Product</span></a>. </p>
+<p>The <code class="docutils literal notranslate"><a class="reference internal" href="#classbuilder__pattern_1_1Builder"><span class="std std-ref"><span class="pre">Builder</span></span></a></code> interface defines the steps required to build different parts of a product and retrieve the final result. Concrete implementations of this interface construct specific types of products. </p>
+<p>Subclassed by <a class="reference internal" href="#classbuilder__pattern_1_1ConcreteBuilder"><span class="std std-ref">builder_pattern::ConcreteBuilder</span></a></p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N15builder_pattern7BuilderD0Ev">
+<span id="_CPPv3N15builder_pattern7BuilderD0Ev"></span><span id="_CPPv2N15builder_pattern7BuilderD0Ev"></span><span id="builder_pattern::Builder::~Builder"></span><span class="target" id="classbuilder__pattern_1_1Builder_1ac0d6a837d5cc9936cd71c3252d23479d"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">~Builder</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">default</span></span><br /></dt>
+<dd><p>Virtual destructor to allow proper cleanup in derived classes. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N15builder_pattern7Builder10buildPartAEv">
+<span id="_CPPv3N15builder_pattern7Builder10buildPartAEv"></span><span id="_CPPv2N15builder_pattern7Builder10buildPartAEv"></span><span id="builder_pattern::Builder::buildPartA"></span><span class="target" id="classbuilder__pattern_1_1Builder_1ab496d6c7a0172b6b012d2739eedf3868"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">buildPartA</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><br /></dt>
+<dd><p>Builds Part A of the product. </p>
+<p>Defines the step required to construct Part A of the product. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N15builder_pattern7Builder10buildPartBEv">
+<span id="_CPPv3N15builder_pattern7Builder10buildPartBEv"></span><span id="_CPPv2N15builder_pattern7Builder10buildPartBEv"></span><span id="builder_pattern::Builder::buildPartB"></span><span class="target" id="classbuilder__pattern_1_1Builder_1ad9d23f05a3e9f64de58969b3da0d57db"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">buildPartB</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><br /></dt>
+<dd><p>Builds Part B of the product. </p>
+<p>Defines the step required to construct Part B of the product. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N15builder_pattern7Builder9getResultEv">
+<span id="_CPPv3N15builder_pattern7Builder9getResultEv"></span><span id="_CPPv2N15builder_pattern7Builder9getResultEv"></span><span id="builder_pattern::Builder::getResult"></span><span class="target" id="classbuilder__pattern_1_1Builder_1a4c57238e7eace0f07bd96e73b60068c8"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">shared_ptr</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="builder_8hpp.gen.html#_CPPv4N15builder_pattern7ProductE" title="builder_pattern::Product"><span class="n"><span class="pre">Product</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getResult</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><br /></dt>
+<dd><p>Retrieves the constructed product. </p>
+<p>After all parts of the product are built, this method returns the fully constructed product.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A shared pointer to the constructed <a class="reference internal" href="#classbuilder__pattern_1_1Product"><span class="std std-ref">Product</span></a>. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N15builder_pattern15ConcreteBuilderE">
+<span id="_CPPv3N15builder_pattern15ConcreteBuilderE"></span><span id="_CPPv2N15builder_pattern15ConcreteBuilderE"></span><span id="builder_pattern::ConcreteBuilder"></span><span class="target" id="classbuilder__pattern_1_1ConcreteBuilder"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ConcreteBuilder</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><a class="reference internal" href="builder_8cpp.gen.html#_CPPv415builder_pattern" title="builder_pattern"><span class="n"><span class="pre">builder_pattern</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="builder_8hpp.gen.html#_CPPv4N15builder_pattern7BuilderE" title="builder_pattern::Builder"><span class="n"><span class="pre">Builder</span></span></a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;builder.hpp&gt;</em></div>
+<p>Concrete implementation of the <a class="reference internal" href="#classbuilder__pattern_1_1Builder"><span class="std std-ref">Builder</span></a> interface. </p>
+<p>The <code class="docutils literal notranslate"><a class="reference internal" href="#classbuilder__pattern_1_1ConcreteBuilder"><span class="std std-ref"><span class="pre">ConcreteBuilder</span></span></a></code> class constructs a specific type of product by implementing the steps defined in the <code class="docutils literal notranslate"><a class="reference internal" href="#classbuilder__pattern_1_1Builder"><span class="std std-ref"><span class="pre">Builder</span></span></a></code> interface. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N15builder_pattern15ConcreteBuilder15ConcreteBuilderEv">
+<span id="_CPPv3N15builder_pattern15ConcreteBuilder15ConcreteBuilderEv"></span><span id="_CPPv2N15builder_pattern15ConcreteBuilder15ConcreteBuilderEv"></span><span id="builder_pattern::ConcreteBuilder::ConcreteBuilder"></span><span class="target" id="classbuilder__pattern_1_1ConcreteBuilder_1adee1167f06d58f27e8d2bdb8195aa371"></span><span class="sig-name descname"><span class="n"><span class="pre">ConcreteBuilder</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><br /></dt>
+<dd><p>Constructor initializes a new <code class="docutils literal notranslate"><a class="reference internal" href="#classbuilder__pattern_1_1Product"><span class="std std-ref"><span class="pre">Product</span></span></a></code> instance. </p>
+<p>Constructs a new <code class="docutils literal notranslate"><a class="reference internal" href="#classbuilder__pattern_1_1ConcreteBuilder"><span class="std std-ref"><span class="pre">ConcreteBuilder</span></span></a></code> and initializes a product.</p>
+<p>Creates a new <code class="docutils literal notranslate"><a class="reference internal" href="#classbuilder__pattern_1_1Product"><span class="std std-ref"><span class="pre">Product</span></span></a></code> instance and initializes the builder.</p>
+<p>Initializes the builder with a fresh <code class="docutils literal notranslate"><a class="reference internal" href="#classbuilder__pattern_1_1Product"><span class="std std-ref"><span class="pre">Product</span></span></a></code> instance for construction. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N15builder_pattern15ConcreteBuilder10buildPartAEv">
+<span id="_CPPv3N15builder_pattern15ConcreteBuilder10buildPartAEv"></span><span id="_CPPv2N15builder_pattern15ConcreteBuilder10buildPartAEv"></span><span id="builder_pattern::ConcreteBuilder::buildPartA"></span><span class="target" id="classbuilder__pattern_1_1ConcreteBuilder_1a56b97cfcc6f73a74b07f60f9416f7cb5"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">buildPartA</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">override</span></span><br /></dt>
+<dd><p>Builds Part A of the product.   </p>
+<p>Builds Part A of the product.</p>
+<p>Defines the step required to construct Part A of the product.  </p>
+<p>Sets Part A of the product to a specific value defined by the builder. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N15builder_pattern15ConcreteBuilder10buildPartBEv">
+<span id="_CPPv3N15builder_pattern15ConcreteBuilder10buildPartBEv"></span><span id="_CPPv2N15builder_pattern15ConcreteBuilder10buildPartBEv"></span><span id="builder_pattern::ConcreteBuilder::buildPartB"></span><span class="target" id="classbuilder__pattern_1_1ConcreteBuilder_1a04d77379b513d36ea3c6e69b793bf30f"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">buildPartB</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">override</span></span><br /></dt>
+<dd><p>Builds Part B of the product.   </p>
+<p>Builds Part B of the product.</p>
+<p>Defines the step required to construct Part B of the product.  </p>
+<p>Sets Part B of the product to a specific value defined by the builder. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N15builder_pattern15ConcreteBuilder9getResultEv">
+<span id="_CPPv3N15builder_pattern15ConcreteBuilder9getResultEv"></span><span id="_CPPv2N15builder_pattern15ConcreteBuilder9getResultEv"></span><span id="builder_pattern::ConcreteBuilder::getResult"></span><span class="target" id="classbuilder__pattern_1_1ConcreteBuilder_1aaf7471949bda5301736f849934ad654e"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">shared_ptr</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="builder_8hpp.gen.html#_CPPv4N15builder_pattern7ProductE" title="builder_pattern::Product"><span class="n"><span class="pre">Product</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getResult</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">override</span></span><br /></dt>
+<dd><p>Retrieves the constructed product.   </p>
+<p>Retrieves the constructed product.</p>
+<p>After all parts of the product are built, this method returns the fully constructed product.</p>
+<p>
+Returns the fully constructed product after all parts have been built.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A shared pointer to the constructed <a class="reference internal" href="#classbuilder__pattern_1_1Product"><span class="std std-ref">Product</span></a>.  </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A shared pointer to the constructed <code class="docutils literal notranslate"><a class="reference internal" href="#classbuilder__pattern_1_1Product"><span class="std std-ref"><span class="pre">Product</span></span></a></code>. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N15builder_pattern8DirectorE">
+<span id="_CPPv3N15builder_pattern8DirectorE"></span><span id="_CPPv2N15builder_pattern8DirectorE"></span><span id="builder_pattern::Director"></span><span class="target" id="classbuilder__pattern_1_1Director"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Director</span></span></span><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;builder.hpp&gt;</em></div>
+<p>Orchestrates the construction process. </p>
+<p>The <code class="docutils literal notranslate"><a class="reference internal" href="#classbuilder__pattern_1_1Director"><span class="std std-ref"><span class="pre">Director</span></span></a></code> class uses a <code class="docutils literal notranslate"><a class="reference internal" href="#classbuilder__pattern_1_1Builder"><span class="std std-ref"><span class="pre">Builder</span></span></a></code> to construct a product in a predefined sequence. It ensures that the construction process is consistent and follows a specific order. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N15builder_pattern8Director8DirectorEP7Builder">
+<span id="_CPPv3N15builder_pattern8Director8DirectorEP7Builder"></span><span id="_CPPv2N15builder_pattern8Director8DirectorEP7Builder"></span><span id="builder_pattern::Director::Director__BuilderP"></span><span class="target" id="classbuilder__pattern_1_1Director_1a4eed216ca08a5dd7870553ec80069ced"></span><span class="k"><span class="pre">explicit</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Director</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="builder_8hpp.gen.html#_CPPv4N15builder_pattern7BuilderE" title="builder_pattern::Builder"><span class="n"><span class="pre">Builder</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">builder</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p>Constructor accepts a builder. </p>
+<p>Initializes the <code class="docutils literal notranslate"><a class="reference internal" href="#classbuilder__pattern_1_1Director"><span class="std std-ref"><span class="pre">Director</span></span></a></code> with a specific builder to use for the construction process.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>builder</strong> – A pointer to the <code class="docutils literal notranslate"><a class="reference internal" href="#classbuilder__pattern_1_1Builder"><span class="std std-ref"><span class="pre">Builder</span></span></a></code> instance. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N15builder_pattern8Director9constructEv">
+<span id="_CPPv3N15builder_pattern8Director9constructEv"></span><span id="_CPPv2N15builder_pattern8Director9constructEv"></span><span id="builder_pattern::Director::construct"></span><span class="target" id="classbuilder__pattern_1_1Director_1a69945be50f6f38b8661c40c8faed771c"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">construct</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><br /></dt>
+<dd><p>Constructs the product by invoking the builder’s methods in order. </p>
+<p>Constructs the product by invoking the builder’s methods in sequence.</p>
+<p>Executes the sequence of steps to construct the product using the builder.</p>
+<p>Orchestrates the construction process by calling the builder’s methods in a predefined order. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N15builder_pattern8Director10getProductEv">
+<span id="_CPPv3N15builder_pattern8Director10getProductEv"></span><span id="_CPPv2N15builder_pattern8Director10getProductEv"></span><span id="builder_pattern::Director::getProduct"></span><span class="target" id="classbuilder__pattern_1_1Director_1a75513d8cd2b16e520f28802c9b309ebf"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">shared_ptr</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="builder_8hpp.gen.html#_CPPv4N15builder_pattern7ProductE" title="builder_pattern::Product"><span class="n"><span class="pre">Product</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getProduct</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><br /></dt>
+<dd><p>Retrieves the constructed product. </p>
+<p>Retrieves the constructed product from the builder.</p>
+<p>After the construction process is complete, this method retrieves the fully constructed product from the builder.</p>
+<p>
+After the construction process is complete, this method retrieves the final constructed product from the builder.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A shared pointer to the constructed <a class="reference internal" href="#classbuilder__pattern_1_1Product"><span class="std std-ref">Product</span></a>.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A shared pointer to the constructed <code class="docutils literal notranslate"><a class="reference internal" href="#classbuilder__pattern_1_1Product"><span class="std std-ref"><span class="pre">Product</span></span></a></code>. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N15builder_pattern7ProductE">
+<span id="_CPPv3N15builder_pattern7ProductE"></span><span id="_CPPv2N15builder_pattern7ProductE"></span><span id="builder_pattern::Product"></span><span class="target" id="classbuilder__pattern_1_1Product"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Product</span></span></span><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;builder.hpp&gt;</em></div>
+<p>Represents the complex product being built. </p>
+<p>The <code class="docutils literal notranslate"><a class="reference internal" href="#classbuilder__pattern_1_1Product"><span class="std std-ref"><span class="pre">Product</span></span></a></code> class contains components <code class="docutils literal notranslate"><span class="pre">partA</span></code> and <code class="docutils literal notranslate"><span class="pre">partB</span></code> which represent the individual parts of the product. It provides methods to set its parts and to display the details of the constructed product. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N15builder_pattern7Product8setPartAERKNSt6stringE">
+<span id="_CPPv3N15builder_pattern7Product8setPartAERKNSt6stringE"></span><span id="_CPPv2N15builder_pattern7Product8setPartAERKNSt6stringE"></span><span id="builder_pattern::Product::setPartA__ssCR"></span><span class="target" id="classbuilder__pattern_1_1Product_1a4c94afe000597042cf46acc5e23629b4"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setPartA</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">part</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p>Sets Part A of the product. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>part</strong> – A string representing Part A. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N15builder_pattern7Product8setPartBERKNSt6stringE">
+<span id="_CPPv3N15builder_pattern7Product8setPartBERKNSt6stringE"></span><span id="_CPPv2N15builder_pattern7Product8setPartBERKNSt6stringE"></span><span id="builder_pattern::Product::setPartB__ssCR"></span><span class="target" id="classbuilder__pattern_1_1Product_1a9ecc1576594d9e7a613adf366f43f27b"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setPartB</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">part</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p>Sets Part B of the product. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>part</strong> – A string representing Part B. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK15builder_pattern7Product8toStringEv">
+<span id="_CPPv3NK15builder_pattern7Product8toStringEv"></span><span id="_CPPv2NK15builder_pattern7Product8toStringEv"></span><span id="builder_pattern::Product::toStringC"></span><span class="target" id="classbuilder__pattern_1_1Product_1a258ebc43bb0df0d4bef505c8b8495855"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">toString</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><br /></dt>
+<dd><p>Provides a string representation of the product. </p>
+<p>Combines details of Part A and Part B into a formatted string representation of the product.</p>
+<p>
+Combines the details of Part A and Part B into a formatted string that describes the constructed product.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A string describing the product’s parts.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A string representation of the product’s parts. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-friends">Friends</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N15builder_pattern7ProductlsERNSt7ostreamERK7Product">
+<span id="_CPPv3N15builder_pattern7ProductlsERNSt7ostreamERK7Product"></span><span id="_CPPv2N15builder_pattern7ProductlsERNSt7ostreamERK7Product"></span><span id="builder_pattern::Product::lshift-operator__osR.ProductCR"></span><span class="target" id="classbuilder__pattern_1_1Product_1a480eb0498f6882d38233479848aaa8f3"></span><span class="k"><span class="pre">friend</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">ostream</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">&lt;&lt;</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">ostream</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">os</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="builder_8hpp.gen.html#_CPPv4N15builder_pattern7ProductE" title="builder_pattern::Product"><span class="n"><span class="pre">Product</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">product</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p>Overloads the output stream operator for the <code class="docutils literal notranslate"><a class="reference internal" href="#classbuilder__pattern_1_1Product"><span class="std std-ref"><span class="pre">Product</span></span></a></code> class. </p>
+<p>Allows the details of the <code class="docutils literal notranslate"><a class="reference internal" href="#classbuilder__pattern_1_1Product"><span class="std std-ref"><span class="pre">Product</span></span></a></code> to be printed to an output stream.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>os</strong> – The output stream. </p></li>
+<li><p><strong>product</strong> – The product to be printed. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The output stream with product details appended. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="namespaceabstract__factory__pattern.gen.html" class="btn btn-neutral float-left" title="abstract_factory_pattern" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="namespacefactory__method__pattern.gen.html" class="btn btn-neutral float-right" title="factory_method_pattern" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, David Gonçalves.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

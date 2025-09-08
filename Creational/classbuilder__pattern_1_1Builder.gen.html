@@ -1,0 +1,201 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>builder_pattern::Builder &mdash; Design Patterns Case Study 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/custom.js?v=f12ea912"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="builder_pattern::ConcreteBuilder" href="classbuilder__pattern_1_1ConcreteBuilder.gen.html" />
+    <link rel="prev" title="builder_pattern::Product" href="classbuilder__pattern_1_1Product.gen.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Design Patterns Case Study
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction.gen.html">Design Patterns Case Study</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../creational_patterns.gen.html">Creational Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../structural_patterns.gen.html">Structural Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../behavioral_patterns.gen.html">Behavioral Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gof.gen.html">The Gang of Four</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../references.gen.html">References</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../cpp_api_index.gen.html">C++ API Documentation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../Behavioral/behavioral_patterns.gen.html">Behavioral Patterns</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="creational_patterns.gen.html">Creational Patterns</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="creational_patterns.gen.html#namespaces">Namespaces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="creational_patterns.gen.html#files">Files</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="creational_patterns.gen.html#classes">Classes</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="classabstract__factory__pattern_1_1AbstractFactory.gen.html">abstract_factory_pattern::AbstractFactory</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classabstract__factory__pattern_1_1AbstractProductA.gen.html">abstract_factory_pattern::AbstractProductA</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classabstract__factory__pattern_1_1AbstractProductB.gen.html">abstract_factory_pattern::AbstractProductB</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classabstract__factory__pattern_1_1ConcreteFactory1.gen.html">abstract_factory_pattern::ConcreteFactory1</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classabstract__factory__pattern_1_1ConcreteFactory2.gen.html">abstract_factory_pattern::ConcreteFactory2</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classabstract__factory__pattern_1_1ConcreteProductA1.gen.html">abstract_factory_pattern::ConcreteProductA1</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classabstract__factory__pattern_1_1ConcreteProductA2.gen.html">abstract_factory_pattern::ConcreteProductA2</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classabstract__factory__pattern_1_1ConcreteProductB1.gen.html">abstract_factory_pattern::ConcreteProductB1</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classabstract__factory__pattern_1_1ConcreteProductB2.gen.html">abstract_factory_pattern::ConcreteProductB2</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">builder_pattern::Builder</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classbuilder__pattern_1_1ConcreteBuilder.gen.html">builder_pattern::ConcreteBuilder</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classbuilder__pattern_1_1Director.gen.html">builder_pattern::Director</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classbuilder__pattern_1_1Product.gen.html">builder_pattern::Product</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classfactory__method__pattern_1_1ConcreteCreatorA.gen.html">factory_method_pattern::ConcreteCreatorA</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classfactory__method__pattern_1_1ConcreteCreatorB.gen.html">factory_method_pattern::ConcreteCreatorB</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classfactory__method__pattern_1_1ConcreteProductA.gen.html">factory_method_pattern::ConcreteProductA</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classfactory__method__pattern_1_1ConcreteProductB.gen.html">factory_method_pattern::ConcreteProductB</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classfactory__method__pattern_1_1Creator.gen.html">factory_method_pattern::Creator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classfactory__method__pattern_1_1Product.gen.html">factory_method_pattern::Product</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classobject__pool__pattern_1_1ConcreteReusable.gen.html">object_pool_pattern::ConcreteReusable</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classobject__pool__pattern_1_1ObjectPool.gen.html">object_pool_pattern::ObjectPool</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classobject__pool__pattern_1_1Reusable.gen.html">object_pool_pattern::Reusable</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classprototype__pattern_1_1ConcretePrototype1.gen.html">prototype_pattern::ConcretePrototype1</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classprototype__pattern_1_1ConcretePrototype2.gen.html">prototype_pattern::ConcretePrototype2</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classprototype__pattern_1_1Prototype.gen.html">prototype_pattern::Prototype</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classsingleton__pattern_1_1Singleton.gen.html">singleton_pattern::Singleton</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Structural/structural_patterns.gen.html">Structural Patterns</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../python_api.html">Python API Documentation</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Design Patterns Case Study</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../cpp_api_index.gen.html">C++ API Documentation</a></li>
+          <li class="breadcrumb-item"><a href="creational_patterns.gen.html">Creational Patterns</a></li>
+          <li class="breadcrumb-item"><a href="builder_8hpp.gen.html">Builder  Header</a></li>
+      <li class="breadcrumb-item active">builder_pattern::Builder</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/MangaD/Design-Patterns-Case-Study/blob/main/docs/source/Creational/classbuilder__pattern_1_1Builder.gen.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="builder-pattern-builder">
+<h1>builder_pattern::Builder<a class="headerlink" href="#builder-pattern-builder" title="Link to this heading"></a></h1>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N15builder_pattern7BuilderE">
+<span id="_CPPv3N15builder_pattern7BuilderE"></span><span id="_CPPv2N15builder_pattern7BuilderE"></span><span id="builder_pattern::Builder"></span><span class="target" id="classbuilder__pattern_1_1Builder"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Builder</span></span></span><br /></dt>
+<dd><p>Abstract interface for constructing a <a class="reference internal" href="namespacebuilder__pattern.gen.html#classbuilder__pattern_1_1Product"><span class="std std-ref">Product</span></a>. </p>
+<p>The <code class="docutils literal notranslate"><a class="reference internal" href="namespacebuilder__pattern.gen.html#classbuilder__pattern_1_1Builder"><span class="std std-ref"><span class="pre">Builder</span></span></a></code> interface defines the steps required to build different parts of a product and retrieve the final result. Concrete implementations of this interface construct specific types of products. </p>
+<p>Subclassed by <a class="reference internal" href="namespacebuilder__pattern.gen.html#classbuilder__pattern_1_1ConcreteBuilder"><span class="std std-ref">builder_pattern::ConcreteBuilder</span></a></p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N15builder_pattern7BuilderD0Ev">
+<span id="_CPPv3N15builder_pattern7BuilderD0Ev"></span><span id="_CPPv2N15builder_pattern7BuilderD0Ev"></span><span id="builder_pattern::Builder::~Builder"></span><span class="target" id="classbuilder__pattern_1_1Builder_1ac0d6a837d5cc9936cd71c3252d23479d"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">~Builder</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">default</span></span><br /></dt>
+<dd><p>Virtual destructor to allow proper cleanup in derived classes. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N15builder_pattern7Builder10buildPartAEv">
+<span id="_CPPv3N15builder_pattern7Builder10buildPartAEv"></span><span id="_CPPv2N15builder_pattern7Builder10buildPartAEv"></span><span id="builder_pattern::Builder::buildPartA"></span><span class="target" id="classbuilder__pattern_1_1Builder_1ab496d6c7a0172b6b012d2739eedf3868"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">buildPartA</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><br /></dt>
+<dd><p>Builds Part A of the product. </p>
+<p>Defines the step required to construct Part A of the product. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N15builder_pattern7Builder10buildPartBEv">
+<span id="_CPPv3N15builder_pattern7Builder10buildPartBEv"></span><span id="_CPPv2N15builder_pattern7Builder10buildPartBEv"></span><span id="builder_pattern::Builder::buildPartB"></span><span class="target" id="classbuilder__pattern_1_1Builder_1ad9d23f05a3e9f64de58969b3da0d57db"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">buildPartB</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><br /></dt>
+<dd><p>Builds Part B of the product. </p>
+<p>Defines the step required to construct Part B of the product. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N15builder_pattern7Builder9getResultEv">
+<span id="_CPPv3N15builder_pattern7Builder9getResultEv"></span><span id="_CPPv2N15builder_pattern7Builder9getResultEv"></span><span id="builder_pattern::Builder::getResult"></span><span class="target" id="classbuilder__pattern_1_1Builder_1a4c57238e7eace0f07bd96e73b60068c8"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">shared_ptr</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="builder_8hpp.gen.html#_CPPv4N15builder_pattern7ProductE" title="builder_pattern::Product"><span class="n"><span class="pre">Product</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getResult</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><br /></dt>
+<dd><p>Retrieves the constructed product. </p>
+<p>After all parts of the product are built, this method returns the fully constructed product.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A shared pointer to the constructed <a class="reference internal" href="namespacebuilder__pattern.gen.html#classbuilder__pattern_1_1Product"><span class="std std-ref">Product</span></a>. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="classbuilder__pattern_1_1Product.gen.html" class="btn btn-neutral float-left" title="builder_pattern::Product" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="classbuilder__pattern_1_1ConcreteBuilder.gen.html" class="btn btn-neutral float-right" title="builder_pattern::ConcreteBuilder" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, David Gonçalves.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

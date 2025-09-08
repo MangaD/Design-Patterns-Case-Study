@@ -1,0 +1,75 @@
+Creational Patterns
+===================
+
+Namespaces
+----------
+
+.. toctree::
+   :maxdepth: 1
+
+   namespaceabstract__factory__pattern.gen
+   namespacebuilder__pattern.gen
+   namespacefactory__method__pattern.gen
+   namespaceobject__pool__pattern.gen
+   namespaceprototype__pattern.gen
+   namespacesingleton__pattern.gen
+
+Files
+-----
+
+.. toctree::
+   :maxdepth: 1
+
+   abstract__factory_8cpp.gen
+   abstract__factory_8hpp.gen
+   builder_8cpp.gen
+   builder_8hpp.gen
+   concrete__reusable_8cpp.gen
+   concrete__reusable_8hpp.gen
+   factory__method_8cpp.gen
+   factory__method_8hpp.gen
+   object__pool_8cpp.gen
+   object__pool_8hpp.gen
+   prototype_8cpp.gen
+   prototype_8hpp.gen
+   singleton_8cpp.gen
+   singleton_8hpp.gen
+   test__abstract__factory_8cpp.gen
+   test__builder_8cpp.gen
+   test__factory__method_8cpp.gen
+   test__object__pool_8cpp.gen
+   test__prototype_8cpp.gen
+   test__singleton_8cpp.gen
+
+Classes
+-------
+
+.. toctree::
+   :maxdepth: 1
+
+   classabstract__factory__pattern_1_1AbstractFactory.gen
+   classabstract__factory__pattern_1_1AbstractProductA.gen
+   classabstract__factory__pattern_1_1AbstractProductB.gen
+   classabstract__factory__pattern_1_1ConcreteFactory1.gen
+   classabstract__factory__pattern_1_1ConcreteFactory2.gen
+   classabstract__factory__pattern_1_1ConcreteProductA1.gen
+   classabstract__factory__pattern_1_1ConcreteProductA2.gen
+   classabstract__factory__pattern_1_1ConcreteProductB1.gen
+   classabstract__factory__pattern_1_1ConcreteProductB2.gen
+   classbuilder__pattern_1_1Builder.gen
+   classbuilder__pattern_1_1ConcreteBuilder.gen
+   classbuilder__pattern_1_1Director.gen
+   classbuilder__pattern_1_1Product.gen
+   classfactory__method__pattern_1_1ConcreteCreatorA.gen
+   classfactory__method__pattern_1_1ConcreteCreatorB.gen
+   classfactory__method__pattern_1_1ConcreteProductA.gen
+   classfactory__method__pattern_1_1ConcreteProductB.gen
+   classfactory__method__pattern_1_1Creator.gen
+   classfactory__method__pattern_1_1Product.gen
+   classobject__pool__pattern_1_1ConcreteReusable.gen
+   classobject__pool__pattern_1_1ObjectPool.gen
+   classobject__pool__pattern_1_1Reusable.gen
+   classprototype__pattern_1_1ConcretePrototype1.gen
+   classprototype__pattern_1_1ConcretePrototype2.gen
+   classprototype__pattern_1_1Prototype.gen
+   classsingleton__pattern_1_1Singleton.gen

@@ -1,0 +1,6 @@
+bridge_pattern::Implementor
+===========================
+
+.. doxygenclass:: bridge_pattern::Implementor
+   :project: Design Patterns C++
+   :members:

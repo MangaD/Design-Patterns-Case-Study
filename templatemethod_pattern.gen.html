@@ -1,0 +1,461 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Template Method Pattern &mdash; Design Patterns Case Study 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=8d563738"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/custom.js?v=f12ea912"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Visitor Pattern" href="visitor_pattern.gen.html" />
+    <link rel="prev" title="Strategy Pattern" href="strategy_pattern.gen.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Design Patterns Case Study
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.gen.html">Design Patterns Case Study</a></li>
+<li class="toctree-l1"><a class="reference internal" href="creational_patterns.gen.html">Creational Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="structural_patterns.gen.html">Structural Patterns</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="behavioral_patterns.gen.html">Behavioral Patterns</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="chainofresponsibility_pattern.gen.html">Chain of Responsibility Pattern</a></li>
+<li class="toctree-l2"><a class="reference internal" href="command_pattern.gen.html">Command Pattern</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interpreter_pattern.gen.html">Interpreter Pattern</a></li>
+<li class="toctree-l2"><a class="reference internal" href="iterator_pattern.gen.html">Iterator Pattern</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mediator_pattern.gen.html">Mediator Pattern</a></li>
+<li class="toctree-l2"><a class="reference internal" href="memento_pattern.gen.html">Memento Pattern</a></li>
+<li class="toctree-l2"><a class="reference internal" href="observer_pattern.gen.html">Observer Pattern</a></li>
+<li class="toctree-l2"><a class="reference internal" href="state_pattern.gen.html">State Pattern</a></li>
+<li class="toctree-l2"><a class="reference internal" href="strategy_pattern.gen.html">Strategy Pattern</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Template Method Pattern</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#category"><strong>Category</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#overview"><strong>Overview</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#key-characteristics"><strong>Key Characteristics</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#uml-diagram"><strong>UML Diagram</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#implementation-walkthrough"><strong>Implementation Walkthrough</strong></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#participants"><strong>Participants</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#example-preparing-a-beverage"><strong>Example: Preparing a Beverage</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#output"><strong>Output</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#applications"><strong>Applications</strong></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#when-to-use-the-template-method-pattern"><strong>When to Use the Template Method Pattern</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#common-use-cases"><strong>Common Use Cases</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#advantages-and-disadvantages"><strong>Advantages and Disadvantages</strong></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#advantages"><strong>Advantages</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#disadvantages"><strong>Disadvantages</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#comparison-with-related-patterns"><strong>Comparison with Related Patterns</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#key-takeaways"><strong>Key Takeaways</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="visitor_pattern.gen.html">Visitor Pattern</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="gof.gen.html">The Gang of Four</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.gen.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cpp_api_index.gen.html">C++ API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_api.html">Python API Documentation</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Design Patterns Case Study</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="behavioral_patterns.gen.html">Behavioral Patterns</a></li>
+      <li class="breadcrumb-item active">Template Method Pattern</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/MangaD/Design-Patterns-Case-Study/blob/main/docs/source/templatemethod_pattern.gen.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="toctree-wrapper compound">
+</div>
+<section id="template-method-pattern">
+<h1>Template Method Pattern<a class="headerlink" href="#template-method-pattern" title="Link to this heading"></a></h1>
+<section id="category">
+<h2><strong>Category</strong><a class="headerlink" href="#category" title="Link to this heading"></a></h2>
+<p>Behavioral Design Pattern</p>
+</section>
+<hr class="docutils" />
+<section id="overview">
+<h2><strong>Overview</strong><a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p>The <strong>Template Method Pattern</strong> defines the skeleton of an algorithm in a base class, allowing subclasses to override specific steps of the algorithm without changing its overall structure. This pattern promotes code reuse by enabling a common algorithm structure while permitting variations in specific parts of the algorithm.</p>
+<p>This pattern is particularly useful when:</p>
+<ul class="simple">
+<li><p>A sequence of steps is fixed but certain steps need customization.</p></li>
+<li><p>You want to enforce a standard procedure while allowing flexibility for some steps.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="key-characteristics">
+<h2><strong>Key Characteristics</strong><a class="headerlink" href="#key-characteristics" title="Link to this heading"></a></h2>
+<ol class="arabic">
+<li><p><strong>Algorithm Skeleton</strong>:</p>
+<ul class="simple">
+<li><p>Defines the structure of an algorithm in a base class.</p></li>
+<li><p>Allows customization of specific steps by subclasses.</p></li>
+</ul>
+</li>
+<li><p><strong>Hooks and Template Methods</strong>:</p>
+<ul class="simple">
+<li><p><strong>Template Method</strong>: Provides the overall structure of the algorithm.</p></li>
+<li><p><strong>Hooks</strong>: Optional methods that allow subclasses to hook into the algorithm for additional customization.</p></li>
+</ul>
+</li>
+<li><p><strong>Encapsulation of Invariant Behavior</strong>:</p>
+<ul class="simple">
+<li><p>Common steps are implemented in the base class to avoid duplication and ensure consistency.</p></li>
+</ul>
+</li>
+<li><p><strong>Polymorphism</strong>:</p>
+<ul class="simple">
+<li><p>Subclasses override specific steps to implement their variant of the algorithm.</p></li>
+</ul>
+</li>
+<li><p><strong>Promotes the Hollywood Principle</strong>:</p>
+<ul>
+<li><p>The <strong>Hollywood Principle</strong> is summarized as: <strong>“Don’t call us; we’ll call you.”</strong> It emphasizes <strong>inversion of control</strong>, where a higher-level component (e.g., a base class) orchestrates the flow of execution and <strong>delegates specific behavior</strong> to lower-level components (e.g., subclasses or concrete implementations).</p>
+<p>In the <strong>Template Method Pattern</strong>, this principle is evident because:</p>
+<ol class="arabic simple">
+<li><p>The <strong>abstract class</strong> defines the algorithm’s structure (the “call you” part).</p></li>
+<li><p>Subclasses <strong>override specific steps</strong> (the “don’t call us” part) required for the algorithm without dictating the overall process.</p></li>
+<li><p>The <strong>base class controls the execution flow</strong>, ensuring that the algorithm remains consistent while allowing flexibility in implementation details.</p></li>
+</ol>
+<p>This principle helps maintain a <strong>clear separation of concerns</strong> and ensures that higher-level components stay in control of the system’s behavior.</p>
+</li>
+</ul>
+</li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="uml-diagram">
+<h2><strong>UML Diagram</strong><a class="headerlink" href="#uml-diagram" title="Link to this heading"></a></h2>
+<p>The UML diagram below illustrates the Template Method Pattern, showing how the base class defines the algorithm structure and subclasses override specific steps:</p>
+<p><img alt="UML Diagram" src="http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/MangaD/Design-Patterns-Case-Study/refs/heads/main/Behavioral/TemplateMethod/template_method.puml" /></p>
+</section>
+<hr class="docutils" />
+<section id="implementation-walkthrough">
+<h2><strong>Implementation Walkthrough</strong><a class="headerlink" href="#implementation-walkthrough" title="Link to this heading"></a></h2>
+<section id="participants">
+<h3><strong>Participants</strong><a class="headerlink" href="#participants" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>AbstractClass</strong>:</p>
+<ul class="simple">
+<li><p>Defines the skeleton of the algorithm using a <strong>template method</strong>.</p></li>
+<li><p>Implements common steps of the algorithm and declares abstract or optional methods for customization.</p></li>
+</ul>
+</li>
+<li><p><strong>ConcreteClass</strong>:</p>
+<ul class="simple">
+<li><p>Implements the specific steps of the algorithm by overriding methods in the abstract class.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="example-preparing-a-beverage">
+<h3><strong>Example: Preparing a Beverage</strong><a class="headerlink" href="#example-preparing-a-beverage" title="Link to this heading"></a></h3>
+<p>Imagine you are creating a system to prepare beverages. The overall process is the same (boil water, brew, pour, add condiments), but specific steps like brewing and adding condiments vary depending on the beverage.</p>
+<section id="abstract-class-beverage">
+<h4>Abstract Class: Beverage<a class="headerlink" href="#abstract-class-beverage" title="Link to this heading"></a></h4>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm"> * @brief Abstract class that defines the template method for preparing a beverage.</span>
+<span class="cm"> */</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">abstract</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Beverage</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Template Method</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">prepareBeverage</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">boilWater</span><span class="p">();</span>
+<span class="w">        </span><span class="n">brew</span><span class="p">();</span>
+<span class="w">        </span><span class="n">pourInCup</span><span class="p">();</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">customerWantsCondiments</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">addCondiments</span><span class="p">();</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">boilWater</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Boiling water...&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">pourInCup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Pouring into cup...&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">protected</span><span class="w"> </span><span class="kd">abstract</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">brew</span><span class="p">();</span>
+<span class="w">    </span><span class="kd">protected</span><span class="w"> </span><span class="kd">abstract</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">addCondiments</span><span class="p">();</span>
+
+<span class="w">    </span><span class="c1">// Hook method</span>
+<span class="w">    </span><span class="kd">protected</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">customerWantsCondiments</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span><span class="w"> </span><span class="c1">// Default behavior; subclasses can override</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="concrete-class-tea">
+<h4>Concrete Class: Tea<a class="headerlink" href="#concrete-class-tea" title="Link to this heading"></a></h4>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm"> * @brief Concrete implementation of the Beverage for Tea.</span>
+<span class="cm"> */</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Tea</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Beverage</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">protected</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">brew</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Steeping the tea...&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">protected</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">addCondiments</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Adding lemon...&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="concrete-class-coffee">
+<h4>Concrete Class: Coffee<a class="headerlink" href="#concrete-class-coffee" title="Link to this heading"></a></h4>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm"> * @brief Concrete implementation of the Beverage for Coffee.</span>
+<span class="cm"> */</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Coffee</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Beverage</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">protected</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">brew</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Dripping coffee through filter...&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">protected</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">addCondiments</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Adding sugar and milk...&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">protected</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">customerWantsCondiments</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span><span class="w"> </span><span class="c1">// No condiments for coffee in this example</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="client-code">
+<h4>Client Code<a class="headerlink" href="#client-code" title="Link to this heading"></a></h4>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm"> * @brief Demonstrates the Template Method Pattern with different beverages.</span>
+<span class="cm"> */</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">TemplateMethodDemo</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Beverage</span><span class="w"> </span><span class="n">tea</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Tea</span><span class="p">();</span>
+<span class="w">        </span><span class="n">tea</span><span class="p">.</span><span class="na">prepareBeverage</span><span class="p">();</span>
+
+<span class="w">        </span><span class="n">Beverage</span><span class="w"> </span><span class="n">coffee</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Coffee</span><span class="p">();</span>
+<span class="w">        </span><span class="n">coffee</span><span class="p">.</span><span class="na">prepareBeverage</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="output">
+<h3><strong>Output</strong><a class="headerlink" href="#output" title="Link to this heading"></a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Boiling</span> <span class="n">water</span><span class="o">...</span>
+<span class="n">Steeping</span> <span class="n">the</span> <span class="n">tea</span><span class="o">...</span>
+<span class="n">Pouring</span> <span class="n">into</span> <span class="n">cup</span><span class="o">...</span>
+<span class="n">Adding</span> <span class="n">lemon</span><span class="o">...</span>
+
+<span class="n">Boiling</span> <span class="n">water</span><span class="o">...</span>
+<span class="n">Dripping</span> <span class="n">coffee</span> <span class="n">through</span> <span class="nb">filter</span><span class="o">...</span>
+<span class="n">Pouring</span> <span class="n">into</span> <span class="n">cup</span><span class="o">...</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="applications">
+<h2><strong>Applications</strong><a class="headerlink" href="#applications" title="Link to this heading"></a></h2>
+<section id="when-to-use-the-template-method-pattern">
+<h3><strong>When to Use the Template Method Pattern</strong><a class="headerlink" href="#when-to-use-the-template-method-pattern" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>When multiple subclasses share a common algorithm structure but differ in specific steps.</p></li>
+<li><p>When you want to enforce a standard procedure while allowing limited flexibility.</p></li>
+<li><p>When avoiding code duplication for common steps is important.</p></li>
+</ol>
+</section>
+<section id="common-use-cases">
+<h3><strong>Common Use Cases</strong><a class="headerlink" href="#common-use-cases" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>Frameworks and Libraries</strong>:</p>
+<ul class="simple">
+<li><p>Frameworks often use template methods to provide a common structure while allowing application-specific customizations.</p></li>
+</ul>
+</li>
+<li><p><strong>Report Generation</strong>:</p>
+<ul class="simple">
+<li><p>Generating reports with a common layout but different data sources.</p></li>
+</ul>
+</li>
+<li><p><strong>Game Development</strong>:</p>
+<ul class="simple">
+<li><p>Defining a game loop with hooks for game-specific logic.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+</section>
+<hr class="docutils" />
+<section id="advantages-and-disadvantages">
+<h2><strong>Advantages and Disadvantages</strong><a class="headerlink" href="#advantages-and-disadvantages" title="Link to this heading"></a></h2>
+<section id="advantages">
+<h3><strong>Advantages</strong><a class="headerlink" href="#advantages" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>Code Reuse</strong>:</p>
+<ul class="simple">
+<li><p>Avoids duplication by implementing common steps in a base class.</p></li>
+</ul>
+</li>
+<li><p><strong>Flexibility</strong>:</p>
+<ul class="simple">
+<li><p>Allows variations in behavior by overriding specific steps.</p></li>
+</ul>
+</li>
+<li><p><strong>Consistency</strong>:</p>
+<ul class="simple">
+<li><p>Ensures that the algorithm follows a consistent structure across implementations.</p></li>
+</ul>
+</li>
+<li><p><strong>Encapsulation</strong>:</p>
+<ul class="simple">
+<li><p>Encapsulates invariant behavior in the base class.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="disadvantages">
+<h3><strong>Disadvantages</strong><a class="headerlink" href="#disadvantages" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>Increased Complexity</strong>:</p>
+<ul class="simple">
+<li><p>Requires careful design of abstract and hook methods.</p></li>
+</ul>
+</li>
+<li><p><strong>Limited Flexibility</strong>:</p>
+<ul class="simple">
+<li><p>Subclasses must conform to the predefined structure, reducing freedom.</p></li>
+</ul>
+</li>
+<li><p><strong>Inheritance Dependency</strong>:</p>
+<ul class="simple">
+<li><p>Relies on inheritance, which may lead to issues in complex hierarchies.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+</section>
+<hr class="docutils" />
+<section id="comparison-with-related-patterns">
+<h2><strong>Comparison with Related Patterns</strong><a class="headerlink" href="#comparison-with-related-patterns" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p><strong>Strategy</strong>:</p>
+<ul class="simple">
+<li><p><strong>Strategy Pattern</strong> focuses on replacing an entire algorithm dynamically, while the <strong>Template Method Pattern</strong> allows for customization of specific steps within a fixed algorithm.</p></li>
+</ul>
+</li>
+<li><p><strong>State</strong>:</p>
+<ul class="simple">
+<li><p>The <strong>State Pattern</strong> changes behavior based on an object’s state, whereas the <strong>Template Method Pattern</strong> enforces a consistent algorithm structure with variations in specific steps.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="key-takeaways">
+<h2><strong>Key Takeaways</strong><a class="headerlink" href="#key-takeaways" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>The <strong>Template Method Pattern</strong> provides a powerful mechanism to define a fixed algorithm structure while enabling flexibility in specific steps.</p></li>
+<li><p>By encapsulating invariant behavior and promoting code reuse, it ensures consistency and maintainability across implementations.</p></li>
+<li><p>Careful design is required to balance the flexibility of hooks with the constraints of the algorithm skeleton.</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="strategy_pattern.gen.html" class="btn btn-neutral float-left" title="Strategy Pattern" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="visitor_pattern.gen.html" class="btn btn-neutral float-right" title="Visitor Pattern" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, David Gonçalves.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

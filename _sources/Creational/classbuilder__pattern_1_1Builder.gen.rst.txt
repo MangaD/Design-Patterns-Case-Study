@@ -1,0 +1,6 @@
+builder_pattern::Builder
+========================
+
+.. doxygenclass:: builder_pattern::Builder
+   :project: Design Patterns C++
+   :members:

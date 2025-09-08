@@ -1,0 +1,6 @@
+flyweight_pattern
+=================
+
+.. doxygennamespace:: flyweight_pattern
+   :project: Design Patterns C++
+   :members:

@@ -1,0 +1,440 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Facade Pattern &mdash; Design Patterns Case Study 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=8d563738"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/custom.js?v=f12ea912"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Flyweight Pattern" href="flyweight_pattern.gen.html" />
+    <link rel="prev" title="Decorator Pattern" href="decorator_pattern.gen.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Design Patterns Case Study
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.gen.html">Design Patterns Case Study</a></li>
+<li class="toctree-l1"><a class="reference internal" href="creational_patterns.gen.html">Creational Patterns</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="structural_patterns.gen.html">Structural Patterns</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="adapter_pattern.gen.html">Adapter Pattern</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bridge_pattern.gen.html">Bridge Pattern</a></li>
+<li class="toctree-l2"><a class="reference internal" href="composite_pattern.gen.html">Composite Pattern</a></li>
+<li class="toctree-l2"><a class="reference internal" href="decorator_pattern.gen.html">Decorator Pattern</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Facade Pattern</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#category">Category</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#key-characteristics">Key Characteristics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#uml-diagram">UML Diagram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#implementation-walkthrough">Implementation Walkthrough</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#participants">Participants</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#example-home-theater-system">Example: Home Theater System</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#output">Output</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#applications">Applications</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#when-to-use-the-facade-pattern">When to Use the Facade Pattern</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#common-use-cases">Common Use Cases</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#advantages-and-disadvantages">Advantages and Disadvantages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#advantages">Advantages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#disadvantages">Disadvantages</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#key-takeaways">Key Takeaways</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="flyweight_pattern.gen.html">Flyweight Pattern</a></li>
+<li class="toctree-l2"><a class="reference internal" href="proxy_pattern.gen.html">Proxy Pattern</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="behavioral_patterns.gen.html">Behavioral Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gof.gen.html">The Gang of Four</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.gen.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cpp_api_index.gen.html">C++ API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_api.html">Python API Documentation</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Design Patterns Case Study</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="structural_patterns.gen.html">Structural Patterns</a></li>
+      <li class="breadcrumb-item active">Facade Pattern</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/MangaD/Design-Patterns-Case-Study/blob/main/docs/source/facade_pattern.gen.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="toctree-wrapper compound">
+</div>
+<section id="facade-pattern">
+<h1>Facade Pattern<a class="headerlink" href="#facade-pattern" title="Link to this heading"></a></h1>
+<section id="category">
+<h2>Category<a class="headerlink" href="#category" title="Link to this heading"></a></h2>
+<p>Structural Design Pattern</p>
+</section>
+<hr class="docutils" />
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p>The <strong>Facade Pattern</strong> is a <strong>structural design pattern</strong> that provides a simplified interface to a complex subsystem. By creating a “facade” class that interacts with the subsystem, it allows clients to use the subsystem’s functionality without needing to understand its intricacies or implementation details.</p>
+<p>This pattern promotes <strong>encapsulation</strong> and <strong>separation of concerns</strong>, making complex systems easier to use and maintain.</p>
+</section>
+<hr class="docutils" />
+<section id="key-characteristics">
+<h2>Key Characteristics<a class="headerlink" href="#key-characteristics" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p><strong>Simplified Interface</strong>:</p>
+<ul class="simple">
+<li><p>Provides a high-level interface that simplifies access to a complex subsystem.</p></li>
+</ul>
+</li>
+<li><p><strong>Encapsulation</strong>:</p>
+<ul class="simple">
+<li><p>Hides the complexity of the subsystem by exposing only the relevant methods through the facade.</p></li>
+</ul>
+</li>
+<li><p><strong>Decoupling</strong>:</p>
+<ul class="simple">
+<li><p>Decouples the client from the subsystem, making the code easier to maintain and extend.</p></li>
+</ul>
+</li>
+<li><p><strong>Integration with Other Patterns</strong>:</p>
+<ul class="simple">
+<li><p>Often used alongside other patterns (e.g., Adapter, Mediator) to further simplify interactions.</p></li>
+</ul>
+</li>
+<li><p><strong>Improved Maintainability</strong>:</p>
+<ul class="simple">
+<li><p>Changes to the subsystem do not impact clients, as long as the facade’s interface remains unchanged.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="uml-diagram">
+<h2>UML Diagram<a class="headerlink" href="#uml-diagram" title="Link to this heading"></a></h2>
+<p>The UML diagram below illustrates the Facade Pattern. The <strong>Facade</strong> provides a simplified interface to the <strong>Subsystems</strong>, while the <strong>Client</strong> interacts with the facade without directly accessing the subsystems.</p>
+<p><img alt="UML Diagram" src="http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/MangaD/Design-Patterns-Case-Study/refs/heads/main/Structural/Facade/facade.puml" /></p>
+</section>
+<hr class="docutils" />
+<section id="implementation-walkthrough">
+<h2>Implementation Walkthrough<a class="headerlink" href="#implementation-walkthrough" title="Link to this heading"></a></h2>
+<section id="participants">
+<h3>Participants<a class="headerlink" href="#participants" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>Facade</strong>:</p>
+<ul class="simple">
+<li><p>Provides a unified interface to the subsystem.</p></li>
+<li><p>Delegates client requests to the appropriate subsystem components.</p></li>
+</ul>
+</li>
+<li><p><strong>Subsystems</strong>:</p>
+<ul class="simple">
+<li><p>Represent the components of the system that perform the actual work.</p></li>
+<li><p>The subsystems are unaware of the facade and do not depend on it.</p></li>
+</ul>
+</li>
+<li><p><strong>Client</strong>:</p>
+<ul class="simple">
+<li><p>Uses the facade to interact with the subsystem, avoiding direct interaction with the subsystem’s components.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="example-home-theater-system">
+<h3>Example: Home Theater System<a class="headerlink" href="#example-home-theater-system" title="Link to this heading"></a></h3>
+<p>Imagine you have a home theater system with multiple components (e.g., TV, speakers, DVD player). Without a facade, the client must interact with each component individually, resulting in complex code. A facade simplifies this by providing a unified interface to control the system.</p>
+<section id="subsystems">
+<h4>Subsystems<a class="headerlink" href="#subsystems" title="Link to this heading"></a></h4>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm"> * @brief Represents the TV subsystem.</span>
+<span class="cm"> */</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">TV</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">turnOn</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Turning on the TV.&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">turnOff</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Turning off the TV.&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * @brief Represents the Sound System subsystem.</span>
+<span class="cm"> */</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">SoundSystem</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">turnOn</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Turning on the sound system.&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">setVolume</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">level</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Setting volume to &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">level</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">turnOff</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Turning off the sound system.&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * @brief Represents the DVD Player subsystem.</span>
+<span class="cm"> */</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">DVDPlayer</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">playMovie</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">movie</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Playing movie: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">movie</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">stopMovie</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Stopping the movie.&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="facade">
+<h4>Facade<a class="headerlink" href="#facade" title="Link to this heading"></a></h4>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm"> * @brief The Facade class simplifies interaction with the subsystems.</span>
+<span class="cm"> */</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">HomeTheaterFacade</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">TV</span><span class="w"> </span><span class="n">tv</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">SoundSystem</span><span class="w"> </span><span class="n">soundSystem</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">DVDPlayer</span><span class="w"> </span><span class="n">dvdPlayer</span><span class="p">;</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">HomeTheaterFacade</span><span class="p">(</span><span class="n">TV</span><span class="w"> </span><span class="n">tv</span><span class="p">,</span><span class="w"> </span><span class="n">SoundSystem</span><span class="w"> </span><span class="n">soundSystem</span><span class="p">,</span><span class="w"> </span><span class="n">DVDPlayer</span><span class="w"> </span><span class="n">dvdPlayer</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">tv</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tv</span><span class="p">;</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">soundSystem</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">soundSystem</span><span class="p">;</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">dvdPlayer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dvdPlayer</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">watchMovie</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">movie</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Setting up the home theater...&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">tv</span><span class="p">.</span><span class="na">turnOn</span><span class="p">();</span>
+<span class="w">        </span><span class="n">soundSystem</span><span class="p">.</span><span class="na">turnOn</span><span class="p">();</span>
+<span class="w">        </span><span class="n">soundSystem</span><span class="p">.</span><span class="na">setVolume</span><span class="p">(</span><span class="mi">20</span><span class="p">);</span>
+<span class="w">        </span><span class="n">dvdPlayer</span><span class="p">.</span><span class="na">playMovie</span><span class="p">(</span><span class="n">movie</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">endMovie</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Shutting down the home theater...&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">dvdPlayer</span><span class="p">.</span><span class="na">stopMovie</span><span class="p">();</span>
+<span class="w">        </span><span class="n">soundSystem</span><span class="p">.</span><span class="na">turnOff</span><span class="p">();</span>
+<span class="w">        </span><span class="n">tv</span><span class="p">.</span><span class="na">turnOff</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="client">
+<h4>Client<a class="headerlink" href="#client" title="Link to this heading"></a></h4>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm"> * @brief Client code demonstrating the Facade Pattern.</span>
+<span class="cm"> */</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">FacadePatternDemo</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">TV</span><span class="w"> </span><span class="n">tv</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">TV</span><span class="p">();</span>
+<span class="w">        </span><span class="n">SoundSystem</span><span class="w"> </span><span class="n">soundSystem</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">SoundSystem</span><span class="p">();</span>
+<span class="w">        </span><span class="n">DVDPlayer</span><span class="w"> </span><span class="n">dvdPlayer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">DVDPlayer</span><span class="p">();</span>
+
+<span class="w">        </span><span class="n">HomeTheaterFacade</span><span class="w"> </span><span class="n">homeTheater</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HomeTheaterFacade</span><span class="p">(</span><span class="n">tv</span><span class="p">,</span><span class="w"> </span><span class="n">soundSystem</span><span class="p">,</span><span class="w"> </span><span class="n">dvdPlayer</span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">homeTheater</span><span class="p">.</span><span class="na">watchMovie</span><span class="p">(</span><span class="s">&quot;Inception&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">homeTheater</span><span class="p">.</span><span class="na">endMovie</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="output">
+<h3>Output<a class="headerlink" href="#output" title="Link to this heading"></a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Setting</span> <span class="n">up</span> <span class="n">the</span> <span class="n">home</span> <span class="n">theater</span><span class="o">...</span>
+<span class="n">Turning</span> <span class="n">on</span> <span class="n">the</span> <span class="n">TV</span><span class="o">.</span>
+<span class="n">Turning</span> <span class="n">on</span> <span class="n">the</span> <span class="n">sound</span> <span class="n">system</span><span class="o">.</span>
+<span class="n">Setting</span> <span class="n">volume</span> <span class="n">to</span> <span class="mi">20</span>
+<span class="n">Playing</span> <span class="n">movie</span><span class="p">:</span> <span class="n">Inception</span>
+<span class="n">Shutting</span> <span class="n">down</span> <span class="n">the</span> <span class="n">home</span> <span class="n">theater</span><span class="o">...</span>
+<span class="n">Stopping</span> <span class="n">the</span> <span class="n">movie</span><span class="o">.</span>
+<span class="n">Turning</span> <span class="n">off</span> <span class="n">the</span> <span class="n">sound</span> <span class="n">system</span><span class="o">.</span>
+<span class="n">Turning</span> <span class="n">off</span> <span class="n">the</span> <span class="n">TV</span><span class="o">.</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="applications">
+<h2>Applications<a class="headerlink" href="#applications" title="Link to this heading"></a></h2>
+<section id="when-to-use-the-facade-pattern">
+<h3>When to Use the Facade Pattern<a class="headerlink" href="#when-to-use-the-facade-pattern" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>Simplify Subsystem Usage</strong>:</p>
+<ul class="simple">
+<li><p>When a system contains many components, and clients need an easy way to interact with it.</p></li>
+</ul>
+</li>
+<li><p><strong>Encapsulate Complexity</strong>:</p>
+<ul class="simple">
+<li><p>When exposing the full subsystem to clients would overwhelm them.</p></li>
+</ul>
+</li>
+<li><p><strong>Isolate Clients from Subsystem Changes</strong>:</p>
+<ul class="simple">
+<li><p>When the system’s implementation may change, but you want to keep the client interface stable.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="common-use-cases">
+<h3>Common Use Cases<a class="headerlink" href="#common-use-cases" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>API Wrappers</strong>:</p>
+<ul class="simple">
+<li><p>Libraries that simplify access to complex systems or external APIs.</p></li>
+</ul>
+</li>
+<li><p><strong>Home Automation</strong>:</p>
+<ul class="simple">
+<li><p>Controlling multiple devices with a single interface.</p></li>
+</ul>
+</li>
+<li><p><strong>Enterprise Applications</strong>:</p>
+<ul class="simple">
+<li><p>Providing simplified access to multiple back-end systems.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+</section>
+<hr class="docutils" />
+<section id="advantages-and-disadvantages">
+<h2>Advantages and Disadvantages<a class="headerlink" href="#advantages-and-disadvantages" title="Link to this heading"></a></h2>
+<section id="advantages">
+<h3>Advantages<a class="headerlink" href="#advantages" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>Simplifies Client Code</strong>:</p>
+<ul class="simple">
+<li><p>Clients interact with a single interface rather than multiple components.</p></li>
+</ul>
+</li>
+<li><p><strong>Encapsulation</strong>:</p>
+<ul class="simple">
+<li><p>Hides subsystem complexities, reducing the learning curve for clients.</p></li>
+</ul>
+</li>
+<li><p><strong>Decoupling</strong>:</p>
+<ul class="simple">
+<li><p>Shields clients from changes in subsystem implementations.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="disadvantages">
+<h3>Disadvantages<a class="headerlink" href="#disadvantages" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>Reduced Flexibility</strong>:</p>
+<ul class="simple">
+<li><p>Clients may lose access to advanced functionality provided by individual components.</p></li>
+</ul>
+</li>
+<li><p><strong>Potential Overhead</strong>:</p>
+<ul class="simple">
+<li><p>The facade adds an extra layer, which may introduce slight overhead.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+</section>
+<hr class="docutils" />
+<section id="key-takeaways">
+<h2>Key Takeaways<a class="headerlink" href="#key-takeaways" title="Link to this heading"></a></h2>
+<p>The <strong>Facade Pattern</strong> simplifies complex systems by providing a unified, high-level interface. It improves usability and maintainability, making it an excellent choice when dealing with intricate subsystems. However, care should be taken to ensure that the facade remains consistent and does not obscure necessary functionality.</p>
+<ul class="simple">
+<li><p><strong>Use it when</strong>: Simplifying complex subsystems or decoupling clients from implementation details.</p></li>
+<li><p><strong>Avoid it when</strong>: Clients need fine-grained control over the subsystem’s components.</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="decorator_pattern.gen.html" class="btn btn-neutral float-left" title="Decorator Pattern" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="flyweight_pattern.gen.html" class="btn btn-neutral float-right" title="Flyweight Pattern" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, David Gonçalves.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

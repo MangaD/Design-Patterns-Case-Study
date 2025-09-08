@@ -1,0 +1,25 @@
+State  Header
+=============
+
+.. doxygenfile:: state.hpp
+   :project: Design Patterns C++
+   :no-link:
+
+Inner Classes
+-------------
+
+.. toctree::
+   :maxdepth: 1
+
+   classstate__pattern_1_1State.gen
+   classstate__pattern_1_1Context.gen
+   classstate__pattern_1_1ConcreteStateA.gen
+   classstate__pattern_1_1ConcreteStateB.gen
+
+Inner Namespaces
+----------------
+
+.. toctree::
+   :maxdepth: 1
+
+   namespacestate__pattern.gen

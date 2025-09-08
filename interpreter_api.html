@@ -1,0 +1,437 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Interpreter API Documentation &mdash; Design Patterns Case Study 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=8d563738"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/custom.js?v=f12ea912"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Iterator API Documentation" href="iterator_api.html" />
+    <link rel="prev" title="Command API Documentation" href="command_api.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Design Patterns Case Study
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.gen.html">Design Patterns Case Study</a></li>
+<li class="toctree-l1"><a class="reference internal" href="creational_patterns.gen.html">Creational Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="structural_patterns.gen.html">Structural Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="behavioral_patterns.gen.html">Behavioral Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gof.gen.html">The Gang of Four</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.gen.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cpp_api_index.gen.html">C++ API Documentation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="python_api.html">Python API Documentation</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="python_api.html#behavioral-patterns">Behavioral Patterns</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="chain_of_responsibility_api.html">ChainOfResponsibility API Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="command_api.html">Command API Documentation</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Interpreter API Documentation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Behavioral.Interpreter.python.interpreter.Expression"><code class="docutils literal notranslate"><span class="pre">Expression</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Behavioral.Interpreter.python.interpreter.Constant"><code class="docutils literal notranslate"><span class="pre">Constant</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Behavioral.Interpreter.python.interpreter.Variable"><code class="docutils literal notranslate"><span class="pre">Variable</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Behavioral.Interpreter.python.interpreter.Not"><code class="docutils literal notranslate"><span class="pre">Not</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Behavioral.Interpreter.python.interpreter.And"><code class="docutils literal notranslate"><span class="pre">And</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Behavioral.Interpreter.python.interpreter.Or"><code class="docutils literal notranslate"><span class="pre">Or</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Behavioral.Interpreter.python.interpreter.Parser"><code class="docutils literal notranslate"><span class="pre">Parser</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="iterator_api.html">Iterator API Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mediator_api.html">Mediator API Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="memento_api.html">Memento API Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="observer_api.html">Observer API Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="state_api.html">State API Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="strategy_api.html">Strategy API Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="template_method_api.html">TemplateMethod API Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="visitor_api.html">Visitor API Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="python_api.html#structural-patterns">Structural Patterns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python_api.html#creational-patterns">Creational Patterns</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Design Patterns Case Study</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="python_api.html">Python API Documentation</a></li>
+      <li class="breadcrumb-item active">Interpreter API Documentation</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/MangaD/Design-Patterns-Case-Study/blob/main/docs/source/interpreter_api.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-Behavioral.Interpreter.python.interpreter">
+<span id="interpreter-api-documentation"></span><h1>Interpreter API Documentation<a class="headerlink" href="#module-Behavioral.Interpreter.python.interpreter" title="Link to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="Behavioral.Interpreter.python.interpreter.Expression">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Expression</span></span><a class="reference internal" href="_modules/Behavioral/Interpreter/python/interpreter.html#Expression"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Behavioral.Interpreter.python.interpreter.Expression" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Represents an expression in a simple boolean grammar.
+All concrete expressions must implement the interpret method.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="Behavioral.Interpreter.python.interpreter.Expression.interpret">
+<span class="sig-name descname"><span class="pre">interpret</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ctx</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Behavioral/Interpreter/python/interpreter.html#Expression.interpret"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Behavioral.Interpreter.python.interpreter.Expression.interpret" title="Link to this definition"></a></dt>
+<dd><p>Interprets the expression under the provided context.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>ctx</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>]</span>) – A dictionary mapping variable names to boolean values.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The boolean result of evaluating the expression.</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#NotImplementedError" title="(in Python v3.13)"><strong>NotImplementedError</strong></a> – If not implemented in a subclass.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="Behavioral.Interpreter.python.interpreter.Constant">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Constant</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Behavioral/Interpreter/python/interpreter.html#Constant"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Behavioral.Interpreter.python.interpreter.Constant" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#Behavioral.Interpreter.python.interpreter.Expression" title="Behavioral.Interpreter.python.interpreter.Expression"><code class="xref py py-class docutils literal notranslate"><span class="pre">Expression</span></code></a></p>
+<p>Terminal expression representing a boolean constant.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>value</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><em>bool</em></a>)</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="Behavioral.Interpreter.python.interpreter.Constant.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Behavioral/Interpreter/python/interpreter.html#Constant.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Behavioral.Interpreter.python.interpreter.Constant.__init__" title="Link to this definition"></a></dt>
+<dd><p>Initializes a constant expression.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>value</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></span>) – The boolean literal value.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Behavioral.Interpreter.python.interpreter.Constant.interpret">
+<span class="sig-name descname"><span class="pre">interpret</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ctx</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Behavioral/Interpreter/python/interpreter.html#Constant.interpret"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Behavioral.Interpreter.python.interpreter.Constant.interpret" title="Link to this definition"></a></dt>
+<dd><p>Returns the stored literal value (context is ignored).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>ctx</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>]</span>) – The interpretation context (unused).</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The stored boolean literal.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="Behavioral.Interpreter.python.interpreter.Variable">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Variable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Behavioral/Interpreter/python/interpreter.html#Variable"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Behavioral.Interpreter.python.interpreter.Variable" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#Behavioral.Interpreter.python.interpreter.Expression" title="Behavioral.Interpreter.python.interpreter.Expression"><code class="xref py py-class docutils literal notranslate"><span class="pre">Expression</span></code></a></p>
+<p>Terminal expression representing a variable lookup.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>)</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="Behavioral.Interpreter.python.interpreter.Variable.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Behavioral/Interpreter/python/interpreter.html#Variable.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Behavioral.Interpreter.python.interpreter.Variable.__init__" title="Link to this definition"></a></dt>
+<dd><p>Initializes a variable expression.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>name</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span>) – The variable name to look up in the context.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Behavioral.Interpreter.python.interpreter.Variable.interpret">
+<span class="sig-name descname"><span class="pre">interpret</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ctx</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Behavioral/Interpreter/python/interpreter.html#Variable.interpret"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Behavioral.Interpreter.python.interpreter.Variable.interpret" title="Link to this definition"></a></dt>
+<dd><p>Looks up the variable value in the context.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>ctx</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>]</span>) – The interpretation context.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The boolean value bound to the variable.</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#KeyError" title="(in Python v3.13)"><strong>KeyError</strong></a> – If the variable is not present in the context.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="Behavioral.Interpreter.python.interpreter.Not">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Not</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">expr</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Behavioral/Interpreter/python/interpreter.html#Not"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Behavioral.Interpreter.python.interpreter.Not" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#Behavioral.Interpreter.python.interpreter.Expression" title="Behavioral.Interpreter.python.interpreter.Expression"><code class="xref py py-class docutils literal notranslate"><span class="pre">Expression</span></code></a></p>
+<p>Nonterminal expression for logical NOT.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>expr</strong> (<a class="reference internal" href="#Behavioral.Interpreter.python.interpreter.Expression" title="Behavioral.Interpreter.python.interpreter.Expression"><em>Expression</em></a>)</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="Behavioral.Interpreter.python.interpreter.Not.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">expr</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Behavioral/Interpreter/python/interpreter.html#Not.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Behavioral.Interpreter.python.interpreter.Not.__init__" title="Link to this definition"></a></dt>
+<dd><p>Initializes a NOT expression.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>expr</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="#Behavioral.Interpreter.python.interpreter.Expression" title="Behavioral.Interpreter.python.interpreter.Expression"><code class="xref py py-class docutils literal notranslate"><span class="pre">Expression</span></code></a></span>) – The operand to negate.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Behavioral.Interpreter.python.interpreter.Not.interpret">
+<span class="sig-name descname"><span class="pre">interpret</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ctx</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Behavioral/Interpreter/python/interpreter.html#Not.interpret"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Behavioral.Interpreter.python.interpreter.Not.interpret" title="Link to this definition"></a></dt>
+<dd><p>Evaluates logical negation of the operand.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>ctx</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>]</span>) – The interpretation context.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The negated boolean value.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="Behavioral.Interpreter.python.interpreter.And">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">And</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">left</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">right</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Behavioral/Interpreter/python/interpreter.html#And"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Behavioral.Interpreter.python.interpreter.And" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#Behavioral.Interpreter.python.interpreter.Expression" title="Behavioral.Interpreter.python.interpreter.Expression"><code class="xref py py-class docutils literal notranslate"><span class="pre">Expression</span></code></a></p>
+<p>Nonterminal expression for logical AND.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>left</strong> (<a class="reference internal" href="#Behavioral.Interpreter.python.interpreter.Expression" title="Behavioral.Interpreter.python.interpreter.Expression"><em>Expression</em></a>)</p></li>
+<li><p><strong>right</strong> (<a class="reference internal" href="#Behavioral.Interpreter.python.interpreter.Expression" title="Behavioral.Interpreter.python.interpreter.Expression"><em>Expression</em></a>)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="Behavioral.Interpreter.python.interpreter.And.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">left</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">right</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Behavioral/Interpreter/python/interpreter.html#And.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Behavioral.Interpreter.python.interpreter.And.__init__" title="Link to this definition"></a></dt>
+<dd><p>Initializes an AND expression.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>left</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="#Behavioral.Interpreter.python.interpreter.Expression" title="Behavioral.Interpreter.python.interpreter.Expression"><code class="xref py py-class docutils literal notranslate"><span class="pre">Expression</span></code></a></span>) – The left operand.</p></li>
+<li><p><strong>right</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="#Behavioral.Interpreter.python.interpreter.Expression" title="Behavioral.Interpreter.python.interpreter.Expression"><code class="xref py py-class docutils literal notranslate"><span class="pre">Expression</span></code></a></span>) – The right operand.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Behavioral.Interpreter.python.interpreter.And.interpret">
+<span class="sig-name descname"><span class="pre">interpret</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ctx</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Behavioral/Interpreter/python/interpreter.html#And.interpret"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Behavioral.Interpreter.python.interpreter.And.interpret" title="Link to this definition"></a></dt>
+<dd><p>Evaluates logical conjunction of both operands.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>ctx</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>]</span>) – The interpretation context.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The result of left AND right.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="Behavioral.Interpreter.python.interpreter.Or">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Or</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">left</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">right</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Behavioral/Interpreter/python/interpreter.html#Or"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Behavioral.Interpreter.python.interpreter.Or" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#Behavioral.Interpreter.python.interpreter.Expression" title="Behavioral.Interpreter.python.interpreter.Expression"><code class="xref py py-class docutils literal notranslate"><span class="pre">Expression</span></code></a></p>
+<p>Nonterminal expression for logical OR.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>left</strong> (<a class="reference internal" href="#Behavioral.Interpreter.python.interpreter.Expression" title="Behavioral.Interpreter.python.interpreter.Expression"><em>Expression</em></a>)</p></li>
+<li><p><strong>right</strong> (<a class="reference internal" href="#Behavioral.Interpreter.python.interpreter.Expression" title="Behavioral.Interpreter.python.interpreter.Expression"><em>Expression</em></a>)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="Behavioral.Interpreter.python.interpreter.Or.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">left</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">right</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Behavioral/Interpreter/python/interpreter.html#Or.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Behavioral.Interpreter.python.interpreter.Or.__init__" title="Link to this definition"></a></dt>
+<dd><p>Initializes an OR expression.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>left</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="#Behavioral.Interpreter.python.interpreter.Expression" title="Behavioral.Interpreter.python.interpreter.Expression"><code class="xref py py-class docutils literal notranslate"><span class="pre">Expression</span></code></a></span>) – The left operand.</p></li>
+<li><p><strong>right</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="#Behavioral.Interpreter.python.interpreter.Expression" title="Behavioral.Interpreter.python.interpreter.Expression"><code class="xref py py-class docutils literal notranslate"><span class="pre">Expression</span></code></a></span>) – The right operand.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Behavioral.Interpreter.python.interpreter.Or.interpret">
+<span class="sig-name descname"><span class="pre">interpret</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ctx</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Behavioral/Interpreter/python/interpreter.html#Or.interpret"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Behavioral.Interpreter.python.interpreter.Or.interpret" title="Link to this definition"></a></dt>
+<dd><p>Evaluates logical disjunction of both operands.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>ctx</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>]</span>) – The interpretation context.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The result of left OR right.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="Behavioral.Interpreter.python.interpreter.Parser">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Parser</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Behavioral/Interpreter/python/interpreter.html#Parser"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Behavioral.Interpreter.python.interpreter.Parser" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>A minimal recursive-descent parser for a boolean DSL.</p>
+<dl class="simple">
+<dt>Grammar (EBNF):</dt><dd><p>Expr    := OrExpr
+OrExpr  := AndExpr { ‘|’ AndExpr }
+AndExpr := NotExpr { ‘&amp;’ NotExpr }
+NotExpr := ‘!’ NotExpr | Primary
+Primary := ‘true’ | ‘false’ | Identifier | ‘(’ Expr ‘)’
+Identifier := [<a href="#id1"><span class="problematic" id="id2">A-Za-z_</span></a>][<a href="#id3"><span class="problematic" id="id4">A-Za-z0-9_</span></a>]*</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>source</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>)</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="Behavioral.Interpreter.python.interpreter.Parser.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Behavioral/Interpreter/python/interpreter.html#Parser.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Behavioral.Interpreter.python.interpreter.Parser.__init__" title="Link to this definition"></a></dt>
+<dd><p>Initializes the parser with the input string.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>source</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span>) – The source string to parse.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Behavioral.Interpreter.python.interpreter.Parser.parse">
+<span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Behavioral/Interpreter/python/interpreter.html#Parser.parse"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Behavioral.Interpreter.python.interpreter.Parser.parse" title="Link to this definition"></a></dt>
+<dd><p>Parses the entire input as an expression.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="#Behavioral.Interpreter.python.interpreter.Expression" title="Behavioral.Interpreter.python.interpreter.Expression"><code class="xref py py-class docutils literal notranslate"><span class="pre">Expression</span></code></a></span></p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The root Expression AST node.</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.13)"><strong>ValueError</strong></a> – If there is leftover input or a syntax error.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="command_api.html" class="btn btn-neutral float-left" title="Command API Documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="iterator_api.html" class="btn btn-neutral float-right" title="Iterator API Documentation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, David Gonçalves.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

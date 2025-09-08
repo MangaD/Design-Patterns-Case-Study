@@ -1,0 +1,318 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Design Patterns Case Study &mdash; Design Patterns Case Study 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=8d563738"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/custom.js?v=f12ea912"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Creational Patterns" href="creational_patterns.gen.html" />
+    <link rel="prev" title="Welcome to the Design Patterns Case Study Documentation!" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Design Patterns Case Study
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Design Patterns Case Study</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#what-are-design-patterns">What Are Design Patterns?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#why-study-design-patterns">Why Study Design Patterns?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#patterns-included-in-this-case-study">Patterns Included in This Case Study</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#creational-patterns"><strong>Creational Patterns</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#structural-patterns"><strong>Structural Patterns</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#behavioral-patterns"><strong>Behavioral Patterns</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#project-structure">Project Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tools-and-technologies">Tools and Technologies</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#c"><strong>C++</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#java"><strong>Java</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#python"><strong>Python</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#how-to-use-this-repository">How to Use This Repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#continuous-integration">Continuous Integration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#resources-and-references">Resources and References</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#license">License</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="creational_patterns.gen.html">Creational Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="structural_patterns.gen.html">Structural Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="behavioral_patterns.gen.html">Behavioral Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gof.gen.html">The Gang of Four</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.gen.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cpp_api_index.gen.html">C++ API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_api.html">Python API Documentation</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Design Patterns Case Study</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Design Patterns Case Study</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/MangaD/Design-Patterns-Case-Study/blob/main/docs/source/introduction.gen.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="toctree-wrapper compound">
+</div>
+<section id="design-patterns-case-study">
+<h1>Design Patterns Case Study<a class="headerlink" href="#design-patterns-case-study" title="Link to this heading"></a></h1>
+<p><a class="reference external" href="https://github.com/MangaD/Design-Patterns-Case-Study/actions/workflows/ci.yml" rel="noreferer noopener" target="_blank"><img alt="CI" src="https://github.com/MangaD/Design-Patterns-Case-Study/actions/workflows/ci.yml/badge.svg" /></a> <a class="reference external" href="https://gitlab.com/MangaD/design-patterns-case-study/-/commits/main" rel="noreferer noopener" target="_blank"><img alt="pipeline status" src="https://gitlab.com/MangaD/design-patterns-case-study/badges/main/pipeline.svg" /></a> <a class="reference external" href="https://design-patterns-case-study.readthedocs.io/en/latest/?badge=latest" rel="noreferer noopener" target="_blank"><img alt="Documentation Status" src="https://readthedocs.org/projects/design-patterns-case-study/badge/?version=latest" /></a></p>
+<p>This repository is a comprehensive exploration of <strong>Object-Oriented Design Patterns</strong>, implemented in <strong>C++</strong>, <strong>Java</strong>, and <strong>Python</strong>. It is designed as a hands-on learning resource for understanding, implementing, and applying design patterns in real-world software development.</p>
+<p><em>Disclaimer: This project was built collaboratively with AI, step by step. Its primary purpose is to serve as an educational tool for studying and understanding design patterns.</em></p>
+<hr class="docutils" />
+<section id="what-are-design-patterns">
+<h2>What Are Design Patterns?<a class="headerlink" href="#what-are-design-patterns" title="Link to this heading"></a></h2>
+<p>Design patterns are proven solutions to common problems in software design. They encapsulate best practices, providing a standardized and reusable approach to solving specific challenges. Design patterns fall into three main categories:</p>
+<ol class="arabic simple">
+<li><p><strong>Creational Patterns</strong>: Focus on object creation mechanisms, aiming to provide flexibility and reuse.</p></li>
+<li><p><strong>Structural Patterns</strong>: Deal with object composition and relationships, ensuring that the system is easier to understand and maintain.</p></li>
+<li><p><strong>Behavioral Patterns</strong>: Concerned with communication between objects and responsibility delegation.</p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="why-study-design-patterns">
+<h2>Why Study Design Patterns?<a class="headerlink" href="#why-study-design-patterns" title="Link to this heading"></a></h2>
+<p>Studying design patterns offers several benefits:</p>
+<ul class="simple">
+<li><p><strong>Improved Design Skills</strong>: Helps in identifying and solving recurring software problems.</p></li>
+<li><p><strong>Code Reusability</strong>: Promotes writing reusable and maintainable code.</p></li>
+<li><p><strong>Team Collaboration</strong>: Provides a shared vocabulary for discussing solutions.</p></li>
+<li><p><strong>Scalability and Flexibility</strong>: Encourages designing systems that can adapt to change.</p></li>
+</ul>
+<p>Understanding design patterns is essential for writing robust, maintainable, and efficient code. They are a cornerstone of software engineering principles such as SOLID and DRY (Don’t Repeat Yourself).</p>
+</section>
+<hr class="docutils" />
+<section id="patterns-included-in-this-case-study">
+<h2>Patterns Included in This Case Study<a class="headerlink" href="#patterns-included-in-this-case-study" title="Link to this heading"></a></h2>
+<section id="creational-patterns">
+<h3><strong>Creational Patterns</strong><a class="headerlink" href="#creational-patterns" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Singleton</strong>: Ensures a class has only one instance.</p></li>
+<li><p><strong>Factory Method</strong>: Delegates object creation to subclasses.</p></li>
+<li><p><strong>Abstract Factory</strong>: Creates families of related objects without specifying their concrete classes.</p></li>
+<li><p><strong>Builder</strong>: Constructs complex objects step by step.</p></li>
+<li><p><strong>Prototype</strong>: Creates new objects by copying existing ones.</p></li>
+<li><p><strong>Object Pool</strong>: Manages a pool of reusable objects, reducing the overhead of creating and destroying objects frequently.</p></li>
+</ul>
+</section>
+<section id="structural-patterns">
+<h3><strong>Structural Patterns</strong><a class="headerlink" href="#structural-patterns" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Adapter</strong>: Bridges incompatible interfaces.</p></li>
+<li><p><strong>Bridge</strong>: Separates an abstraction from its implementation.</p></li>
+<li><p><strong>Composite</strong>: Composes objects into tree structures.</p></li>
+<li><p><strong>Decorator</strong>: Dynamically adds behavior to objects.</p></li>
+<li><p><strong>Facade</strong>: Provides a simplified interface to a subsystem.</p></li>
+<li><p><strong>Flyweight</strong>: Minimizes memory usage by sharing data.</p></li>
+<li><p><strong>Proxy</strong>: Controls access to an object.</p></li>
+</ul>
+</section>
+<section id="behavioral-patterns">
+<h3><strong>Behavioral Patterns</strong><a class="headerlink" href="#behavioral-patterns" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Chain of Responsibility</strong>: Passes requests along a chain of handlers.</p></li>
+<li><p><strong>Command</strong>: Encapsulates requests as objects.</p></li>
+<li><p><strong>Interpreter</strong>: Defines a grammatical representation for a language and provides an interpreter to deal with this grammar.</p></li>
+<li><p><strong>Iterator</strong>: Provides sequential access to collections.</p></li>
+<li><p><strong>Mediator</strong>: Centralizes communication between objects.</p></li>
+<li><p><strong>Memento</strong>: Captures and restores an object’s internal state.</p></li>
+<li><p><strong>Observer</strong>: Establishes a dependency between objects for event notification.</p></li>
+<li><p><strong>State</strong>: Allows an object to alter its behavior when its state changes.</p></li>
+<li><p><strong>Strategy</strong>: Enables selecting algorithms at runtime.</p></li>
+<li><p><strong>Template Method</strong>: Defines a skeleton of an algorithm.</p></li>
+<li><p><strong>Visitor</strong>: Allows adding operations to objects without changing their structure.</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="project-structure">
+<h2>Project Structure<a class="headerlink" href="#project-structure" title="Link to this heading"></a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>DesignPatternsCaseStudy/
+├── README.md               # Overview of the repository
+├── .github/workflows/      # GitHub Actions CI/CD configuration
+├── .gitlab-ci.yml          # GitLab CI/CD configuration
+├── docs/                   # Generated documentation for hosting (e.g., GitHub Pages)
+├── Creational/             # Creational design patterns
+│   ├── Singleton/
+│   ├── FactoryMethod/
+│   ├── AbstractFactory/
+│   └── Builder/
+├── Structural/             # Structural design patterns
+│   ├── Adapter/
+│   ├── Bridge/
+│   ├── Composite/
+│   └── Decorator/
+├── Behavioral/             # Behavioral design patterns
+│   ├── ChainOfResponsibility/
+│   ├── Command/
+|   ├── Interpreter/
+│   ├── Iterator/
+│   └── Mediator/
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="tools-and-technologies">
+<h2>Tools and Technologies<a class="headerlink" href="#tools-and-technologies" title="Link to this heading"></a></h2>
+<section id="c">
+<h3><strong>C++</strong><a class="headerlink" href="#c" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Build System</strong>: CMake</p></li>
+<li><p><strong>Unit Testing</strong>: GoogleTest</p></li>
+<li><p><strong>Documentation</strong>: Doxygen</p></li>
+</ul>
+</section>
+<section id="java">
+<h3><strong>Java</strong><a class="headerlink" href="#java" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Build System</strong>: Gradle</p></li>
+<li><p><strong>Unit Testing</strong>: JUnit</p></li>
+<li><p><strong>Documentation</strong>: JavaDocs</p></li>
+</ul>
+</section>
+<section id="python">
+<h3><strong>Python</strong><a class="headerlink" href="#python" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Unit Testing</strong>: unittest, pytest</p></li>
+<li><p><strong>Documentation</strong>: Sphinx</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="how-to-use-this-repository">
+<h2>How to Use This Repository<a class="headerlink" href="#how-to-use-this-repository" title="Link to this heading"></a></h2>
+<ol class="arabic">
+<li><p><strong>Clone the Repository</strong>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/MangaD/Design-Patterns-Case-Study.git
+<span class="c1"># or</span>
+git<span class="w"> </span>clone<span class="w"> </span>https://gitlab.com/MangaD/design-patterns-case-study.git
+
+<span class="nb">cd</span><span class="w"> </span>DesignPatternsCaseStudy
+</pre></div>
+</div>
+</li>
+<li><p><strong>Build and Test</strong>:</p>
+<ul class="simple">
+<li><p><strong>C++</strong>: Use CMake for building and running tests.</p></li>
+<li><p><strong>Java</strong>: Use Gradle for building and testing.</p></li>
+<li><p><strong>Python</strong>: Run tests using <code class="docutils literal notranslate"><span class="pre">unittest</span></code> or <code class="docutils literal notranslate"><span class="pre">pytest</span></code>.</p></li>
+</ul>
+<p>Check out the CI/CD files for commands.</p>
+</li>
+<li><p><strong>Explore the Patterns</strong>:</p>
+<ul class="simple">
+<li><p>Each pattern has a dedicated folder containing:</p>
+<ul>
+<li><p><strong>Source Code</strong>: Implementations in C++, Java, and Python.</p></li>
+<li><p><strong>Unit Tests</strong>: Tests for validating the implementation.</p></li>
+<li><p><strong>Documentation</strong>: Detailed explanation and UML diagrams.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="continuous-integration">
+<h2>Continuous Integration<a class="headerlink" href="#continuous-integration" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><strong>GitHub Actions</strong>: Automates builds and tests across all implementations.</p></li>
+<li><p><strong>GitLab CI/CD</strong>: Equivalent pipelines for testing and deploying documentation.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="resources-and-references">
+<h2>Resources and References<a class="headerlink" href="#resources-and-references" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.amazon.com/Design-Patterns-Elements-Reusable-Object-Oriented/dp/0201633612" rel="noreferer noopener" target="_blank">Design Patterns: Elements of Reusable Object-Oriented Software</a></p></li>
+<li><p><a class="reference external" href="https://www.amazon.com/Head-First-Design-Patterns-Object-Oriented/dp/149207800X" rel="noreferer noopener" target="_blank">Head First Design Patterns: Building Extensible and Maintainable Object-Oriented Software 2nd Edition</a></p></li>
+<li><p><a class="reference external" href="https://refactoring.guru/design-patterns" rel="noreferer noopener" target="_blank">Refactoring.Guru - Design Patterns</a></p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="license">
+<h2>License<a class="headerlink" href="#license" title="Link to this heading"></a></h2>
+<p>This project is licensed under the MIT License. Contributions are welcome. Feel free to submit pull requests to improve implementations, add patterns, or enhance documentation.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to the Design Patterns Case Study Documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="creational_patterns.gen.html" class="btn btn-neutral float-right" title="Creational Patterns" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, David Gonçalves.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

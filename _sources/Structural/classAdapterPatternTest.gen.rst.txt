@@ -1,0 +1,6 @@
+AdapterPatternTest
+==================
+
+.. doxygenclass:: AdapterPatternTest
+   :project: Design Patterns C++
+   :members:

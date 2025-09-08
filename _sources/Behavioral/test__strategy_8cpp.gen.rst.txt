@@ -1,0 +1,14 @@
+Test  Strategy  Source
+======================
+
+.. doxygenfile:: test_strategy.cpp
+   :project: Design Patterns C++
+   :no-link:
+
+Inner Classes
+-------------
+
+.. toctree::
+   :maxdepth: 1
+
+   classConsoleOutput.gen

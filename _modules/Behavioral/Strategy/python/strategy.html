@@ -1,0 +1,212 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Behavioral.Strategy.python.strategy &mdash; Design Patterns Case Study 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../../../_static/custom.js?v=f12ea912"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../index.html" class="icon icon-home">
+            Design Patterns Case Study
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../introduction.gen.html">Design Patterns Case Study</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../creational_patterns.gen.html">Creational Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../structural_patterns.gen.html">Structural Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../behavioral_patterns.gen.html">Behavioral Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../gof.gen.html">The Gang of Four</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../references.gen.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../cpp_api_index.gen.html">C++ API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../python_api.html">Python API Documentation</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Design Patterns Case Study</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">Behavioral.Strategy.python.strategy</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for Behavioral.Strategy.python.strategy</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Protocol</span>
+
+<div class="viewcode-block" id="Strategy">
+<a class="viewcode-back" href="../../../../strategy_api.html#Behavioral.Strategy.python.strategy.Strategy">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">Strategy</span><span class="p">(</span><span class="n">Protocol</span><span class="p">):</span>
+<span class="w">	</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">	Strategy interface that declares a common behavior for all supported algorithms.</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="Strategy.execute">
+<a class="viewcode-back" href="../../../../strategy_api.html#Behavioral.Strategy.python.strategy.Strategy.execute">[docs]</a>
+	<span class="k">def</span><span class="w"> </span><span class="nf">execute</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">		</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Execute the strategy&#39;s algorithm.</span>
+
+<span class="sd">		:return: A string result of the algorithm.</span>
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="k">pass</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="ConcreteStrategyA">
+<a class="viewcode-back" href="../../../../strategy_api.html#Behavioral.Strategy.python.strategy.ConcreteStrategyA">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">ConcreteStrategyA</span><span class="p">:</span>
+<span class="w">	</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">	A concrete strategy implementing a specific algorithm.</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="ConcreteStrategyA.execute">
+<a class="viewcode-back" href="../../../../strategy_api.html#Behavioral.Strategy.python.strategy.ConcreteStrategyA.execute">[docs]</a>
+	<span class="k">def</span><span class="w"> </span><span class="nf">execute</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">		</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Execute ConcreteStrategyA&#39;s algorithm.</span>
+
+<span class="sd">		:return: A string result indicating the execution.</span>
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="k">return</span> <span class="s2">&quot;Executing strategy A.&quot;</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="ConcreteStrategyB">
+<a class="viewcode-back" href="../../../../strategy_api.html#Behavioral.Strategy.python.strategy.ConcreteStrategyB">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">ConcreteStrategyB</span><span class="p">:</span>
+<span class="w">	</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">	A concrete strategy implementing another algorithm.</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="ConcreteStrategyB.execute">
+<a class="viewcode-back" href="../../../../strategy_api.html#Behavioral.Strategy.python.strategy.ConcreteStrategyB.execute">[docs]</a>
+	<span class="k">def</span><span class="w"> </span><span class="nf">execute</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">		</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Execute ConcreteStrategyB&#39;s algorithm.</span>
+
+<span class="sd">		:return: A string result indicating the execution.</span>
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="k">return</span> <span class="s2">&quot;Executing strategy B.&quot;</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="Context">
+<a class="viewcode-back" href="../../../../strategy_api.html#Behavioral.Strategy.python.strategy.Context">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">Context</span><span class="p">:</span>
+<span class="w">	</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">	Context class that maintains a reference to a strategy object.</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="Context.__init__">
+<a class="viewcode-back" href="../../../../strategy_api.html#Behavioral.Strategy.python.strategy.Context.__init__">[docs]</a>
+	<span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">		</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Initialize the context without a strategy.</span>
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">_strategy</span><span class="p">:</span> <span class="n">Strategy</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span></div>
+
+
+<div class="viewcode-block" id="Context.set_strategy">
+<a class="viewcode-back" href="../../../../strategy_api.html#Behavioral.Strategy.python.strategy.Context.set_strategy">[docs]</a>
+	<span class="k">def</span><span class="w"> </span><span class="nf">set_strategy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">strategy</span><span class="p">:</span> <span class="n">Strategy</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">		</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Set the current strategy.</span>
+
+<span class="sd">		:param strategy: The strategy to use.</span>
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">_strategy</span> <span class="o">=</span> <span class="n">strategy</span></div>
+
+
+<div class="viewcode-block" id="Context.execute_strategy">
+<a class="viewcode-back" href="../../../../strategy_api.html#Behavioral.Strategy.python.strategy.Context.execute_strategy">[docs]</a>
+	<span class="k">def</span><span class="w"> </span><span class="nf">execute_strategy</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">		</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Execute the current strategy&#39;s algorithm.</span>
+<span class="sd">		</span>
+<span class="sd">		:return: The result of the algorithm as a string.</span>
+<span class="sd">		:raises ValueError: If no strategy is set.</span>
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_strategy</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+			<span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;No strategy set!&quot;</span><span class="p">)</span>
+		<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_strategy</span><span class="o">.</span><span class="n">execute</span><span class="p">()</span></div>
+</div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, David Gonçalves.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

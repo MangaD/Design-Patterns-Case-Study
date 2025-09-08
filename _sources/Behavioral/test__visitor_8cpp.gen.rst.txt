@@ -1,0 +1,7 @@
+Test  Visitor  Source
+=====================
+
+.. doxygenfile:: test_visitor.cpp
+   :project: Design Patterns C++
+   :no-link:
+

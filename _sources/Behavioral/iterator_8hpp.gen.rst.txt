@@ -1,0 +1,25 @@
+Iterator  Header
+================
+
+.. doxygenfile:: iterator.hpp
+   :project: Design Patterns C++
+   :no-link:
+
+Inner Classes
+-------------
+
+.. toctree::
+   :maxdepth: 1
+
+   classiterator__pattern_1_1Iterator.gen
+   classiterator__pattern_1_1Aggregate.gen
+   classiterator__pattern_1_1ConcreteIterator.gen
+   classiterator__pattern_1_1ConcreteAggregate.gen
+
+Inner Namespaces
+----------------
+
+.. toctree::
+   :maxdepth: 1
+
+   namespaceiterator__pattern.gen

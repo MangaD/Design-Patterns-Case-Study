@@ -1,0 +1,6 @@
+iterator_pattern
+================
+
+.. doxygennamespace:: iterator_pattern
+   :project: Design Patterns C++
+   :members:

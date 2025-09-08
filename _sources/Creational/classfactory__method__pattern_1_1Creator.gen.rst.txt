@@ -1,0 +1,6 @@
+factory_method_pattern::Creator
+===============================
+
+.. doxygenclass:: factory_method_pattern::Creator
+   :project: Design Patterns C++
+   :members:

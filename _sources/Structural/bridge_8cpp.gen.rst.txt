@@ -1,0 +1,7 @@
+Bridge  Source
+==============
+
+.. doxygenfile:: bridge.cpp
+   :project: Design Patterns C++
+   :no-link:
+

@@ -1,0 +1,228 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>builder_pattern::Product &mdash; Design Patterns Case Study 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/custom.js?v=f12ea912"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="builder_pattern::Builder" href="classbuilder__pattern_1_1Builder.gen.html" />
+    <link rel="prev" title="Builder Header" href="builder_8hpp.gen.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Design Patterns Case Study
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction.gen.html">Design Patterns Case Study</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../creational_patterns.gen.html">Creational Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../structural_patterns.gen.html">Structural Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../behavioral_patterns.gen.html">Behavioral Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gof.gen.html">The Gang of Four</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../references.gen.html">References</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../cpp_api_index.gen.html">C++ API Documentation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../Behavioral/behavioral_patterns.gen.html">Behavioral Patterns</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="creational_patterns.gen.html">Creational Patterns</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="creational_patterns.gen.html#namespaces">Namespaces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="creational_patterns.gen.html#files">Files</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="creational_patterns.gen.html#classes">Classes</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="classabstract__factory__pattern_1_1AbstractFactory.gen.html">abstract_factory_pattern::AbstractFactory</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classabstract__factory__pattern_1_1AbstractProductA.gen.html">abstract_factory_pattern::AbstractProductA</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classabstract__factory__pattern_1_1AbstractProductB.gen.html">abstract_factory_pattern::AbstractProductB</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classabstract__factory__pattern_1_1ConcreteFactory1.gen.html">abstract_factory_pattern::ConcreteFactory1</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classabstract__factory__pattern_1_1ConcreteFactory2.gen.html">abstract_factory_pattern::ConcreteFactory2</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classabstract__factory__pattern_1_1ConcreteProductA1.gen.html">abstract_factory_pattern::ConcreteProductA1</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classabstract__factory__pattern_1_1ConcreteProductA2.gen.html">abstract_factory_pattern::ConcreteProductA2</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classabstract__factory__pattern_1_1ConcreteProductB1.gen.html">abstract_factory_pattern::ConcreteProductB1</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classabstract__factory__pattern_1_1ConcreteProductB2.gen.html">abstract_factory_pattern::ConcreteProductB2</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classbuilder__pattern_1_1Builder.gen.html">builder_pattern::Builder</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classbuilder__pattern_1_1ConcreteBuilder.gen.html">builder_pattern::ConcreteBuilder</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classbuilder__pattern_1_1Director.gen.html">builder_pattern::Director</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">builder_pattern::Product</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classfactory__method__pattern_1_1ConcreteCreatorA.gen.html">factory_method_pattern::ConcreteCreatorA</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classfactory__method__pattern_1_1ConcreteCreatorB.gen.html">factory_method_pattern::ConcreteCreatorB</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classfactory__method__pattern_1_1ConcreteProductA.gen.html">factory_method_pattern::ConcreteProductA</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classfactory__method__pattern_1_1ConcreteProductB.gen.html">factory_method_pattern::ConcreteProductB</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classfactory__method__pattern_1_1Creator.gen.html">factory_method_pattern::Creator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classfactory__method__pattern_1_1Product.gen.html">factory_method_pattern::Product</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classobject__pool__pattern_1_1ConcreteReusable.gen.html">object_pool_pattern::ConcreteReusable</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classobject__pool__pattern_1_1ObjectPool.gen.html">object_pool_pattern::ObjectPool</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classobject__pool__pattern_1_1Reusable.gen.html">object_pool_pattern::Reusable</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classprototype__pattern_1_1ConcretePrototype1.gen.html">prototype_pattern::ConcretePrototype1</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classprototype__pattern_1_1ConcretePrototype2.gen.html">prototype_pattern::ConcretePrototype2</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classprototype__pattern_1_1Prototype.gen.html">prototype_pattern::Prototype</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classsingleton__pattern_1_1Singleton.gen.html">singleton_pattern::Singleton</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Structural/structural_patterns.gen.html">Structural Patterns</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../python_api.html">Python API Documentation</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Design Patterns Case Study</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../cpp_api_index.gen.html">C++ API Documentation</a></li>
+          <li class="breadcrumb-item"><a href="creational_patterns.gen.html">Creational Patterns</a></li>
+          <li class="breadcrumb-item"><a href="builder_8hpp.gen.html">Builder  Header</a></li>
+      <li class="breadcrumb-item active">builder_pattern::Product</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/MangaD/Design-Patterns-Case-Study/blob/main/docs/source/Creational/classbuilder__pattern_1_1Product.gen.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="builder-pattern-product">
+<h1>builder_pattern::Product<a class="headerlink" href="#builder-pattern-product" title="Link to this heading"></a></h1>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N15builder_pattern7ProductE">
+<span id="_CPPv3N15builder_pattern7ProductE"></span><span id="_CPPv2N15builder_pattern7ProductE"></span><span id="builder_pattern::Product"></span><span class="target" id="classbuilder__pattern_1_1Product"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Product</span></span></span><br /></dt>
+<dd><p>Represents the complex product being built. </p>
+<p>The <code class="docutils literal notranslate"><a class="reference internal" href="namespacebuilder__pattern.gen.html#classbuilder__pattern_1_1Product"><span class="std std-ref"><span class="pre">Product</span></span></a></code> class contains components <code class="docutils literal notranslate"><span class="pre">partA</span></code> and <code class="docutils literal notranslate"><span class="pre">partB</span></code> which represent the individual parts of the product. It provides methods to set its parts and to display the details of the constructed product. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N15builder_pattern7Product8setPartAERKNSt6stringE">
+<span id="_CPPv3N15builder_pattern7Product8setPartAERKNSt6stringE"></span><span id="_CPPv2N15builder_pattern7Product8setPartAERKNSt6stringE"></span><span id="builder_pattern::Product::setPartA__ssCR"></span><span class="target" id="classbuilder__pattern_1_1Product_1a4c94afe000597042cf46acc5e23629b4"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setPartA</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">part</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p>Sets Part A of the product. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>part</strong> – A string representing Part A. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N15builder_pattern7Product8setPartBERKNSt6stringE">
+<span id="_CPPv3N15builder_pattern7Product8setPartBERKNSt6stringE"></span><span id="_CPPv2N15builder_pattern7Product8setPartBERKNSt6stringE"></span><span id="builder_pattern::Product::setPartB__ssCR"></span><span class="target" id="classbuilder__pattern_1_1Product_1a9ecc1576594d9e7a613adf366f43f27b"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setPartB</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">part</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p>Sets Part B of the product. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>part</strong> – A string representing Part B. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK15builder_pattern7Product8toStringEv">
+<span id="_CPPv3NK15builder_pattern7Product8toStringEv"></span><span id="_CPPv2NK15builder_pattern7Product8toStringEv"></span><span id="builder_pattern::Product::toStringC"></span><span class="target" id="classbuilder__pattern_1_1Product_1a258ebc43bb0df0d4bef505c8b8495855"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">toString</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><br /></dt>
+<dd><p>Provides a string representation of the product. </p>
+<p>Combines details of Part A and Part B into a formatted string representation of the product.</p>
+<p>
+Combines the details of Part A and Part B into a formatted string that describes the constructed product.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A string describing the product’s parts.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A string representation of the product’s parts. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-friends">Friends</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N15builder_pattern7ProductlsERNSt7ostreamERK7Product">
+<span id="_CPPv3N15builder_pattern7ProductlsERNSt7ostreamERK7Product"></span><span id="_CPPv2N15builder_pattern7ProductlsERNSt7ostreamERK7Product"></span><span id="builder_pattern::Product::lshift-operator__osR.ProductCR"></span><span class="target" id="classbuilder__pattern_1_1Product_1a480eb0498f6882d38233479848aaa8f3"></span><span class="k"><span class="pre">friend</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">ostream</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">&lt;&lt;</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">ostream</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">os</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="builder_8hpp.gen.html#_CPPv4N15builder_pattern7ProductE" title="builder_pattern::Product"><span class="n"><span class="pre">Product</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">product</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p>Overloads the output stream operator for the <code class="docutils literal notranslate"><a class="reference internal" href="namespacebuilder__pattern.gen.html#classbuilder__pattern_1_1Product"><span class="std std-ref"><span class="pre">Product</span></span></a></code> class. </p>
+<p>Allows the details of the <code class="docutils literal notranslate"><a class="reference internal" href="namespacebuilder__pattern.gen.html#classbuilder__pattern_1_1Product"><span class="std std-ref"><span class="pre">Product</span></span></a></code> to be printed to an output stream.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>os</strong> – The output stream. </p></li>
+<li><p><strong>product</strong> – The product to be printed. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The output stream with product details appended. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="builder_8hpp.gen.html" class="btn btn-neutral float-left" title="Builder Header" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="classbuilder__pattern_1_1Builder.gen.html" class="btn btn-neutral float-right" title="builder_pattern::Builder" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, David Gonçalves.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

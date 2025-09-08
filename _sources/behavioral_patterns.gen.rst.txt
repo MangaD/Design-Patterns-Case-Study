@@ -1,0 +1,19 @@
+Behavioral Patterns
+===================
+
+These patterns focus on communication between objects.
+
+.. toctree::
+   :maxdepth: 1
+
+   chainofresponsibility_pattern.gen
+   command_pattern.gen
+   interpreter_pattern.gen
+   iterator_pattern.gen
+   mediator_pattern.gen
+   memento_pattern.gen
+   observer_pattern.gen
+   state_pattern.gen
+   strategy_pattern.gen
+   templatemethod_pattern.gen
+   visitor_pattern.gen

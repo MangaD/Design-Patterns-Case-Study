@@ -1,0 +1,7 @@
+Test  Flyweight  Source
+=======================
+
+.. doxygenfile:: test_flyweight.cpp
+   :project: Design Patterns C++
+   :no-link:
+

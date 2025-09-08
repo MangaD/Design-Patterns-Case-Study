@@ -1,0 +1,8 @@
+Mediator API Documentation
+============================
+
+.. automodule:: Behavioral.Mediator.python.mediator
+   :members:
+   :undoc-members:
+   :show-inheritance:
+

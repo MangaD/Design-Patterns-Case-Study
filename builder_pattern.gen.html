@@ -1,0 +1,469 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Builder Pattern &mdash; Design Patterns Case Study 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=8d563738"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/custom.js?v=f12ea912"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Factory Method Pattern" href="factorymethod_pattern.gen.html" />
+    <link rel="prev" title="Abstract Factory Pattern" href="abstractfactory_pattern.gen.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Design Patterns Case Study
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.gen.html">Design Patterns Case Study</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="creational_patterns.gen.html">Creational Patterns</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="abstractfactory_pattern.gen.html">Abstract Factory Pattern</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Builder Pattern</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#category">Category</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#key-characteristics">Key Characteristics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#uml-diagram">UML Diagram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#implementation-walkthrough">Implementation Walkthrough</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#participants">Participants</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#example-building-a-house">Example: Building a House</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#output">Output</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#applications">Applications</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#when-to-use-the-builder-pattern">When to Use the Builder Pattern</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#common-use-cases">Common Use Cases</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#advantages-and-disadvantages">Advantages and Disadvantages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#advantages">Advantages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#disadvantages">Disadvantages</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#key-takeaways">Key Takeaways</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="factorymethod_pattern.gen.html">Factory Method Pattern</a></li>
+<li class="toctree-l2"><a class="reference internal" href="objectpool_pattern.gen.html">Object Pool Pattern</a></li>
+<li class="toctree-l2"><a class="reference internal" href="prototype_pattern.gen.html">Prototype Pattern</a></li>
+<li class="toctree-l2"><a class="reference internal" href="singleton_pattern.gen.html">Singleton Pattern</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="structural_patterns.gen.html">Structural Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="behavioral_patterns.gen.html">Behavioral Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gof.gen.html">The Gang of Four</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.gen.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cpp_api_index.gen.html">C++ API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_api.html">Python API Documentation</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Design Patterns Case Study</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="creational_patterns.gen.html">Creational Patterns</a></li>
+      <li class="breadcrumb-item active">Builder Pattern</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/MangaD/Design-Patterns-Case-Study/blob/main/docs/source/builder_pattern.gen.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="toctree-wrapper compound">
+</div>
+<section id="builder-pattern">
+<h1>Builder Pattern<a class="headerlink" href="#builder-pattern" title="Link to this heading"></a></h1>
+<section id="category">
+<h2>Category<a class="headerlink" href="#category" title="Link to this heading"></a></h2>
+<p>Creational Design Pattern</p>
+</section>
+<hr class="docutils" />
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p>The <strong>Builder Pattern</strong> is a creational design pattern that allows the step-by-step construction of complex objects. It separates the construction process from the representation, enabling the same construction process to create different representations.</p>
+<p>This pattern is especially useful when creating objects that require many configuration steps or when the object’s creation involves optional or dependent attributes.</p>
+</section>
+<hr class="docutils" />
+<section id="key-characteristics">
+<h2>Key Characteristics<a class="headerlink" href="#key-characteristics" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p><strong>Separation of Construction and Representation</strong>:</p>
+<ul class="simple">
+<li><p>The pattern divides the construction of an object into discrete steps handled by a builder class.</p></li>
+</ul>
+</li>
+<li><p><strong>Flexibility</strong>:</p>
+<ul class="simple">
+<li><p>Different builders can produce different representations of the same object.</p></li>
+</ul>
+</li>
+<li><p><strong>Fluent Interface</strong>:</p>
+<ul class="simple">
+<li><p>Builders often use a fluent interface to chain method calls, improving readability.</p></li>
+</ul>
+</li>
+<li><p><strong>Complex Object Creation</strong>:</p>
+<ul class="simple">
+<li><p>Simplifies the creation of complex objects that have multiple parts or configurations.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="uml-diagram">
+<h2>UML Diagram<a class="headerlink" href="#uml-diagram" title="Link to this heading"></a></h2>
+<p>The UML diagram below illustrates the Builder Pattern, showing how the <code class="docutils literal notranslate"><span class="pre">Director</span></code> uses a <code class="docutils literal notranslate"><span class="pre">Builder</span></code> to construct a <code class="docutils literal notranslate"><span class="pre">Product</span></code>.</p>
+<p><img alt="UML Diagram" src="http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/MangaD/Design-Patterns-Case-Study/refs/heads/main/Creational/Builder/builder.puml" /></p>
+</section>
+<hr class="docutils" />
+<section id="implementation-walkthrough">
+<h2>Implementation Walkthrough<a class="headerlink" href="#implementation-walkthrough" title="Link to this heading"></a></h2>
+<section id="participants">
+<h3>Participants<a class="headerlink" href="#participants" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>Builder</strong>:</p>
+<ul class="simple">
+<li><p>Abstract interface that defines the building steps for creating the object.</p></li>
+</ul>
+</li>
+<li><p><strong>Concrete Builder</strong>:</p>
+<ul class="simple">
+<li><p>Implements the <code class="docutils literal notranslate"><span class="pre">Builder</span></code> interface to construct and assemble parts of the object.</p></li>
+</ul>
+</li>
+<li><p><strong>Director</strong>:</p>
+<ul class="simple">
+<li><p>Orchestrates the construction process using the <code class="docutils literal notranslate"><span class="pre">Builder</span></code> interface.</p></li>
+<li><p>Constructs the object step by step.</p></li>
+</ul>
+</li>
+<li><p><strong>Product</strong>:</p>
+<ul class="simple">
+<li><p>The complex object being built.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="example-building-a-house">
+<h3>Example: Building a House<a class="headerlink" href="#example-building-a-house" title="Link to this heading"></a></h3>
+<section id="product-house">
+<h4>Product: House<a class="headerlink" href="#product-house" title="Link to this heading"></a></h4>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm"> * @brief The complex object being built.</span>
+<span class="cm"> */</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">House</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">foundation</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">structure</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">roof</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="n">hasGarden</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="n">hasSwimmingPool</span><span class="p">;</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">setFoundation</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">foundation</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">foundation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">foundation</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">setStructure</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">structure</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">structure</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">structure</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">setRoof</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">roof</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">roof</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">roof</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">setHasGarden</span><span class="p">(</span><span class="kt">boolean</span><span class="w"> </span><span class="n">hasGarden</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">hasGarden</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hasGarden</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">setHasSwimmingPool</span><span class="p">(</span><span class="kt">boolean</span><span class="w"> </span><span class="n">hasSwimmingPool</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">hasSwimmingPool</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hasSwimmingPool</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">toString</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;House [foundation=&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">foundation</span><span class="w"> </span><span class="o">+</span>
+<span class="w">               </span><span class="s">&quot;, structure=&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">structure</span><span class="w"> </span><span class="o">+</span>
+<span class="w">               </span><span class="s">&quot;, roof=&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">roof</span><span class="w"> </span><span class="o">+</span>
+<span class="w">               </span><span class="s">&quot;, hasGarden=&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">hasGarden</span><span class="w"> </span><span class="o">+</span>
+<span class="w">               </span><span class="s">&quot;, hasSwimmingPool=&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">hasSwimmingPool</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;]&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="builder-interface">
+<h4>Builder Interface<a class="headerlink" href="#builder-interface" title="Link to this heading"></a></h4>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm"> * @brief Builder interface for constructing a House.</span>
+<span class="cm"> */</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">HouseBuilder</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">buildFoundation</span><span class="p">();</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">buildStructure</span><span class="p">();</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">buildRoof</span><span class="p">();</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">buildGarden</span><span class="p">();</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">buildSwimmingPool</span><span class="p">();</span>
+<span class="w">    </span><span class="n">House</span><span class="w"> </span><span class="nf">getHouse</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="concrete-builder-modernhousebuilder">
+<h4>Concrete Builder: ModernHouseBuilder<a class="headerlink" href="#concrete-builder-modernhousebuilder" title="Link to this heading"></a></h4>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm"> * @brief Concrete implementation of the HouseBuilder.</span>
+<span class="cm"> * Builds a modern house with specific features.</span>
+<span class="cm"> */</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ModernHouseBuilder</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">HouseBuilder</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">House</span><span class="w"> </span><span class="n">house</span><span class="p">;</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">ModernHouseBuilder</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">house</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">House</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">buildFoundation</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">house</span><span class="p">.</span><span class="na">setFoundation</span><span class="p">(</span><span class="s">&quot;Concrete foundation&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">buildStructure</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">house</span><span class="p">.</span><span class="na">setStructure</span><span class="p">(</span><span class="s">&quot;Steel and glass structure&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">buildRoof</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">house</span><span class="p">.</span><span class="na">setRoof</span><span class="p">(</span><span class="s">&quot;Flat roof with solar panels&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">buildGarden</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">house</span><span class="p">.</span><span class="na">setHasGarden</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">buildSwimmingPool</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">house</span><span class="p">.</span><span class="na">setHasSwimmingPool</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">House</span><span class="w"> </span><span class="nf">getHouse</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">house</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="director">
+<h4>Director<a class="headerlink" href="#director" title="Link to this heading"></a></h4>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm"> * @brief Director orchestrates the building process.</span>
+<span class="cm"> */</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">HouseDirector</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">HouseBuilder</span><span class="w"> </span><span class="n">builder</span><span class="p">;</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">HouseDirector</span><span class="p">(</span><span class="n">HouseBuilder</span><span class="w"> </span><span class="n">builder</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">builder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">builder</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">constructHouse</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">builder</span><span class="p">.</span><span class="na">buildFoundation</span><span class="p">();</span>
+<span class="w">        </span><span class="n">builder</span><span class="p">.</span><span class="na">buildStructure</span><span class="p">();</span>
+<span class="w">        </span><span class="n">builder</span><span class="p">.</span><span class="na">buildRoof</span><span class="p">();</span>
+<span class="w">        </span><span class="n">builder</span><span class="p">.</span><span class="na">buildGarden</span><span class="p">();</span>
+<span class="w">        </span><span class="n">builder</span><span class="p">.</span><span class="na">buildSwimmingPool</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">House</span><span class="w"> </span><span class="nf">getHouse</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">builder</span><span class="p">.</span><span class="na">getHouse</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="client-code">
+<h4>Client Code<a class="headerlink" href="#client-code" title="Link to this heading"></a></h4>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm"> * @brief Client demonstrating the Builder Pattern.</span>
+<span class="cm"> */</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">BuilderPatternDemo</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Use the ModernHouseBuilder</span>
+<span class="w">        </span><span class="n">HouseBuilder</span><span class="w"> </span><span class="n">builder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ModernHouseBuilder</span><span class="p">();</span>
+<span class="w">        </span><span class="n">HouseDirector</span><span class="w"> </span><span class="n">director</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HouseDirector</span><span class="p">(</span><span class="n">builder</span><span class="p">);</span>
+
+<span class="w">        </span><span class="c1">// Construct the house</span>
+<span class="w">        </span><span class="n">director</span><span class="p">.</span><span class="na">constructHouse</span><span class="p">();</span>
+<span class="w">        </span><span class="n">House</span><span class="w"> </span><span class="n">house</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">director</span><span class="p">.</span><span class="na">getHouse</span><span class="p">();</span>
+
+<span class="w">        </span><span class="c1">// Output the house details</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">house</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="output">
+<h3>Output<a class="headerlink" href="#output" title="Link to this heading"></a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">House</span> <span class="p">[</span><span class="n">foundation</span><span class="o">=</span><span class="n">Concrete</span> <span class="n">foundation</span><span class="p">,</span> <span class="n">structure</span><span class="o">=</span><span class="n">Steel</span> <span class="ow">and</span> <span class="n">glass</span> <span class="n">structure</span><span class="p">,</span> <span class="n">roof</span><span class="o">=</span><span class="n">Flat</span> <span class="n">roof</span> <span class="k">with</span> <span class="n">solar</span> <span class="n">panels</span><span class="p">,</span> <span class="n">hasGarden</span><span class="o">=</span><span class="n">true</span><span class="p">,</span> <span class="n">hasSwimmingPool</span><span class="o">=</span><span class="n">true</span><span class="p">]</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="applications">
+<h2>Applications<a class="headerlink" href="#applications" title="Link to this heading"></a></h2>
+<section id="when-to-use-the-builder-pattern">
+<h3>When to Use the Builder Pattern<a class="headerlink" href="#when-to-use-the-builder-pattern" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>When constructing complex objects with multiple optional parts or configurations.</p></li>
+<li><p>When the construction process needs to be controlled and consistent.</p></li>
+<li><p>When you want to create different representations of the same object.</p></li>
+</ol>
+</section>
+<section id="common-use-cases">
+<h3>Common Use Cases<a class="headerlink" href="#common-use-cases" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>UI Builders</strong>:</p>
+<ul class="simple">
+<li><p>Creating complex graphical user interfaces with many components.</p></li>
+</ul>
+</li>
+<li><p><strong>Document Creation</strong>:</p>
+<ul class="simple">
+<li><p>Constructing documents with structured layouts (e.g., HTML, PDF).</p></li>
+</ul>
+</li>
+<li><p><strong>Game Development</strong>:</p>
+<ul class="simple">
+<li><p>Building game characters or levels with customizable features.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+</section>
+<hr class="docutils" />
+<section id="advantages-and-disadvantages">
+<h2>Advantages and Disadvantages<a class="headerlink" href="#advantages-and-disadvantages" title="Link to this heading"></a></h2>
+<section id="advantages">
+<h3>Advantages<a class="headerlink" href="#advantages" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>Clear Construction</strong>:</p>
+<ul class="simple">
+<li><p>Separates object creation logic from its representation.</p></li>
+</ul>
+</li>
+<li><p><strong>Reusability</strong>:</p>
+<ul class="simple">
+<li><p>Builders can be reused for different configurations of the same object.</p></li>
+</ul>
+</li>
+<li><p><strong>Scalability</strong>:</p>
+<ul class="simple">
+<li><p>Easy to add new builders for different representations.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="disadvantages">
+<h3>Disadvantages<a class="headerlink" href="#disadvantages" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>Complexity</strong>:</p>
+<ul class="simple">
+<li><p>Introduces additional classes for the builder and director.</p></li>
+</ul>
+</li>
+<li><p><strong>Overhead</strong>:</p>
+<ul class="simple">
+<li><p>May be unnecessary for simple object creation.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+</section>
+<hr class="docutils" />
+<section id="key-takeaways">
+<h2>Key Takeaways<a class="headerlink" href="#key-takeaways" title="Link to this heading"></a></h2>
+<p>The Builder Pattern is ideal for constructing complex objects with multiple optional parts. It provides a structured and scalable approach to object creation while maintaining flexibility and separation of concerns.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="abstractfactory_pattern.gen.html" class="btn btn-neutral float-left" title="Abstract Factory Pattern" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="factorymethod_pattern.gen.html" class="btn btn-neutral float-right" title="Factory Method Pattern" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, David Gonçalves.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

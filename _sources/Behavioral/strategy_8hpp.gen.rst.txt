@@ -1,0 +1,25 @@
+Strategy  Header
+================
+
+.. doxygenfile:: strategy.hpp
+   :project: Design Patterns C++
+   :no-link:
+
+Inner Classes
+-------------
+
+.. toctree::
+   :maxdepth: 1
+
+   classstrategy__pattern_1_1Strategy.gen
+   classstrategy__pattern_1_1ConcreteStrategyA.gen
+   classstrategy__pattern_1_1ConcreteStrategyB.gen
+   classstrategy__pattern_1_1Context.gen
+
+Inner Namespaces
+----------------
+
+.. toctree::
+   :maxdepth: 1
+
+   namespacestrategy__pattern.gen

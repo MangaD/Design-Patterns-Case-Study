@@ -1,0 +1,6 @@
+builder_pattern::ConcreteBuilder
+================================
+
+.. doxygenclass:: builder_pattern::ConcreteBuilder
+   :project: Design Patterns C++
+   :members:

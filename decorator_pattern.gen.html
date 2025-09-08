@@ -1,0 +1,460 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Decorator Pattern &mdash; Design Patterns Case Study 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=8d563738"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/custom.js?v=f12ea912"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Facade Pattern" href="facade_pattern.gen.html" />
+    <link rel="prev" title="Composite Pattern" href="composite_pattern.gen.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Design Patterns Case Study
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.gen.html">Design Patterns Case Study</a></li>
+<li class="toctree-l1"><a class="reference internal" href="creational_patterns.gen.html">Creational Patterns</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="structural_patterns.gen.html">Structural Patterns</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="adapter_pattern.gen.html">Adapter Pattern</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bridge_pattern.gen.html">Bridge Pattern</a></li>
+<li class="toctree-l2"><a class="reference internal" href="composite_pattern.gen.html">Composite Pattern</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Decorator Pattern</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#category">Category</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#key-characteristics">Key Characteristics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#uml-diagram">UML Diagram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#implementation-walkthrough">Implementation Walkthrough</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#participants">Participants</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#example-coffee-shop">Example: Coffee Shop</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#output">Output</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#applications">Applications</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#when-to-use-the-decorator-pattern">When to Use the Decorator Pattern</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#common-use-cases">Common Use Cases</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#advantages-and-disadvantages">Advantages and Disadvantages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#advantages">Advantages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#disadvantages">Disadvantages</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#key-takeaways">Key Takeaways</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="facade_pattern.gen.html">Facade Pattern</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flyweight_pattern.gen.html">Flyweight Pattern</a></li>
+<li class="toctree-l2"><a class="reference internal" href="proxy_pattern.gen.html">Proxy Pattern</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="behavioral_patterns.gen.html">Behavioral Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gof.gen.html">The Gang of Four</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.gen.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cpp_api_index.gen.html">C++ API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_api.html">Python API Documentation</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Design Patterns Case Study</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="structural_patterns.gen.html">Structural Patterns</a></li>
+      <li class="breadcrumb-item active">Decorator Pattern</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/MangaD/Design-Patterns-Case-Study/blob/main/docs/source/decorator_pattern.gen.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="toctree-wrapper compound">
+</div>
+<section id="decorator-pattern">
+<h1>Decorator Pattern<a class="headerlink" href="#decorator-pattern" title="Link to this heading"></a></h1>
+<section id="category">
+<h2>Category<a class="headerlink" href="#category" title="Link to this heading"></a></h2>
+<p>Structural Design Pattern</p>
+</section>
+<hr class="docutils" />
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p>The <strong>Decorator Pattern</strong> is a structural design pattern that allows behavior to be added to individual objects, dynamically and transparently, without affecting the behavior of other objects from the same class.</p>
+<p>This pattern is often used when the extension of functionality via inheritance is impractical or leads to an explosion of subclasses. Instead, decorators provide a flexible and reusable alternative to subclassing for extending functionality.</p>
+</section>
+<hr class="docutils" />
+<section id="key-characteristics">
+<h2>Key Characteristics<a class="headerlink" href="#key-characteristics" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p><strong>Dynamic Behavior Extension</strong>:</p>
+<ul class="simple">
+<li><p>Allows adding new behavior to an object at runtime.</p></li>
+</ul>
+</li>
+<li><p><strong>Open-Closed Principle</strong>:</p>
+<ul class="simple">
+<li><p>Adheres to the principle by enabling extensions without modifying existing code.</p></li>
+</ul>
+</li>
+<li><p><strong>Transparent to the Client</strong>:</p>
+<ul class="simple">
+<li><p>The decorator and the object being decorated share the same interface, making the decoration process seamless to the client.</p></li>
+</ul>
+</li>
+<li><p><strong>Composition over Inheritance</strong>:</p>
+<ul class="simple">
+<li><p>Uses composition to add behavior instead of relying on deep inheritance hierarchies.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="uml-diagram">
+<h2>UML Diagram<a class="headerlink" href="#uml-diagram" title="Link to this heading"></a></h2>
+<p>The UML diagram below illustrates the Decorator Pattern. It shows how the decorator adds behavior to the component dynamically while maintaining the component interface.</p>
+<p><img alt="UML Diagram" src="http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/MangaD/Design-Patterns-Case-Study/refs/heads/main/Structural/Decorator/decorator.puml" /></p>
+</section>
+<hr class="docutils" />
+<section id="implementation-walkthrough">
+<h2>Implementation Walkthrough<a class="headerlink" href="#implementation-walkthrough" title="Link to this heading"></a></h2>
+<section id="participants">
+<h3>Participants<a class="headerlink" href="#participants" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>Component</strong>:</p>
+<ul class="simple">
+<li><p>Defines the common interface for both concrete components and decorators.</p></li>
+</ul>
+</li>
+<li><p><strong>Concrete Component</strong>:</p>
+<ul class="simple">
+<li><p>The base implementation of the component interface to which additional behavior is added.</p></li>
+</ul>
+</li>
+<li><p><strong>Decorator</strong>:</p>
+<ul class="simple">
+<li><p>An abstract class that implements the component interface and contains a reference to a component.</p></li>
+</ul>
+</li>
+<li><p><strong>Concrete Decorators</strong>:</p>
+<ul class="simple">
+<li><p>Extend the functionality of the component by overriding methods and adding new behavior.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="example-coffee-shop">
+<h3>Example: Coffee Shop<a class="headerlink" href="#example-coffee-shop" title="Link to this heading"></a></h3>
+<p>Imagine a coffee shop system where customers can order a base coffee and optionally add extra ingredients like milk, sugar, or whipped cream. The Decorator Pattern can help manage these customizations dynamically.</p>
+<section id="component">
+<h4>Component<a class="headerlink" href="#component" title="Link to this heading"></a></h4>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm"> * @brief Component interface for a coffee beverage.</span>
+<span class="cm"> */</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">Beverage</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="nf">getDescription</span><span class="p">();</span>
+<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="nf">cost</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="concrete-component">
+<h4>Concrete Component<a class="headerlink" href="#concrete-component" title="Link to this heading"></a></h4>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm"> * @brief A basic coffee implementation of the Beverage interface.</span>
+<span class="cm"> */</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">BasicCoffee</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">Beverage</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">getDescription</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;Basic Coffee&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">cost</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mf">2.00</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="abstract-decorator">
+<h4>Abstract Decorator<a class="headerlink" href="#abstract-decorator" title="Link to this heading"></a></h4>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm"> * @brief Abstract decorator class that wraps a Beverage.</span>
+<span class="cm"> */</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">abstract</span><span class="w"> </span><span class="kd">class</span> <span class="nc">BeverageDecorator</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">Beverage</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">protected</span><span class="w"> </span><span class="n">Beverage</span><span class="w"> </span><span class="n">beverage</span><span class="p">;</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">BeverageDecorator</span><span class="p">(</span><span class="n">Beverage</span><span class="w"> </span><span class="n">beverage</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">beverage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">beverage</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">getDescription</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">beverage</span><span class="p">.</span><span class="na">getDescription</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">cost</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">beverage</span><span class="p">.</span><span class="na">cost</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="concrete-decorators">
+<h4>Concrete Decorators<a class="headerlink" href="#concrete-decorators" title="Link to this heading"></a></h4>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm"> * @brief Concrete decorator for adding milk to a coffee.</span>
+<span class="cm"> */</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MilkDecorator</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">BeverageDecorator</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">MilkDecorator</span><span class="p">(</span><span class="n">Beverage</span><span class="w"> </span><span class="n">beverage</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">super</span><span class="p">(</span><span class="n">beverage</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">getDescription</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">beverage</span><span class="p">.</span><span class="na">getDescription</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;, Milk&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">cost</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">beverage</span><span class="p">.</span><span class="na">cost</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">0.50</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * @brief Concrete decorator for adding sugar to a coffee.</span>
+<span class="cm"> */</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">SugarDecorator</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">BeverageDecorator</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">SugarDecorator</span><span class="p">(</span><span class="n">Beverage</span><span class="w"> </span><span class="n">beverage</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">super</span><span class="p">(</span><span class="n">beverage</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">getDescription</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">beverage</span><span class="p">.</span><span class="na">getDescription</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;, Sugar&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">cost</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">beverage</span><span class="p">.</span><span class="na">cost</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">0.20</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="client-code">
+<h4>Client Code<a class="headerlink" href="#client-code" title="Link to this heading"></a></h4>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm"> * @brief Client demonstrating the Decorator Pattern.</span>
+<span class="cm"> */</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">CoffeeShop</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Create a basic coffee</span>
+<span class="w">        </span><span class="n">Beverage</span><span class="w"> </span><span class="n">coffee</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">BasicCoffee</span><span class="p">();</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">coffee</span><span class="p">.</span><span class="na">getDescription</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; $&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">coffee</span><span class="p">.</span><span class="na">cost</span><span class="p">());</span>
+
+<span class="w">        </span><span class="c1">// Add milk to the coffee</span>
+<span class="w">        </span><span class="n">coffee</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">MilkDecorator</span><span class="p">(</span><span class="n">coffee</span><span class="p">);</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">coffee</span><span class="p">.</span><span class="na">getDescription</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; $&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">coffee</span><span class="p">.</span><span class="na">cost</span><span class="p">());</span>
+
+<span class="w">        </span><span class="c1">// Add sugar to the coffee</span>
+<span class="w">        </span><span class="n">coffee</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">SugarDecorator</span><span class="p">(</span><span class="n">coffee</span><span class="p">);</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">coffee</span><span class="p">.</span><span class="na">getDescription</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; $&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">coffee</span><span class="p">.</span><span class="na">cost</span><span class="p">());</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="output">
+<h3>Output<a class="headerlink" href="#output" title="Link to this heading"></a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Basic Coffee $2.0
+Basic Coffee, Milk $2.5
+Basic Coffee, Milk, Sugar $2.7
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="applications">
+<h2>Applications<a class="headerlink" href="#applications" title="Link to this heading"></a></h2>
+<section id="when-to-use-the-decorator-pattern">
+<h3>When to Use the Decorator Pattern<a class="headerlink" href="#when-to-use-the-decorator-pattern" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>Dynamic Behavior Addition</strong>:</p>
+<ul class="simple">
+<li><p>When additional responsibilities need to be added to an object dynamically.</p></li>
+</ul>
+</li>
+<li><p><strong>Avoid Subclass Explosion</strong>:</p>
+<ul class="simple">
+<li><p>When using inheritance to add behavior leads to an unmanageable number of subclasses.</p></li>
+</ul>
+</li>
+<li><p><strong>Multiple Independent Extensions</strong>:</p>
+<ul class="simple">
+<li><p>When multiple extensions or modifications may need to be applied independently or in combination.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="common-use-cases">
+<h3>Common Use Cases<a class="headerlink" href="#common-use-cases" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>UI Frameworks</strong>:</p>
+<ul class="simple">
+<li><p>Adding scrollbars, borders, or shadows to UI components.</p></li>
+</ul>
+</li>
+<li><p><strong>Logging and Monitoring</strong>:</p>
+<ul class="simple">
+<li><p>Dynamically adding logging, monitoring, or validation behavior to objects.</p></li>
+</ul>
+</li>
+<li><p><strong>Data Streams</strong>:</p>
+<ul class="simple">
+<li><p>Wrapping data streams with additional processing layers (e.g., compression, encryption).</p></li>
+</ul>
+</li>
+<li><p><strong>Game Development</strong>:</p>
+<ul class="simple">
+<li><p>Dynamically modifying character abilities or item effects.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+</section>
+<hr class="docutils" />
+<section id="advantages-and-disadvantages">
+<h2>Advantages and Disadvantages<a class="headerlink" href="#advantages-and-disadvantages" title="Link to this heading"></a></h2>
+<section id="advantages">
+<h3>Advantages<a class="headerlink" href="#advantages" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>Dynamic Flexibility</strong>:</p>
+<ul class="simple">
+<li><p>Adds behavior dynamically at runtime.</p></li>
+</ul>
+</li>
+<li><p><strong>Open-Closed Principle</strong>:</p>
+<ul class="simple">
+<li><p>Extends functionality without modifying existing code.</p></li>
+</ul>
+</li>
+<li><p><strong>Composition over Inheritance</strong>:</p>
+<ul class="simple">
+<li><p>Avoids deep inheritance hierarchies.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="disadvantages">
+<h3>Disadvantages<a class="headerlink" href="#disadvantages" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>Complexity</strong>:</p>
+<ul class="simple">
+<li><p>Increases the number of objects and introduces a layering structure.</p></li>
+</ul>
+</li>
+<li><p><strong>Order-Dependent Behavior</strong>:</p>
+<ul class="simple">
+<li><p>The order in which decorators are applied can affect the final behavior.</p></li>
+</ul>
+</li>
+<li><p><strong>Debugging Challenges</strong>:</p>
+<ul class="simple">
+<li><p>Debugging can become complex due to multiple layers of decorators.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+</section>
+<hr class="docutils" />
+<section id="key-takeaways">
+<h2>Key Takeaways<a class="headerlink" href="#key-takeaways" title="Link to this heading"></a></h2>
+<p>The <strong>Decorator Pattern</strong> provides a flexible and reusable way to extend object behavior without resorting to inheritance. By wrapping objects with decorators, you can dynamically add or modify functionality while keeping the system modular and adhering to the Open-Closed Principle. However, careful management is required to avoid excessive complexity and unintended behavior due to layering.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="composite_pattern.gen.html" class="btn btn-neutral float-left" title="Composite Pattern" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="facade_pattern.gen.html" class="btn btn-neutral float-right" title="Facade Pattern" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, David Gonçalves.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

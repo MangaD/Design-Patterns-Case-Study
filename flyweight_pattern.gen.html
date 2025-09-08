@@ -1,0 +1,461 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flyweight Pattern &mdash; Design Patterns Case Study 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=8d563738"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/custom.js?v=f12ea912"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Proxy Pattern" href="proxy_pattern.gen.html" />
+    <link rel="prev" title="Facade Pattern" href="facade_pattern.gen.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Design Patterns Case Study
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.gen.html">Design Patterns Case Study</a></li>
+<li class="toctree-l1"><a class="reference internal" href="creational_patterns.gen.html">Creational Patterns</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="structural_patterns.gen.html">Structural Patterns</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="adapter_pattern.gen.html">Adapter Pattern</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bridge_pattern.gen.html">Bridge Pattern</a></li>
+<li class="toctree-l2"><a class="reference internal" href="composite_pattern.gen.html">Composite Pattern</a></li>
+<li class="toctree-l2"><a class="reference internal" href="decorator_pattern.gen.html">Decorator Pattern</a></li>
+<li class="toctree-l2"><a class="reference internal" href="facade_pattern.gen.html">Facade Pattern</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Flyweight Pattern</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#category"><strong>Category</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#overview"><strong>Overview</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#key-characteristics"><strong>Key Characteristics</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#uml-diagram"><strong>UML Diagram</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#implementation-walkthrough"><strong>Implementation Walkthrough</strong></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#participants"><strong>Participants</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#example-reusing-tree-objects-in-a-forest"><strong>Example: Reusing Tree Objects in a Forest</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#output"><strong>Output</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#applications"><strong>Applications</strong></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#when-to-use-the-flyweight-pattern"><strong>When to Use the Flyweight Pattern</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#common-use-cases"><strong>Common Use Cases</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#advantages-and-disadvantages"><strong>Advantages and Disadvantages</strong></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#advantages"><strong>Advantages</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#disadvantages"><strong>Disadvantages</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#key-takeaways"><strong>Key Takeaways</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="proxy_pattern.gen.html">Proxy Pattern</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="behavioral_patterns.gen.html">Behavioral Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gof.gen.html">The Gang of Four</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.gen.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cpp_api_index.gen.html">C++ API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_api.html">Python API Documentation</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Design Patterns Case Study</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="structural_patterns.gen.html">Structural Patterns</a></li>
+      <li class="breadcrumb-item active">Flyweight Pattern</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/MangaD/Design-Patterns-Case-Study/blob/main/docs/source/flyweight_pattern.gen.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="toctree-wrapper compound">
+</div>
+<section id="flyweight-pattern">
+<h1>Flyweight Pattern<a class="headerlink" href="#flyweight-pattern" title="Link to this heading"></a></h1>
+<section id="category">
+<h2><strong>Category</strong><a class="headerlink" href="#category" title="Link to this heading"></a></h2>
+<p>Structural Design Pattern</p>
+</section>
+<hr class="docutils" />
+<section id="overview">
+<h2><strong>Overview</strong><a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p>The <strong>Flyweight Pattern</strong> is a structural design pattern that focuses on reducing memory consumption and improving performance by sharing as much data as possible among similar objects. Instead of creating multiple objects with the same intrinsic properties, the Flyweight Pattern allows those properties to be shared, while extrinsic properties unique to each object are stored externally.</p>
+<p>This pattern is particularly useful when:</p>
+<ul class="simple">
+<li><p>A large number of objects share common data.</p></li>
+<li><p>Object creation and memory usage need optimization.</p></li>
+<li><p>The intrinsic state of an object is immutable and can be shared.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="key-characteristics">
+<h2><strong>Key Characteristics</strong><a class="headerlink" href="#key-characteristics" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p><strong>Intrinsic and Extrinsic State</strong>:</p>
+<ul class="simple">
+<li><p><strong>Intrinsic State</strong>: Shared among objects and remains immutable.</p></li>
+<li><p><strong>Extrinsic State</strong>: Varies between objects and is passed externally.</p></li>
+</ul>
+</li>
+<li><p><strong>Memory Optimization</strong>:</p>
+<ul class="simple">
+<li><p>Reduces the number of objects in memory by sharing instances of objects with similar intrinsic state.</p></li>
+</ul>
+</li>
+<li><p><strong>Object Factory</strong>:</p>
+<ul class="simple">
+<li><p>A central factory ensures the reuse of existing flyweights or creates new ones if needed.</p></li>
+</ul>
+</li>
+<li><p><strong>Immutability</strong>:</p>
+<ul class="simple">
+<li><p>Flyweight objects typically have immutable intrinsic state, making them thread-safe.</p></li>
+</ul>
+</li>
+<li><p><strong>Scalability</strong>:</p>
+<ul class="simple">
+<li><p>Effectively handles large datasets where many objects have similar data.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="uml-diagram">
+<h2><strong>UML Diagram</strong><a class="headerlink" href="#uml-diagram" title="Link to this heading"></a></h2>
+<p>The UML diagram below illustrates the Flyweight Pattern. A <code class="docutils literal notranslate"><span class="pre">Flyweight</span></code> interface defines common operations, and a <code class="docutils literal notranslate"><span class="pre">FlyweightFactory</span></code> manages shared instances.</p>
+<p><img alt="UML Diagram" src="http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/MangaD/Design-Patterns-Case-Study/refs/heads/main/Structural/Flyweight/flyweight.puml" /></p>
+</section>
+<hr class="docutils" />
+<section id="implementation-walkthrough">
+<h2><strong>Implementation Walkthrough</strong><a class="headerlink" href="#implementation-walkthrough" title="Link to this heading"></a></h2>
+<section id="participants">
+<h3><strong>Participants</strong><a class="headerlink" href="#participants" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>Flyweight</strong>:</p>
+<ul class="simple">
+<li><p>Defines the interface for objects that can share intrinsic state.</p></li>
+</ul>
+</li>
+<li><p><strong>Concrete Flyweight</strong>:</p>
+<ul class="simple">
+<li><p>Implements the Flyweight interface and contains intrinsic state.</p></li>
+</ul>
+</li>
+<li><p><strong>Flyweight Factory</strong>:</p>
+<ul class="simple">
+<li><p>Manages the creation and sharing of flyweight objects.</p></li>
+</ul>
+</li>
+<li><p><strong>Client</strong>:</p>
+<ul class="simple">
+<li><p>Uses flyweights and manages extrinsic state.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="example-reusing-tree-objects-in-a-forest">
+<h3><strong>Example: Reusing Tree Objects in a Forest</strong><a class="headerlink" href="#example-reusing-tree-objects-in-a-forest" title="Link to this heading"></a></h3>
+<section id="flyweight-interface">
+<h4>Flyweight Interface<a class="headerlink" href="#flyweight-interface" title="Link to this heading"></a></h4>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm"> * @brief Flyweight interface for tree types.</span>
+<span class="cm"> */</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">TreeType</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">draw</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="concrete-flyweight">
+<h4>Concrete Flyweight<a class="headerlink" href="#concrete-flyweight" title="Link to this heading"></a></h4>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm"> * @brief Concrete implementation of the TreeType flyweight.</span>
+<span class="cm"> *</span>
+<span class="cm"> * Stores intrinsic state shared by all trees of this type.</span>
+<span class="cm"> */</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ConcreteTreeType</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">TreeType</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">color</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">texture</span><span class="p">;</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">ConcreteTreeType</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">color</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">texture</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">color</span><span class="p">;</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">texture</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">texture</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">draw</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Drawing tree [&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;, &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">color</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;, &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">texture</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;] at (&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;, &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;)&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="flyweight-factory">
+<h4>Flyweight Factory<a class="headerlink" href="#flyweight-factory" title="Link to this heading"></a></h4>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm"> * @brief Factory for managing and reusing TreeType instances.</span>
+<span class="cm"> */</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">TreeFactory</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">TreeType</span><span class="o">&gt;</span><span class="w"> </span><span class="n">treeTypes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="n">TreeType</span><span class="w"> </span><span class="nf">getTreeType</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">color</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">texture</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;_&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">color</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;_&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">texture</span><span class="p">;</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">treeTypes</span><span class="p">.</span><span class="na">computeIfAbsent</span><span class="p">(</span><span class="n">key</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ConcreteTreeType</span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">color</span><span class="p">,</span><span class="w"> </span><span class="n">texture</span><span class="p">));</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="tree-class-client-side-object">
+<h4><strong>Tree Class (Client-Side Object)</strong><a class="headerlink" href="#tree-class-client-side-object" title="Link to this heading"></a></h4>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm"> * @brief Client-side object that combines intrinsic and extrinsic state.</span>
+<span class="cm"> */</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Tree</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">TreeType</span><span class="w"> </span><span class="n">type</span><span class="p">;</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">Tree</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">TreeType</span><span class="w"> </span><span class="n">type</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">type</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">draw</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">type</span><span class="p">.</span><span class="na">draw</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="client-code-forest">
+<h4><strong>Client Code: Forest</strong><a class="headerlink" href="#client-code-forest" title="Link to this heading"></a></h4>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm"> * @brief Manages a collection of trees and utilizes the Flyweight pattern.</span>
+<span class="cm"> */</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Forest</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Tree</span><span class="o">&gt;</span><span class="w"> </span><span class="n">trees</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">plantTree</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">color</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">texture</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">TreeType</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TreeFactory</span><span class="p">.</span><span class="na">getTreeType</span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">color</span><span class="p">,</span><span class="w"> </span><span class="n">texture</span><span class="p">);</span>
+<span class="w">        </span><span class="n">trees</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Tree</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">type</span><span class="p">));</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">draw</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">Tree</span><span class="w"> </span><span class="n">tree</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">trees</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">tree</span><span class="p">.</span><span class="na">draw</span><span class="p">();</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="client-code-example">
+<h4><strong>Client Code Example</strong><a class="headerlink" href="#client-code-example" title="Link to this heading"></a></h4>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">FlyweightPatternDemo</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Forest</span><span class="w"> </span><span class="n">forest</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Forest</span><span class="p">();</span>
+
+<span class="w">        </span><span class="c1">// Plant trees with shared TreeType</span>
+<span class="w">        </span><span class="n">forest</span><span class="p">.</span><span class="na">plantTree</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Oak&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Green&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Rough&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">forest</span><span class="p">.</span><span class="na">plantTree</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Pine&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Dark Green&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Smooth&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">forest</span><span class="p">.</span><span class="na">plantTree</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Oak&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Green&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Rough&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// Reuses the &quot;Oak&quot; type</span>
+
+<span class="w">        </span><span class="c1">// Draw the forest</span>
+<span class="w">        </span><span class="n">forest</span><span class="p">.</span><span class="na">draw</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="output">
+<h3><strong>Output</strong><a class="headerlink" href="#output" title="Link to this heading"></a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Drawing</span> <span class="n">tree</span> <span class="p">[</span><span class="n">Oak</span><span class="p">,</span> <span class="n">Green</span><span class="p">,</span> <span class="n">Rough</span><span class="p">]</span> <span class="n">at</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">Drawing</span> <span class="n">tree</span> <span class="p">[</span><span class="n">Pine</span><span class="p">,</span> <span class="n">Dark</span> <span class="n">Green</span><span class="p">,</span> <span class="n">Smooth</span><span class="p">]</span> <span class="n">at</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">Drawing</span> <span class="n">tree</span> <span class="p">[</span><span class="n">Oak</span><span class="p">,</span> <span class="n">Green</span><span class="p">,</span> <span class="n">Rough</span><span class="p">]</span> <span class="n">at</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="applications">
+<h2><strong>Applications</strong><a class="headerlink" href="#applications" title="Link to this heading"></a></h2>
+<section id="when-to-use-the-flyweight-pattern">
+<h3><strong>When to Use the Flyweight Pattern</strong><a class="headerlink" href="#when-to-use-the-flyweight-pattern" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>Memory Optimization</strong>:</p>
+<ul class="simple">
+<li><p>When an application needs to manage a large number of similar objects.</p></li>
+</ul>
+</li>
+<li><p><strong>Shared Data</strong>:</p>
+<ul class="simple">
+<li><p>When objects share significant portions of data.</p></li>
+</ul>
+</li>
+<li><p><strong>Immutable State</strong>:</p>
+<ul class="simple">
+<li><p>When the shared state is constant and can be reused safely.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="common-use-cases">
+<h3><strong>Common Use Cases</strong><a class="headerlink" href="#common-use-cases" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>Game Development</strong>:</p>
+<ul class="simple">
+<li><p>Representing large numbers of entities (e.g., trees, characters) with shared attributes.</p></li>
+</ul>
+</li>
+<li><p><strong>Text Editors</strong>:</p>
+<ul class="simple">
+<li><p>Managing character formatting where glyph shapes are shared.</p></li>
+</ul>
+</li>
+<li><p><strong>Data Caching</strong>:</p>
+<ul class="simple">
+<li><p>Reusing objects in data-intensive applications.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+</section>
+<hr class="docutils" />
+<section id="advantages-and-disadvantages">
+<h2><strong>Advantages and Disadvantages</strong><a class="headerlink" href="#advantages-and-disadvantages" title="Link to this heading"></a></h2>
+<section id="advantages">
+<h3><strong>Advantages</strong><a class="headerlink" href="#advantages" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>Memory Efficiency</strong>:</p>
+<ul class="simple">
+<li><p>Reduces memory consumption by sharing objects with the same intrinsic state.</p></li>
+</ul>
+</li>
+<li><p><strong>Improved Performance</strong>:</p>
+<ul class="simple">
+<li><p>Reduces the cost of creating and managing large numbers of similar objects.</p></li>
+</ul>
+</li>
+<li><p><strong>Scalability</strong>:</p>
+<ul class="simple">
+<li><p>Enables the handling of large datasets with minimal resource overhead.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="disadvantages">
+<h3><strong>Disadvantages</strong><a class="headerlink" href="#disadvantages" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>Increased Complexity</strong>:</p>
+<ul class="simple">
+<li><p>Requires additional code to manage the flyweight objects and their states.</p></li>
+</ul>
+</li>
+<li><p><strong>Limited Flexibility</strong>:</p>
+<ul class="simple">
+<li><p>Intrinsic state must be immutable, which can limit object behavior.</p></li>
+</ul>
+</li>
+<li><p><strong>Coupling</strong>:</p>
+<ul class="simple">
+<li><p>Introduces dependency on a centralized factory.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+</section>
+<hr class="docutils" />
+<section id="key-takeaways">
+<h2><strong>Key Takeaways</strong><a class="headerlink" href="#key-takeaways" title="Link to this heading"></a></h2>
+<p>The <strong>Flyweight Pattern</strong> is a powerful solution for managing memory and optimizing performance when dealing with a large number of objects that share common data. While it introduces complexity through its use of intrinsic and extrinsic states, it is invaluable in resource-constrained or performance-critical applications.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="facade_pattern.gen.html" class="btn btn-neutral float-left" title="Facade Pattern" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="proxy_pattern.gen.html" class="btn btn-neutral float-right" title="Proxy Pattern" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, David Gonçalves.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

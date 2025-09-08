@@ -1,0 +1,8 @@
+Decorator API Documentation
+=============================
+
+.. automodule:: Structural.Decorator.python.decorator
+   :members:
+   :undoc-members:
+   :show-inheritance:
+

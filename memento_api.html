@@ -1,0 +1,285 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Memento API Documentation &mdash; Design Patterns Case Study 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=8d563738"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/custom.js?v=f12ea912"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Observer API Documentation" href="observer_api.html" />
+    <link rel="prev" title="Mediator API Documentation" href="mediator_api.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Design Patterns Case Study
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.gen.html">Design Patterns Case Study</a></li>
+<li class="toctree-l1"><a class="reference internal" href="creational_patterns.gen.html">Creational Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="structural_patterns.gen.html">Structural Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="behavioral_patterns.gen.html">Behavioral Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gof.gen.html">The Gang of Four</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.gen.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cpp_api_index.gen.html">C++ API Documentation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="python_api.html">Python API Documentation</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="python_api.html#behavioral-patterns">Behavioral Patterns</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="chain_of_responsibility_api.html">ChainOfResponsibility API Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="command_api.html">Command API Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="interpreter_api.html">Interpreter API Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="iterator_api.html">Iterator API Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mediator_api.html">Mediator API Documentation</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Memento API Documentation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Behavioral.Memento.python.memento.Memento"><code class="docutils literal notranslate"><span class="pre">Memento</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Behavioral.Memento.python.memento.Originator"><code class="docutils literal notranslate"><span class="pre">Originator</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Behavioral.Memento.python.memento.Caretaker"><code class="docutils literal notranslate"><span class="pre">Caretaker</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="observer_api.html">Observer API Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="state_api.html">State API Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="strategy_api.html">Strategy API Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="template_method_api.html">TemplateMethod API Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="visitor_api.html">Visitor API Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="python_api.html#structural-patterns">Structural Patterns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python_api.html#creational-patterns">Creational Patterns</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Design Patterns Case Study</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="python_api.html">Python API Documentation</a></li>
+      <li class="breadcrumb-item active">Memento API Documentation</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/MangaD/Design-Patterns-Case-Study/blob/main/docs/source/memento_api.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-Behavioral.Memento.python.memento">
+<span id="memento-api-documentation"></span><h1>Memento API Documentation<a class="headerlink" href="#module-Behavioral.Memento.python.memento" title="Link to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="Behavioral.Memento.python.memento.Memento">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Memento</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Behavioral/Memento/python/memento.html#Memento"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Behavioral.Memento.python.memento.Memento" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Stores the state of the Originator.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>state</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>)</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="Behavioral.Memento.python.memento.Memento.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Behavioral/Memento/python/memento.html#Memento.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Behavioral.Memento.python.memento.Memento.__init__" title="Link to this definition"></a></dt>
+<dd><p>Initializes the Memento with the state.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>state</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span>) – The state to save.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Behavioral.Memento.python.memento.Memento.get_state">
+<span class="sig-name descname"><span class="pre">get_state</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Behavioral/Memento/python/memento.html#Memento.get_state"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Behavioral.Memento.python.memento.Memento.get_state" title="Link to this definition"></a></dt>
+<dd><p>Retrieves the stored state.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span></p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The saved state.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="Behavioral.Memento.python.memento.Originator">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Originator</span></span><a class="reference internal" href="_modules/Behavioral/Memento/python/memento.html#Originator"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Behavioral.Memento.python.memento.Originator" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Creates and restores Mementos to manage its state.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="Behavioral.Memento.python.memento.Originator.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Behavioral/Memento/python/memento.html#Originator.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Behavioral.Memento.python.memento.Originator.__init__" title="Link to this definition"></a></dt>
+<dd><p>Initializes the Originator with no state.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Behavioral.Memento.python.memento.Originator.set_state">
+<span class="sig-name descname"><span class="pre">set_state</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Behavioral/Memento/python/memento.html#Originator.set_state"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Behavioral.Memento.python.memento.Originator.set_state" title="Link to this definition"></a></dt>
+<dd><p>Sets the state of the Originator.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>state</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span>) – The new state.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Behavioral.Memento.python.memento.Originator.get_state">
+<span class="sig-name descname"><span class="pre">get_state</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Behavioral/Memento/python/memento.html#Originator.get_state"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Behavioral.Memento.python.memento.Originator.get_state" title="Link to this definition"></a></dt>
+<dd><p>Gets the current state of the Originator.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span></p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The current state.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Behavioral.Memento.python.memento.Originator.create_memento">
+<span class="sig-name descname"><span class="pre">create_memento</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Behavioral/Memento/python/memento.html#Originator.create_memento"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Behavioral.Memento.python.memento.Originator.create_memento" title="Link to this definition"></a></dt>
+<dd><p>Creates a Memento with the current state.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="#Behavioral.Memento.python.memento.Memento" title="Behavioral.Memento.python.memento.Memento"><code class="xref py py-class docutils literal notranslate"><span class="pre">Memento</span></code></a></span></p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A Memento containing the current state.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Behavioral.Memento.python.memento.Originator.restore_memento">
+<span class="sig-name descname"><span class="pre">restore_memento</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">memento</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Behavioral/Memento/python/memento.html#Originator.restore_memento"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Behavioral.Memento.python.memento.Originator.restore_memento" title="Link to this definition"></a></dt>
+<dd><p>Restores the state from a Memento.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>memento</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="#Behavioral.Memento.python.memento.Memento" title="Behavioral.Memento.python.memento.Memento"><code class="xref py py-class docutils literal notranslate"><span class="pre">Memento</span></code></a></span>) – The Memento to restore from.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="Behavioral.Memento.python.memento.Caretaker">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Caretaker</span></span><a class="reference internal" href="_modules/Behavioral/Memento/python/memento.html#Caretaker"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Behavioral.Memento.python.memento.Caretaker" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Manages Mementos to track the history of the Originator’s states.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="Behavioral.Memento.python.memento.Caretaker.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Behavioral/Memento/python/memento.html#Caretaker.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Behavioral.Memento.python.memento.Caretaker.__init__" title="Link to this definition"></a></dt>
+<dd><p>Initializes the Caretaker with an empty list of Mementos.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Behavioral.Memento.python.memento.Caretaker.add_memento">
+<span class="sig-name descname"><span class="pre">add_memento</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">memento</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Behavioral/Memento/python/memento.html#Caretaker.add_memento"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Behavioral.Memento.python.memento.Caretaker.add_memento" title="Link to this definition"></a></dt>
+<dd><p>Adds a Memento to the history.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>memento</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="#Behavioral.Memento.python.memento.Memento" title="Behavioral.Memento.python.memento.Memento"><code class="xref py py-class docutils literal notranslate"><span class="pre">Memento</span></code></a></span>) – The Memento to add.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Behavioral.Memento.python.memento.Caretaker.get_memento">
+<span class="sig-name descname"><span class="pre">get_memento</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Behavioral/Memento/python/memento.html#Caretaker.get_memento"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Behavioral.Memento.python.memento.Caretaker.get_memento" title="Link to this definition"></a></dt>
+<dd><p>Retrieves a Memento by index.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>index</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></span>) – The index of the desired Memento.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="#Behavioral.Memento.python.memento.Memento" title="Behavioral.Memento.python.memento.Memento"><code class="xref py py-class docutils literal notranslate"><span class="pre">Memento</span></code></a></span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The Memento at the specified index.</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#IndexError" title="(in Python v3.13)"><strong>IndexError</strong></a> – If the index is out of bounds.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="mediator_api.html" class="btn btn-neutral float-left" title="Mediator API Documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="observer_api.html" class="btn btn-neutral float-right" title="Observer API Documentation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, David Gonçalves.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

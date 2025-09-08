@@ -1,0 +1,14 @@
+Test  Object  Adapter  Source
+=============================
+
+.. doxygenfile:: test_object_adapter.cpp
+   :project: Design Patterns C++
+   :no-link:
+
+Inner Classes
+-------------
+
+.. toctree::
+   :maxdepth: 1
+
+   classAdapterPatternTest.gen

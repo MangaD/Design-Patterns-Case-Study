@@ -1,0 +1,392 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Visitor API Documentation &mdash; Design Patterns Case Study 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=8d563738"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/custom.js?v=f12ea912"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Adapter API Documentation" href="adapter_api.html" />
+    <link rel="prev" title="TemplateMethod API Documentation" href="template_method_api.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Design Patterns Case Study
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.gen.html">Design Patterns Case Study</a></li>
+<li class="toctree-l1"><a class="reference internal" href="creational_patterns.gen.html">Creational Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="structural_patterns.gen.html">Structural Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="behavioral_patterns.gen.html">Behavioral Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gof.gen.html">The Gang of Four</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.gen.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cpp_api_index.gen.html">C++ API Documentation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="python_api.html">Python API Documentation</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="python_api.html#behavioral-patterns">Behavioral Patterns</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="chain_of_responsibility_api.html">ChainOfResponsibility API Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="command_api.html">Command API Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="interpreter_api.html">Interpreter API Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="iterator_api.html">Iterator API Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mediator_api.html">Mediator API Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="memento_api.html">Memento API Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="observer_api.html">Observer API Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="state_api.html">State API Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="strategy_api.html">Strategy API Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="template_method_api.html">TemplateMethod API Documentation</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Visitor API Documentation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Behavioral.Visitor.python.visitor.Visitor"><code class="docutils literal notranslate"><span class="pre">Visitor</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Behavioral.Visitor.python.visitor.Element"><code class="docutils literal notranslate"><span class="pre">Element</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Behavioral.Visitor.python.visitor.ElementA"><code class="docutils literal notranslate"><span class="pre">ElementA</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Behavioral.Visitor.python.visitor.ElementB"><code class="docutils literal notranslate"><span class="pre">ElementB</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Behavioral.Visitor.python.visitor.ConcreteVisitorA"><code class="docutils literal notranslate"><span class="pre">ConcreteVisitorA</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Behavioral.Visitor.python.visitor.ConcreteVisitorB"><code class="docutils literal notranslate"><span class="pre">ConcreteVisitorB</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Behavioral.Visitor.python.visitor.ObjectStructure"><code class="docutils literal notranslate"><span class="pre">ObjectStructure</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="python_api.html#structural-patterns">Structural Patterns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python_api.html#creational-patterns">Creational Patterns</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Design Patterns Case Study</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="python_api.html">Python API Documentation</a></li>
+      <li class="breadcrumb-item active">Visitor API Documentation</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/MangaD/Design-Patterns-Case-Study/blob/main/docs/source/visitor_api.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-Behavioral.Visitor.python.visitor">
+<span id="visitor-api-documentation"></span><h1>Visitor API Documentation<a class="headerlink" href="#module-Behavioral.Visitor.python.visitor" title="Link to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="Behavioral.Visitor.python.visitor.Visitor">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Visitor</span></span><a class="reference internal" href="_modules/Behavioral/Visitor/python/visitor.html#Visitor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Behavioral.Visitor.python.visitor.Visitor" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/abc.html#abc.ABC" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></a></p>
+<p>Visitor interface declaring operations for different element types.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="Behavioral.Visitor.python.visitor.Visitor.visit_element_a">
+<em class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">visit_element_a</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Behavioral/Visitor/python/visitor.html#Visitor.visit_element_a"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Behavioral.Visitor.python.visitor.Visitor.visit_element_a" title="Link to this definition"></a></dt>
+<dd><p>Visit an ElementA instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>element</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="#Behavioral.Visitor.python.visitor.ElementA" title="Behavioral.Visitor.python.visitor.ElementA"><code class="xref py py-class docutils literal notranslate"><span class="pre">ElementA</span></code></a></span>) – The ElementA instance.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Behavioral.Visitor.python.visitor.Visitor.visit_element_b">
+<em class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">visit_element_b</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Behavioral/Visitor/python/visitor.html#Visitor.visit_element_b"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Behavioral.Visitor.python.visitor.Visitor.visit_element_b" title="Link to this definition"></a></dt>
+<dd><p>Visit an ElementB instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>element</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="#Behavioral.Visitor.python.visitor.ElementB" title="Behavioral.Visitor.python.visitor.ElementB"><code class="xref py py-class docutils literal notranslate"><span class="pre">ElementB</span></code></a></span>) – The ElementB instance.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="Behavioral.Visitor.python.visitor.Element">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Element</span></span><a class="reference internal" href="_modules/Behavioral/Visitor/python/visitor.html#Element"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Behavioral.Visitor.python.visitor.Element" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/abc.html#abc.ABC" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></a></p>
+<p>Abstract base class for elements.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="Behavioral.Visitor.python.visitor.Element.accept">
+<em class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">accept</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">visitor</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Behavioral/Visitor/python/visitor.html#Element.accept"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Behavioral.Visitor.python.visitor.Element.accept" title="Link to this definition"></a></dt>
+<dd><p>Accept a Visitor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>visitor</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="#Behavioral.Visitor.python.visitor.Visitor" title="Behavioral.Visitor.python.visitor.Visitor"><code class="xref py py-class docutils literal notranslate"><span class="pre">Visitor</span></code></a></span>) – The Visitor to accept.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="Behavioral.Visitor.python.visitor.ElementA">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ElementA</span></span><a class="reference internal" href="_modules/Behavioral/Visitor/python/visitor.html#ElementA"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Behavioral.Visitor.python.visitor.ElementA" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#Behavioral.Visitor.python.visitor.Element" title="Behavioral.Visitor.python.visitor.Element"><code class="xref py py-class docutils literal notranslate"><span class="pre">Element</span></code></a></p>
+<p>Concrete implementation of an element, ElementA.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="Behavioral.Visitor.python.visitor.ElementA.operation_a">
+<span class="sig-name descname"><span class="pre">operation_a</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Behavioral/Visitor/python/visitor.html#ElementA.operation_a"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Behavioral.Visitor.python.visitor.ElementA.operation_a" title="Link to this definition"></a></dt>
+<dd><p>Perform ElementA-specific behavior.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span></p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A message describing the operation.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Behavioral.Visitor.python.visitor.ElementA.accept">
+<span class="sig-name descname"><span class="pre">accept</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">visitor</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Behavioral/Visitor/python/visitor.html#ElementA.accept"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Behavioral.Visitor.python.visitor.ElementA.accept" title="Link to this definition"></a></dt>
+<dd><p>Accept a Visitor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>visitor</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="#Behavioral.Visitor.python.visitor.Visitor" title="Behavioral.Visitor.python.visitor.Visitor"><code class="xref py py-class docutils literal notranslate"><span class="pre">Visitor</span></code></a></span>) – The Visitor to accept.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="Behavioral.Visitor.python.visitor.ElementB">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ElementB</span></span><a class="reference internal" href="_modules/Behavioral/Visitor/python/visitor.html#ElementB"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Behavioral.Visitor.python.visitor.ElementB" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#Behavioral.Visitor.python.visitor.Element" title="Behavioral.Visitor.python.visitor.Element"><code class="xref py py-class docutils literal notranslate"><span class="pre">Element</span></code></a></p>
+<p>Concrete implementation of an element, ElementB.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="Behavioral.Visitor.python.visitor.ElementB.operation_b">
+<span class="sig-name descname"><span class="pre">operation_b</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Behavioral/Visitor/python/visitor.html#ElementB.operation_b"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Behavioral.Visitor.python.visitor.ElementB.operation_b" title="Link to this definition"></a></dt>
+<dd><p>Perform ElementB-specific behavior.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span></p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A message describing the operation.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Behavioral.Visitor.python.visitor.ElementB.accept">
+<span class="sig-name descname"><span class="pre">accept</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">visitor</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Behavioral/Visitor/python/visitor.html#ElementB.accept"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Behavioral.Visitor.python.visitor.ElementB.accept" title="Link to this definition"></a></dt>
+<dd><p>Accept a Visitor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>visitor</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="#Behavioral.Visitor.python.visitor.Visitor" title="Behavioral.Visitor.python.visitor.Visitor"><code class="xref py py-class docutils literal notranslate"><span class="pre">Visitor</span></code></a></span>) – The Visitor to accept.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="Behavioral.Visitor.python.visitor.ConcreteVisitorA">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ConcreteVisitorA</span></span><a class="reference internal" href="_modules/Behavioral/Visitor/python/visitor.html#ConcreteVisitorA"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Behavioral.Visitor.python.visitor.ConcreteVisitorA" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#Behavioral.Visitor.python.visitor.Visitor" title="Behavioral.Visitor.python.visitor.Visitor"><code class="xref py py-class docutils literal notranslate"><span class="pre">Visitor</span></code></a></p>
+<p>Concrete Visitor implementing specific operations for each element type.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="Behavioral.Visitor.python.visitor.ConcreteVisitorA.visit_element_a">
+<span class="sig-name descname"><span class="pre">visit_element_a</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Behavioral/Visitor/python/visitor.html#ConcreteVisitorA.visit_element_a"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Behavioral.Visitor.python.visitor.ConcreteVisitorA.visit_element_a" title="Link to this definition"></a></dt>
+<dd><p>Visit an ElementA instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>element</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="#Behavioral.Visitor.python.visitor.ElementA" title="Behavioral.Visitor.python.visitor.ElementA"><code class="xref py py-class docutils literal notranslate"><span class="pre">ElementA</span></code></a></span>) – The ElementA instance to visit.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Behavioral.Visitor.python.visitor.ConcreteVisitorA.visit_element_b">
+<span class="sig-name descname"><span class="pre">visit_element_b</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Behavioral/Visitor/python/visitor.html#ConcreteVisitorA.visit_element_b"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Behavioral.Visitor.python.visitor.ConcreteVisitorA.visit_element_b" title="Link to this definition"></a></dt>
+<dd><p>Visit an ElementB instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>element</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="#Behavioral.Visitor.python.visitor.ElementB" title="Behavioral.Visitor.python.visitor.ElementB"><code class="xref py py-class docutils literal notranslate"><span class="pre">ElementB</span></code></a></span>) – The ElementB instance to visit.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="Behavioral.Visitor.python.visitor.ConcreteVisitorB">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ConcreteVisitorB</span></span><a class="reference internal" href="_modules/Behavioral/Visitor/python/visitor.html#ConcreteVisitorB"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Behavioral.Visitor.python.visitor.ConcreteVisitorB" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#Behavioral.Visitor.python.visitor.Visitor" title="Behavioral.Visitor.python.visitor.Visitor"><code class="xref py py-class docutils literal notranslate"><span class="pre">Visitor</span></code></a></p>
+<p>Another Concrete Visitor with different operations for each element type.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="Behavioral.Visitor.python.visitor.ConcreteVisitorB.visit_element_a">
+<span class="sig-name descname"><span class="pre">visit_element_a</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Behavioral/Visitor/python/visitor.html#ConcreteVisitorB.visit_element_a"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Behavioral.Visitor.python.visitor.ConcreteVisitorB.visit_element_a" title="Link to this definition"></a></dt>
+<dd><p>Visit an ElementA instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>element</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="#Behavioral.Visitor.python.visitor.ElementA" title="Behavioral.Visitor.python.visitor.ElementA"><code class="xref py py-class docutils literal notranslate"><span class="pre">ElementA</span></code></a></span>) – The ElementA instance to visit.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Behavioral.Visitor.python.visitor.ConcreteVisitorB.visit_element_b">
+<span class="sig-name descname"><span class="pre">visit_element_b</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Behavioral/Visitor/python/visitor.html#ConcreteVisitorB.visit_element_b"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Behavioral.Visitor.python.visitor.ConcreteVisitorB.visit_element_b" title="Link to this definition"></a></dt>
+<dd><p>Visit an ElementB instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>element</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="#Behavioral.Visitor.python.visitor.ElementB" title="Behavioral.Visitor.python.visitor.ElementB"><code class="xref py py-class docutils literal notranslate"><span class="pre">ElementB</span></code></a></span>) – The ElementB instance to visit.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="Behavioral.Visitor.python.visitor.ObjectStructure">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ObjectStructure</span></span><a class="reference internal" href="_modules/Behavioral/Visitor/python/visitor.html#ObjectStructure"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Behavioral.Visitor.python.visitor.ObjectStructure" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>ObjectStructure manages a collection of elements and processes them with visitors.</p>
+<dl class="field-list simple">
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="Behavioral.Visitor.python.visitor.ObjectStructure.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Behavioral/Visitor/python/visitor.html#ObjectStructure.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Behavioral.Visitor.python.visitor.ObjectStructure.__init__" title="Link to this definition"></a></dt>
+<dd><p>Default constructor.</p>
+<p>Initializes an empty list to store elements.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Behavioral.Visitor.python.visitor.ObjectStructure.add_element">
+<span class="sig-name descname"><span class="pre">add_element</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Behavioral/Visitor/python/visitor.html#ObjectStructure.add_element"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Behavioral.Visitor.python.visitor.ObjectStructure.add_element" title="Link to this definition"></a></dt>
+<dd><p>Add an element to the structure.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>element</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="#Behavioral.Visitor.python.visitor.Element" title="Behavioral.Visitor.python.visitor.Element"><code class="xref py py-class docutils literal notranslate"><span class="pre">Element</span></code></a></span>) – The Element to add.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Behavioral.Visitor.python.visitor.ObjectStructure.accept">
+<span class="sig-name descname"><span class="pre">accept</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">visitor</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Behavioral/Visitor/python/visitor.html#ObjectStructure.accept"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Behavioral.Visitor.python.visitor.ObjectStructure.accept" title="Link to this definition"></a></dt>
+<dd><p>Accept a visitor for all elements.</p>
+<p>Iterates over all elements in the structure and calls their accept method with
+the given visitor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>visitor</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="#Behavioral.Visitor.python.visitor.Visitor" title="Behavioral.Visitor.python.visitor.Visitor"><code class="xref py py-class docutils literal notranslate"><span class="pre">Visitor</span></code></a></span>) – The Visitor to accept.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="template_method_api.html" class="btn btn-neutral float-left" title="TemplateMethod API Documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="adapter_api.html" class="btn btn-neutral float-right" title="Adapter API Documentation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, David Gonçalves.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

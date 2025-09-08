@@ -1,0 +1,332 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Behavioral.Visitor.python.visitor &mdash; Design Patterns Case Study 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../../../_static/custom.js?v=f12ea912"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../index.html" class="icon icon-home">
+            Design Patterns Case Study
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../introduction.gen.html">Design Patterns Case Study</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../creational_patterns.gen.html">Creational Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../structural_patterns.gen.html">Structural Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../behavioral_patterns.gen.html">Behavioral Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../gof.gen.html">The Gang of Four</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../references.gen.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../cpp_api_index.gen.html">C++ API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../python_api.html">Python API Documentation</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Design Patterns Case Study</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">Behavioral.Visitor.python.visitor</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for Behavioral.Visitor.python.visitor</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">ABC</span><span class="p">,</span> <span class="n">abstractmethod</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">List</span>
+
+<span class="c1"># Configure the logger</span>
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s2">&quot;visitor&quot;</span><span class="p">)</span>
+<span class="n">logger</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Visitor">
+<a class="viewcode-back" href="../../../../visitor_api.html#Behavioral.Visitor.python.visitor.Visitor">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">Visitor</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
+<span class="w">	</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">	Visitor interface declaring operations for different element types.</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+<div class="viewcode-block" id="Visitor.visit_element_a">
+<a class="viewcode-back" href="../../../../visitor_api.html#Behavioral.Visitor.python.visitor.Visitor.visit_element_a">[docs]</a>
+	<span class="nd">@abstractmethod</span>
+	<span class="k">def</span><span class="w"> </span><span class="nf">visit_element_a</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">element</span><span class="p">:</span> <span class="s2">&quot;ElementA&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">		</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Visit an ElementA instance.</span>
+<span class="sd">		</span>
+<span class="sd">		:param element: The ElementA instance.</span>
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="k">pass</span></div>
+
+
+<div class="viewcode-block" id="Visitor.visit_element_b">
+<a class="viewcode-back" href="../../../../visitor_api.html#Behavioral.Visitor.python.visitor.Visitor.visit_element_b">[docs]</a>
+	<span class="nd">@abstractmethod</span>
+	<span class="k">def</span><span class="w"> </span><span class="nf">visit_element_b</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">element</span><span class="p">:</span> <span class="s2">&quot;ElementB&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">		</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Visit an ElementB instance.</span>
+<span class="sd">		</span>
+<span class="sd">		:param element: The ElementB instance.</span>
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="k">pass</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="Element">
+<a class="viewcode-back" href="../../../../visitor_api.html#Behavioral.Visitor.python.visitor.Element">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">Element</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
+<span class="w">	</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">	Abstract base class for elements.</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+<div class="viewcode-block" id="Element.accept">
+<a class="viewcode-back" href="../../../../visitor_api.html#Behavioral.Visitor.python.visitor.Element.accept">[docs]</a>
+	<span class="nd">@abstractmethod</span>
+	<span class="k">def</span><span class="w"> </span><span class="nf">accept</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">visitor</span><span class="p">:</span> <span class="n">Visitor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">		</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Accept a Visitor.</span>
+<span class="sd">		</span>
+<span class="sd">		:param visitor: The Visitor to accept.</span>
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="k">pass</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="ElementA">
+<a class="viewcode-back" href="../../../../visitor_api.html#Behavioral.Visitor.python.visitor.ElementA">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">ElementA</span><span class="p">(</span><span class="n">Element</span><span class="p">):</span>
+<span class="w">	</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">	Concrete implementation of an element, ElementA.</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+<div class="viewcode-block" id="ElementA.operation_a">
+<a class="viewcode-back" href="../../../../visitor_api.html#Behavioral.Visitor.python.visitor.ElementA.operation_a">[docs]</a>
+	<span class="k">def</span><span class="w"> </span><span class="nf">operation_a</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">		</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Perform ElementA-specific behavior.</span>
+<span class="sd">		</span>
+<span class="sd">		:return: A message describing the operation.</span>
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="k">return</span> <span class="s2">&quot;ElementA operation.&quot;</span></div>
+
+
+<div class="viewcode-block" id="ElementA.accept">
+<a class="viewcode-back" href="../../../../visitor_api.html#Behavioral.Visitor.python.visitor.ElementA.accept">[docs]</a>
+	<span class="k">def</span><span class="w"> </span><span class="nf">accept</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">visitor</span><span class="p">:</span> <span class="n">Visitor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">		</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Accept a Visitor.</span>
+<span class="sd">		</span>
+<span class="sd">		:param visitor: The Visitor to accept.</span>
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="n">visitor</span><span class="o">.</span><span class="n">visit_element_a</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="ElementB">
+<a class="viewcode-back" href="../../../../visitor_api.html#Behavioral.Visitor.python.visitor.ElementB">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">ElementB</span><span class="p">(</span><span class="n">Element</span><span class="p">):</span>
+<span class="w">	</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">	Concrete implementation of an element, ElementB.</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+<div class="viewcode-block" id="ElementB.operation_b">
+<a class="viewcode-back" href="../../../../visitor_api.html#Behavioral.Visitor.python.visitor.ElementB.operation_b">[docs]</a>
+	<span class="k">def</span><span class="w"> </span><span class="nf">operation_b</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">		</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Perform ElementB-specific behavior.</span>
+<span class="sd">		</span>
+<span class="sd">		:return: A message describing the operation.</span>
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="k">return</span> <span class="s2">&quot;ElementB operation.&quot;</span></div>
+
+
+<div class="viewcode-block" id="ElementB.accept">
+<a class="viewcode-back" href="../../../../visitor_api.html#Behavioral.Visitor.python.visitor.ElementB.accept">[docs]</a>
+	<span class="k">def</span><span class="w"> </span><span class="nf">accept</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">visitor</span><span class="p">:</span> <span class="n">Visitor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">		</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Accept a Visitor.</span>
+<span class="sd">		</span>
+<span class="sd">		:param visitor: The Visitor to accept.</span>
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="n">visitor</span><span class="o">.</span><span class="n">visit_element_b</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="ConcreteVisitorA">
+<a class="viewcode-back" href="../../../../visitor_api.html#Behavioral.Visitor.python.visitor.ConcreteVisitorA">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">ConcreteVisitorA</span><span class="p">(</span><span class="n">Visitor</span><span class="p">):</span>
+<span class="w">	</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">	Concrete Visitor implementing specific operations for each element type.</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+<div class="viewcode-block" id="ConcreteVisitorA.visit_element_a">
+<a class="viewcode-back" href="../../../../visitor_api.html#Behavioral.Visitor.python.visitor.ConcreteVisitorA.visit_element_a">[docs]</a>
+	<span class="k">def</span><span class="w"> </span><span class="nf">visit_element_a</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">element</span><span class="p">:</span> <span class="n">ElementA</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">		</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Visit an ElementA instance.</span>
+<span class="sd">		</span>
+<span class="sd">		:param element: The ElementA instance to visit.</span>
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;ConcreteVisitorA: </span><span class="si">{</span><span class="n">element</span><span class="o">.</span><span class="n">operation_a</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="ConcreteVisitorA.visit_element_b">
+<a class="viewcode-back" href="../../../../visitor_api.html#Behavioral.Visitor.python.visitor.ConcreteVisitorA.visit_element_b">[docs]</a>
+	<span class="k">def</span><span class="w"> </span><span class="nf">visit_element_b</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">element</span><span class="p">:</span> <span class="n">ElementB</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">		</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Visit an ElementB instance.</span>
+<span class="sd">		</span>
+<span class="sd">		:param element: The ElementB instance to visit.</span>
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;ConcreteVisitorA: </span><span class="si">{</span><span class="n">element</span><span class="o">.</span><span class="n">operation_b</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="ConcreteVisitorB">
+<a class="viewcode-back" href="../../../../visitor_api.html#Behavioral.Visitor.python.visitor.ConcreteVisitorB">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">ConcreteVisitorB</span><span class="p">(</span><span class="n">Visitor</span><span class="p">):</span>
+<span class="w">	</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">	Another Concrete Visitor with different operations for each element type.</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+<div class="viewcode-block" id="ConcreteVisitorB.visit_element_a">
+<a class="viewcode-back" href="../../../../visitor_api.html#Behavioral.Visitor.python.visitor.ConcreteVisitorB.visit_element_a">[docs]</a>
+	<span class="k">def</span><span class="w"> </span><span class="nf">visit_element_a</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">element</span><span class="p">:</span> <span class="n">ElementA</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">		</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Visit an ElementA instance.</span>
+<span class="sd">		</span>
+<span class="sd">		:param element: The ElementA instance to visit.</span>
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;ConcreteVisitorB: </span><span class="si">{</span><span class="n">element</span><span class="o">.</span><span class="n">operation_a</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="ConcreteVisitorB.visit_element_b">
+<a class="viewcode-back" href="../../../../visitor_api.html#Behavioral.Visitor.python.visitor.ConcreteVisitorB.visit_element_b">[docs]</a>
+	<span class="k">def</span><span class="w"> </span><span class="nf">visit_element_b</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">element</span><span class="p">:</span> <span class="n">ElementB</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">		</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Visit an ElementB instance.</span>
+
+<span class="sd">		:param element: The ElementB instance to visit.</span>
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;ConcreteVisitorB: </span><span class="si">{</span><span class="n">element</span><span class="o">.</span><span class="n">operation_b</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="ObjectStructure">
+<a class="viewcode-back" href="../../../../visitor_api.html#Behavioral.Visitor.python.visitor.ObjectStructure">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">ObjectStructure</span><span class="p">:</span>
+<span class="w">	</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">	ObjectStructure manages a collection of elements and processes them with visitors.</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+<div class="viewcode-block" id="ObjectStructure.__init__">
+<a class="viewcode-back" href="../../../../visitor_api.html#Behavioral.Visitor.python.visitor.ObjectStructure.__init__">[docs]</a>
+	<span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">		</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Default constructor.</span>
+
+<span class="sd">		Initializes an empty list to store elements.</span>
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">_elements</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Element</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span></div>
+
+
+<div class="viewcode-block" id="ObjectStructure.add_element">
+<a class="viewcode-back" href="../../../../visitor_api.html#Behavioral.Visitor.python.visitor.ObjectStructure.add_element">[docs]</a>
+	<span class="k">def</span><span class="w"> </span><span class="nf">add_element</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">element</span><span class="p">:</span> <span class="n">Element</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">		</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Add an element to the structure.</span>
+
+<span class="sd">		:param element: The Element to add.</span>
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">_elements</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">element</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="ObjectStructure.accept">
+<a class="viewcode-back" href="../../../../visitor_api.html#Behavioral.Visitor.python.visitor.ObjectStructure.accept">[docs]</a>
+	<span class="k">def</span><span class="w"> </span><span class="nf">accept</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">visitor</span><span class="p">:</span> <span class="n">Visitor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">		</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Accept a visitor for all elements.</span>
+
+<span class="sd">		Iterates over all elements in the structure and calls their accept method with</span>
+<span class="sd">		the given visitor.</span>
+
+<span class="sd">		:param visitor: The Visitor to accept.</span>
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_elements</span><span class="p">:</span>
+			<span class="n">element</span><span class="o">.</span><span class="n">accept</span><span class="p">(</span><span class="n">visitor</span><span class="p">)</span></div>
+</div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, David Gonçalves.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

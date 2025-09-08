@@ -1,0 +1,8 @@
+Adapter API Documentation
+===========================
+
+.. automodule:: Structural.Adapter.python.adapter
+   :members:
+   :undoc-members:
+   :show-inheritance:
+

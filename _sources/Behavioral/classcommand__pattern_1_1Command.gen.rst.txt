@@ -1,0 +1,6 @@
+command_pattern::Command
+========================
+
+.. doxygenclass:: command_pattern::Command
+   :project: Design Patterns C++
+   :members:

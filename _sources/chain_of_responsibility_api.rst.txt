@@ -1,0 +1,8 @@
+ChainOfResponsibility API Documentation
+=========================================
+
+.. automodule:: Behavioral.ChainOfResponsibility.python.chain_of_responsibility
+   :members:
+   :undoc-members:
+   :show-inheritance:
+

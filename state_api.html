@@ -1,0 +1,227 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>State API Documentation &mdash; Design Patterns Case Study 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=8d563738"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/custom.js?v=f12ea912"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Strategy API Documentation" href="strategy_api.html" />
+    <link rel="prev" title="Observer API Documentation" href="observer_api.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Design Patterns Case Study
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.gen.html">Design Patterns Case Study</a></li>
+<li class="toctree-l1"><a class="reference internal" href="creational_patterns.gen.html">Creational Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="structural_patterns.gen.html">Structural Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="behavioral_patterns.gen.html">Behavioral Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gof.gen.html">The Gang of Four</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.gen.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cpp_api_index.gen.html">C++ API Documentation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="python_api.html">Python API Documentation</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="python_api.html#behavioral-patterns">Behavioral Patterns</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="chain_of_responsibility_api.html">ChainOfResponsibility API Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="command_api.html">Command API Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="interpreter_api.html">Interpreter API Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="iterator_api.html">Iterator API Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mediator_api.html">Mediator API Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="memento_api.html">Memento API Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="observer_api.html">Observer API Documentation</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">State API Documentation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Behavioral.State.python.state.Context"><code class="docutils literal notranslate"><span class="pre">Context</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Behavioral.State.python.state.State"><code class="docutils literal notranslate"><span class="pre">State</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Behavioral.State.python.state.ConcreteStateA"><code class="docutils literal notranslate"><span class="pre">ConcreteStateA</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Behavioral.State.python.state.ConcreteStateB"><code class="docutils literal notranslate"><span class="pre">ConcreteStateB</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="strategy_api.html">Strategy API Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="template_method_api.html">TemplateMethod API Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="visitor_api.html">Visitor API Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="python_api.html#structural-patterns">Structural Patterns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python_api.html#creational-patterns">Creational Patterns</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Design Patterns Case Study</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="python_api.html">Python API Documentation</a></li>
+      <li class="breadcrumb-item active">State API Documentation</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/MangaD/Design-Patterns-Case-Study/blob/main/docs/source/state_api.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-Behavioral.State.python.state">
+<span id="state-api-documentation"></span><h1>State API Documentation<a class="headerlink" href="#module-Behavioral.State.python.state" title="Link to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="Behavioral.State.python.state.Context">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Context</span></span><a class="reference internal" href="_modules/Behavioral/State/python/state.html#Context"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Behavioral.State.python.state.Context" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>The Context defines the interface of interest to clients and maintains a
+reference to an instance of a State subclass representing the current state.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="Behavioral.State.python.state.Context.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Behavioral/State/python/state.html#Context.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Behavioral.State.python.state.Context.__init__" title="Link to this definition"></a></dt>
+<dd><p>Initialize the context with an initial state.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Behavioral.State.python.state.Context.set_state">
+<span class="sig-name descname"><span class="pre">set_state</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Behavioral/State/python/state.html#Context.set_state"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Behavioral.State.python.state.Context.set_state" title="Link to this definition"></a></dt>
+<dd><p>Change the current state of the context.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>state</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="#Behavioral.State.python.state.State" title="Behavioral.State.python.state.State"><code class="xref py py-class docutils literal notranslate"><span class="pre">State</span></code></a></span>) – The new state to transition to.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Behavioral.State.python.state.Context.request">
+<span class="sig-name descname"><span class="pre">request</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Behavioral/State/python/state.html#Context.request"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Behavioral.State.python.state.Context.request" title="Link to this definition"></a></dt>
+<dd><p>Delegate the request to the current state.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="Behavioral.State.python.state.State">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">State</span></span><a class="reference internal" href="_modules/Behavioral/State/python/state.html#State"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Behavioral.State.python.state.State" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/abc.html#abc.ABC" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></a></p>
+<p>The State interface declares methods that all Concrete States should implement.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="Behavioral.State.python.state.State.handle">
+<em class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">handle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Behavioral/State/python/state.html#State.handle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Behavioral.State.python.state.State.handle" title="Link to this definition"></a></dt>
+<dd><p>Handle the request and transition the context to another state if needed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>context</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="#Behavioral.State.python.state.Context" title="Behavioral.State.python.state.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a></span>) – The context in which the state operates.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="Behavioral.State.python.state.ConcreteStateA">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ConcreteStateA</span></span><a class="reference internal" href="_modules/Behavioral/State/python/state.html#ConcreteStateA"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Behavioral.State.python.state.ConcreteStateA" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#Behavioral.State.python.state.State" title="Behavioral.State.python.state.State"><code class="xref py py-class docutils literal notranslate"><span class="pre">State</span></code></a></p>
+<p>ConcreteStateA implements the behavior associated with a state.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="Behavioral.State.python.state.ConcreteStateA.handle">
+<span class="sig-name descname"><span class="pre">handle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Behavioral/State/python/state.html#ConcreteStateA.handle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Behavioral.State.python.state.ConcreteStateA.handle" title="Link to this definition"></a></dt>
+<dd><p>Handle the request, log the current state and transition to ConcreteStateB.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>context</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="#Behavioral.State.python.state.Context" title="Behavioral.State.python.state.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a></span>) – The context in which the state operates, allowing state transitions.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="Behavioral.State.python.state.ConcreteStateB">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ConcreteStateB</span></span><a class="reference internal" href="_modules/Behavioral/State/python/state.html#ConcreteStateB"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Behavioral.State.python.state.ConcreteStateB" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#Behavioral.State.python.state.State" title="Behavioral.State.python.state.State"><code class="xref py py-class docutils literal notranslate"><span class="pre">State</span></code></a></p>
+<p>ConcreteStateB implements the behavior associated with a state.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="Behavioral.State.python.state.ConcreteStateB.handle">
+<span class="sig-name descname"><span class="pre">handle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Behavioral/State/python/state.html#ConcreteStateB.handle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Behavioral.State.python.state.ConcreteStateB.handle" title="Link to this definition"></a></dt>
+<dd><p>Handle the request, log the current state and transition to ConcreteStateA.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>context</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="#Behavioral.State.python.state.Context" title="Behavioral.State.python.state.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a></span>) – The context in which the state operates, allowing state transitions.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="observer_api.html" class="btn btn-neutral float-left" title="Observer API Documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="strategy_api.html" class="btn btn-neutral float-right" title="Strategy API Documentation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, David Gonçalves.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

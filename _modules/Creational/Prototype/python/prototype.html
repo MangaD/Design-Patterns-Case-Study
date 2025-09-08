@@ -1,0 +1,237 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Creational.Prototype.python.prototype &mdash; Design Patterns Case Study 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../../../_static/custom.js?v=f12ea912"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../index.html" class="icon icon-home">
+            Design Patterns Case Study
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../introduction.gen.html">Design Patterns Case Study</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../creational_patterns.gen.html">Creational Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../structural_patterns.gen.html">Structural Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../behavioral_patterns.gen.html">Behavioral Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../gof.gen.html">The Gang of Four</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../references.gen.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../cpp_api_index.gen.html">C++ API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../python_api.html">Python API Documentation</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Design Patterns Case Study</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">Creational.Prototype.python.prototype</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for Creational.Prototype.python.prototype</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Prototype Pattern Implementation in Python.</span>
+
+<span class="sd">This module provides an implementation of the Prototype Pattern, enabling object</span>
+<span class="sd">creation by cloning existing instances instead of instantiating new ones.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">ABC</span><span class="p">,</span> <span class="n">abstractmethod</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">copy</span>
+
+
+<div class="viewcode-block" id="Prototype">
+<a class="viewcode-back" href="../../../../prototype_api.html#Creational.Prototype.python.prototype.Prototype">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">Prototype</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
+<span class="w">	</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">	Abstract base class for prototypes.</span>
+
+<span class="sd">	Defines the interface for cloning and displaying objects.</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="Prototype.clone">
+<a class="viewcode-back" href="../../../../prototype_api.html#Creational.Prototype.python.prototype.Prototype.clone">[docs]</a>
+	<span class="nd">@abstractmethod</span>
+	<span class="k">def</span><span class="w"> </span><span class="nf">clone</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">		</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Create a clone of the current object.</span>
+
+<span class="sd">		:return: A new instance that is a copy of the current object.</span>
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="k">pass</span></div>
+
+
+<div class="viewcode-block" id="Prototype.display">
+<a class="viewcode-back" href="../../../../prototype_api.html#Creational.Prototype.python.prototype.Prototype.display">[docs]</a>
+	<span class="nd">@abstractmethod</span>
+	<span class="k">def</span><span class="w"> </span><span class="nf">display</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">		</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Display the details of the object.</span>
+
+<span class="sd">		This method should be implemented by concrete prototypes to output their attributes.</span>
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="k">pass</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="ConcretePrototype1">
+<a class="viewcode-back" href="../../../../prototype_api.html#Creational.Prototype.python.prototype.ConcretePrototype1">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">ConcretePrototype1</span><span class="p">(</span><span class="n">Prototype</span><span class="p">):</span>
+<span class="w">	</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">	A concrete implementation of the Prototype interface with a string attribute.</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="ConcretePrototype1.__init__">
+<a class="viewcode-back" href="../../../../prototype_api.html#Creational.Prototype.python.prototype.ConcretePrototype1.__init__">[docs]</a>
+	<span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attribute</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">		</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Initialize the prototype with a string attribute.</span>
+
+<span class="sd">		:param attribute: A string representing the object&#39;s attribute.</span>
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">attribute</span> <span class="o">=</span> <span class="n">attribute</span></div>
+
+
+<div class="viewcode-block" id="ConcretePrototype1.clone">
+<a class="viewcode-back" href="../../../../prototype_api.html#Creational.Prototype.python.prototype.ConcretePrototype1.clone">[docs]</a>
+	<span class="k">def</span><span class="w"> </span><span class="nf">clone</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">		</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Create a shallow clone of the current object.</span>
+
+<span class="sd">		:return: A new instance of ConcretePrototype1 with the same attribute.</span>
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="k">return</span> <span class="n">copy</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> </div>
+
+		<span class="c1"># Shallow Cloning: Used Python’s copy.copy for cloning, which is sufficient for simple attributes.</span>
+		<span class="c1"># Could be extended to copy.deepcopy for complex nested attributes.</span>
+
+<div class="viewcode-block" id="ConcretePrototype1.display">
+<a class="viewcode-back" href="../../../../prototype_api.html#Creational.Prototype.python.prototype.ConcretePrototype1.display">[docs]</a>
+	<span class="k">def</span><span class="w"> </span><span class="nf">display</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">		</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Display the attribute of the object.</span>
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;ConcretePrototype1 with attribute: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">attribute</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="ConcretePrototype2">
+<a class="viewcode-back" href="../../../../prototype_api.html#Creational.Prototype.python.prototype.ConcretePrototype2">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">ConcretePrototype2</span><span class="p">(</span><span class="n">Prototype</span><span class="p">):</span>
+<span class="w">	</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">	A concrete implementation of the Prototype interface with an integer attribute.</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="ConcretePrototype2.__init__">
+<a class="viewcode-back" href="../../../../prototype_api.html#Creational.Prototype.python.prototype.ConcretePrototype2.__init__">[docs]</a>
+	<span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attribute</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+<span class="w">		</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Initialize the prototype with an integer attribute.</span>
+
+<span class="sd">		:param attribute: An integer representing the object&#39;s attribute.</span>
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">attribute</span> <span class="o">=</span> <span class="n">attribute</span></div>
+
+
+<div class="viewcode-block" id="ConcretePrototype2.clone">
+<a class="viewcode-back" href="../../../../prototype_api.html#Creational.Prototype.python.prototype.ConcretePrototype2.clone">[docs]</a>
+	<span class="k">def</span><span class="w"> </span><span class="nf">clone</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">		</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Create a shallow clone of the current object.</span>
+
+<span class="sd">		:return: A new instance of ConcretePrototype2 with the same attribute.</span>
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="k">return</span> <span class="n">copy</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></div>
+
+		<span class="c1"># Shallow Cloning: Used Python’s copy.copy for cloning, which is sufficient for simple attributes.</span>
+		<span class="c1"># Could be extended to copy.deepcopy for complex nested attributes.</span>
+
+<div class="viewcode-block" id="ConcretePrototype2.display">
+<a class="viewcode-back" href="../../../../prototype_api.html#Creational.Prototype.python.prototype.ConcretePrototype2.display">[docs]</a>
+	<span class="k">def</span><span class="w"> </span><span class="nf">display</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">		</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Display the attribute of the object.</span>
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;ConcretePrototype2 with attribute: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">attribute</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
+</div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, David Gonçalves.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

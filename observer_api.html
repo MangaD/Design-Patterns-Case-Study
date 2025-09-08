@@ -1,0 +1,279 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Observer API Documentation &mdash; Design Patterns Case Study 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=8d563738"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/custom.js?v=f12ea912"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="State API Documentation" href="state_api.html" />
+    <link rel="prev" title="Memento API Documentation" href="memento_api.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Design Patterns Case Study
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.gen.html">Design Patterns Case Study</a></li>
+<li class="toctree-l1"><a class="reference internal" href="creational_patterns.gen.html">Creational Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="structural_patterns.gen.html">Structural Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="behavioral_patterns.gen.html">Behavioral Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gof.gen.html">The Gang of Four</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.gen.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cpp_api_index.gen.html">C++ API Documentation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="python_api.html">Python API Documentation</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="python_api.html#behavioral-patterns">Behavioral Patterns</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="chain_of_responsibility_api.html">ChainOfResponsibility API Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="command_api.html">Command API Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="interpreter_api.html">Interpreter API Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="iterator_api.html">Iterator API Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mediator_api.html">Mediator API Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="memento_api.html">Memento API Documentation</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Observer API Documentation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Behavioral.Observer.python.observer.Observer"><code class="docutils literal notranslate"><span class="pre">Observer</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Behavioral.Observer.python.observer.Subject"><code class="docutils literal notranslate"><span class="pre">Subject</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Behavioral.Observer.python.observer.ConcreteObserver"><code class="docutils literal notranslate"><span class="pre">ConcreteObserver</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="state_api.html">State API Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="strategy_api.html">Strategy API Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="template_method_api.html">TemplateMethod API Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="visitor_api.html">Visitor API Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="python_api.html#structural-patterns">Structural Patterns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python_api.html#creational-patterns">Creational Patterns</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Design Patterns Case Study</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="python_api.html">Python API Documentation</a></li>
+      <li class="breadcrumb-item active">Observer API Documentation</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/MangaD/Design-Patterns-Case-Study/blob/main/docs/source/observer_api.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-Behavioral.Observer.python.observer">
+<span id="observer-api-documentation"></span><h1>Observer API Documentation<a class="headerlink" href="#module-Behavioral.Observer.python.observer" title="Link to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="Behavioral.Observer.python.observer.Observer">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Observer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Behavioral/Observer/python/observer.html#Observer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Behavioral.Observer.python.observer.Observer" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Protocol" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Protocol</span></code></a></p>
+<p>Interface for observers that listen for updates from a subject.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="Behavioral.Observer.python.observer.Observer.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Behavioral/Observer/python/observer.html#Observer.update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Behavioral.Observer.python.observer.Observer.update" title="Link to this definition"></a></dt>
+<dd><p>Called by the subject to notify the observer of a state change.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>state</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span>) – The updated state.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="Behavioral.Observer.python.observer.Subject">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Subject</span></span><a class="reference internal" href="_modules/Behavioral/Observer/python/observer.html#Subject"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Behavioral.Observer.python.observer.Subject" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Manages observers and notifies them of state changes.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="Behavioral.Observer.python.observer.Subject.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Behavioral/Observer/python/observer.html#Subject.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Behavioral.Observer.python.observer.Subject.__init__" title="Link to this definition"></a></dt>
+<dd><p>Initialize the Subject with an empty list of observers and a default state.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Behavioral.Observer.python.observer.Subject.attach">
+<span class="sig-name descname"><span class="pre">attach</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">observer</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Behavioral/Observer/python/observer.html#Subject.attach"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Behavioral.Observer.python.observer.Subject.attach" title="Link to this definition"></a></dt>
+<dd><p>Add an observer to the subject.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>observer</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="#Behavioral.Observer.python.observer.Observer" title="Behavioral.Observer.python.observer.Observer"><code class="xref py py-class docutils literal notranslate"><span class="pre">Observer</span></code></a></span>) – The observer to attach.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Behavioral.Observer.python.observer.Subject.detach">
+<span class="sig-name descname"><span class="pre">detach</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">observer</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Behavioral/Observer/python/observer.html#Subject.detach"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Behavioral.Observer.python.observer.Subject.detach" title="Link to this definition"></a></dt>
+<dd><p>Remove an observer from the subject.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>observer</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="#Behavioral.Observer.python.observer.Observer" title="Behavioral.Observer.python.observer.Observer"><code class="xref py py-class docutils literal notranslate"><span class="pre">Observer</span></code></a></span>) – The observer to detach.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Behavioral.Observer.python.observer.Subject.notify">
+<span class="sig-name descname"><span class="pre">notify</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Behavioral/Observer/python/observer.html#Subject.notify"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Behavioral.Observer.python.observer.Subject.notify" title="Link to this definition"></a></dt>
+<dd><p>Notify all attached observers of the current state.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Behavioral.Observer.python.observer.Subject.set_state">
+<span class="sig-name descname"><span class="pre">set_state</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Behavioral/Observer/python/observer.html#Subject.set_state"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Behavioral.Observer.python.observer.Subject.set_state" title="Link to this definition"></a></dt>
+<dd><p>Update the subject’s state and notify observers.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>state</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span>) – The new state to set.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Behavioral.Observer.python.observer.Subject.get_state">
+<span class="sig-name descname"><span class="pre">get_state</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Behavioral/Observer/python/observer.html#Subject.get_state"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Behavioral.Observer.python.observer.Subject.get_state" title="Link to this definition"></a></dt>
+<dd><p>Retrieve the current state of the subject.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span></p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The current state.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="Behavioral.Observer.python.observer.ConcreteObserver">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ConcreteObserver</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Behavioral/Observer/python/observer.html#ConcreteObserver"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Behavioral.Observer.python.observer.ConcreteObserver" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Concrete implementation of an observer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>)</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="Behavioral.Observer.python.observer.ConcreteObserver.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Behavioral/Observer/python/observer.html#ConcreteObserver.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Behavioral.Observer.python.observer.ConcreteObserver.__init__" title="Link to this definition"></a></dt>
+<dd><p>Initialize the concrete observer with a given name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>name</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span>) – The name of the observer.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Behavioral.Observer.python.observer.ConcreteObserver.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Behavioral/Observer/python/observer.html#ConcreteObserver.update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Behavioral.Observer.python.observer.ConcreteObserver.update" title="Link to this definition"></a></dt>
+<dd><p>Receive an update from the subject.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>state</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span>) – The updated state.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="memento_api.html" class="btn btn-neutral float-left" title="Memento API Documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="state_api.html" class="btn btn-neutral float-right" title="State API Documentation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, David Gonçalves.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,8 @@
+Prototype API Documentation
+=============================
+
+.. automodule:: Creational.Prototype.python.prototype
+   :members:
+   :undoc-members:
+   :show-inheritance:
+

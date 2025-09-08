@@ -1,0 +1,346 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Python API Documentation &mdash; Design Patterns Case Study 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=8d563738"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/custom.js?v=f12ea912"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="ChainOfResponsibility API Documentation" href="chain_of_responsibility_api.html" />
+    <link rel="prev" title="Test Proxy Source" href="Structural/test__proxy_8cpp.gen.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Design Patterns Case Study
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.gen.html">Design Patterns Case Study</a></li>
+<li class="toctree-l1"><a class="reference internal" href="creational_patterns.gen.html">Creational Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="structural_patterns.gen.html">Structural Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="behavioral_patterns.gen.html">Behavioral Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gof.gen.html">The Gang of Four</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.gen.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cpp_api_index.gen.html">C++ API Documentation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Python API Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#behavioral-patterns">Behavioral Patterns</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="chain_of_responsibility_api.html">ChainOfResponsibility API Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="command_api.html">Command API Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="interpreter_api.html">Interpreter API Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="iterator_api.html">Iterator API Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mediator_api.html">Mediator API Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="memento_api.html">Memento API Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="observer_api.html">Observer API Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="state_api.html">State API Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="strategy_api.html">Strategy API Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="template_method_api.html">TemplateMethod API Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="visitor_api.html">Visitor API Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#structural-patterns">Structural Patterns</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="adapter_api.html">Adapter API Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bridge_api.html">Bridge API Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="composite_api.html">Composite API Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="decorator_api.html">Decorator API Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="facade_api.html">Facade API Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="flyweight_api.html">Flyweight API Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="proxy_api.html">Proxy API Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#creational-patterns">Creational Patterns</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="abstract_factory_api.html">AbstractFactory API Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="builder_api.html">Builder API Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="factory_method_api.html">FactoryMethod API Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="object_pool_api.html">ObjectPool API Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="prototype_api.html">Prototype API Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="singleton_api.html">Singleton API Documentation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Design Patterns Case Study</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Python API Documentation</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/MangaD/Design-Patterns-Case-Study/blob/main/docs/source/python_api.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="python-api-documentation">
+<h1>Python API Documentation<a class="headerlink" href="#python-api-documentation" title="Link to this heading"></a></h1>
+<section id="behavioral-patterns">
+<h2>Behavioral Patterns<a class="headerlink" href="#behavioral-patterns" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="chain_of_responsibility_api.html">ChainOfResponsibility API Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="chain_of_responsibility_api.html#Behavioral.ChainOfResponsibility.python.chain_of_responsibility.Handler"><code class="docutils literal notranslate"><span class="pre">Handler</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="chain_of_responsibility_api.html#Behavioral.ChainOfResponsibility.python.chain_of_responsibility.AbstractHandler"><code class="docutils literal notranslate"><span class="pre">AbstractHandler</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="chain_of_responsibility_api.html#Behavioral.ChainOfResponsibility.python.chain_of_responsibility.ConcreteHandlerA"><code class="docutils literal notranslate"><span class="pre">ConcreteHandlerA</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="chain_of_responsibility_api.html#Behavioral.ChainOfResponsibility.python.chain_of_responsibility.ConcreteHandlerB"><code class="docutils literal notranslate"><span class="pre">ConcreteHandlerB</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="command_api.html">Command API Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="command_api.html#Behavioral.Command.python.command.Command"><code class="docutils literal notranslate"><span class="pre">Command</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="command_api.html#Behavioral.Command.python.command.Receiver"><code class="docutils literal notranslate"><span class="pre">Receiver</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="command_api.html#Behavioral.Command.python.command.ConcreteCommandA"><code class="docutils literal notranslate"><span class="pre">ConcreteCommandA</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="command_api.html#Behavioral.Command.python.command.ConcreteCommandB"><code class="docutils literal notranslate"><span class="pre">ConcreteCommandB</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="command_api.html#Behavioral.Command.python.command.Invoker"><code class="docutils literal notranslate"><span class="pre">Invoker</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="interpreter_api.html">Interpreter API Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="interpreter_api.html#Behavioral.Interpreter.python.interpreter.Expression"><code class="docutils literal notranslate"><span class="pre">Expression</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="interpreter_api.html#Behavioral.Interpreter.python.interpreter.Constant"><code class="docutils literal notranslate"><span class="pre">Constant</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="interpreter_api.html#Behavioral.Interpreter.python.interpreter.Variable"><code class="docutils literal notranslate"><span class="pre">Variable</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="interpreter_api.html#Behavioral.Interpreter.python.interpreter.Not"><code class="docutils literal notranslate"><span class="pre">Not</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="interpreter_api.html#Behavioral.Interpreter.python.interpreter.And"><code class="docutils literal notranslate"><span class="pre">And</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="interpreter_api.html#Behavioral.Interpreter.python.interpreter.Or"><code class="docutils literal notranslate"><span class="pre">Or</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="interpreter_api.html#Behavioral.Interpreter.python.interpreter.Parser"><code class="docutils literal notranslate"><span class="pre">Parser</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="iterator_api.html">Iterator API Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="iterator_api.html#Behavioral.Iterator.python.iterator.Iterator"><code class="docutils literal notranslate"><span class="pre">Iterator</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="iterator_api.html#Behavioral.Iterator.python.iterator.Aggregate"><code class="docutils literal notranslate"><span class="pre">Aggregate</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="iterator_api.html#Behavioral.Iterator.python.iterator.ConcreteIterator"><code class="docutils literal notranslate"><span class="pre">ConcreteIterator</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="iterator_api.html#Behavioral.Iterator.python.iterator.ConcreteAggregate"><code class="docutils literal notranslate"><span class="pre">ConcreteAggregate</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mediator_api.html">Mediator API Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mediator_api.html#Behavioral.Mediator.python.mediator.Mediator"><code class="docutils literal notranslate"><span class="pre">Mediator</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="mediator_api.html#Behavioral.Mediator.python.mediator.Colleague"><code class="docutils literal notranslate"><span class="pre">Colleague</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="mediator_api.html#Behavioral.Mediator.python.mediator.ConcreteMediator"><code class="docutils literal notranslate"><span class="pre">ConcreteMediator</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="mediator_api.html#Behavioral.Mediator.python.mediator.ConcreteColleague"><code class="docutils literal notranslate"><span class="pre">ConcreteColleague</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="memento_api.html">Memento API Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="memento_api.html#Behavioral.Memento.python.memento.Memento"><code class="docutils literal notranslate"><span class="pre">Memento</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="memento_api.html#Behavioral.Memento.python.memento.Originator"><code class="docutils literal notranslate"><span class="pre">Originator</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="memento_api.html#Behavioral.Memento.python.memento.Caretaker"><code class="docutils literal notranslate"><span class="pre">Caretaker</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="observer_api.html">Observer API Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="observer_api.html#Behavioral.Observer.python.observer.Observer"><code class="docutils literal notranslate"><span class="pre">Observer</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="observer_api.html#Behavioral.Observer.python.observer.Subject"><code class="docutils literal notranslate"><span class="pre">Subject</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="observer_api.html#Behavioral.Observer.python.observer.ConcreteObserver"><code class="docutils literal notranslate"><span class="pre">ConcreteObserver</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="state_api.html">State API Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="state_api.html#Behavioral.State.python.state.Context"><code class="docutils literal notranslate"><span class="pre">Context</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="state_api.html#Behavioral.State.python.state.State"><code class="docutils literal notranslate"><span class="pre">State</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="state_api.html#Behavioral.State.python.state.ConcreteStateA"><code class="docutils literal notranslate"><span class="pre">ConcreteStateA</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="state_api.html#Behavioral.State.python.state.ConcreteStateB"><code class="docutils literal notranslate"><span class="pre">ConcreteStateB</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="strategy_api.html">Strategy API Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="strategy_api.html#Behavioral.Strategy.python.strategy.Strategy"><code class="docutils literal notranslate"><span class="pre">Strategy</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="strategy_api.html#Behavioral.Strategy.python.strategy.ConcreteStrategyA"><code class="docutils literal notranslate"><span class="pre">ConcreteStrategyA</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="strategy_api.html#Behavioral.Strategy.python.strategy.ConcreteStrategyB"><code class="docutils literal notranslate"><span class="pre">ConcreteStrategyB</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="strategy_api.html#Behavioral.Strategy.python.strategy.Context"><code class="docutils literal notranslate"><span class="pre">Context</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="template_method_api.html">TemplateMethod API Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="template_method_api.html#Behavioral.TemplateMethod.python.template_method.AbstractClass"><code class="docutils literal notranslate"><span class="pre">AbstractClass</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="template_method_api.html#Behavioral.TemplateMethod.python.template_method.ConcreteClass1"><code class="docutils literal notranslate"><span class="pre">ConcreteClass1</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="template_method_api.html#Behavioral.TemplateMethod.python.template_method.ConcreteClass2"><code class="docutils literal notranslate"><span class="pre">ConcreteClass2</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="visitor_api.html">Visitor API Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="visitor_api.html#Behavioral.Visitor.python.visitor.Visitor"><code class="docutils literal notranslate"><span class="pre">Visitor</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="visitor_api.html#Behavioral.Visitor.python.visitor.Element"><code class="docutils literal notranslate"><span class="pre">Element</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="visitor_api.html#Behavioral.Visitor.python.visitor.ElementA"><code class="docutils literal notranslate"><span class="pre">ElementA</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="visitor_api.html#Behavioral.Visitor.python.visitor.ElementB"><code class="docutils literal notranslate"><span class="pre">ElementB</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="visitor_api.html#Behavioral.Visitor.python.visitor.ConcreteVisitorA"><code class="docutils literal notranslate"><span class="pre">ConcreteVisitorA</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="visitor_api.html#Behavioral.Visitor.python.visitor.ConcreteVisitorB"><code class="docutils literal notranslate"><span class="pre">ConcreteVisitorB</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="visitor_api.html#Behavioral.Visitor.python.visitor.ObjectStructure"><code class="docutils literal notranslate"><span class="pre">ObjectStructure</span></code></a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="structural-patterns">
+<h2>Structural Patterns<a class="headerlink" href="#structural-patterns" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="adapter_api.html">Adapter API Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="adapter_api.html#Structural.Adapter.python.adapter.Target"><code class="docutils literal notranslate"><span class="pre">Target</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="adapter_api.html#Structural.Adapter.python.adapter.Adaptee"><code class="docutils literal notranslate"><span class="pre">Adaptee</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="adapter_api.html#Structural.Adapter.python.adapter.Adapter"><code class="docutils literal notranslate"><span class="pre">Adapter</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="bridge_api.html">Bridge API Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="bridge_api.html#Structural.Bridge.python.bridge.Implementor"><code class="docutils literal notranslate"><span class="pre">Implementor</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="bridge_api.html#Structural.Bridge.python.bridge.ConcreteImplementorA"><code class="docutils literal notranslate"><span class="pre">ConcreteImplementorA</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="bridge_api.html#Structural.Bridge.python.bridge.ConcreteImplementorB"><code class="docutils literal notranslate"><span class="pre">ConcreteImplementorB</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="bridge_api.html#Structural.Bridge.python.bridge.Abstraction"><code class="docutils literal notranslate"><span class="pre">Abstraction</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="bridge_api.html#Structural.Bridge.python.bridge.RefinedAbstraction"><code class="docutils literal notranslate"><span class="pre">RefinedAbstraction</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="composite_api.html">Composite API Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="composite_api.html#Structural.Composite.python.composite.Component"><code class="docutils literal notranslate"><span class="pre">Component</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="composite_api.html#Structural.Composite.python.composite.Leaf"><code class="docutils literal notranslate"><span class="pre">Leaf</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="composite_api.html#Structural.Composite.python.composite.Composite"><code class="docutils literal notranslate"><span class="pre">Composite</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="decorator_api.html">Decorator API Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="decorator_api.html#Structural.Decorator.python.decorator.Component"><code class="docutils literal notranslate"><span class="pre">Component</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="decorator_api.html#Structural.Decorator.python.decorator.ConcreteComponent"><code class="docutils literal notranslate"><span class="pre">ConcreteComponent</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="decorator_api.html#Structural.Decorator.python.decorator.Decorator"><code class="docutils literal notranslate"><span class="pre">Decorator</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="decorator_api.html#Structural.Decorator.python.decorator.ConcreteDecoratorA"><code class="docutils literal notranslate"><span class="pre">ConcreteDecoratorA</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="decorator_api.html#Structural.Decorator.python.decorator.ConcreteDecoratorB"><code class="docutils literal notranslate"><span class="pre">ConcreteDecoratorB</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="facade_api.html">Facade API Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="facade_api.html#Structural.Facade.python.facade.Subsystem1"><code class="docutils literal notranslate"><span class="pre">Subsystem1</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="facade_api.html#Structural.Facade.python.facade.Subsystem2"><code class="docutils literal notranslate"><span class="pre">Subsystem2</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="facade_api.html#Structural.Facade.python.facade.Subsystem3"><code class="docutils literal notranslate"><span class="pre">Subsystem3</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="facade_api.html#Structural.Facade.python.facade.Facade"><code class="docutils literal notranslate"><span class="pre">Facade</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="flyweight_api.html">Flyweight API Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="flyweight_api.html#Structural.Flyweight.python.flyweight.Flyweight"><code class="docutils literal notranslate"><span class="pre">Flyweight</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="flyweight_api.html#Structural.Flyweight.python.flyweight.ConcreteFlyweight"><code class="docutils literal notranslate"><span class="pre">ConcreteFlyweight</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="flyweight_api.html#Structural.Flyweight.python.flyweight.FlyweightFactory"><code class="docutils literal notranslate"><span class="pre">FlyweightFactory</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="proxy_api.html">Proxy API Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="proxy_api.html#Structural.Proxy.python.proxy.Subject"><code class="docutils literal notranslate"><span class="pre">Subject</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="proxy_api.html#Structural.Proxy.python.proxy.RealSubject"><code class="docutils literal notranslate"><span class="pre">RealSubject</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="proxy_api.html#Structural.Proxy.python.proxy.Proxy"><code class="docutils literal notranslate"><span class="pre">Proxy</span></code></a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="creational-patterns">
+<h2>Creational Patterns<a class="headerlink" href="#creational-patterns" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="abstract_factory_api.html">AbstractFactory API Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="abstract_factory_api.html#Creational.AbstractFactory.python.abstract_factory.AbstractProductA"><code class="docutils literal notranslate"><span class="pre">AbstractProductA</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="abstract_factory_api.html#Creational.AbstractFactory.python.abstract_factory.AbstractProductB"><code class="docutils literal notranslate"><span class="pre">AbstractProductB</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="abstract_factory_api.html#Creational.AbstractFactory.python.abstract_factory.ConcreteProductA1"><code class="docutils literal notranslate"><span class="pre">ConcreteProductA1</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="abstract_factory_api.html#Creational.AbstractFactory.python.abstract_factory.ConcreteProductA2"><code class="docutils literal notranslate"><span class="pre">ConcreteProductA2</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="abstract_factory_api.html#Creational.AbstractFactory.python.abstract_factory.ConcreteProductB1"><code class="docutils literal notranslate"><span class="pre">ConcreteProductB1</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="abstract_factory_api.html#Creational.AbstractFactory.python.abstract_factory.ConcreteProductB2"><code class="docutils literal notranslate"><span class="pre">ConcreteProductB2</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="abstract_factory_api.html#Creational.AbstractFactory.python.abstract_factory.AbstractFactory"><code class="docutils literal notranslate"><span class="pre">AbstractFactory</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="abstract_factory_api.html#Creational.AbstractFactory.python.abstract_factory.ConcreteFactory1"><code class="docutils literal notranslate"><span class="pre">ConcreteFactory1</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="abstract_factory_api.html#Creational.AbstractFactory.python.abstract_factory.ConcreteFactory2"><code class="docutils literal notranslate"><span class="pre">ConcreteFactory2</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="builder_api.html">Builder API Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="builder_api.html#Creational.Builder.python.builder.Product"><code class="docutils literal notranslate"><span class="pre">Product</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="builder_api.html#Creational.Builder.python.builder.Builder"><code class="docutils literal notranslate"><span class="pre">Builder</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="builder_api.html#Creational.Builder.python.builder.ConcreteBuilder"><code class="docutils literal notranslate"><span class="pre">ConcreteBuilder</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="builder_api.html#Creational.Builder.python.builder.Director"><code class="docutils literal notranslate"><span class="pre">Director</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="factory_method_api.html">FactoryMethod API Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="factory_method_api.html#Creational.FactoryMethod.python.factory_method.Product"><code class="docutils literal notranslate"><span class="pre">Product</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="factory_method_api.html#Creational.FactoryMethod.python.factory_method.ConcreteProductA"><code class="docutils literal notranslate"><span class="pre">ConcreteProductA</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="factory_method_api.html#Creational.FactoryMethod.python.factory_method.ConcreteProductB"><code class="docutils literal notranslate"><span class="pre">ConcreteProductB</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="factory_method_api.html#Creational.FactoryMethod.python.factory_method.Creator"><code class="docutils literal notranslate"><span class="pre">Creator</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="factory_method_api.html#Creational.FactoryMethod.python.factory_method.ConcreteCreatorA"><code class="docutils literal notranslate"><span class="pre">ConcreteCreatorA</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="factory_method_api.html#Creational.FactoryMethod.python.factory_method.ConcreteCreatorB"><code class="docutils literal notranslate"><span class="pre">ConcreteCreatorB</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="object_pool_api.html">ObjectPool API Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="object_pool_api.html#Creational.ObjectPool.python.object_pool.Reusable"><code class="docutils literal notranslate"><span class="pre">Reusable</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="object_pool_api.html#Creational.ObjectPool.python.object_pool.ConcreteReusable"><code class="docutils literal notranslate"><span class="pre">ConcreteReusable</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="object_pool_api.html#Creational.ObjectPool.python.object_pool.ObjectPool"><code class="docutils literal notranslate"><span class="pre">ObjectPool</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="prototype_api.html">Prototype API Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="prototype_api.html#Creational.Prototype.python.prototype.Prototype"><code class="docutils literal notranslate"><span class="pre">Prototype</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="prototype_api.html#Creational.Prototype.python.prototype.ConcretePrototype1"><code class="docutils literal notranslate"><span class="pre">ConcretePrototype1</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="prototype_api.html#Creational.Prototype.python.prototype.ConcretePrototype2"><code class="docutils literal notranslate"><span class="pre">ConcretePrototype2</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="singleton_api.html">Singleton API Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="singleton_api.html#Creational.Singleton.python.singleton.SingletonMeta"><code class="docutils literal notranslate"><span class="pre">SingletonMeta</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="singleton_api.html#Creational.Singleton.python.singleton.Singleton"><code class="docutils literal notranslate"><span class="pre">Singleton</span></code></a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Structural/test__proxy_8cpp.gen.html" class="btn btn-neutral float-left" title="Test Proxy Source" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="chain_of_responsibility_api.html" class="btn btn-neutral float-right" title="ChainOfResponsibility API Documentation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, David Gonçalves.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

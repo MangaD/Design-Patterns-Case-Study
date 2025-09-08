@@ -1,0 +1,7 @@
+Test  State  Source
+===================
+
+.. doxygenfile:: test_state.cpp
+   :project: Design Patterns C++
+   :no-link:
+

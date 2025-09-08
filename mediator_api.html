@@ -1,0 +1,342 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mediator API Documentation &mdash; Design Patterns Case Study 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=8d563738"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/custom.js?v=f12ea912"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Memento API Documentation" href="memento_api.html" />
+    <link rel="prev" title="Iterator API Documentation" href="iterator_api.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Design Patterns Case Study
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.gen.html">Design Patterns Case Study</a></li>
+<li class="toctree-l1"><a class="reference internal" href="creational_patterns.gen.html">Creational Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="structural_patterns.gen.html">Structural Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="behavioral_patterns.gen.html">Behavioral Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gof.gen.html">The Gang of Four</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.gen.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cpp_api_index.gen.html">C++ API Documentation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="python_api.html">Python API Documentation</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="python_api.html#behavioral-patterns">Behavioral Patterns</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="chain_of_responsibility_api.html">ChainOfResponsibility API Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="command_api.html">Command API Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="interpreter_api.html">Interpreter API Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="iterator_api.html">Iterator API Documentation</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Mediator API Documentation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Behavioral.Mediator.python.mediator.Mediator"><code class="docutils literal notranslate"><span class="pre">Mediator</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Behavioral.Mediator.python.mediator.Colleague"><code class="docutils literal notranslate"><span class="pre">Colleague</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Behavioral.Mediator.python.mediator.ConcreteMediator"><code class="docutils literal notranslate"><span class="pre">ConcreteMediator</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Behavioral.Mediator.python.mediator.ConcreteColleague"><code class="docutils literal notranslate"><span class="pre">ConcreteColleague</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="memento_api.html">Memento API Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="observer_api.html">Observer API Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="state_api.html">State API Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="strategy_api.html">Strategy API Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="template_method_api.html">TemplateMethod API Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="visitor_api.html">Visitor API Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="python_api.html#structural-patterns">Structural Patterns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python_api.html#creational-patterns">Creational Patterns</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Design Patterns Case Study</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="python_api.html">Python API Documentation</a></li>
+      <li class="breadcrumb-item active">Mediator API Documentation</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/MangaD/Design-Patterns-Case-Study/blob/main/docs/source/mediator_api.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-Behavioral.Mediator.python.mediator">
+<span id="mediator-api-documentation"></span><h1>Mediator API Documentation<a class="headerlink" href="#module-Behavioral.Mediator.python.mediator" title="Link to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="Behavioral.Mediator.python.mediator.Mediator">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Mediator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Behavioral/Mediator/python/mediator.html#Mediator"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Behavioral.Mediator.python.mediator.Mediator" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Protocol" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Protocol</span></code></a></p>
+<p>Defines the interface for the Mediator.</p>
+<p>A mediator facilitates communication between different Colleagues.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="Behavioral.Mediator.python.mediator.Mediator.send_message">
+<span class="sig-name descname"><span class="pre">send_message</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sender</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">message</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Behavioral/Mediator/python/mediator.html#Mediator.send_message"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Behavioral.Mediator.python.mediator.Mediator.send_message" title="Link to this definition"></a></dt>
+<dd><p>Sends a message from one colleague to others.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sender</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="#Behavioral.Mediator.python.mediator.Colleague" title="Behavioral.Mediator.python.mediator.Colleague"><code class="xref py py-class docutils literal notranslate"><span class="pre">Colleague</span></code></a></span>) – The colleague sending the message.</p></li>
+<li><p><strong>message</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span>) – The message to send.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Behavioral.Mediator.python.mediator.Mediator.add_colleague">
+<span class="sig-name descname"><span class="pre">add_colleague</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">colleague</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Behavioral/Mediator/python/mediator.html#Mediator.add_colleague"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Behavioral.Mediator.python.mediator.Mediator.add_colleague" title="Link to this definition"></a></dt>
+<dd><p>Registers a colleague with the mediator.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>colleague</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="#Behavioral.Mediator.python.mediator.Colleague" title="Behavioral.Mediator.python.mediator.Colleague"><code class="xref py py-class docutils literal notranslate"><span class="pre">Colleague</span></code></a></span>) – The colleague to register.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="Behavioral.Mediator.python.mediator.Colleague">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Colleague</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mediator</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Behavioral/Mediator/python/mediator.html#Colleague"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Behavioral.Mediator.python.mediator.Colleague" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/abc.html#abc.ABC" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></a></p>
+<p>Abstract base class for Colleagues in the Mediator pattern.</p>
+<p>Colleagues communicate with each other through a Mediator.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>mediator</strong> (<a class="reference internal" href="#Behavioral.Mediator.python.mediator.Mediator" title="Behavioral.Mediator.python.mediator.Mediator"><em>Mediator</em></a>)</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="Behavioral.Mediator.python.mediator.Colleague.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mediator</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Behavioral/Mediator/python/mediator.html#Colleague.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Behavioral.Mediator.python.mediator.Colleague.__init__" title="Link to this definition"></a></dt>
+<dd><p>Initializes the colleague with a given mediator.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>mediator</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="#Behavioral.Mediator.python.mediator.Mediator" title="Behavioral.Mediator.python.mediator.Mediator"><code class="xref py py-class docutils literal notranslate"><span class="pre">Mediator</span></code></a></span>) – The Mediator that the colleague will use to communicate.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Behavioral.Mediator.python.mediator.Colleague.send">
+<span class="sig-name descname"><span class="pre">send</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Behavioral/Mediator/python/mediator.html#Colleague.send"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Behavioral.Mediator.python.mediator.Colleague.send" title="Link to this definition"></a></dt>
+<dd><p>Sends a message via the Mediator.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>message</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span>) – The message to send.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Behavioral.Mediator.python.mediator.Colleague.receive">
+<em class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">receive</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Behavioral/Mediator/python/mediator.html#Colleague.receive"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Behavioral.Mediator.python.mediator.Colleague.receive" title="Link to this definition"></a></dt>
+<dd><p>Handles a received message.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>message</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span>) – The message received.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="Behavioral.Mediator.python.mediator.ConcreteMediator">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ConcreteMediator</span></span><a class="reference internal" href="_modules/Behavioral/Mediator/python/mediator.html#ConcreteMediator"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Behavioral.Mediator.python.mediator.ConcreteMediator" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#Behavioral.Mediator.python.mediator.Mediator" title="Behavioral.Mediator.python.mediator.Mediator"><code class="xref py py-class docutils literal notranslate"><span class="pre">Mediator</span></code></a></p>
+<p>Concrete implementation of the Mediator interface.</p>
+<p>Facilitates communication between registered colleagues.</p>
+<dl class="field-list simple">
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="Behavioral.Mediator.python.mediator.ConcreteMediator.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Behavioral/Mediator/python/mediator.html#ConcreteMediator.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Behavioral.Mediator.python.mediator.ConcreteMediator.__init__" title="Link to this definition"></a></dt>
+<dd><p>Initializes the mediator with an empty list of colleagues.</p>
+<p>When created, the mediator has no colleagues registered.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Behavioral.Mediator.python.mediator.ConcreteMediator.send_message">
+<span class="sig-name descname"><span class="pre">send_message</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sender</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">message</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Behavioral/Mediator/python/mediator.html#ConcreteMediator.send_message"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Behavioral.Mediator.python.mediator.ConcreteMediator.send_message" title="Link to this definition"></a></dt>
+<dd><p>Sends a message to all colleagues except the sender.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sender</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="#Behavioral.Mediator.python.mediator.Colleague" title="Behavioral.Mediator.python.mediator.Colleague"><code class="xref py py-class docutils literal notranslate"><span class="pre">Colleague</span></code></a></span>) – The colleague sending the message.</p></li>
+<li><p><strong>message</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span>) – The message to send.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Behavioral.Mediator.python.mediator.ConcreteMediator.add_colleague">
+<span class="sig-name descname"><span class="pre">add_colleague</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">colleague</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Behavioral/Mediator/python/mediator.html#ConcreteMediator.add_colleague"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Behavioral.Mediator.python.mediator.ConcreteMediator.add_colleague" title="Link to this definition"></a></dt>
+<dd><p>Adds a colleague to the mediator’s list of colleagues.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>colleague</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="#Behavioral.Mediator.python.mediator.Colleague" title="Behavioral.Mediator.python.mediator.Colleague"><code class="xref py py-class docutils literal notranslate"><span class="pre">Colleague</span></code></a></span>) – The colleague to be added to the mediator.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="Behavioral.Mediator.python.mediator.ConcreteColleague">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ConcreteColleague</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mediator</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Behavioral/Mediator/python/mediator.html#ConcreteColleague"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Behavioral.Mediator.python.mediator.ConcreteColleague" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#Behavioral.Mediator.python.mediator.Colleague" title="Behavioral.Mediator.python.mediator.Colleague"><code class="xref py py-class docutils literal notranslate"><span class="pre">Colleague</span></code></a></p>
+<p>Concrete implementation of the Colleague class.</p>
+<p>Represents a participant in communication facilitated by the Mediator.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mediator</strong> (<a class="reference internal" href="#Behavioral.Mediator.python.mediator.Mediator" title="Behavioral.Mediator.python.mediator.Mediator"><em>Mediator</em></a>)</p></li>
+<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="Behavioral.Mediator.python.mediator.ConcreteColleague.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mediator</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Behavioral/Mediator/python/mediator.html#ConcreteColleague.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Behavioral.Mediator.python.mediator.ConcreteColleague.__init__" title="Link to this definition"></a></dt>
+<dd><p>Initializes the concrete colleague with a given mediator and name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mediator</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="#Behavioral.Mediator.python.mediator.Mediator" title="Behavioral.Mediator.python.mediator.Mediator"><code class="xref py py-class docutils literal notranslate"><span class="pre">Mediator</span></code></a></span>) – The Mediator that the colleague will use to communicate.</p></li>
+<li><p><strong>name</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span>) – The name of the colleague.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Behavioral.Mediator.python.mediator.ConcreteColleague.receive">
+<span class="sig-name descname"><span class="pre">receive</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Behavioral/Mediator/python/mediator.html#ConcreteColleague.receive"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Behavioral.Mediator.python.mediator.ConcreteColleague.receive" title="Link to this definition"></a></dt>
+<dd><p>Handles a received message by logging it.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>message</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span>) – The message received.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="Behavioral.Mediator.python.mediator.ConcreteColleague.name">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></em><a class="headerlink" href="#Behavioral.Mediator.python.mediator.ConcreteColleague.name" title="Link to this definition"></a></dt>
+<dd><p>Returns the name of the colleague.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="iterator_api.html" class="btn btn-neutral float-left" title="Iterator API Documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="memento_api.html" class="btn btn-neutral float-right" title="Memento API Documentation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, David Gonçalves.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,435 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Object Pool Pattern &mdash; Design Patterns Case Study 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=8d563738"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/custom.js?v=f12ea912"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Prototype Pattern" href="prototype_pattern.gen.html" />
+    <link rel="prev" title="Factory Method Pattern" href="factorymethod_pattern.gen.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Design Patterns Case Study
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.gen.html">Design Patterns Case Study</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="creational_patterns.gen.html">Creational Patterns</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="abstractfactory_pattern.gen.html">Abstract Factory Pattern</a></li>
+<li class="toctree-l2"><a class="reference internal" href="builder_pattern.gen.html">Builder Pattern</a></li>
+<li class="toctree-l2"><a class="reference internal" href="factorymethod_pattern.gen.html">Factory Method Pattern</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Object Pool Pattern</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#category">Category</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#key-characteristics">Key Characteristics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#uml-diagram">UML Diagram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#implementation-walkthrough">Implementation Walkthrough</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#participants">Participants</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#example-database-connection-pool">Example: Database Connection Pool</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#output">Output</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#applications">Applications</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#when-to-use-the-object-pool-pattern">When to Use the Object Pool Pattern</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#common-use-cases">Common Use Cases</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#advantages-and-disadvantages">Advantages and Disadvantages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#advantages">Advantages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#disadvantages">Disadvantages</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#key-takeaways">Key Takeaways</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="prototype_pattern.gen.html">Prototype Pattern</a></li>
+<li class="toctree-l2"><a class="reference internal" href="singleton_pattern.gen.html">Singleton Pattern</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="structural_patterns.gen.html">Structural Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="behavioral_patterns.gen.html">Behavioral Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gof.gen.html">The Gang of Four</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.gen.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cpp_api_index.gen.html">C++ API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_api.html">Python API Documentation</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Design Patterns Case Study</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="creational_patterns.gen.html">Creational Patterns</a></li>
+      <li class="breadcrumb-item active">Object Pool Pattern</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/MangaD/Design-Patterns-Case-Study/blob/main/docs/source/objectpool_pattern.gen.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="toctree-wrapper compound">
+</div>
+<section id="object-pool-pattern">
+<h1>Object Pool Pattern<a class="headerlink" href="#object-pool-pattern" title="Link to this heading"></a></h1>
+<section id="category">
+<h2>Category<a class="headerlink" href="#category" title="Link to this heading"></a></h2>
+<p>Creational Design Pattern</p>
+</section>
+<hr class="docutils" />
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p>The <strong>Object Pool Pattern</strong> is a creational design pattern that manages a pool of reusable objects. Instead of creating and destroying objects frequently, this pattern maintains a set of initialized objects that can be borrowed and returned, improving performance and resource management.</p>
+<p>This pattern is particularly useful in scenarios where object creation and destruction are expensive operations, such as managing database connections, thread pools, or large graphics objects.</p>
+</section>
+<hr class="docutils" />
+<section id="key-characteristics">
+<h2>Key Characteristics<a class="headerlink" href="#key-characteristics" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p><strong>Resource Reuse</strong>:</p>
+<ul class="simple">
+<li><p>Objects in the pool are reused, reducing the overhead of frequent creation and destruction.</p></li>
+</ul>
+</li>
+<li><p><strong>Efficient Resource Management</strong>:</p>
+<ul class="simple">
+<li><p>Manages the lifecycle of objects, ensuring efficient use of system resources.</p></li>
+</ul>
+</li>
+<li><p><strong>Pooling Mechanism</strong>:</p>
+<ul class="simple">
+<li><p>Maintains a collection of pre-initialized objects that can be borrowed, used, and returned.</p></li>
+</ul>
+</li>
+<li><p><strong>Thread-Safety</strong>:</p>
+<ul class="simple">
+<li><p>Ensures that the pool can safely be used in multi-threaded environments.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="uml-diagram">
+<h2>UML Diagram<a class="headerlink" href="#uml-diagram" title="Link to this heading"></a></h2>
+<p>The UML diagram below illustrates the Object Pool Pattern, showing how a client interacts with the pool to borrow and return objects:</p>
+<p><img alt="UML Diagram" src="http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/MangaD/Design-Patterns-Case-Study/refs/heads/main/Creational/ObjectPool/object_pool.puml" /></p>
+</section>
+<hr class="docutils" />
+<section id="implementation-walkthrough">
+<h2>Implementation Walkthrough<a class="headerlink" href="#implementation-walkthrough" title="Link to this heading"></a></h2>
+<section id="participants">
+<h3>Participants<a class="headerlink" href="#participants" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>ObjectPool</strong>:</p>
+<ul class="simple">
+<li><p>Manages a collection of reusable objects.</p></li>
+<li><p>Provides methods to borrow and return objects.</p></li>
+</ul>
+</li>
+<li><p><strong>ReusableObject</strong>:</p>
+<ul class="simple">
+<li><p>Represents the objects that are managed by the pool.</p></li>
+</ul>
+</li>
+<li><p><strong>Client</strong>:</p>
+<ul class="simple">
+<li><p>Interacts with the pool to borrow and return objects.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="example-database-connection-pool">
+<h3>Example: Database Connection Pool<a class="headerlink" href="#example-database-connection-pool" title="Link to this heading"></a></h3>
+<section id="reusableobject-databaseconnection">
+<h4>ReusableObject: DatabaseConnection<a class="headerlink" href="#reusableobject-databaseconnection" title="Link to this heading"></a></h4>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm"> * @brief Represents a database connection that can be reused.</span>
+<span class="cm"> */</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">DatabaseConnection</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">id</span><span class="p">;</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">DatabaseConnection</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">id</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">id</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">connect</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Connecting using connection: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">id</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">disconnect</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Disconnecting connection: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">id</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">toString</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;DatabaseConnection{id=&#39;&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;&#39;}&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="objectpool-connectionpool">
+<h4>ObjectPool: ConnectionPool<a class="headerlink" href="#objectpool-connectionpool" title="Link to this heading"></a></h4>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Queue</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.util.LinkedList</span><span class="p">;</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * @brief Manages a pool of reusable database connections.</span>
+<span class="cm"> */</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ConnectionPool</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">Queue</span><span class="o">&lt;</span><span class="n">DatabaseConnection</span><span class="o">&gt;</span><span class="w"> </span><span class="n">pool</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">LinkedList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">maxSize</span><span class="p">;</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">ConnectionPool</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">maxSize</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">maxSize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">maxSize</span><span class="p">;</span>
+
+<span class="w">        </span><span class="c1">// Initialize the pool with pre-created connections</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">maxSize</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">pool</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">DatabaseConnection</span><span class="p">(</span><span class="s">&quot;Conn&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">i</span><span class="p">));</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">synchronized</span><span class="w"> </span><span class="n">DatabaseConnection</span><span class="w"> </span><span class="nf">borrowConnection</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">pool</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">RuntimeException</span><span class="p">(</span><span class="s">&quot;No available connections in the pool!&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">pool</span><span class="p">.</span><span class="na">poll</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">synchronized</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">returnConnection</span><span class="p">(</span><span class="n">DatabaseConnection</span><span class="w"> </span><span class="n">connection</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">pool</span><span class="p">.</span><span class="na">size</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">maxSize</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">pool</span><span class="p">.</span><span class="na">offer</span><span class="p">(</span><span class="n">connection</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="client-code">
+<h4>Client Code<a class="headerlink" href="#client-code" title="Link to this heading"></a></h4>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm"> * @brief Demonstrates the Object Pool Pattern using a connection pool.</span>
+<span class="cm"> */</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ObjectPoolDemo</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">ConnectionPool</span><span class="w"> </span><span class="n">pool</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ConnectionPool</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+
+<span class="w">        </span><span class="c1">// Borrow a connection</span>
+<span class="w">        </span><span class="n">DatabaseConnection</span><span class="w"> </span><span class="n">conn1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pool</span><span class="p">.</span><span class="na">borrowConnection</span><span class="p">();</span>
+<span class="w">        </span><span class="n">conn1</span><span class="p">.</span><span class="na">connect</span><span class="p">();</span>
+
+<span class="w">        </span><span class="c1">// Borrow another connection</span>
+<span class="w">        </span><span class="n">DatabaseConnection</span><span class="w"> </span><span class="n">conn2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pool</span><span class="p">.</span><span class="na">borrowConnection</span><span class="p">();</span>
+<span class="w">        </span><span class="n">conn2</span><span class="p">.</span><span class="na">connect</span><span class="p">();</span>
+
+<span class="w">        </span><span class="c1">// Return connections</span>
+<span class="w">        </span><span class="n">conn1</span><span class="p">.</span><span class="na">disconnect</span><span class="p">();</span>
+<span class="w">        </span><span class="n">pool</span><span class="p">.</span><span class="na">returnConnection</span><span class="p">(</span><span class="n">conn1</span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">conn2</span><span class="p">.</span><span class="na">disconnect</span><span class="p">();</span>
+<span class="w">        </span><span class="n">pool</span><span class="p">.</span><span class="na">returnConnection</span><span class="p">(</span><span class="n">conn2</span><span class="p">);</span>
+
+<span class="w">        </span><span class="c1">// Borrow again to demonstrate reuse</span>
+<span class="w">        </span><span class="n">DatabaseConnection</span><span class="w"> </span><span class="n">conn3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pool</span><span class="p">.</span><span class="na">borrowConnection</span><span class="p">();</span>
+<span class="w">        </span><span class="n">conn3</span><span class="p">.</span><span class="na">connect</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="output">
+<h3>Output<a class="headerlink" href="#output" title="Link to this heading"></a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Connecting</span> <span class="n">using</span> <span class="n">connection</span><span class="p">:</span> <span class="n">Conn1</span>
+<span class="n">Connecting</span> <span class="n">using</span> <span class="n">connection</span><span class="p">:</span> <span class="n">Conn2</span>
+<span class="n">Disconnecting</span> <span class="n">connection</span><span class="p">:</span> <span class="n">Conn1</span>
+<span class="n">Disconnecting</span> <span class="n">connection</span><span class="p">:</span> <span class="n">Conn2</span>
+<span class="n">Connecting</span> <span class="n">using</span> <span class="n">connection</span><span class="p">:</span> <span class="n">Conn1</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="applications">
+<h2>Applications<a class="headerlink" href="#applications" title="Link to this heading"></a></h2>
+<section id="when-to-use-the-object-pool-pattern">
+<h3>When to Use the Object Pool Pattern<a class="headerlink" href="#when-to-use-the-object-pool-pattern" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>Expensive Object Creation</strong>:</p>
+<ul class="simple">
+<li><p>When objects are costly to create or initialize (e.g., database connections, threads).</p></li>
+</ul>
+</li>
+<li><p><strong>Limited Resources</strong>:</p>
+<ul class="simple">
+<li><p>When the system has a fixed number of resources (e.g., hardware devices, sockets).</p></li>
+</ul>
+</li>
+<li><p><strong>High Reuse Rate</strong>:</p>
+<ul class="simple">
+<li><p>When objects are frequently created and discarded.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="common-use-cases">
+<h3>Common Use Cases<a class="headerlink" href="#common-use-cases" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>Database Connection Pools</strong>:</p>
+<ul class="simple">
+<li><p>Managing reusable database connections to minimize connection overhead.</p></li>
+</ul>
+</li>
+<li><p><strong>Thread Pools</strong>:</p>
+<ul class="simple">
+<li><p>Managing a pool of threads for efficient execution of parallel tasks.</p></li>
+</ul>
+</li>
+<li><p><strong>Graphics Objects</strong>:</p>
+<ul class="simple">
+<li><p>Reusing large objects like images, textures, or rendering contexts.</p></li>
+</ul>
+</li>
+<li><p><strong>Network Connections</strong>:</p>
+<ul class="simple">
+<li><p>Managing reusable socket connections for network communication.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+</section>
+<hr class="docutils" />
+<section id="advantages-and-disadvantages">
+<h2>Advantages and Disadvantages<a class="headerlink" href="#advantages-and-disadvantages" title="Link to this heading"></a></h2>
+<section id="advantages">
+<h3>Advantages<a class="headerlink" href="#advantages" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>Performance Improvement</strong>:</p>
+<ul class="simple">
+<li><p>Reduces the overhead of creating and destroying objects frequently.</p></li>
+</ul>
+</li>
+<li><p><strong>Efficient Resource Utilization</strong>:</p>
+<ul class="simple">
+<li><p>Ensures optimal use of limited resources.</p></li>
+</ul>
+</li>
+<li><p><strong>Thread-Safety</strong>:</p>
+<ul class="simple">
+<li><p>Manages access to shared resources in a multi-threaded environment.</p></li>
+</ul>
+</li>
+<li><p><strong>Scalability</strong>:</p>
+<ul class="simple">
+<li><p>Allows systems to scale more efficiently by reusing objects.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="disadvantages">
+<h3>Disadvantages<a class="headerlink" href="#disadvantages" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>Complexity</strong>:</p>
+<ul class="simple">
+<li><p>Adds complexity in managing the lifecycle of pooled objects.</p></li>
+</ul>
+</li>
+<li><p><strong>Potential Resource Leaks</strong>:</p>
+<ul class="simple">
+<li><p>Failing to return objects to the pool can lead to resource exhaustion.</p></li>
+</ul>
+</li>
+<li><p><strong>Overhead</strong>:</p>
+<ul class="simple">
+<li><p>Managing the pool adds some runtime overhead.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+</section>
+<hr class="docutils" />
+<section id="key-takeaways">
+<h2>Key Takeaways<a class="headerlink" href="#key-takeaways" title="Link to this heading"></a></h2>
+<p>The Object Pool Pattern optimizes performance and resource management by reusing objects instead of creating and destroying them repeatedly. It is ideal for scenarios where object creation is expensive or resources are limited, though it introduces complexity in managing the pool and ensuring proper object lifecycle.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="factorymethod_pattern.gen.html" class="btn btn-neutral float-left" title="Factory Method Pattern" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="prototype_pattern.gen.html" class="btn btn-neutral float-right" title="Prototype Pattern" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, David Gonçalves.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

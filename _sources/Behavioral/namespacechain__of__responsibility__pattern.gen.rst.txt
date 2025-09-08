@@ -1,0 +1,6 @@
+chain_of_responsibility_pattern
+===============================
+
+.. doxygennamespace:: chain_of_responsibility_pattern
+   :project: Design Patterns C++
+   :members:

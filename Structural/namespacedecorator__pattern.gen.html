@@ -1,0 +1,324 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>decorator_pattern &mdash; Design Patterns Case Study 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/custom.js?v=f12ea912"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="facade_pattern" href="namespacefacade__pattern.gen.html" />
+    <link rel="prev" title="composite_pattern" href="namespacecomposite__pattern.gen.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Design Patterns Case Study
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction.gen.html">Design Patterns Case Study</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../creational_patterns.gen.html">Creational Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../structural_patterns.gen.html">Structural Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../behavioral_patterns.gen.html">Behavioral Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gof.gen.html">The Gang of Four</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../references.gen.html">References</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../cpp_api_index.gen.html">C++ API Documentation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../Behavioral/behavioral_patterns.gen.html">Behavioral Patterns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Creational/creational_patterns.gen.html">Creational Patterns</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="structural_patterns.gen.html">Structural Patterns</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="structural_patterns.gen.html#namespaces">Namespaces</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="namespacebridge__pattern.gen.html">bridge_pattern</a></li>
+<li class="toctree-l4"><a class="reference internal" href="namespaceclass__adapter__pattern.gen.html">class_adapter_pattern</a></li>
+<li class="toctree-l4"><a class="reference internal" href="namespacecomposite__pattern.gen.html">composite_pattern</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">decorator_pattern</a></li>
+<li class="toctree-l4"><a class="reference internal" href="namespacefacade__pattern.gen.html">facade_pattern</a></li>
+<li class="toctree-l4"><a class="reference internal" href="namespaceflyweight__pattern.gen.html">flyweight_pattern</a></li>
+<li class="toctree-l4"><a class="reference internal" href="namespaceobject__adapter__pattern.gen.html">object_adapter_pattern</a></li>
+<li class="toctree-l4"><a class="reference internal" href="namespaceproxy__pattern.gen.html">proxy_pattern</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="structural_patterns.gen.html#files">Files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="structural_patterns.gen.html#classes">Classes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../python_api.html">Python API Documentation</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Design Patterns Case Study</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../cpp_api_index.gen.html">C++ API Documentation</a></li>
+          <li class="breadcrumb-item"><a href="structural_patterns.gen.html">Structural Patterns</a></li>
+      <li class="breadcrumb-item active">decorator_pattern</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/MangaD/Design-Patterns-Case-Study/blob/main/docs/source/Structural/namespacedecorator__pattern.gen.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="decorator-pattern">
+<h1>decorator_pattern<a class="headerlink" href="#decorator-pattern" title="Link to this heading"></a></h1>
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv417decorator_pattern">
+<span id="_CPPv317decorator_pattern"></span><span id="_CPPv217decorator_pattern"></span><span id="decorator_pattern"></span><span class="target" id="namespacedecorator__pattern"></span><span class="k"><span class="pre">namespace</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">decorator_pattern</span></span></span><br /></dt>
+<dd><p>Namespace for the <a class="reference internal" href="#classdecorator__pattern_1_1Decorator"><span class="std std-ref">Decorator</span></a> pattern. </p>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N17decorator_pattern9ComponentE">
+<span id="_CPPv3N17decorator_pattern9ComponentE"></span><span id="_CPPv2N17decorator_pattern9ComponentE"></span><span id="decorator_pattern::Component"></span><span class="target" id="classdecorator__pattern_1_1Component"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Component</span></span></span><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;decorator.hpp&gt;</em></div>
+<p>The <a class="reference internal" href="#classdecorator__pattern_1_1Component"><span class="std std-ref">Component</span></a> interface defines operations that can be altered by decorators. </p>
+<p>Subclassed by <a class="reference internal" href="#classdecorator__pattern_1_1ConcreteComponent"><span class="std std-ref">decorator_pattern::ConcreteComponent</span></a>, <a class="reference internal" href="#classdecorator__pattern_1_1Decorator"><span class="std std-ref">decorator_pattern::Decorator</span></a></p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK17decorator_pattern9Component14getDescriptionEv">
+<span id="_CPPv3NK17decorator_pattern9Component14getDescriptionEv"></span><span id="_CPPv2NK17decorator_pattern9Component14getDescriptionEv"></span><span id="decorator_pattern::Component::getDescriptionC"></span><span class="target" id="classdecorator__pattern_1_1Component_1a28f2bb4fdd695de496981c373c6f6cb7"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getDescription</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><br /></dt>
+<dd><p>Returns the description of the component. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A string description. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK17decorator_pattern9Component4costEv">
+<span id="_CPPv3NK17decorator_pattern9Component4costEv"></span><span id="_CPPv2NK17decorator_pattern9Component4costEv"></span><span id="decorator_pattern::Component::costC"></span><span class="target" id="classdecorator__pattern_1_1Component_1ac5d132709a33a4fdcee372c591f16245"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">cost</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><br /></dt>
+<dd><p>Returns the cost of the component. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A float representing the cost. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N17decorator_pattern17ConcreteComponentE">
+<span id="_CPPv3N17decorator_pattern17ConcreteComponentE"></span><span id="_CPPv2N17decorator_pattern17ConcreteComponentE"></span><span id="decorator_pattern::ConcreteComponent"></span><span class="target" id="classdecorator__pattern_1_1ConcreteComponent"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ConcreteComponent</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><a class="reference internal" href="decorator_8hpp.gen.html#_CPPv417decorator_pattern" title="decorator_pattern"><span class="n"><span class="pre">decorator_pattern</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="classdecorator__pattern_1_1Component.gen.html#_CPPv4N17decorator_pattern9ComponentE" title="decorator_pattern::Component"><span class="n"><span class="pre">Component</span></span></a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;decorator.hpp&gt;</em></div>
+<p><a class="reference internal" href="#classdecorator__pattern_1_1ConcreteComponent"><span class="std std-ref">ConcreteComponent</span></a> is a basic implementation of the <a class="reference internal" href="#classdecorator__pattern_1_1Component"><span class="std std-ref">Component</span></a> interface. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK17decorator_pattern17ConcreteComponent14getDescriptionEv">
+<span id="_CPPv3NK17decorator_pattern17ConcreteComponent14getDescriptionEv"></span><span id="_CPPv2NK17decorator_pattern17ConcreteComponent14getDescriptionEv"></span><span id="decorator_pattern::ConcreteComponent::getDescriptionC"></span><span class="target" id="classdecorator__pattern_1_1ConcreteComponent_1ae442773bb427be0a4d7ec6f4f585c5f5"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getDescription</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><br /></dt>
+<dd><p>Returns the description of the component. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A string description. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK17decorator_pattern17ConcreteComponent4costEv">
+<span id="_CPPv3NK17decorator_pattern17ConcreteComponent4costEv"></span><span id="_CPPv2NK17decorator_pattern17ConcreteComponent4costEv"></span><span id="decorator_pattern::ConcreteComponent::costC"></span><span class="target" id="classdecorator__pattern_1_1ConcreteComponent_1a47bf101f400203c8d2862171c6369615"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">cost</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><br /></dt>
+<dd><p>Returns the cost of the component. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A float representing the cost. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N17decorator_pattern18ConcreteDecoratorAE">
+<span id="_CPPv3N17decorator_pattern18ConcreteDecoratorAE"></span><span id="_CPPv2N17decorator_pattern18ConcreteDecoratorAE"></span><span id="decorator_pattern::ConcreteDecoratorA"></span><span class="target" id="classdecorator__pattern_1_1ConcreteDecoratorA"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ConcreteDecoratorA</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><a class="reference internal" href="decorator_8hpp.gen.html#_CPPv417decorator_pattern" title="decorator_pattern"><span class="n"><span class="pre">decorator_pattern</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="classdecorator__pattern_1_1Decorator.gen.html#_CPPv4N17decorator_pattern9DecoratorE" title="decorator_pattern::Decorator"><span class="n"><span class="pre">Decorator</span></span></a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;decorator.hpp&gt;</em></div>
+<p>A ConcreteDecorator that adds Feature A to the <a class="reference internal" href="#classdecorator__pattern_1_1Component"><span class="std std-ref">Component</span></a>. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK17decorator_pattern18ConcreteDecoratorA14getDescriptionEv">
+<span id="_CPPv3NK17decorator_pattern18ConcreteDecoratorA14getDescriptionEv"></span><span id="_CPPv2NK17decorator_pattern18ConcreteDecoratorA14getDescriptionEv"></span><span id="decorator_pattern::ConcreteDecoratorA::getDescriptionC"></span><span class="target" id="classdecorator__pattern_1_1ConcreteDecoratorA_1aba2da18d988ba0a1fbb553fd6980df1a"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getDescription</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><br /></dt>
+<dd><p>Delegates the getDescription method to the wrapped <a class="reference internal" href="#classdecorator__pattern_1_1Component"><span class="std std-ref">Component</span></a>. Marked as pure virtual to enforce implementation in derived classes. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A string description. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK17decorator_pattern18ConcreteDecoratorA4costEv">
+<span id="_CPPv3NK17decorator_pattern18ConcreteDecoratorA4costEv"></span><span id="_CPPv2NK17decorator_pattern18ConcreteDecoratorA4costEv"></span><span id="decorator_pattern::ConcreteDecoratorA::costC"></span><span class="target" id="classdecorator__pattern_1_1ConcreteDecoratorA_1a51dca0a877ab75fb774ef130b95f768d"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">cost</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><br /></dt>
+<dd><p>Delegates the cost method to the wrapped <a class="reference internal" href="#classdecorator__pattern_1_1Component"><span class="std std-ref">Component</span></a>. Marked as pure virtual to enforce implementation in derived classes. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A float representing the cost. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N17decorator_pattern18ConcreteDecoratorBE">
+<span id="_CPPv3N17decorator_pattern18ConcreteDecoratorBE"></span><span id="_CPPv2N17decorator_pattern18ConcreteDecoratorBE"></span><span id="decorator_pattern::ConcreteDecoratorB"></span><span class="target" id="classdecorator__pattern_1_1ConcreteDecoratorB"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ConcreteDecoratorB</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><a class="reference internal" href="decorator_8hpp.gen.html#_CPPv417decorator_pattern" title="decorator_pattern"><span class="n"><span class="pre">decorator_pattern</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="classdecorator__pattern_1_1Decorator.gen.html#_CPPv4N17decorator_pattern9DecoratorE" title="decorator_pattern::Decorator"><span class="n"><span class="pre">Decorator</span></span></a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;decorator.hpp&gt;</em></div>
+<p>A ConcreteDecorator that adds Feature B to the <a class="reference internal" href="#classdecorator__pattern_1_1Component"><span class="std std-ref">Component</span></a>. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK17decorator_pattern18ConcreteDecoratorB14getDescriptionEv">
+<span id="_CPPv3NK17decorator_pattern18ConcreteDecoratorB14getDescriptionEv"></span><span id="_CPPv2NK17decorator_pattern18ConcreteDecoratorB14getDescriptionEv"></span><span id="decorator_pattern::ConcreteDecoratorB::getDescriptionC"></span><span class="target" id="classdecorator__pattern_1_1ConcreteDecoratorB_1a3220616cde8ae1a0ba01d6aba4b41ac8"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getDescription</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><br /></dt>
+<dd><p>Delegates the getDescription method to the wrapped <a class="reference internal" href="#classdecorator__pattern_1_1Component"><span class="std std-ref">Component</span></a>. Marked as pure virtual to enforce implementation in derived classes. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A string description. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK17decorator_pattern18ConcreteDecoratorB4costEv">
+<span id="_CPPv3NK17decorator_pattern18ConcreteDecoratorB4costEv"></span><span id="_CPPv2NK17decorator_pattern18ConcreteDecoratorB4costEv"></span><span id="decorator_pattern::ConcreteDecoratorB::costC"></span><span class="target" id="classdecorator__pattern_1_1ConcreteDecoratorB_1a4849e59feaea7500e79e7fcb8b846d29"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">cost</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><br /></dt>
+<dd><p>Delegates the cost method to the wrapped <a class="reference internal" href="#classdecorator__pattern_1_1Component"><span class="std std-ref">Component</span></a>. Marked as pure virtual to enforce implementation in derived classes. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A float representing the cost. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N17decorator_pattern9DecoratorE">
+<span id="_CPPv3N17decorator_pattern9DecoratorE"></span><span id="_CPPv2N17decorator_pattern9DecoratorE"></span><span id="decorator_pattern::Decorator"></span><span class="target" id="classdecorator__pattern_1_1Decorator"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Decorator</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><a class="reference internal" href="decorator_8hpp.gen.html#_CPPv417decorator_pattern" title="decorator_pattern"><span class="n"><span class="pre">decorator_pattern</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="classdecorator__pattern_1_1Component.gen.html#_CPPv4N17decorator_pattern9ComponentE" title="decorator_pattern::Component"><span class="n"><span class="pre">Component</span></span></a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;decorator.hpp&gt;</em></div>
+<p>The <a class="reference internal" href="#classdecorator__pattern_1_1Decorator"><span class="std std-ref">Decorator</span></a> class serves as the abstract base class for all decorators. </p>
+<p>This class wraps a <a class="reference internal" href="#classdecorator__pattern_1_1Component"><span class="std std-ref">Component</span></a> object and delegates the operations while allowing concrete decorators to extend or modify its behavior. </p>
+<p>Subclassed by <a class="reference internal" href="#classdecorator__pattern_1_1ConcreteDecoratorA"><span class="std std-ref">decorator_pattern::ConcreteDecoratorA</span></a>, <a class="reference internal" href="#classdecorator__pattern_1_1ConcreteDecoratorB"><span class="std std-ref">decorator_pattern::ConcreteDecoratorB</span></a></p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N17decorator_pattern9Decorator9DecoratorENSt10shared_ptrI9ComponentEE">
+<span id="_CPPv3N17decorator_pattern9Decorator9DecoratorENSt10shared_ptrI9ComponentEE"></span><span id="_CPPv2N17decorator_pattern9Decorator9DecoratorENSt10shared_ptrI9ComponentEE"></span><span id="decorator_pattern::Decorator::Decorator__std::shared_ptr:Component:"></span><span class="target" id="classdecorator__pattern_1_1Decorator_1a9c5751aa1501a47ef220ebe7698d1ae7"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">explicit</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Decorator</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">shared_ptr</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="classdecorator__pattern_1_1Component.gen.html#_CPPv4N17decorator_pattern9ComponentE" title="decorator_pattern::Component"><span class="n"><span class="pre">Component</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">component</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p>Constructs the <a class="reference internal" href="#classdecorator__pattern_1_1Decorator"><span class="std std-ref">Decorator</span></a> with a <a class="reference internal" href="#classdecorator__pattern_1_1Component"><span class="std std-ref">Component</span></a> to wrap. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>component</strong> – The <a class="reference internal" href="#classdecorator__pattern_1_1Component"><span class="std std-ref">Component</span></a> to be decorated. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK17decorator_pattern9Decorator14getDescriptionEv">
+<span id="_CPPv3NK17decorator_pattern9Decorator14getDescriptionEv"></span><span id="_CPPv2NK17decorator_pattern9Decorator14getDescriptionEv"></span><span id="decorator_pattern::Decorator::getDescriptionC"></span><span class="target" id="classdecorator__pattern_1_1Decorator_1a3e7713a9cbfe9cceb0f9da8e84623223"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getDescription</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><br /></dt>
+<dd><p>Delegates the getDescription method to the wrapped <a class="reference internal" href="#classdecorator__pattern_1_1Component"><span class="std std-ref">Component</span></a>. Marked as pure virtual to enforce implementation in derived classes. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A string description. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK17decorator_pattern9Decorator4costEv">
+<span id="_CPPv3NK17decorator_pattern9Decorator4costEv"></span><span id="_CPPv2NK17decorator_pattern9Decorator4costEv"></span><span id="decorator_pattern::Decorator::costC"></span><span class="target" id="classdecorator__pattern_1_1Decorator_1a30a77c7dbe3526cd5fa1d2502a94e29a"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">cost</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><br /></dt>
+<dd><p>Delegates the cost method to the wrapped <a class="reference internal" href="#classdecorator__pattern_1_1Component"><span class="std std-ref">Component</span></a>. Marked as pure virtual to enforce implementation in derived classes. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A float representing the cost. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="namespacecomposite__pattern.gen.html" class="btn btn-neutral float-left" title="composite_pattern" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="namespacefacade__pattern.gen.html" class="btn btn-neutral float-right" title="facade_pattern" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, David Gonçalves.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

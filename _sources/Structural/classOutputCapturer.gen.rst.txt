@@ -1,0 +1,6 @@
+OutputCapturer
+==============
+
+.. doxygenclass:: OutputCapturer
+   :project: Design Patterns C++
+   :members:

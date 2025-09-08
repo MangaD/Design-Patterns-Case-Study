@@ -1,0 +1,323 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Creational.ObjectPool.python.object_pool &mdash; Design Patterns Case Study 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../../../_static/custom.js?v=f12ea912"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../index.html" class="icon icon-home">
+            Design Patterns Case Study
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../introduction.gen.html">Design Patterns Case Study</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../creational_patterns.gen.html">Creational Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../structural_patterns.gen.html">Structural Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../behavioral_patterns.gen.html">Behavioral Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../gof.gen.html">The Gang of Four</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../references.gen.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../cpp_api_index.gen.html">C++ API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../python_api.html">Python API Documentation</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Design Patterns Case Study</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">Creational.ObjectPool.python.object_pool</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for Creational.ObjectPool.python.object_pool</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">ABC</span><span class="p">,</span> <span class="n">abstractmethod</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Generic</span><span class="p">,</span> <span class="n">TypeVar</span><span class="p">,</span> <span class="n">Deque</span><span class="p">,</span> <span class="n">Set</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">deque</span>
+
+<span class="c1"># Define a generic type variable constrained to the Reusable interface.</span>
+<span class="n">T</span> <span class="o">=</span> <span class="n">TypeVar</span><span class="p">(</span><span class="s1">&#39;T&#39;</span><span class="p">,</span> <span class="n">bound</span><span class="o">=</span><span class="s1">&#39;Reusable&#39;</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Reusable">
+<a class="viewcode-back" href="../../../../object_pool_api.html#Creational.ObjectPool.python.object_pool.Reusable">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">Reusable</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
+<span class="w">	</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">	Abstract base class for reusable objects.</span>
+
+<span class="sd">	This class defines a standard interface for objects that can be managed</span>
+<span class="sd">	by an object pool. Subclasses must implement the `use` and `reset` methods</span>
+<span class="sd">	to define the behavior for using and resetting the object.</span>
+
+<span class="sd">	Responsibilities:</span>
+<span class="sd">	- `use`: Defines the primary action or functionality of the reusable object.</span>
+<span class="sd">	- `reset`: Resets the state of the object, preparing it for reuse.</span>
+
+<span class="sd">	Classes inheriting from `Reusable` should encapsulate reusable resources</span>
+<span class="sd">	or functionalities that can be pooled, such as database connections,</span>
+<span class="sd">	threads, or UI components.</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="Reusable.use">
+<a class="viewcode-back" href="../../../../object_pool_api.html#Creational.ObjectPool.python.object_pool.Reusable.use">[docs]</a>
+	<span class="nd">@abstractmethod</span>
+	<span class="k">def</span><span class="w"> </span><span class="nf">use</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">		</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Perform the primary action of the reusable object.</span>
+
+<span class="sd">		This method must be implemented by subclasses to define the</span>
+<span class="sd">		main functionality of the object when it is borrowed from the pool.</span>
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="k">pass</span></div>
+
+
+<div class="viewcode-block" id="Reusable.reset">
+<a class="viewcode-back" href="../../../../object_pool_api.html#Creational.ObjectPool.python.object_pool.Reusable.reset">[docs]</a>
+	<span class="nd">@abstractmethod</span>
+	<span class="k">def</span><span class="w"> </span><span class="nf">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">		</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Reset the reusable object to its initial state.</span>
+
+<span class="sd">		This method must be implemented by subclasses to clear or reset</span>
+<span class="sd">		the object&#39;s state, preparing it for reuse when returned to the pool.</span>
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="k">pass</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="ConcreteReusable">
+<a class="viewcode-back" href="../../../../object_pool_api.html#Creational.ObjectPool.python.object_pool.ConcreteReusable">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">ConcreteReusable</span><span class="p">(</span><span class="n">Reusable</span><span class="p">):</span>
+<span class="w">	</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">	Concrete implementation of the Reusable interface.</span>
+
+<span class="sd">	This class represents a reusable object with an identifier and state.</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="ConcreteReusable.__init__">
+<a class="viewcode-back" href="../../../../object_pool_api.html#Creational.ObjectPool.python.object_pool.ConcreteReusable.__init__">[docs]</a>
+	<span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">id_</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">		</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Initialize a reusable object with a unique identifier.</span>
+
+<span class="sd">		:param id_: A unique identifier for the reusable object.</span>
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">id</span> <span class="o">=</span> <span class="n">id_</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">in_use</span> <span class="o">=</span> <span class="kc">False</span></div>
+
+
+<div class="viewcode-block" id="ConcreteReusable.use">
+<a class="viewcode-back" href="../../../../object_pool_api.html#Creational.ObjectPool.python.object_pool.ConcreteReusable.use">[docs]</a>
+	<span class="k">def</span><span class="w"> </span><span class="nf">use</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">		</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Perform the primary action of the reusable object.</span>
+
+<span class="sd">		:raises RuntimeError: If the object is already in use.</span>
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">in_use</span><span class="p">:</span>
+			<span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Object </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s2"> is already in use.&quot;</span><span class="p">)</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">in_use</span> <span class="o">=</span> <span class="kc">True</span>
+		<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Using object: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="ConcreteReusable.reset">
+<a class="viewcode-back" href="../../../../object_pool_api.html#Creational.ObjectPool.python.object_pool.ConcreteReusable.reset">[docs]</a>
+	<span class="k">def</span><span class="w"> </span><span class="nf">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">		</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Reset the reusable object to its initial state.</span>
+
+<span class="sd">		Resets the `in_use` state to `False`.</span>
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">in_use</span> <span class="o">=</span> <span class="kc">False</span>
+		<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Resetting object: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
+
+
+	<span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">		</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Return a string representation of the object.</span>
+
+<span class="sd">		:return: A string describing the object.</span>
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;ConcreteReusable(id=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s2">, in_use=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">in_use</span><span class="si">}</span><span class="s2">)&quot;</span>
+
+	<span class="k">def</span><span class="w"> </span><span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+<span class="w">		</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Compare two reusable objects for equality based on their ID.</span>
+
+<span class="sd">		:param other: Another reusable object to compare.</span>
+<span class="sd">		:return: True if both objects have the same ID, False otherwise.</span>
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">ConcreteReusable</span><span class="p">):</span>
+			<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">id</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">id</span>
+		<span class="k">return</span> <span class="kc">False</span>
+
+	<span class="k">def</span><span class="w"> </span><span class="fm">__hash__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">		</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Generate a hash value for the reusable object based on its ID.</span>
+
+<span class="sd">		This allows instances to be used in sets or as dictionary keys.</span>
+
+<span class="sd">		:return: The hash value of the object.</span>
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="k">return</span> <span class="nb">hash</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="ObjectPool">
+<a class="viewcode-back" href="../../../../object_pool_api.html#Creational.ObjectPool.python.object_pool.ObjectPool">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">ObjectPool</span><span class="p">(</span><span class="n">Generic</span><span class="p">[</span><span class="n">T</span><span class="p">]):</span>
+<span class="w">	</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">	Generic Object Pool for managing reusable objects.</span>
+
+<span class="sd">	Manages a pool of reusable objects, allowing objects to be borrowed,</span>
+<span class="sd">	returned, and reused. Ensures FIFO behavior for returning and borrowing.</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="ObjectPool.__init__">
+<a class="viewcode-back" href="../../../../object_pool_api.html#Creational.ObjectPool.python.object_pool.ObjectPool.__init__">[docs]</a>
+	<span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">		</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Initialize an empty object pool.</span>
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">_pool</span><span class="p">:</span> <span class="n">Deque</span><span class="p">[</span><span class="n">T</span><span class="p">]</span> <span class="o">=</span> <span class="n">deque</span><span class="p">()</span>  <span class="c1"># Queue for storing reusable objects</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">_in_pool</span><span class="p">:</span> <span class="n">Set</span><span class="p">[</span><span class="n">T</span><span class="p">]</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>  <span class="c1"># Set for tracking objects in the pool</span></div>
+
+
+<div class="viewcode-block" id="ObjectPool.add_object">
+<a class="viewcode-back" href="../../../../object_pool_api.html#Creational.ObjectPool.python.object_pool.ObjectPool.add_object">[docs]</a>
+	<span class="k">def</span><span class="w"> </span><span class="nf">add_object</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">:</span> <span class="n">T</span><span class="p">):</span>
+<span class="w">		</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Add a reusable object to the pool.</span>
+
+<span class="sd">		:param obj: The reusable object to add.</span>
+<span class="sd">		:raises ValueError: If the object is None or already in the pool.</span>
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="k">if</span> <span class="n">obj</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+			<span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Cannot add a None object to the pool.&quot;</span><span class="p">)</span>
+		<span class="k">if</span> <span class="n">obj</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_in_pool</span><span class="p">:</span>
+			<span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Object is already in the pool.&quot;</span><span class="p">)</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">_pool</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">_in_pool</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="ObjectPool.borrow_object">
+<a class="viewcode-back" href="../../../../object_pool_api.html#Creational.ObjectPool.python.object_pool.ObjectPool.borrow_object">[docs]</a>
+	<span class="k">def</span><span class="w"> </span><span class="nf">borrow_object</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">T</span><span class="p">:</span>
+<span class="w">		</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Borrow an object from the pool.</span>
+
+<span class="sd">		:return: A reusable object from the pool.</span>
+<span class="sd">		:raises RuntimeError: If the pool is empty.</span>
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_pool</span><span class="p">:</span>
+			<span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;No available objects in the pool.&quot;</span><span class="p">)</span>
+		<span class="n">obj</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_pool</span><span class="o">.</span><span class="n">popleft</span><span class="p">()</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">_in_pool</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+		<span class="k">return</span> <span class="n">obj</span></div>
+
+
+<div class="viewcode-block" id="ObjectPool.return_object">
+<a class="viewcode-back" href="../../../../object_pool_api.html#Creational.ObjectPool.python.object_pool.ObjectPool.return_object">[docs]</a>
+	<span class="k">def</span><span class="w"> </span><span class="nf">return_object</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">:</span> <span class="n">T</span><span class="p">):</span>
+<span class="w">		</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Return a reusable object to the pool.</span>
+
+<span class="sd">		:param obj: The reusable object to return.</span>
+<span class="sd">		:raises ValueError: If the object is None or already in the pool.</span>
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="k">if</span> <span class="n">obj</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+			<span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Cannot return a None object to the pool.&quot;</span><span class="p">)</span>
+		<span class="k">if</span> <span class="n">obj</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_in_pool</span><span class="p">:</span>
+			<span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Object is already in the pool.&quot;</span><span class="p">)</span>
+		<span class="n">obj</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">_pool</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">_in_pool</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="ObjectPool.get_size">
+<a class="viewcode-back" href="../../../../object_pool_api.html#Creational.ObjectPool.python.object_pool.ObjectPool.get_size">[docs]</a>
+	<span class="k">def</span><span class="w"> </span><span class="nf">get_size</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">		</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Get the current size of the pool.</span>
+
+<span class="sd">		:return: The number of reusable objects in the pool.</span>
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_pool</span><span class="p">)</span></div>
+</div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, David Gonçalves.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

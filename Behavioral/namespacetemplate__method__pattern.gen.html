@@ -1,0 +1,214 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>template_method_pattern &mdash; Design Patterns Case Study 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/custom.js?v=f12ea912"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="visitor_pattern" href="namespacevisitor__pattern.gen.html" />
+    <link rel="prev" title="strategy_pattern" href="namespacestrategy__pattern.gen.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Design Patterns Case Study
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction.gen.html">Design Patterns Case Study</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../creational_patterns.gen.html">Creational Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../structural_patterns.gen.html">Structural Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../behavioral_patterns.gen.html">Behavioral Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gof.gen.html">The Gang of Four</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../references.gen.html">References</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../cpp_api_index.gen.html">C++ API Documentation</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="behavioral_patterns.gen.html">Behavioral Patterns</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="behavioral_patterns.gen.html#namespaces">Namespaces</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="namespacechain__of__responsibility__pattern.gen.html">chain_of_responsibility_pattern</a></li>
+<li class="toctree-l4"><a class="reference internal" href="namespacecommand__pattern.gen.html">command_pattern</a></li>
+<li class="toctree-l4"><a class="reference internal" href="namespaceinterpreter__pattern.gen.html">interpreter_pattern</a></li>
+<li class="toctree-l4"><a class="reference internal" href="namespaceiterator__pattern.gen.html">iterator_pattern</a></li>
+<li class="toctree-l4"><a class="reference internal" href="namespacemediator__pattern.gen.html">mediator_pattern</a></li>
+<li class="toctree-l4"><a class="reference internal" href="namespacememento__pattern.gen.html">memento_pattern</a></li>
+<li class="toctree-l4"><a class="reference internal" href="namespaceobserver__pattern.gen.html">observer_pattern</a></li>
+<li class="toctree-l4"><a class="reference internal" href="namespacestate__pattern.gen.html">state_pattern</a></li>
+<li class="toctree-l4"><a class="reference internal" href="namespacestrategy__pattern.gen.html">strategy_pattern</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">template_method_pattern</a></li>
+<li class="toctree-l4"><a class="reference internal" href="namespacevisitor__pattern.gen.html">visitor_pattern</a></li>
+</ul>
+</li>
+<li class="toctree-l3 current"><a class="reference internal" href="behavioral_patterns.gen.html#files">Files</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="chain__of__responsibility_8hpp.gen.html">Chain  Of  Responsibility  Header</a></li>
+<li class="toctree-l4"><a class="reference internal" href="command_8hpp.gen.html">Command  Header</a></li>
+<li class="toctree-l4"><a class="reference internal" href="interpreter_8hpp.gen.html">Interpreter  Header</a></li>
+<li class="toctree-l4"><a class="reference internal" href="iterator_8hpp.gen.html">Iterator  Header</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mediator_8hpp.gen.html">Mediator  Header</a></li>
+<li class="toctree-l4"><a class="reference internal" href="memento_8hpp.gen.html">Memento  Header</a></li>
+<li class="toctree-l4"><a class="reference internal" href="observer_8hpp.gen.html">Observer  Header</a></li>
+<li class="toctree-l4"><a class="reference internal" href="state_8cpp.gen.html">State  Source</a></li>
+<li class="toctree-l4"><a class="reference internal" href="state_8hpp.gen.html">State  Header</a></li>
+<li class="toctree-l4"><a class="reference internal" href="strategy_8hpp.gen.html">Strategy  Header</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="template__method_8hpp.gen.html">Template  Method  Header</a></li>
+<li class="toctree-l4"><a class="reference internal" href="test__chain__of__responsibility_8cpp.gen.html">Test  Chain  Of  Responsibility  Source</a></li>
+<li class="toctree-l4"><a class="reference internal" href="test__command_8cpp.gen.html">Test  Command  Source</a></li>
+<li class="toctree-l4"><a class="reference internal" href="test__interpreter_8cpp.gen.html">Test  Interpreter  Source</a></li>
+<li class="toctree-l4"><a class="reference internal" href="test__iterator_8cpp.gen.html">Test  Iterator  Source</a></li>
+<li class="toctree-l4"><a class="reference internal" href="test__mediator_8cpp.gen.html">Test  Mediator  Source</a></li>
+<li class="toctree-l4"><a class="reference internal" href="test__memento_8cpp.gen.html">Test  Memento  Source</a></li>
+<li class="toctree-l4"><a class="reference internal" href="test__observer_8cpp.gen.html">Test  Observer  Source</a></li>
+<li class="toctree-l4"><a class="reference internal" href="test__state_8cpp.gen.html">Test  State  Source</a></li>
+<li class="toctree-l4"><a class="reference internal" href="test__strategy_8cpp.gen.html">Test  Strategy  Source</a></li>
+<li class="toctree-l4"><a class="reference internal" href="test__template__method_8cpp.gen.html">Test  Template  Method  Source</a></li>
+<li class="toctree-l4"><a class="reference internal" href="test__visitor_8cpp.gen.html">Test  Visitor  Source</a></li>
+<li class="toctree-l4"><a class="reference internal" href="visitor_8hpp.gen.html">Visitor  Header</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="behavioral_patterns.gen.html#classes">Classes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Creational/creational_patterns.gen.html">Creational Patterns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Structural/structural_patterns.gen.html">Structural Patterns</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../python_api.html">Python API Documentation</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Design Patterns Case Study</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../cpp_api_index.gen.html">C++ API Documentation</a></li>
+          <li class="breadcrumb-item"><a href="behavioral_patterns.gen.html">Behavioral Patterns</a></li>
+      <li class="breadcrumb-item active">template_method_pattern</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/MangaD/Design-Patterns-Case-Study/blob/main/docs/source/Behavioral/namespacetemplate__method__pattern.gen.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="template-method-pattern">
+<h1>template_method_pattern<a class="headerlink" href="#template-method-pattern" title="Link to this heading"></a></h1>
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv423template_method_pattern">
+<span id="_CPPv323template_method_pattern"></span><span id="_CPPv223template_method_pattern"></span><span id="template_method_pattern"></span><span class="target" id="namespacetemplate__method__pattern"></span><span class="k"><span class="pre">namespace</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">template_method_pattern</span></span></span><a class="headerlink" href="#_CPPv423template_method_pattern" title="Link to this definition"></a><br /></dt>
+<dd><p>Namespace for the Template Method pattern. </p>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N23template_method_pattern13AbstractClassE">
+<span id="_CPPv3N23template_method_pattern13AbstractClassE"></span><span id="_CPPv2N23template_method_pattern13AbstractClassE"></span><span id="template_method_pattern::AbstractClass"></span><span class="target" id="classtemplate__method__pattern_1_1AbstractClass"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">AbstractClass</span></span></span><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;template_method.hpp&gt;</em></div>
+<p>Abstract base class defining the template method and its steps. </p>
+<p>Subclassed by <a class="reference internal" href="#classtemplate__method__pattern_1_1ConcreteClass1"><span class="std std-ref">template_method_pattern::ConcreteClass1</span></a>, <a class="reference internal" href="#classtemplate__method__pattern_1_1ConcreteClass2"><span class="std std-ref">template_method_pattern::ConcreteClass2</span></a></p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N23template_method_pattern13AbstractClassD0Ev">
+<span id="_CPPv3N23template_method_pattern13AbstractClassD0Ev"></span><span id="_CPPv2N23template_method_pattern13AbstractClassD0Ev"></span><span id="template_method_pattern::AbstractClass::~AbstractClass"></span><span class="target" id="classtemplate__method__pattern_1_1AbstractClass_1a5b8a9b9208049e988ba2fdfe3b0f83fe"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">~AbstractClass</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">default</span></span><br /></dt>
+<dd><p>Virtual destructor for proper cleanup of derived classes. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK23template_method_pattern13AbstractClass14templateMethodEv">
+<span id="_CPPv3NK23template_method_pattern13AbstractClass14templateMethodEv"></span><span id="_CPPv2NK23template_method_pattern13AbstractClass14templateMethodEv"></span><span id="template_method_pattern::AbstractClass::templateMethodC"></span><span class="target" id="classtemplate__method__pattern_1_1AbstractClass_1ad3cc9d1e112ccb69e8e200dc50348039"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">templateMethod</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><br /></dt>
+<dd><p>The template method defining the skeleton of the algorithm. </p>
+<p>This method calls the steps, some of which are implemented by derived classes. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N23template_method_pattern14ConcreteClass1E">
+<span id="_CPPv3N23template_method_pattern14ConcreteClass1E"></span><span id="_CPPv2N23template_method_pattern14ConcreteClass1E"></span><span id="template_method_pattern::ConcreteClass1"></span><span class="target" id="classtemplate__method__pattern_1_1ConcreteClass1"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ConcreteClass1</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv423template_method_pattern" title="template_method_pattern"><span class="n"><span class="pre">template_method_pattern</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="classtemplate__method__pattern_1_1AbstractClass.gen.html#_CPPv4N23template_method_pattern13AbstractClassE" title="template_method_pattern::AbstractClass"><span class="n"><span class="pre">AbstractClass</span></span></a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;template_method.hpp&gt;</em></div>
+<p>Concrete implementation of the abstract class. </p>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N23template_method_pattern14ConcreteClass2E">
+<span id="_CPPv3N23template_method_pattern14ConcreteClass2E"></span><span id="_CPPv2N23template_method_pattern14ConcreteClass2E"></span><span id="template_method_pattern::ConcreteClass2"></span><span class="target" id="classtemplate__method__pattern_1_1ConcreteClass2"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ConcreteClass2</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv423template_method_pattern" title="template_method_pattern"><span class="n"><span class="pre">template_method_pattern</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="classtemplate__method__pattern_1_1AbstractClass.gen.html#_CPPv4N23template_method_pattern13AbstractClassE" title="template_method_pattern::AbstractClass"><span class="n"><span class="pre">AbstractClass</span></span></a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;template_method.hpp&gt;</em></div>
+<p>Another concrete implementation of the abstract class. </p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="namespacestrategy__pattern.gen.html" class="btn btn-neutral float-left" title="strategy_pattern" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="namespacevisitor__pattern.gen.html" class="btn btn-neutral float-right" title="visitor_pattern" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, David Gonçalves.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

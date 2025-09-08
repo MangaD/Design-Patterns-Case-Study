@@ -1,0 +1,8 @@
+Flyweight API Documentation
+=============================
+
+.. automodule:: Structural.Flyweight.python.flyweight
+   :members:
+   :undoc-members:
+   :show-inheritance:
+

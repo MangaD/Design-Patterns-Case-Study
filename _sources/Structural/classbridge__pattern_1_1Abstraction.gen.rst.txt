@@ -1,0 +1,6 @@
+bridge_pattern::Abstraction
+===========================
+
+.. doxygenclass:: bridge_pattern::Abstraction
+   :project: Design Patterns C++
+   :members:

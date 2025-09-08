@@ -1,0 +1,6 @@
+abstract_factory_pattern
+========================
+
+.. doxygennamespace:: abstract_factory_pattern
+   :project: Design Patterns C++
+   :members:

@@ -1,0 +1,429 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Interpreter Header &mdash; Design Patterns Case Study 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/custom.js?v=f12ea912"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="interpreter_pattern::Expression" href="classinterpreter__pattern_1_1Expression.gen.html" />
+    <link rel="prev" title="command_pattern::Invoker" href="classcommand__pattern_1_1Invoker.gen.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Design Patterns Case Study
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction.gen.html">Design Patterns Case Study</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../creational_patterns.gen.html">Creational Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../structural_patterns.gen.html">Structural Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../behavioral_patterns.gen.html">Behavioral Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gof.gen.html">The Gang of Four</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../references.gen.html">References</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../cpp_api_index.gen.html">C++ API Documentation</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="behavioral_patterns.gen.html">Behavioral Patterns</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="behavioral_patterns.gen.html#namespaces">Namespaces</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="behavioral_patterns.gen.html#files">Files</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="chain__of__responsibility_8hpp.gen.html">Chain  Of  Responsibility  Header</a></li>
+<li class="toctree-l4"><a class="reference internal" href="command_8hpp.gen.html">Command  Header</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Interpreter  Header</a></li>
+<li class="toctree-l4"><a class="reference internal" href="iterator_8hpp.gen.html">Iterator  Header</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mediator_8hpp.gen.html">Mediator  Header</a></li>
+<li class="toctree-l4"><a class="reference internal" href="memento_8hpp.gen.html">Memento  Header</a></li>
+<li class="toctree-l4"><a class="reference internal" href="observer_8hpp.gen.html">Observer  Header</a></li>
+<li class="toctree-l4"><a class="reference internal" href="state_8cpp.gen.html">State  Source</a></li>
+<li class="toctree-l4"><a class="reference internal" href="state_8hpp.gen.html">State  Header</a></li>
+<li class="toctree-l4"><a class="reference internal" href="strategy_8hpp.gen.html">Strategy  Header</a></li>
+<li class="toctree-l4"><a class="reference internal" href="template__method_8hpp.gen.html">Template  Method  Header</a></li>
+<li class="toctree-l4"><a class="reference internal" href="test__chain__of__responsibility_8cpp.gen.html">Test  Chain  Of  Responsibility  Source</a></li>
+<li class="toctree-l4"><a class="reference internal" href="test__command_8cpp.gen.html">Test  Command  Source</a></li>
+<li class="toctree-l4"><a class="reference internal" href="test__interpreter_8cpp.gen.html">Test  Interpreter  Source</a></li>
+<li class="toctree-l4"><a class="reference internal" href="test__iterator_8cpp.gen.html">Test  Iterator  Source</a></li>
+<li class="toctree-l4"><a class="reference internal" href="test__mediator_8cpp.gen.html">Test  Mediator  Source</a></li>
+<li class="toctree-l4"><a class="reference internal" href="test__memento_8cpp.gen.html">Test  Memento  Source</a></li>
+<li class="toctree-l4"><a class="reference internal" href="test__observer_8cpp.gen.html">Test  Observer  Source</a></li>
+<li class="toctree-l4"><a class="reference internal" href="test__state_8cpp.gen.html">Test  State  Source</a></li>
+<li class="toctree-l4"><a class="reference internal" href="test__strategy_8cpp.gen.html">Test  Strategy  Source</a></li>
+<li class="toctree-l4"><a class="reference internal" href="test__template__method_8cpp.gen.html">Test  Template  Method  Source</a></li>
+<li class="toctree-l4"><a class="reference internal" href="test__visitor_8cpp.gen.html">Test  Visitor  Source</a></li>
+<li class="toctree-l4"><a class="reference internal" href="visitor_8hpp.gen.html">Visitor  Header</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="behavioral_patterns.gen.html#classes">Classes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Creational/creational_patterns.gen.html">Creational Patterns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Structural/structural_patterns.gen.html">Structural Patterns</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../python_api.html">Python API Documentation</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Design Patterns Case Study</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../cpp_api_index.gen.html">C++ API Documentation</a></li>
+          <li class="breadcrumb-item"><a href="behavioral_patterns.gen.html">Behavioral Patterns</a></li>
+      <li class="breadcrumb-item active">Interpreter  Header</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/MangaD/Design-Patterns-Case-Study/blob/main/docs/source/Behavioral/interpreter_8hpp.gen.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="interpreter-header">
+<h1>Interpreter  Header<a class="headerlink" href="#interpreter-header" title="Link to this heading"></a></h1>
+<dl class="cpp type">
+<dt class="sig sig-object cpp">
+<span class="k"><span class="pre">namespace</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">interpreter_pattern</span></span></span><br /></dt>
+<dd><p>Namespace for the Interpreter pattern. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-typedefs">Typedefs</p>
+<dl class="cpp type">
+<dt class="sig sig-object cpp">
+<span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Context</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">unordered_map</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="p"><span class="pre">&gt;</span></span><br /></dt>
+<dd><p>Context type used to provide variable bindings for interpretation. Maps variable names to boolean values. </p>
+</dd></dl>
+
+</div>
+<dl class="cpp class">
+<dt class="sig sig-object cpp">
+<span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">And</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv419interpreter_pattern" title="interpreter_pattern"><span class="n"><span class="pre">interpreter_pattern</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="classinterpreter__pattern_1_1Expression.gen.html#_CPPv4N19interpreter_pattern10ExpressionE" title="interpreter_pattern::Expression"><span class="n"><span class="pre">Expression</span></span></a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;interpreter.hpp&gt;</em></div>
+<p>Nonterminal expression for logical AND. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp">
+<span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">And</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">unique_ptr</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="classinterpreter__pattern_1_1Expression.gen.html#_CPPv4N19interpreter_pattern10ExpressionE" title="interpreter_pattern::Expression"><span class="n"><span class="pre">Expression</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">l</span></span>, <span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">unique_ptr</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="classinterpreter__pattern_1_1Expression.gen.html#_CPPv4N19interpreter_pattern10ExpressionE" title="interpreter_pattern::Expression"><span class="n"><span class="pre">Expression</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">r</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p>Construct an AND expression. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>l</strong> – Left operand. </p></li>
+<li><p><strong>r</strong> – Right operand. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp">
+<span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">interpret</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N19interpreter_pattern7ContextE" title="interpreter_pattern::Context"><span class="n"><span class="pre">Context</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">ctx</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><br /></dt>
+<dd><p>Evaluate as logical conjunction of both operands. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-members">Private Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp">
+<span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">unique_ptr</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="classinterpreter__pattern_1_1Expression.gen.html#_CPPv4N19interpreter_pattern10ExpressionE" title="interpreter_pattern::Expression"><span class="n"><span class="pre">Expression</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">left</span></span></span><br /></dt>
+<dd><p>Left operand. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp">
+<span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">unique_ptr</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="classinterpreter__pattern_1_1Expression.gen.html#_CPPv4N19interpreter_pattern10ExpressionE" title="interpreter_pattern::Expression"><span class="n"><span class="pre">Expression</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">right</span></span></span><br /></dt>
+<dd><p>Right operand. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp">
+<span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Constant</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv419interpreter_pattern" title="interpreter_pattern"><span class="n"><span class="pre">interpreter_pattern</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="classinterpreter__pattern_1_1Expression.gen.html#_CPPv4N19interpreter_pattern10ExpressionE" title="interpreter_pattern::Expression"><span class="n"><span class="pre">Expression</span></span></a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;interpreter.hpp&gt;</em></div>
+<p>Terminal expression representing a boolean constant. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp">
+<span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">explicit</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Constant</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">v</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p>Construct a constant. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>v</strong> – The boolean literal value. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp">
+<span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">interpret</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N19interpreter_pattern7ContextE" title="interpreter_pattern::Context"><span class="n"><span class="pre">Context</span></span></a><span class="p"><span class="pre">&amp;</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><br /></dt>
+<dd><p>Return the stored literal value (context is ignored). </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-members">Private Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp">
+<span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">value</span></span></span><br /></dt>
+<dd><p>Stored boolean value. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp">
+<span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Expression</span></span></span><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;interpreter.hpp&gt;</em></div>
+<p>Abstract expression in the grammar. </p>
+<p>Subclassed by <a class="reference internal" href="namespaceinterpreter__pattern.gen.html#classinterpreter__pattern_1_1And"><span class="std std-ref">interpreter_pattern::And</span></a>, <a class="reference internal" href="namespaceinterpreter__pattern.gen.html#classinterpreter__pattern_1_1Constant"><span class="std std-ref">interpreter_pattern::Constant</span></a>, <a class="reference internal" href="namespaceinterpreter__pattern.gen.html#classinterpreter__pattern_1_1Not"><span class="std std-ref">interpreter_pattern::Not</span></a>, <a class="reference internal" href="namespaceinterpreter__pattern.gen.html#classinterpreter__pattern_1_1Or"><span class="std std-ref">interpreter_pattern::Or</span></a>, <a class="reference internal" href="namespaceinterpreter__pattern.gen.html#classinterpreter__pattern_1_1Variable"><span class="std std-ref">interpreter_pattern::Variable</span></a></p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp">
+<span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">~Expression</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">default</span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp">
+<span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">interpret</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N19interpreter_pattern7ContextE" title="interpreter_pattern::Context"><span class="n"><span class="pre">Context</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">ctx</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><br /></dt>
+<dd><p>Evaluate this expression given a <code class="docutils literal notranslate"><span class="pre">ctx</span></code> of variable bindings. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>ctx</strong> – The interpretation context. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The boolean result of evaluating the expression. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp">
+<span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Not</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv419interpreter_pattern" title="interpreter_pattern"><span class="n"><span class="pre">interpreter_pattern</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="classinterpreter__pattern_1_1Expression.gen.html#_CPPv4N19interpreter_pattern10ExpressionE" title="interpreter_pattern::Expression"><span class="n"><span class="pre">Expression</span></span></a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;interpreter.hpp&gt;</em></div>
+<p>Nonterminal expression for logical NOT. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp">
+<span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">explicit</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Not</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">unique_ptr</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="classinterpreter__pattern_1_1Expression.gen.html#_CPPv4N19interpreter_pattern10ExpressionE" title="interpreter_pattern::Expression"><span class="n"><span class="pre">Expression</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">e</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p>Construct a NOT expression. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>e</strong> – Operand expression. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp">
+<span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">interpret</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N19interpreter_pattern7ContextE" title="interpreter_pattern::Context"><span class="n"><span class="pre">Context</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">ctx</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><br /></dt>
+<dd><p>Evaluate as logical negation of the operand. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-members">Private Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp">
+<span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">unique_ptr</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="classinterpreter__pattern_1_1Expression.gen.html#_CPPv4N19interpreter_pattern10ExpressionE" title="interpreter_pattern::Expression"><span class="n"><span class="pre">Expression</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">expr</span></span></span><br /></dt>
+<dd><p>Operand to negate. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp">
+<span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Or</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv419interpreter_pattern" title="interpreter_pattern"><span class="n"><span class="pre">interpreter_pattern</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="classinterpreter__pattern_1_1Expression.gen.html#_CPPv4N19interpreter_pattern10ExpressionE" title="interpreter_pattern::Expression"><span class="n"><span class="pre">Expression</span></span></a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;interpreter.hpp&gt;</em></div>
+<p>Nonterminal expression for logical OR. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp">
+<span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Or</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">unique_ptr</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="classinterpreter__pattern_1_1Expression.gen.html#_CPPv4N19interpreter_pattern10ExpressionE" title="interpreter_pattern::Expression"><span class="n"><span class="pre">Expression</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">l</span></span>, <span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">unique_ptr</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="classinterpreter__pattern_1_1Expression.gen.html#_CPPv4N19interpreter_pattern10ExpressionE" title="interpreter_pattern::Expression"><span class="n"><span class="pre">Expression</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">r</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p>Construct an OR expression. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>l</strong> – Left operand. </p></li>
+<li><p><strong>r</strong> – Right operand. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp">
+<span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">interpret</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N19interpreter_pattern7ContextE" title="interpreter_pattern::Context"><span class="n"><span class="pre">Context</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">ctx</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><br /></dt>
+<dd><p>Evaluate as logical disjunction of both operands. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-members">Private Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp">
+<span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">unique_ptr</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="classinterpreter__pattern_1_1Expression.gen.html#_CPPv4N19interpreter_pattern10ExpressionE" title="interpreter_pattern::Expression"><span class="n"><span class="pre">Expression</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">left</span></span></span><br /></dt>
+<dd><p>Left operand. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp">
+<span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">unique_ptr</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="classinterpreter__pattern_1_1Expression.gen.html#_CPPv4N19interpreter_pattern10ExpressionE" title="interpreter_pattern::Expression"><span class="n"><span class="pre">Expression</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">right</span></span></span><br /></dt>
+<dd><p>Right operand. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp">
+<span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Variable</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv419interpreter_pattern" title="interpreter_pattern"><span class="n"><span class="pre">interpreter_pattern</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="classinterpreter__pattern_1_1Expression.gen.html#_CPPv4N19interpreter_pattern10ExpressionE" title="interpreter_pattern::Expression"><span class="n"><span class="pre">Expression</span></span></a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;interpreter.hpp&gt;</em></div>
+<p>Terminal expression representing a variable lookup. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp">
+<span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">explicit</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Variable</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">n</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p>Construct a variable reference. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>n</strong> – <a class="reference internal" href="namespaceinterpreter__pattern.gen.html#classinterpreter__pattern_1_1Variable"><span class="std std-ref">Variable</span></a> name to look up in the context. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp">
+<span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">interpret</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N19interpreter_pattern7ContextE" title="interpreter_pattern::Context"><span class="n"><span class="pre">Context</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">ctx</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><br /></dt>
+<dd><p>Look up the variable in <code class="docutils literal notranslate"><span class="pre">ctx</span></code> and return its value. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Throws<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">std</span><span class="p">::</span><span class="n">out_of_range</span></span></span> – if the variable is not bound in <code class="docutils literal notranslate"><span class="pre">ctx</span></code>. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-members">Private Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp">
+<span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">name</span></span></span><br /></dt>
+<dd><p><a class="reference internal" href="namespaceinterpreter__pattern.gen.html#classinterpreter__pattern_1_1Variable"><span class="std std-ref">Variable</span></a> identifier. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<section id="inner-classes">
+<h2>Inner Classes<a class="headerlink" href="#inner-classes" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="classinterpreter__pattern_1_1Expression.gen.html">interpreter_pattern::Expression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="classinterpreter__pattern_1_1Constant.gen.html">interpreter_pattern::Constant</a></li>
+<li class="toctree-l1"><a class="reference internal" href="classinterpreter__pattern_1_1Variable.gen.html">interpreter_pattern::Variable</a></li>
+<li class="toctree-l1"><a class="reference internal" href="classinterpreter__pattern_1_1Not.gen.html">interpreter_pattern::Not</a></li>
+<li class="toctree-l1"><a class="reference internal" href="classinterpreter__pattern_1_1And.gen.html">interpreter_pattern::And</a></li>
+<li class="toctree-l1"><a class="reference internal" href="classinterpreter__pattern_1_1Or.gen.html">interpreter_pattern::Or</a></li>
+</ul>
+</div>
+</section>
+<section id="inner-namespaces">
+<h2>Inner Namespaces<a class="headerlink" href="#inner-namespaces" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="namespaceinterpreter__pattern.gen.html">interpreter_pattern</a></li>
+</ul>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="classcommand__pattern_1_1Invoker.gen.html" class="btn btn-neutral float-left" title="command_pattern::Invoker" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="classinterpreter__pattern_1_1Expression.gen.html" class="btn btn-neutral float-right" title="interpreter_pattern::Expression" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, David Gonçalves.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

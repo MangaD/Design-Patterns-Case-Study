@@ -1,0 +1,25 @@
+Facade  Header
+==============
+
+.. doxygenfile:: facade.hpp
+   :project: Design Patterns C++
+   :no-link:
+
+Inner Classes
+-------------
+
+.. toctree::
+   :maxdepth: 1
+
+   classfacade__pattern_1_1Subsystem1.gen
+   classfacade__pattern_1_1Subsystem2.gen
+   classfacade__pattern_1_1Subsystem3.gen
+   classfacade__pattern_1_1Facade.gen
+
+Inner Namespaces
+----------------
+
+.. toctree::
+   :maxdepth: 1
+
+   namespacefacade__pattern.gen

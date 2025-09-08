@@ -1,0 +1,6 @@
+bridge_pattern::ConcreteImplementorB
+====================================
+
+.. doxygenclass:: bridge_pattern::ConcreteImplementorB
+   :project: Design Patterns C++
+   :members:

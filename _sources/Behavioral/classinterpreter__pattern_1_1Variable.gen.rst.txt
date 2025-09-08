@@ -1,0 +1,6 @@
+interpreter_pattern::Variable
+=============================
+
+.. doxygenclass:: interpreter_pattern::Variable
+   :project: Design Patterns C++
+   :members:

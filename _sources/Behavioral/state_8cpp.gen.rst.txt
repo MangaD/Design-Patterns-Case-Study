@@ -1,0 +1,7 @@
+State  Source
+=============
+
+.. doxygenfile:: state.cpp
+   :project: Design Patterns C++
+   :no-link:
+

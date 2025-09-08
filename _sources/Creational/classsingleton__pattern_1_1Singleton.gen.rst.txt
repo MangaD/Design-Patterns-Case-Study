@@ -1,0 +1,6 @@
+singleton_pattern::Singleton
+============================
+
+.. doxygenclass:: singleton_pattern::Singleton
+   :project: Design Patterns C++
+   :members:

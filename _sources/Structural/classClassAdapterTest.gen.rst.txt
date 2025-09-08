@@ -1,0 +1,6 @@
+ClassAdapterTest
+================
+
+.. doxygenclass:: ClassAdapterTest
+   :project: Design Patterns C++
+   :members:

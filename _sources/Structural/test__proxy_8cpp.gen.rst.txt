@@ -1,0 +1,7 @@
+Test  Proxy  Source
+===================
+
+.. doxygenfile:: test_proxy.cpp
+   :project: Design Patterns C++
+   :no-link:
+

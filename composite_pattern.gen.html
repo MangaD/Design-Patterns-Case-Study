@@ -1,0 +1,452 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Composite Pattern &mdash; Design Patterns Case Study 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=8d563738"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/custom.js?v=f12ea912"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Decorator Pattern" href="decorator_pattern.gen.html" />
+    <link rel="prev" title="Bridge Pattern" href="bridge_pattern.gen.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Design Patterns Case Study
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.gen.html">Design Patterns Case Study</a></li>
+<li class="toctree-l1"><a class="reference internal" href="creational_patterns.gen.html">Creational Patterns</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="structural_patterns.gen.html">Structural Patterns</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="adapter_pattern.gen.html">Adapter Pattern</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bridge_pattern.gen.html">Bridge Pattern</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Composite Pattern</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#category"><strong>Category</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#overview"><strong>Overview</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#key-characteristics"><strong>Key Characteristics</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#uml-diagram"><strong>UML Diagram</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#implementation-walkthrough"><strong>Implementation Walkthrough</strong></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#participants"><strong>Participants</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#example-file-system"><strong>Example: File System</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#output"><strong>Output</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#applications"><strong>Applications</strong></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#when-to-use-the-composite-pattern"><strong>When to Use the Composite Pattern</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#common-use-cases"><strong>Common Use Cases</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#advantages-and-disadvantages"><strong>Advantages and Disadvantages</strong></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#advantages"><strong>Advantages</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#disadvantages"><strong>Disadvantages</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#key-takeaways"><strong>Key Takeaways</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="decorator_pattern.gen.html">Decorator Pattern</a></li>
+<li class="toctree-l2"><a class="reference internal" href="facade_pattern.gen.html">Facade Pattern</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flyweight_pattern.gen.html">Flyweight Pattern</a></li>
+<li class="toctree-l2"><a class="reference internal" href="proxy_pattern.gen.html">Proxy Pattern</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="behavioral_patterns.gen.html">Behavioral Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gof.gen.html">The Gang of Four</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.gen.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cpp_api_index.gen.html">C++ API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_api.html">Python API Documentation</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Design Patterns Case Study</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="structural_patterns.gen.html">Structural Patterns</a></li>
+      <li class="breadcrumb-item active">Composite Pattern</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/MangaD/Design-Patterns-Case-Study/blob/main/docs/source/composite_pattern.gen.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="toctree-wrapper compound">
+</div>
+<section id="composite-pattern">
+<h1>Composite Pattern<a class="headerlink" href="#composite-pattern" title="Link to this heading"></a></h1>
+<section id="category">
+<h2><strong>Category</strong><a class="headerlink" href="#category" title="Link to this heading"></a></h2>
+<p>Structural Design Pattern</p>
+</section>
+<hr class="docutils" />
+<section id="overview">
+<h2><strong>Overview</strong><a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p>The <strong>Composite Pattern</strong> is a <strong>structural design pattern</strong> that enables you to compose objects into tree structures to represent part-whole hierarchies. It allows clients to treat individual objects and compositions of objects uniformly, promoting a recursive structure.</p>
+<p>This pattern is particularly useful when dealing with a system of objects that must be treated the same way regardless of whether they are individual elements or collections of elements. It is commonly used in graphical user interfaces, document editors, and any scenario where objects need hierarchical organization.</p>
+</section>
+<hr class="docutils" />
+<section id="key-characteristics">
+<h2><strong>Key Characteristics</strong><a class="headerlink" href="#key-characteristics" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p><strong>Tree Structure</strong>:</p>
+<ul class="simple">
+<li><p>The pattern organizes objects into a hierarchical tree structure, where each node can be either a leaf or a composite (containing other nodes).</p></li>
+</ul>
+</li>
+<li><p><strong>Uniformity</strong>:</p>
+<ul class="simple">
+<li><p>The client interacts with objects through a common interface, treating leaves and composites uniformly.</p></li>
+</ul>
+</li>
+<li><p><strong>Recursive Composition</strong>:</p>
+<ul class="simple">
+<li><p>Composites can contain both leaves and other composites, enabling recursive tree structures.</p></li>
+</ul>
+</li>
+<li><p><strong>Transparency</strong>:</p>
+<ul class="simple">
+<li><p>Simplifies the client by providing a single interface, hiding whether an object is a leaf or a composite.</p></li>
+</ul>
+</li>
+<li><p><strong>Flexibility</strong>:</p>
+<ul class="simple">
+<li><p>Makes it easy to add new types of components by extending the base component class.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="uml-diagram">
+<h2><strong>UML Diagram</strong><a class="headerlink" href="#uml-diagram" title="Link to this heading"></a></h2>
+<p>The UML diagram below illustrates the Composite Pattern, showing the relationships between the <strong>Component</strong>, <strong>Leaf</strong>, and <strong>Composite</strong>.</p>
+<p><img alt="UML Diagram" src="http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/MangaD/Design-Patterns-Case-Study/refs/heads/main/Structural/Composite/composite.puml" /></p>
+</section>
+<hr class="docutils" />
+<section id="implementation-walkthrough">
+<h2><strong>Implementation Walkthrough</strong><a class="headerlink" href="#implementation-walkthrough" title="Link to this heading"></a></h2>
+<section id="participants">
+<h3><strong>Participants</strong><a class="headerlink" href="#participants" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>Component</strong>:</p>
+<ul class="simple">
+<li><p>Declares the interface for all objects in the composition, including leaves and composites.</p></li>
+</ul>
+</li>
+<li><p><strong>Leaf</strong>:</p>
+<ul class="simple">
+<li><p>Represents the end objects of the composition. A leaf has no children and implements the component interface.</p></li>
+</ul>
+</li>
+<li><p><strong>Composite</strong>:</p>
+<ul class="simple">
+<li><p>Represents a container of components, managing child components and implementing the component interface.</p></li>
+</ul>
+</li>
+<li><p><strong>Client</strong>:</p>
+<ul class="simple">
+<li><p>Interacts with objects in the composition through the component interface.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="example-file-system">
+<h3><strong>Example: File System</strong><a class="headerlink" href="#example-file-system" title="Link to this heading"></a></h3>
+<p>The Composite Pattern can represent a file system, where:</p>
+<ul class="simple">
+<li><p><strong>Files</strong> are leaves (cannot contain other elements).</p></li>
+<li><p><strong>Folders</strong> are composites (can contain files and other folders).</p></li>
+</ul>
+<section id="component-interface">
+<h4><strong>Component Interface</strong><a class="headerlink" href="#component-interface" title="Link to this heading"></a></h4>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm"> * @brief Interface for both leaf and composite elements.</span>
+<span class="cm"> */</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">FileSystemComponent</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">display</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">indent</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="leaf">
+<h4><strong>Leaf</strong><a class="headerlink" href="#leaf" title="Link to this heading"></a></h4>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm"> * @brief Represents a file in the file system.</span>
+<span class="cm"> */</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">File</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">FileSystemComponent</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">File</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">display</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">indent</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">indent</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;File: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">name</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="composite">
+<h4><strong>Composite</strong><a class="headerlink" href="#composite" title="Link to this heading"></a></h4>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.ArrayList</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.util.List</span><span class="p">;</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * @brief Represents a folder containing files and other folders.</span>
+<span class="cm"> */</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Folder</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">FileSystemComponent</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">FileSystemComponent</span><span class="o">&gt;</span><span class="w"> </span><span class="n">children</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">Folder</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="n">FileSystemComponent</span><span class="w"> </span><span class="n">component</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">children</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">component</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">remove</span><span class="p">(</span><span class="n">FileSystemComponent</span><span class="w"> </span><span class="n">component</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">children</span><span class="p">.</span><span class="na">remove</span><span class="p">(</span><span class="n">component</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">display</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">indent</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">indent</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;Folder: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">name</span><span class="p">);</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">FileSystemComponent</span><span class="w"> </span><span class="n">child</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">children</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">child</span><span class="p">.</span><span class="na">display</span><span class="p">(</span><span class="n">indent</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;  &quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="client">
+<h4><strong>Client</strong><a class="headerlink" href="#client" title="Link to this heading"></a></h4>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm"> * @brief Demonstrates the Composite Pattern using a file system hierarchy.</span>
+<span class="cm"> */</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">CompositePatternDemo</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Create files</span>
+<span class="w">        </span><span class="n">File</span><span class="w"> </span><span class="n">file1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">File</span><span class="p">(</span><span class="s">&quot;file1.txt&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">File</span><span class="w"> </span><span class="n">file2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">File</span><span class="p">(</span><span class="s">&quot;file2.txt&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">File</span><span class="w"> </span><span class="n">file3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">File</span><span class="p">(</span><span class="s">&quot;file3.txt&quot;</span><span class="p">);</span>
+
+<span class="w">        </span><span class="c1">// Create folders and add files</span>
+<span class="w">        </span><span class="n">Folder</span><span class="w"> </span><span class="n">folder1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Folder</span><span class="p">(</span><span class="s">&quot;folder1&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">folder1</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">file1</span><span class="p">);</span>
+<span class="w">        </span><span class="n">folder1</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">file2</span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">Folder</span><span class="w"> </span><span class="n">folder2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Folder</span><span class="p">(</span><span class="s">&quot;folder2&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">folder2</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">file3</span><span class="p">);</span>
+
+<span class="w">        </span><span class="c1">// Create root folder and add subfolders</span>
+<span class="w">        </span><span class="n">Folder</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Folder</span><span class="p">(</span><span class="s">&quot;root&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">root</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">folder1</span><span class="p">);</span>
+<span class="w">        </span><span class="n">root</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">folder2</span><span class="p">);</span>
+
+<span class="w">        </span><span class="c1">// Display the hierarchy</span>
+<span class="w">        </span><span class="n">root</span><span class="p">.</span><span class="na">display</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="output">
+<h3><strong>Output</strong><a class="headerlink" href="#output" title="Link to this heading"></a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Folder</span><span class="p">:</span> <span class="n">root</span>
+  <span class="n">Folder</span><span class="p">:</span> <span class="n">folder1</span>
+    <span class="n">File</span><span class="p">:</span> <span class="n">file1</span><span class="o">.</span><span class="n">txt</span>
+    <span class="n">File</span><span class="p">:</span> <span class="n">file2</span><span class="o">.</span><span class="n">txt</span>
+  <span class="n">Folder</span><span class="p">:</span> <span class="n">folder2</span>
+    <span class="n">File</span><span class="p">:</span> <span class="n">file3</span><span class="o">.</span><span class="n">txt</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="applications">
+<h2><strong>Applications</strong><a class="headerlink" href="#applications" title="Link to this heading"></a></h2>
+<section id="when-to-use-the-composite-pattern">
+<h3><strong>When to Use the Composite Pattern</strong><a class="headerlink" href="#when-to-use-the-composite-pattern" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>Part-Whole Hierarchies</strong>:</p>
+<ul class="simple">
+<li><p>When dealing with systems where objects can be part of a hierarchy, such as a tree structure.</p></li>
+</ul>
+</li>
+<li><p><strong>Uniform Client Interface</strong>:</p>
+<ul class="simple">
+<li><p>When clients should treat individual objects and compositions uniformly.</p></li>
+</ul>
+</li>
+<li><p><strong>Recursive Structures</strong>:</p>
+<ul class="simple">
+<li><p>When objects need to be organized recursively.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="common-use-cases">
+<h3><strong>Common Use Cases</strong><a class="headerlink" href="#common-use-cases" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>File Systems</strong>:</p>
+<ul class="simple">
+<li><p>Folders as composites and files as leaves.</p></li>
+</ul>
+</li>
+<li><p><strong>Graphical User Interfaces</strong>:</p>
+<ul class="simple">
+<li><p>Containers (e.g., panels, windows) as composites and widgets (e.g., buttons, text fields) as leaves.</p></li>
+</ul>
+</li>
+<li><p><strong>Document Editors</strong>:</p>
+<ul class="simple">
+<li><p>Paragraphs, sentences, and words as leaves; sections and chapters as composites.</p></li>
+</ul>
+</li>
+<li><p><strong>Game Development</strong>:</p>
+<ul class="simple">
+<li><p>Hierarchical structures like game scenes, levels, and game objects.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+</section>
+<hr class="docutils" />
+<section id="advantages-and-disadvantages">
+<h2><strong>Advantages and Disadvantages</strong><a class="headerlink" href="#advantages-and-disadvantages" title="Link to this heading"></a></h2>
+<section id="advantages">
+<h3><strong>Advantages</strong><a class="headerlink" href="#advantages" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>Simplified Client Code</strong>:</p>
+<ul class="simple">
+<li><p>Uniform interface for interacting with both individual objects and compositions.</p></li>
+</ul>
+</li>
+<li><p><strong>Extensibility</strong>:</p>
+<ul class="simple">
+<li><p>Easy to add new component types by extending the base component class.</p></li>
+</ul>
+</li>
+<li><p><strong>Recursive Structures</strong>:</p>
+<ul class="simple">
+<li><p>Naturally represents hierarchical relationships.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="disadvantages">
+<h3><strong>Disadvantages</strong><a class="headerlink" href="#disadvantages" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>Overhead</strong>:</p>
+<ul class="simple">
+<li><p>Managing a composite structure can introduce additional complexity.</p></li>
+</ul>
+</li>
+<li><p><strong>Lack of Type Safety</strong>:</p>
+<ul class="simple">
+<li><p>Treating leaves and composites uniformly can lead to runtime errors if the client expects a specific type.</p></li>
+</ul>
+</li>
+<li><p><strong>Performance</strong>:</p>
+<ul class="simple">
+<li><p>Recursive calls to process large trees can be inefficient.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+</section>
+<hr class="docutils" />
+<section id="key-takeaways">
+<h2><strong>Key Takeaways</strong><a class="headerlink" href="#key-takeaways" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>The <strong>Composite Pattern</strong> is ideal for systems with hierarchical structures where individual objects and groups of objects need to be treated uniformly.</p></li>
+<li><p>It simplifies client code, promotes recursive structures, and enhances system flexibility.</p></li>
+<li><p>While it introduces some complexity in managing the hierarchy, it is a powerful tool for organizing and interacting with part-whole relationships in software systems.</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="bridge_pattern.gen.html" class="btn btn-neutral float-left" title="Bridge Pattern" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="decorator_pattern.gen.html" class="btn btn-neutral float-right" title="Decorator Pattern" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, David Gonçalves.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

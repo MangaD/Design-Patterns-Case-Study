@@ -1,0 +1,185 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>facade_pattern::Facade &mdash; Design Patterns Case Study 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/custom.js?v=f12ea912"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Flyweight Header" href="flyweight_8hpp.gen.html" />
+    <link rel="prev" title="facade_pattern::Subsystem3" href="classfacade__pattern_1_1Subsystem3.gen.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Design Patterns Case Study
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction.gen.html">Design Patterns Case Study</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../creational_patterns.gen.html">Creational Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../structural_patterns.gen.html">Structural Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../behavioral_patterns.gen.html">Behavioral Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gof.gen.html">The Gang of Four</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../references.gen.html">References</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../cpp_api_index.gen.html">C++ API Documentation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../Behavioral/behavioral_patterns.gen.html">Behavioral Patterns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Creational/creational_patterns.gen.html">Creational Patterns</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="structural_patterns.gen.html">Structural Patterns</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="structural_patterns.gen.html#namespaces">Namespaces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="structural_patterns.gen.html#files">Files</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="structural_patterns.gen.html#classes">Classes</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="classAdapterPatternTest.gen.html">AdapterPatternTest</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classClassAdapterTest.gen.html">ClassAdapterTest</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classOutputCapturer.gen.html">OutputCapturer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classbridge__pattern_1_1Abstraction.gen.html">bridge_pattern::Abstraction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classbridge__pattern_1_1ConcreteImplementorA.gen.html">bridge_pattern::ConcreteImplementorA</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classbridge__pattern_1_1ConcreteImplementorB.gen.html">bridge_pattern::ConcreteImplementorB</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classbridge__pattern_1_1Implementor.gen.html">bridge_pattern::Implementor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classbridge__pattern_1_1RefinedAbstraction.gen.html">bridge_pattern::RefinedAbstraction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classclass__adapter__pattern_1_1Adaptee.gen.html">class_adapter_pattern::Adaptee</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classclass__adapter__pattern_1_1Adapter.gen.html">class_adapter_pattern::Adapter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classclass__adapter__pattern_1_1Target.gen.html">class_adapter_pattern::Target</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcomposite__pattern_1_1Component.gen.html">composite_pattern::Component</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcomposite__pattern_1_1Composite.gen.html">composite_pattern::Composite</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcomposite__pattern_1_1Leaf.gen.html">composite_pattern::Leaf</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classdecorator__pattern_1_1Component.gen.html">decorator_pattern::Component</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classdecorator__pattern_1_1ConcreteComponent.gen.html">decorator_pattern::ConcreteComponent</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classdecorator__pattern_1_1ConcreteDecoratorA.gen.html">decorator_pattern::ConcreteDecoratorA</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classdecorator__pattern_1_1ConcreteDecoratorB.gen.html">decorator_pattern::ConcreteDecoratorB</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classdecorator__pattern_1_1Decorator.gen.html">decorator_pattern::Decorator</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">facade_pattern::Facade</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classfacade__pattern_1_1Subsystem1.gen.html">facade_pattern::Subsystem1</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classfacade__pattern_1_1Subsystem2.gen.html">facade_pattern::Subsystem2</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classfacade__pattern_1_1Subsystem3.gen.html">facade_pattern::Subsystem3</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classflyweight__pattern_1_1ConcreteFlyweight.gen.html">flyweight_pattern::ConcreteFlyweight</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classflyweight__pattern_1_1Flyweight.gen.html">flyweight_pattern::Flyweight</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classflyweight__pattern_1_1FlyweightFactory.gen.html">flyweight_pattern::FlyweightFactory</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classobject__adapter__pattern_1_1Adaptee.gen.html">object_adapter_pattern::Adaptee</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classobject__adapter__pattern_1_1Adapter.gen.html">object_adapter_pattern::Adapter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classobject__adapter__pattern_1_1Target.gen.html">object_adapter_pattern::Target</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classproxy__pattern_1_1Proxy.gen.html">proxy_pattern::Proxy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classproxy__pattern_1_1RealSubject.gen.html">proxy_pattern::RealSubject</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classproxy__pattern_1_1Subject.gen.html">proxy_pattern::Subject</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../python_api.html">Python API Documentation</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Design Patterns Case Study</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../cpp_api_index.gen.html">C++ API Documentation</a></li>
+          <li class="breadcrumb-item"><a href="structural_patterns.gen.html">Structural Patterns</a></li>
+          <li class="breadcrumb-item"><a href="facade_8hpp.gen.html">Facade  Header</a></li>
+      <li class="breadcrumb-item active">facade_pattern::Facade</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/MangaD/Design-Patterns-Case-Study/blob/main/docs/source/Structural/classfacade__pattern_1_1Facade.gen.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="facade-pattern-facade">
+<h1>facade_pattern::Facade<a class="headerlink" href="#facade-pattern-facade" title="Link to this heading"></a></h1>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N14facade_pattern6FacadeE">
+<span id="_CPPv3N14facade_pattern6FacadeE"></span><span id="_CPPv2N14facade_pattern6FacadeE"></span><span id="facade_pattern::Facade"></span><span class="target" id="classfacade__pattern_1_1Facade"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Facade</span></span></span><a class="headerlink" href="#_CPPv4N14facade_pattern6FacadeE" title="Link to this definition"></a><br /></dt>
+<dd><p>The <a class="reference internal" href="namespacefacade__pattern.gen.html#classfacade__pattern_1_1Facade"><span class="std std-ref">Facade</span></a> provides a simplified interface to the subsystems. </p>
+<p>The <a class="reference internal" href="namespacefacade__pattern.gen.html#classfacade__pattern_1_1Facade"><span class="std std-ref">Facade</span></a> delegates requests from the client to the appropriate subsystems, hiding their complexity. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK14facade_pattern6Facade9operationEv">
+<span id="_CPPv3NK14facade_pattern6Facade9operationEv"></span><span id="_CPPv2NK14facade_pattern6Facade9operationEv"></span><span id="facade_pattern::Facade::operationC"></span><span class="target" id="classfacade__pattern_1_1Facade_1a5f0f7a8ced7ae55ee1ee9a223a344c4f"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">operation</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK14facade_pattern6Facade9operationEv" title="Link to this definition"></a><br /></dt>
+<dd><p>Executes a high-level operation by coordinating subsystems. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A string describing the combined operations. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="classfacade__pattern_1_1Subsystem3.gen.html" class="btn btn-neutral float-left" title="facade_pattern::Subsystem3" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="flyweight_8hpp.gen.html" class="btn btn-neutral float-right" title="Flyweight Header" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, David Gonçalves.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

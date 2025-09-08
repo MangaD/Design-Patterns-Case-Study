@@ -1,0 +1,6 @@
+abstract_factory_pattern::AbstractProductB
+==========================================
+
+.. doxygenclass:: abstract_factory_pattern::AbstractProductB
+   :project: Design Patterns C++
+   :members:

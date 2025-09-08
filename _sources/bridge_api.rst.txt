@@ -1,0 +1,8 @@
+Bridge API Documentation
+==========================
+
+.. automodule:: Structural.Bridge.python.bridge
+   :members:
+   :undoc-members:
+   :show-inheritance:
+

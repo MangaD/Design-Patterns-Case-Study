@@ -1,0 +1,8 @@
+Iterator API Documentation
+============================
+
+.. automodule:: Behavioral.Iterator.python.iterator
+   :members:
+   :undoc-members:
+   :show-inheritance:
+

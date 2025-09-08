@@ -1,0 +1,6 @@
+interpreter_pattern::And
+========================
+
+.. doxygenclass:: interpreter_pattern::And
+   :project: Design Patterns C++
+   :members:

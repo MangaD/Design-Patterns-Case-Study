@@ -1,0 +1,6 @@
+memento_pattern
+===============
+
+.. doxygennamespace:: memento_pattern
+   :project: Design Patterns C++
+   :members:

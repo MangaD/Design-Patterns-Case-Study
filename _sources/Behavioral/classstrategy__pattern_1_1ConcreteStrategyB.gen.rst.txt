@@ -1,0 +1,6 @@
+strategy_pattern::ConcreteStrategyB
+===================================
+
+.. doxygenclass:: strategy_pattern::ConcreteStrategyB
+   :project: Design Patterns C++
+   :members:

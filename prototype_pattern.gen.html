@@ -1,0 +1,423 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prototype Pattern &mdash; Design Patterns Case Study 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=8d563738"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/custom.js?v=f12ea912"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Singleton Pattern" href="singleton_pattern.gen.html" />
+    <link rel="prev" title="Object Pool Pattern" href="objectpool_pattern.gen.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Design Patterns Case Study
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.gen.html">Design Patterns Case Study</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="creational_patterns.gen.html">Creational Patterns</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="abstractfactory_pattern.gen.html">Abstract Factory Pattern</a></li>
+<li class="toctree-l2"><a class="reference internal" href="builder_pattern.gen.html">Builder Pattern</a></li>
+<li class="toctree-l2"><a class="reference internal" href="factorymethod_pattern.gen.html">Factory Method Pattern</a></li>
+<li class="toctree-l2"><a class="reference internal" href="objectpool_pattern.gen.html">Object Pool Pattern</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Prototype Pattern</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#category">Category</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#key-characteristics">Key Characteristics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#uml-diagram">UML Diagram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#implementation-walkthrough">Implementation Walkthrough</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#participants">Participants</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#example-game-character-prototypes">Example: Game Character Prototypes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#output">Output</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#applications">Applications</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#when-to-use-the-prototype-pattern">When to Use the Prototype Pattern</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#common-use-cases">Common Use Cases</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#advantages-and-disadvantages">Advantages and Disadvantages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#advantages">Advantages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#disadvantages">Disadvantages</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#key-takeaways">Key Takeaways</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="singleton_pattern.gen.html">Singleton Pattern</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="structural_patterns.gen.html">Structural Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="behavioral_patterns.gen.html">Behavioral Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gof.gen.html">The Gang of Four</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.gen.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cpp_api_index.gen.html">C++ API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_api.html">Python API Documentation</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Design Patterns Case Study</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="creational_patterns.gen.html">Creational Patterns</a></li>
+      <li class="breadcrumb-item active">Prototype Pattern</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/MangaD/Design-Patterns-Case-Study/blob/main/docs/source/prototype_pattern.gen.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="toctree-wrapper compound">
+</div>
+<section id="prototype-pattern">
+<h1>Prototype Pattern<a class="headerlink" href="#prototype-pattern" title="Link to this heading"></a></h1>
+<section id="category">
+<h2>Category<a class="headerlink" href="#category" title="Link to this heading"></a></h2>
+<p>Creational Design Pattern</p>
+</section>
+<hr class="docutils" />
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p>The <strong>Prototype Pattern</strong> is a creational design pattern that enables the creation of new objects by cloning existing ones. Instead of instantiating objects from scratch, this pattern uses a prototype (an existing object) to create copies, allowing for efficient and flexible object creation.</p>
+<p>This pattern is particularly useful when the cost of creating new objects is high, when objects share common configurations, or when object types need to be determined dynamically at runtime.</p>
+</section>
+<hr class="docutils" />
+<section id="key-characteristics">
+<h2>Key Characteristics<a class="headerlink" href="#key-characteristics" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p><strong>Cloning Mechanism</strong>:</p>
+<ul class="simple">
+<li><p>New objects are created by copying an existing prototype using a cloning method (e.g., <code class="docutils literal notranslate"><span class="pre">clone()</span></code>).</p></li>
+<li><p>Supports shallow and deep copying.</p></li>
+</ul>
+</li>
+<li><p><strong>Dynamic Object Creation</strong>:</p>
+<ul class="simple">
+<li><p>Enables runtime creation of new objects without relying on constructors or class definitions.</p></li>
+</ul>
+</li>
+<li><p><strong>Encapsulation of Initialization Logic</strong>:</p>
+<ul class="simple">
+<li><p>The prototype encapsulates complex initialization, making object creation easier for the client.</p></li>
+</ul>
+</li>
+<li><p><strong>Customizability</strong>:</p>
+<ul class="simple">
+<li><p>Cloned objects can be independently modified without affecting the original prototype.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="uml-diagram">
+<h2>UML Diagram<a class="headerlink" href="#uml-diagram" title="Link to this heading"></a></h2>
+<p>The UML diagram below illustrates the Prototype Pattern, showing how a client clones objects using the prototype interface:</p>
+<p><img alt="UML Diagram" src="http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/MangaD/Design-Patterns-Case-Study/refs/heads/main/Creational/Prototype/prototype.puml" /></p>
+</section>
+<hr class="docutils" />
+<section id="implementation-walkthrough">
+<h2>Implementation Walkthrough<a class="headerlink" href="#implementation-walkthrough" title="Link to this heading"></a></h2>
+<section id="participants">
+<h3>Participants<a class="headerlink" href="#participants" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>Prototype</strong>:</p>
+<ul class="simple">
+<li><p>Defines the interface for cloning objects, typically through a <code class="docutils literal notranslate"><span class="pre">clone()</span></code> method.</p></li>
+</ul>
+</li>
+<li><p><strong>Concrete Prototype</strong>:</p>
+<ul class="simple">
+<li><p>Implements the <code class="docutils literal notranslate"><span class="pre">Prototype</span></code> interface and provides specific cloning behavior.</p></li>
+</ul>
+</li>
+<li><p><strong>Client</strong>:</p>
+<ul class="simple">
+<li><p>Creates new objects by cloning prototypes instead of instantiating them directly.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="example-game-character-prototypes">
+<h3>Example: Game Character Prototypes<a class="headerlink" href="#example-game-character-prototypes" title="Link to this heading"></a></h3>
+<section id="prototype-interface">
+<h4>Prototype Interface<a class="headerlink" href="#prototype-interface" title="Link to this heading"></a></h4>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm"> * @brief Defines the interface for cloning game characters.</span>
+<span class="cm"> */</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">GameCharacter</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">GameCharacter</span><span class="w"> </span><span class="nf">clone</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="concrete-prototypes">
+<h4>Concrete Prototypes<a class="headerlink" href="#concrete-prototypes" title="Link to this heading"></a></h4>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm"> * @brief Concrete prototype representing a Knight character.</span>
+<span class="cm"> */</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Knight</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">GameCharacter</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">weapon</span><span class="p">;</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">Knight</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">weapon</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">weapon</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">weapon</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">GameCharacter</span><span class="w"> </span><span class="nf">clone</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Knight</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">weapon</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">toString</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;Knight with weapon: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">weapon</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * @brief Concrete prototype representing an Archer character.</span>
+<span class="cm"> */</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Archer</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">GameCharacter</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">bowType</span><span class="p">;</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">Archer</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">bowType</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">bowType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bowType</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">GameCharacter</span><span class="w"> </span><span class="nf">clone</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Archer</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">bowType</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">toString</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;Archer with bow type: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">bowType</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="client-code">
+<h4>Client Code<a class="headerlink" href="#client-code" title="Link to this heading"></a></h4>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm"> * @brief Client demonstrating the Prototype Pattern.</span>
+<span class="cm"> */</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">PrototypePatternDemo</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Create prototypes</span>
+<span class="w">        </span><span class="n">GameCharacter</span><span class="w"> </span><span class="n">knightPrototype</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Knight</span><span class="p">(</span><span class="s">&quot;Sword&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">GameCharacter</span><span class="w"> </span><span class="n">archerPrototype</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Archer</span><span class="p">(</span><span class="s">&quot;Longbow&quot;</span><span class="p">);</span>
+
+<span class="w">        </span><span class="c1">// Clone prototypes to create new characters</span>
+<span class="w">        </span><span class="n">GameCharacter</span><span class="w"> </span><span class="n">knight1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">knightPrototype</span><span class="p">.</span><span class="na">clone</span><span class="p">();</span>
+<span class="w">        </span><span class="n">GameCharacter</span><span class="w"> </span><span class="n">knight2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">knightPrototype</span><span class="p">.</span><span class="na">clone</span><span class="p">();</span>
+<span class="w">        </span><span class="n">GameCharacter</span><span class="w"> </span><span class="n">archer1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">archerPrototype</span><span class="p">.</span><span class="na">clone</span><span class="p">();</span>
+
+<span class="w">        </span><span class="c1">// Display the characters</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">knight1</span><span class="p">);</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">knight2</span><span class="p">);</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">archer1</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="output">
+<h3>Output<a class="headerlink" href="#output" title="Link to this heading"></a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Knight</span> <span class="k">with</span> <span class="n">weapon</span><span class="p">:</span> <span class="n">Sword</span>
+<span class="n">Knight</span> <span class="k">with</span> <span class="n">weapon</span><span class="p">:</span> <span class="n">Sword</span>
+<span class="n">Archer</span> <span class="k">with</span> <span class="n">bow</span> <span class="nb">type</span><span class="p">:</span> <span class="n">Longbow</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="applications">
+<h2>Applications<a class="headerlink" href="#applications" title="Link to this heading"></a></h2>
+<section id="when-to-use-the-prototype-pattern">
+<h3>When to Use the Prototype Pattern<a class="headerlink" href="#when-to-use-the-prototype-pattern" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>Efficient Object Creation</strong>:</p>
+<ul class="simple">
+<li><p>When creating new instances is computationally expensive.</p></li>
+</ul>
+</li>
+<li><p><strong>Common Object Configurations</strong>:</p>
+<ul class="simple">
+<li><p>When objects share a similar structure or configuration.</p></li>
+</ul>
+</li>
+<li><p><strong>Dynamic Object Creation</strong>:</p>
+<ul class="simple">
+<li><p>When new object types must be created dynamically at runtime.</p></li>
+</ul>
+</li>
+<li><p><strong>Encapsulation of Initialization Logic</strong>:</p>
+<ul class="simple">
+<li><p>When initialization details should be encapsulated within the prototype.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="common-use-cases">
+<h3>Common Use Cases<a class="headerlink" href="#common-use-cases" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>Game Development</strong>:</p>
+<ul class="simple">
+<li><p>Cloning game characters, enemies, or objects with similar attributes.</p></li>
+</ul>
+</li>
+<li><p><strong>UI Libraries</strong>:</p>
+<ul class="simple">
+<li><p>Reusing UI components with slight variations.</p></li>
+</ul>
+</li>
+<li><p><strong>Document Templates</strong>:</p>
+<ul class="simple">
+<li><p>Creating new documents based on preconfigured templates.</p></li>
+</ul>
+</li>
+<li><p><strong>Prototyping Systems</strong>:</p>
+<ul class="simple">
+<li><p>Quickly creating new prototypes for testing purposes.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+</section>
+<hr class="docutils" />
+<section id="advantages-and-disadvantages">
+<h2>Advantages and Disadvantages<a class="headerlink" href="#advantages-and-disadvantages" title="Link to this heading"></a></h2>
+<section id="advantages">
+<h3>Advantages<a class="headerlink" href="#advantages" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>Efficiency</strong>:</p>
+<ul class="simple">
+<li><p>Reduces the cost of object creation by reusing existing prototypes.</p></li>
+</ul>
+</li>
+<li><p><strong>Flexibility</strong>:</p>
+<ul class="simple">
+<li><p>Supports runtime object creation without relying on constructors or class definitions.</p></li>
+</ul>
+</li>
+<li><p><strong>Encapsulation</strong>:</p>
+<ul class="simple">
+<li><p>Encapsulates complex initialization logic within prototypes.</p></li>
+</ul>
+</li>
+<li><p><strong>Customizability</strong>:</p>
+<ul class="simple">
+<li><p>Allows customization of cloned objects without affecting the original prototype.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="disadvantages">
+<h3>Disadvantages<a class="headerlink" href="#disadvantages" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>Complexity</strong>:</p>
+<ul class="simple">
+<li><p>Implementing cloning can be challenging, especially for deep copying of objects with nested references.</p></li>
+</ul>
+</li>
+<li><p><strong>Overhead</strong>:</p>
+<ul class="simple">
+<li><p>Cloning large or deeply nested objects can consume significant memory and processing time.</p></li>
+</ul>
+</li>
+<li><p><strong>Maintenance</strong>:</p>
+<ul class="simple">
+<li><p>Changes to the prototype require updates to the cloning logic.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+</section>
+<hr class="docutils" />
+<section id="key-takeaways">
+<h2>Key Takeaways<a class="headerlink" href="#key-takeaways" title="Link to this heading"></a></h2>
+<p>The Prototype Pattern simplifies object creation by cloning existing instances. It is particularly effective when creating new objects is costly, objects share similar configurations, or new object types need to be defined at runtime. While it introduces complexity in managing cloning mechanisms, it is a powerful tool for systems requiring dynamic and efficient object creation.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="objectpool_pattern.gen.html" class="btn btn-neutral float-left" title="Object Pool Pattern" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="singleton_pattern.gen.html" class="btn btn-neutral float-right" title="Singleton Pattern" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, David Gonçalves.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

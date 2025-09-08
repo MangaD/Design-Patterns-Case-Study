@@ -1,0 +1,14 @@
+Creational Patterns
+===================
+
+These patterns focus on object creation mechanisms.
+
+.. toctree::
+   :maxdepth: 1
+
+   abstractfactory_pattern.gen
+   builder_pattern.gen
+   factorymethod_pattern.gen
+   objectpool_pattern.gen
+   prototype_pattern.gen
+   singleton_pattern.gen

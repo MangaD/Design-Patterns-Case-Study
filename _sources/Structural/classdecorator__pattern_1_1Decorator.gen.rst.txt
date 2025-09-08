@@ -1,0 +1,6 @@
+decorator_pattern::Decorator
+============================
+
+.. doxygenclass:: decorator_pattern::Decorator
+   :project: Design Patterns C++
+   :members:

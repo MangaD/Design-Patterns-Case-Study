@@ -1,0 +1,6 @@
+command_pattern::Receiver
+=========================
+
+.. doxygenclass:: command_pattern::Receiver
+   :project: Design Patterns C++
+   :members:

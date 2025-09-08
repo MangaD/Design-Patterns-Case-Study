@@ -1,0 +1,25 @@
+Observer  Header
+================
+
+.. doxygenfile:: observer.hpp
+   :project: Design Patterns C++
+   :no-link:
+
+Inner Classes
+-------------
+
+.. toctree::
+   :maxdepth: 1
+
+   classobserver__pattern_1_1Observer.gen
+   classobserver__pattern_1_1Subject.gen
+   classobserver__pattern_1_1ConcreteSubject.gen
+   classobserver__pattern_1_1ConcreteObserver.gen
+
+Inner Namespaces
+----------------
+
+.. toctree::
+   :maxdepth: 1
+
+   namespaceobserver__pattern.gen

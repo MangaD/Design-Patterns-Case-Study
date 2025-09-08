@@ -1,0 +1,15 @@
+Structural Patterns
+===================
+
+These patterns focus on structural relationships and composition.
+
+.. toctree::
+   :maxdepth: 1
+
+   adapter_pattern.gen
+   bridge_pattern.gen
+   composite_pattern.gen
+   decorator_pattern.gen
+   facade_pattern.gen
+   flyweight_pattern.gen
+   proxy_pattern.gen

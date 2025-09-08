@@ -1,0 +1,253 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>strategy_pattern &mdash; Design Patterns Case Study 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/custom.js?v=f12ea912"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="template_method_pattern" href="namespacetemplate__method__pattern.gen.html" />
+    <link rel="prev" title="state_pattern" href="namespacestate__pattern.gen.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Design Patterns Case Study
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction.gen.html">Design Patterns Case Study</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../creational_patterns.gen.html">Creational Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../structural_patterns.gen.html">Structural Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../behavioral_patterns.gen.html">Behavioral Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gof.gen.html">The Gang of Four</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../references.gen.html">References</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../cpp_api_index.gen.html">C++ API Documentation</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="behavioral_patterns.gen.html">Behavioral Patterns</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="behavioral_patterns.gen.html#namespaces">Namespaces</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="namespacechain__of__responsibility__pattern.gen.html">chain_of_responsibility_pattern</a></li>
+<li class="toctree-l4"><a class="reference internal" href="namespacecommand__pattern.gen.html">command_pattern</a></li>
+<li class="toctree-l4"><a class="reference internal" href="namespaceinterpreter__pattern.gen.html">interpreter_pattern</a></li>
+<li class="toctree-l4"><a class="reference internal" href="namespaceiterator__pattern.gen.html">iterator_pattern</a></li>
+<li class="toctree-l4"><a class="reference internal" href="namespacemediator__pattern.gen.html">mediator_pattern</a></li>
+<li class="toctree-l4"><a class="reference internal" href="namespacememento__pattern.gen.html">memento_pattern</a></li>
+<li class="toctree-l4"><a class="reference internal" href="namespaceobserver__pattern.gen.html">observer_pattern</a></li>
+<li class="toctree-l4"><a class="reference internal" href="namespacestate__pattern.gen.html">state_pattern</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">strategy_pattern</a></li>
+<li class="toctree-l4"><a class="reference internal" href="namespacetemplate__method__pattern.gen.html">template_method_pattern</a></li>
+<li class="toctree-l4"><a class="reference internal" href="namespacevisitor__pattern.gen.html">visitor_pattern</a></li>
+</ul>
+</li>
+<li class="toctree-l3 current"><a class="reference internal" href="behavioral_patterns.gen.html#files">Files</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="chain__of__responsibility_8hpp.gen.html">Chain  Of  Responsibility  Header</a></li>
+<li class="toctree-l4"><a class="reference internal" href="command_8hpp.gen.html">Command  Header</a></li>
+<li class="toctree-l4"><a class="reference internal" href="interpreter_8hpp.gen.html">Interpreter  Header</a></li>
+<li class="toctree-l4"><a class="reference internal" href="iterator_8hpp.gen.html">Iterator  Header</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mediator_8hpp.gen.html">Mediator  Header</a></li>
+<li class="toctree-l4"><a class="reference internal" href="memento_8hpp.gen.html">Memento  Header</a></li>
+<li class="toctree-l4"><a class="reference internal" href="observer_8hpp.gen.html">Observer  Header</a></li>
+<li class="toctree-l4"><a class="reference internal" href="state_8cpp.gen.html">State  Source</a></li>
+<li class="toctree-l4"><a class="reference internal" href="state_8hpp.gen.html">State  Header</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="strategy_8hpp.gen.html">Strategy  Header</a></li>
+<li class="toctree-l4"><a class="reference internal" href="template__method_8hpp.gen.html">Template  Method  Header</a></li>
+<li class="toctree-l4"><a class="reference internal" href="test__chain__of__responsibility_8cpp.gen.html">Test  Chain  Of  Responsibility  Source</a></li>
+<li class="toctree-l4"><a class="reference internal" href="test__command_8cpp.gen.html">Test  Command  Source</a></li>
+<li class="toctree-l4"><a class="reference internal" href="test__interpreter_8cpp.gen.html">Test  Interpreter  Source</a></li>
+<li class="toctree-l4"><a class="reference internal" href="test__iterator_8cpp.gen.html">Test  Iterator  Source</a></li>
+<li class="toctree-l4"><a class="reference internal" href="test__mediator_8cpp.gen.html">Test  Mediator  Source</a></li>
+<li class="toctree-l4"><a class="reference internal" href="test__memento_8cpp.gen.html">Test  Memento  Source</a></li>
+<li class="toctree-l4"><a class="reference internal" href="test__observer_8cpp.gen.html">Test  Observer  Source</a></li>
+<li class="toctree-l4"><a class="reference internal" href="test__state_8cpp.gen.html">Test  State  Source</a></li>
+<li class="toctree-l4"><a class="reference internal" href="test__strategy_8cpp.gen.html">Test  Strategy  Source</a></li>
+<li class="toctree-l4"><a class="reference internal" href="test__template__method_8cpp.gen.html">Test  Template  Method  Source</a></li>
+<li class="toctree-l4"><a class="reference internal" href="test__visitor_8cpp.gen.html">Test  Visitor  Source</a></li>
+<li class="toctree-l4"><a class="reference internal" href="visitor_8hpp.gen.html">Visitor  Header</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="behavioral_patterns.gen.html#classes">Classes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Creational/creational_patterns.gen.html">Creational Patterns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Structural/structural_patterns.gen.html">Structural Patterns</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../python_api.html">Python API Documentation</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Design Patterns Case Study</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../cpp_api_index.gen.html">C++ API Documentation</a></li>
+          <li class="breadcrumb-item"><a href="behavioral_patterns.gen.html">Behavioral Patterns</a></li>
+      <li class="breadcrumb-item active">strategy_pattern</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/MangaD/Design-Patterns-Case-Study/blob/main/docs/source/Behavioral/namespacestrategy__pattern.gen.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="strategy-pattern">
+<h1>strategy_pattern<a class="headerlink" href="#strategy-pattern" title="Link to this heading"></a></h1>
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv416strategy_pattern">
+<span id="_CPPv316strategy_pattern"></span><span id="_CPPv216strategy_pattern"></span><span id="strategy_pattern"></span><span class="target" id="namespacestrategy__pattern"></span><span class="k"><span class="pre">namespace</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">strategy_pattern</span></span></span><a class="headerlink" href="#_CPPv416strategy_pattern" title="Link to this definition"></a><br /></dt>
+<dd><p>Namespace for the <a class="reference internal" href="#classstrategy__pattern_1_1Strategy"><span class="std std-ref">Strategy</span></a> pattern. </p>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N16strategy_pattern17ConcreteStrategyAE">
+<span id="_CPPv3N16strategy_pattern17ConcreteStrategyAE"></span><span id="_CPPv2N16strategy_pattern17ConcreteStrategyAE"></span><span id="strategy_pattern::ConcreteStrategyA"></span><span class="target" id="classstrategy__pattern_1_1ConcreteStrategyA"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ConcreteStrategyA</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv416strategy_pattern" title="strategy_pattern"><span class="n"><span class="pre">strategy_pattern</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="classstrategy__pattern_1_1Strategy.gen.html#_CPPv4N16strategy_pattern8StrategyE" title="strategy_pattern::Strategy"><span class="n"><span class="pre">Strategy</span></span></a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;strategy.hpp&gt;</em></div>
+<p>Concrete <a class="reference internal" href="#classstrategy__pattern_1_1Strategy"><span class="std std-ref">Strategy</span></a> A implements a specific algorithm. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK16strategy_pattern17ConcreteStrategyA7executeEv">
+<span id="_CPPv3NK16strategy_pattern17ConcreteStrategyA7executeEv"></span><span id="_CPPv2NK16strategy_pattern17ConcreteStrategyA7executeEv"></span><span id="strategy_pattern::ConcreteStrategyA::executeC"></span><span class="target" id="classstrategy__pattern_1_1ConcreteStrategyA_1a6f1fcf2653971783875d172572a60f96"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">execute</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><br /></dt>
+<dd><p>Executes the algorithm encapsulated by the strategy. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N16strategy_pattern17ConcreteStrategyBE">
+<span id="_CPPv3N16strategy_pattern17ConcreteStrategyBE"></span><span id="_CPPv2N16strategy_pattern17ConcreteStrategyBE"></span><span id="strategy_pattern::ConcreteStrategyB"></span><span class="target" id="classstrategy__pattern_1_1ConcreteStrategyB"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ConcreteStrategyB</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv416strategy_pattern" title="strategy_pattern"><span class="n"><span class="pre">strategy_pattern</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="classstrategy__pattern_1_1Strategy.gen.html#_CPPv4N16strategy_pattern8StrategyE" title="strategy_pattern::Strategy"><span class="n"><span class="pre">Strategy</span></span></a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;strategy.hpp&gt;</em></div>
+<p>Concrete <a class="reference internal" href="#classstrategy__pattern_1_1Strategy"><span class="std std-ref">Strategy</span></a> B implements a specific algorithm. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK16strategy_pattern17ConcreteStrategyB7executeEv">
+<span id="_CPPv3NK16strategy_pattern17ConcreteStrategyB7executeEv"></span><span id="_CPPv2NK16strategy_pattern17ConcreteStrategyB7executeEv"></span><span id="strategy_pattern::ConcreteStrategyB::executeC"></span><span class="target" id="classstrategy__pattern_1_1ConcreteStrategyB_1ae9dea1157d13299fbb250b836e936705"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">execute</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><br /></dt>
+<dd><p>Executes the algorithm encapsulated by the strategy. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N16strategy_pattern7ContextE">
+<span id="_CPPv3N16strategy_pattern7ContextE"></span><span id="_CPPv2N16strategy_pattern7ContextE"></span><span id="strategy_pattern::Context"></span><span class="target" id="classstrategy__pattern_1_1Context"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Context</span></span></span><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;strategy.hpp&gt;</em></div>
+<p><a class="reference internal" href="#classstrategy__pattern_1_1Context"><span class="std std-ref">Context</span></a> maintains a reference to a <a class="reference internal" href="#classstrategy__pattern_1_1Strategy"><span class="std std-ref">Strategy</span></a> object and delegates behavior to it. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N16strategy_pattern7Context11setStrategyENSt10unique_ptrI8StrategyEE">
+<span id="_CPPv3N16strategy_pattern7Context11setStrategyENSt10unique_ptrI8StrategyEE"></span><span id="_CPPv2N16strategy_pattern7Context11setStrategyENSt10unique_ptrI8StrategyEE"></span><span id="strategy_pattern::Context::setStrategy__std::unique_ptr:Strategy:"></span><span class="target" id="classstrategy__pattern_1_1Context_1a893bc9bb8fef3fac9604741643c52a19"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setStrategy</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">unique_ptr</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="classstrategy__pattern_1_1Strategy.gen.html#_CPPv4N16strategy_pattern8StrategyE" title="strategy_pattern::Strategy"><span class="n"><span class="pre">Strategy</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">strategy</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p>Sets the strategy for the context. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>strategy</strong> – A unique pointer to the strategy to use. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK16strategy_pattern7Context15executeStrategyEv">
+<span id="_CPPv3NK16strategy_pattern7Context15executeStrategyEv"></span><span id="_CPPv2NK16strategy_pattern7Context15executeStrategyEv"></span><span id="strategy_pattern::Context::executeStrategyC"></span><span class="target" id="classstrategy__pattern_1_1Context_1a1de83591ec96250835ba3e827bc63657"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">executeStrategy</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><br /></dt>
+<dd><p>Executes the strategy. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N16strategy_pattern8StrategyE">
+<span id="_CPPv3N16strategy_pattern8StrategyE"></span><span id="_CPPv2N16strategy_pattern8StrategyE"></span><span id="strategy_pattern::Strategy"></span><span class="target" id="classstrategy__pattern_1_1Strategy"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Strategy</span></span></span><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;strategy.hpp&gt;</em></div>
+<p>The <a class="reference internal" href="#classstrategy__pattern_1_1Strategy"><span class="std std-ref">Strategy</span></a> interface defines a common interface for all supported algorithms. </p>
+<p>Subclassed by <a class="reference internal" href="#classstrategy__pattern_1_1ConcreteStrategyA"><span class="std std-ref">strategy_pattern::ConcreteStrategyA</span></a>, <a class="reference internal" href="#classstrategy__pattern_1_1ConcreteStrategyB"><span class="std std-ref">strategy_pattern::ConcreteStrategyB</span></a></p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK16strategy_pattern8Strategy7executeEv">
+<span id="_CPPv3NK16strategy_pattern8Strategy7executeEv"></span><span id="_CPPv2NK16strategy_pattern8Strategy7executeEv"></span><span id="strategy_pattern::Strategy::executeC"></span><span class="target" id="classstrategy__pattern_1_1Strategy_1ae58abb5d7c4cab662b74d99fce43179d"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">execute</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><br /></dt>
+<dd><p>Executes the algorithm encapsulated by the strategy. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="namespacestate__pattern.gen.html" class="btn btn-neutral float-left" title="state_pattern" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="namespacetemplate__method__pattern.gen.html" class="btn btn-neutral float-right" title="template_method_pattern" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, David Gonçalves.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

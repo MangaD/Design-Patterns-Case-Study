@@ -1,0 +1,416 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Interpreter Pattern &mdash; Design Patterns Case Study 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=8d563738"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/custom.js?v=f12ea912"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Iterator Pattern" href="iterator_pattern.gen.html" />
+    <link rel="prev" title="Command Pattern" href="command_pattern.gen.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Design Patterns Case Study
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.gen.html">Design Patterns Case Study</a></li>
+<li class="toctree-l1"><a class="reference internal" href="creational_patterns.gen.html">Creational Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="structural_patterns.gen.html">Structural Patterns</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="behavioral_patterns.gen.html">Behavioral Patterns</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="chainofresponsibility_pattern.gen.html">Chain of Responsibility Pattern</a></li>
+<li class="toctree-l2"><a class="reference internal" href="command_pattern.gen.html">Command Pattern</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Interpreter Pattern</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#category">Category</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#key-characteristics">Key Characteristics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#uml-diagram">UML Diagram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#implementation-walkthrough">Implementation Walkthrough</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#participants">Participants</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#example-boolean-rule-dsl-java">Example: Boolean Rule DSL (Java)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#output">Output</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#applications">Applications</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#when-to-use-the-interpreter-pattern">When to Use the Interpreter Pattern</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#common-use-cases">Common Use Cases</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#advantages-and-disadvantages">Advantages and Disadvantages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#advantages">Advantages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#disadvantages">Disadvantages</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#key-takeaways">Key Takeaways</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="iterator_pattern.gen.html">Iterator Pattern</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mediator_pattern.gen.html">Mediator Pattern</a></li>
+<li class="toctree-l2"><a class="reference internal" href="memento_pattern.gen.html">Memento Pattern</a></li>
+<li class="toctree-l2"><a class="reference internal" href="observer_pattern.gen.html">Observer Pattern</a></li>
+<li class="toctree-l2"><a class="reference internal" href="state_pattern.gen.html">State Pattern</a></li>
+<li class="toctree-l2"><a class="reference internal" href="strategy_pattern.gen.html">Strategy Pattern</a></li>
+<li class="toctree-l2"><a class="reference internal" href="templatemethod_pattern.gen.html">Template Method Pattern</a></li>
+<li class="toctree-l2"><a class="reference internal" href="visitor_pattern.gen.html">Visitor Pattern</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="gof.gen.html">The Gang of Four</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.gen.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cpp_api_index.gen.html">C++ API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_api.html">Python API Documentation</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Design Patterns Case Study</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="behavioral_patterns.gen.html">Behavioral Patterns</a></li>
+      <li class="breadcrumb-item active">Interpreter Pattern</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/MangaD/Design-Patterns-Case-Study/blob/main/docs/source/interpreter_pattern.gen.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="toctree-wrapper compound">
+</div>
+<section id="interpreter-pattern">
+<h1>Interpreter Pattern<a class="headerlink" href="#interpreter-pattern" title="Link to this heading"></a></h1>
+<section id="category">
+<h2>Category<a class="headerlink" href="#category" title="Link to this heading"></a></h2>
+<p>Behavioral Design Pattern</p>
+</section>
+<hr class="docutils" />
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p>The <strong>Interpreter Pattern</strong> is a <strong>behavioral design pattern</strong> used to define a <strong>grammar</strong> for simple languages and provide an <strong>interpreter</strong> to evaluate sentences in that language. You model each grammar rule as a class (an <em>expression</em>), and build an <strong>abstract syntax tree (AST)</strong> from these expressions to interpret against a <strong>context</strong> (runtime data or variable bindings).</p>
+<p>This pattern is particularly useful when:</p>
+<ul class="simple">
+<li><p>You need to evaluate frequently changing <strong>business rules</strong> or <strong>filters</strong> expressed in a compact DSL.</p></li>
+<li><p>You want a clean, object-oriented way to represent <strong>expressions</strong>, <strong>precedence</strong>, and <strong>composition</strong> (e.g., boolean logic, arithmetic, simple query languages).</p></li>
+<li><p>You prefer <strong>extensibility</strong>: adding a new operator is adding a new nonterminal class.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="key-characteristics">
+<h2>Key Characteristics<a class="headerlink" href="#key-characteristics" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p><strong>Grammar as Classes</strong>:</p>
+<ul class="simple">
+<li><p>Each production rule is represented by a class; the AST is a composition of these classes.</p></li>
+</ul>
+</li>
+<li><p><strong>Terminal vs. Nonterminal</strong>:</p>
+<ul class="simple">
+<li><p><strong>Terminal expressions</strong> represent leaves (e.g., constants, variables).</p></li>
+<li><p><strong>Nonterminal expressions</strong> represent operators (e.g., NOT, AND, OR) and compose other expressions.</p></li>
+</ul>
+</li>
+<li><p><strong>Context-Driven</strong>:</p>
+<ul class="simple">
+<li><p>Evaluation depends on a <strong>context</strong> providing variable bindings or environment data.</p></li>
+</ul>
+</li>
+<li><p><strong>Extensibility &amp; Composability</strong>:</p>
+<ul class="simple">
+<li><p>New operations/operators are added via new classes without changing existing ones.</p></li>
+</ul>
+</li>
+<li><p><strong>Trade-off</strong>:</p>
+<ul class="simple">
+<li><p>Great for <strong>small, stable grammars</strong>. Large/complex languages are usually better served by parser generators or dedicated interpreters.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="uml-diagram">
+<h2>UML Diagram<a class="headerlink" href="#uml-diagram" title="Link to this heading"></a></h2>
+<p>The UML diagram below shows a typical boolean-expression Interpreter with terminal and nonterminal expressions.</p>
+<p><img alt="UML Diagram" src="http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/MangaD/Design-Patterns-Case-Study/refs/heads/main/Behavioral/Interpreter/interpreter.puml" /></p>
+</section>
+<hr class="docutils" />
+<section id="implementation-walkthrough">
+<h2>Implementation Walkthrough<a class="headerlink" href="#implementation-walkthrough" title="Link to this heading"></a></h2>
+<section id="participants">
+<h3>Participants<a class="headerlink" href="#participants" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>AbstractExpression</strong> (<code class="docutils literal notranslate"><span class="pre">Expression</span></code>):</p>
+<ul class="simple">
+<li><p>Declares the <code class="docutils literal notranslate"><span class="pre">interpret(Context)</span></code> operation used by all nodes in the AST.</p></li>
+</ul>
+</li>
+<li><p><strong>TerminalExpression</strong> (<code class="docutils literal notranslate"><span class="pre">Constant</span></code>, <code class="docutils literal notranslate"><span class="pre">Variable</span></code>):</p>
+<ul class="simple">
+<li><p>Leaves in the tree; evaluate directly from the context (or intrinsic value).</p></li>
+</ul>
+</li>
+<li><p><strong>NonterminalExpression</strong> (<code class="docutils literal notranslate"><span class="pre">Not</span></code>, <code class="docutils literal notranslate"><span class="pre">And</span></code>, <code class="docutils literal notranslate"><span class="pre">Or</span></code>):</p>
+<ul class="simple">
+<li><p>Internal nodes; combine sub-expressions and define operator semantics and precedence.</p></li>
+</ul>
+</li>
+<li><p><strong>Context</strong>:</p>
+<ul class="simple">
+<li><p>Provides variable bindings and any runtime information needed to evaluate expressions.</p></li>
+</ul>
+</li>
+<li><p><strong>Parser (optional)</strong>:</p>
+<ul class="simple">
+<li><p>Converts input strings into an AST of expressions. For small grammars, a simple recursive-descent parser is common.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="example-boolean-rule-dsl-java">
+<h3>Example: Boolean Rule DSL (Java)<a class="headerlink" href="#example-boolean-rule-dsl-java" title="Link to this heading"></a></h3>
+<p>Below is a compact boolean DSL where variables come from a context and operators are <code class="docutils literal notranslate"><span class="pre">!</span></code> (NOT), <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> (AND), and <code class="docutils literal notranslate"><span class="pre">|</span></code> (OR).</p>
+<section id="expression-and-terminals">
+<h4>Expression and Terminals<a class="headerlink" href="#expression-and-terminals" title="Link to this heading"></a></h4>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Map</span><span class="p">;</span>
+
+<span class="kd">interface</span> <span class="nc">Expression</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">interpret</span><span class="p">(</span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Boolean</span><span class="o">&gt;</span><span class="w"> </span><span class="n">ctx</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">final</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Constant</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">Expression</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="n">value</span><span class="p">;</span>
+<span class="w">    </span><span class="n">Constant</span><span class="p">(</span><span class="kt">boolean</span><span class="w"> </span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">value</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="nd">@Override</span><span class="w"> </span><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">interpret</span><span class="p">(</span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Boolean</span><span class="o">&gt;</span><span class="w"> </span><span class="n">ctx</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">value</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">final</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Variable</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">Expression</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+<span class="w">    </span><span class="n">Variable</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">name</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="nd">@Override</span><span class="w"> </span><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">interpret</span><span class="p">(</span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Boolean</span><span class="o">&gt;</span><span class="w"> </span><span class="n">ctx</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Boolean</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ctx</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">name</span><span class="p">);</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">v</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">IllegalStateException</span><span class="p">(</span><span class="s">&quot;Unbound variable: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">name</span><span class="p">);</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">v</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="nonterminals">
+<h4>Nonterminals<a class="headerlink" href="#nonterminals" title="Link to this heading"></a></h4>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">final</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Not</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">Expression</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">Expression</span><span class="w"> </span><span class="n">expr</span><span class="p">;</span>
+<span class="w">    </span><span class="n">Not</span><span class="p">(</span><span class="n">Expression</span><span class="w"> </span><span class="n">expr</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">expr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">expr</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="nd">@Override</span><span class="w"> </span><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">interpret</span><span class="p">(</span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Boolean</span><span class="o">&gt;</span><span class="w"> </span><span class="n">ctx</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="o">!</span><span class="n">expr</span><span class="p">.</span><span class="na">interpret</span><span class="p">(</span><span class="n">ctx</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">final</span><span class="w"> </span><span class="kd">class</span> <span class="nc">And</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">Expression</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">Expression</span><span class="w"> </span><span class="n">left</span><span class="p">,</span><span class="w"> </span><span class="n">right</span><span class="p">;</span>
+<span class="w">    </span><span class="n">And</span><span class="p">(</span><span class="n">Expression</span><span class="w"> </span><span class="n">left</span><span class="p">,</span><span class="w"> </span><span class="n">Expression</span><span class="w"> </span><span class="n">right</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">left</span><span class="p">;</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">right</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="nd">@Override</span><span class="w"> </span><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">interpret</span><span class="p">(</span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Boolean</span><span class="o">&gt;</span><span class="w"> </span><span class="n">ctx</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">left</span><span class="p">.</span><span class="na">interpret</span><span class="p">(</span><span class="n">ctx</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">right</span><span class="p">.</span><span class="na">interpret</span><span class="p">(</span><span class="n">ctx</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">final</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Or</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">Expression</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">Expression</span><span class="w"> </span><span class="n">left</span><span class="p">,</span><span class="w"> </span><span class="n">right</span><span class="p">;</span>
+<span class="w">    </span><span class="n">Or</span><span class="p">(</span><span class="n">Expression</span><span class="w"> </span><span class="n">left</span><span class="p">,</span><span class="w"> </span><span class="n">Expression</span><span class="w"> </span><span class="n">right</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">left</span><span class="p">;</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">right</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="nd">@Override</span><span class="w"> </span><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">interpret</span><span class="p">(</span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Boolean</span><span class="o">&gt;</span><span class="w"> </span><span class="n">ctx</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">left</span><span class="p">.</span><span class="na">interpret</span><span class="p">(</span><span class="n">ctx</span><span class="p">)</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">right</span><span class="p">.</span><span class="na">interpret</span><span class="p">(</span><span class="n">ctx</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="client-code">
+<h4>Client Code<a class="headerlink" href="#client-code" title="Link to this heading"></a></h4>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Map</span><span class="p">;</span>
+
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">InterpreterPatternDemo</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Boolean</span><span class="o">&gt;</span><span class="w"> </span><span class="n">ctx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Map</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&quot;x&quot;</span><span class="p">,</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;y&quot;</span><span class="p">,</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;z&quot;</span><span class="p">,</span><span class="w"> </span><span class="kc">true</span><span class="p">);</span>
+
+<span class="w">        </span><span class="c1">// Represents: !(x &amp; y) | z</span>
+<span class="w">        </span><span class="n">Expression</span><span class="w"> </span><span class="n">expr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Or</span><span class="p">(</span>
+<span class="w">            </span><span class="k">new</span><span class="w"> </span><span class="n">Not</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">And</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Variable</span><span class="p">(</span><span class="s">&quot;x&quot;</span><span class="p">),</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Variable</span><span class="p">(</span><span class="s">&quot;y&quot;</span><span class="p">))),</span>
+<span class="w">            </span><span class="k">new</span><span class="w"> </span><span class="n">Variable</span><span class="p">(</span><span class="s">&quot;z&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="p">);</span>
+
+<span class="w">        </span><span class="kt">boolean</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">expr</span><span class="p">.</span><span class="na">interpret</span><span class="p">(</span><span class="n">ctx</span><span class="p">);</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Result: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">result</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="output">
+<h3>Output<a class="headerlink" href="#output" title="Link to this heading"></a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Result</span><span class="p">:</span> <span class="n">true</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="applications">
+<h2>Applications<a class="headerlink" href="#applications" title="Link to this heading"></a></h2>
+<section id="when-to-use-the-interpreter-pattern">
+<h3>When to Use the Interpreter Pattern<a class="headerlink" href="#when-to-use-the-interpreter-pattern" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>When domain rules can be naturally described as a <strong>small grammar</strong>.</p></li>
+<li><p>When rules need to be <strong>modifiable and composable</strong> at runtime.</p></li>
+<li><p>When you want a clear <strong>OO mapping</strong> from rules to an executable model (AST).</p></li>
+</ol>
+</section>
+<section id="common-use-cases">
+<h3>Common Use Cases<a class="headerlink" href="#common-use-cases" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>Business Rule Engines</strong>:</p>
+<ul class="simple">
+<li><p>Feature flags, eligibility checks, pricing rules.</p></li>
+</ul>
+</li>
+<li><p><strong>Filtering &amp; Query DSLs</strong>:</p>
+<ul class="simple">
+<li><p>Search filters (e.g., <code class="docutils literal notranslate"><span class="pre">(isNew</span> <span class="pre">&amp;</span> <span class="pre">!isArchived)</span> <span class="pre">|</span> <span class="pre">isPinned</span></code>).</p></li>
+</ul>
+</li>
+<li><p><strong>Configuration/Workflow Languages</strong>:</p>
+<ul class="simple">
+<li><p>Simple orchestration or validation logic.</p></li>
+</ul>
+</li>
+<li><p><strong>Expression Evaluators in Apps</strong>:</p>
+<ul class="simple">
+<li><p>Spreadsheet-like formulas, in-app scripting of limited scope.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+</section>
+<hr class="docutils" />
+<section id="advantages-and-disadvantages">
+<h2>Advantages and Disadvantages<a class="headerlink" href="#advantages-and-disadvantages" title="Link to this heading"></a></h2>
+<section id="advantages">
+<h3>Advantages<a class="headerlink" href="#advantages" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>Extensible</strong>:</p>
+<ul class="simple">
+<li><p>Add new operations by adding classes; existing code remains closed to modification.</p></li>
+</ul>
+</li>
+<li><p><strong>Readable Domain Mapping</strong>:</p>
+<ul class="simple">
+<li><p>Clear correspondence between grammar and class structure.</p></li>
+</ul>
+</li>
+<li><p><strong>Testable</strong>:</p>
+<ul class="simple">
+<li><p>Each expression node can be unit-tested in isolation.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="disadvantages">
+<h3>Disadvantages<a class="headerlink" href="#disadvantages" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>Class Proliferation</strong>:</p>
+<ul class="simple">
+<li><p>Many small classes for nontrivial grammars.</p></li>
+</ul>
+</li>
+<li><p><strong>Performance</strong>:</p>
+<ul class="simple">
+<li><p>Tree traversal and object allocation may be slower than specialized evaluators.</p></li>
+</ul>
+</li>
+<li><p><strong>Not for Large Languages</strong>:</p>
+<ul class="simple">
+<li><p>Complex grammars are better served by parser generators/VMs.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+</section>
+<hr class="docutils" />
+<section id="key-takeaways">
+<h2>Key Takeaways<a class="headerlink" href="#key-takeaways" title="Link to this heading"></a></h2>
+<p>The <strong>Interpreter Pattern</strong> models a small language as a composition of objects. It shines when you need <em>simple, evolving</em> grammars with first-class testability and extensibility. For large or performance-critical languages, reach for dedicated parsing tools or DSL frameworks instead.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="command_pattern.gen.html" class="btn btn-neutral float-left" title="Command Pattern" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="iterator_pattern.gen.html" class="btn btn-neutral float-right" title="Iterator Pattern" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, David Gonçalves.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

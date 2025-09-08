@@ -1,0 +1,445 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Strategy Pattern &mdash; Design Patterns Case Study 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=8d563738"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/custom.js?v=f12ea912"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Template Method Pattern" href="templatemethod_pattern.gen.html" />
+    <link rel="prev" title="State Pattern" href="state_pattern.gen.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Design Patterns Case Study
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.gen.html">Design Patterns Case Study</a></li>
+<li class="toctree-l1"><a class="reference internal" href="creational_patterns.gen.html">Creational Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="structural_patterns.gen.html">Structural Patterns</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="behavioral_patterns.gen.html">Behavioral Patterns</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="chainofresponsibility_pattern.gen.html">Chain of Responsibility Pattern</a></li>
+<li class="toctree-l2"><a class="reference internal" href="command_pattern.gen.html">Command Pattern</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interpreter_pattern.gen.html">Interpreter Pattern</a></li>
+<li class="toctree-l2"><a class="reference internal" href="iterator_pattern.gen.html">Iterator Pattern</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mediator_pattern.gen.html">Mediator Pattern</a></li>
+<li class="toctree-l2"><a class="reference internal" href="memento_pattern.gen.html">Memento Pattern</a></li>
+<li class="toctree-l2"><a class="reference internal" href="observer_pattern.gen.html">Observer Pattern</a></li>
+<li class="toctree-l2"><a class="reference internal" href="state_pattern.gen.html">State Pattern</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Strategy Pattern</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#category"><strong>Category</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#overview"><strong>Overview</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#key-characteristics"><strong>Key Characteristics</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#uml-diagram"><strong>UML Diagram</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#implementation-walkthrough"><strong>Implementation Walkthrough</strong></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#participants"><strong>Participants</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#example-payment-processing-system"><strong>Example: Payment Processing System</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#applications"><strong>Applications</strong></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#when-to-use-the-strategy-pattern"><strong>When to Use the Strategy Pattern</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#advantages-and-disadvantages"><strong>Advantages and Disadvantages</strong></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#advantages"><strong>Advantages</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#disadvantages"><strong>Disadvantages</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#comparison-with-related-patterns"><strong>Comparison with Related Patterns</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#key-takeaways"><strong>Key Takeaways</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="templatemethod_pattern.gen.html">Template Method Pattern</a></li>
+<li class="toctree-l2"><a class="reference internal" href="visitor_pattern.gen.html">Visitor Pattern</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="gof.gen.html">The Gang of Four</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.gen.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cpp_api_index.gen.html">C++ API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_api.html">Python API Documentation</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Design Patterns Case Study</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="behavioral_patterns.gen.html">Behavioral Patterns</a></li>
+      <li class="breadcrumb-item active">Strategy Pattern</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/MangaD/Design-Patterns-Case-Study/blob/main/docs/source/strategy_pattern.gen.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="toctree-wrapper compound">
+</div>
+<section id="strategy-pattern">
+<h1>Strategy Pattern<a class="headerlink" href="#strategy-pattern" title="Link to this heading"></a></h1>
+<section id="category">
+<h2><strong>Category</strong><a class="headerlink" href="#category" title="Link to this heading"></a></h2>
+<p>Behavioral Design Pattern</p>
+</section>
+<hr class="docutils" />
+<section id="overview">
+<h2><strong>Overview</strong><a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p>The <strong>Strategy Pattern</strong> is a behavioral design pattern that enables a class’s behavior to be selected at runtime. Instead of implementing multiple algorithms or behaviors directly in a class, the pattern delegates this functionality to separate classes, each encapsulating a specific behavior or algorithm.</p>
+<p>This allows for easy swapping of algorithms, adherence to the <strong>Open-Closed Principle</strong> (open for extension, closed for modification), and promotes a flexible design.</p>
+</section>
+<hr class="docutils" />
+<section id="key-characteristics">
+<h2><strong>Key Characteristics</strong><a class="headerlink" href="#key-characteristics" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p><strong>Encapsulation of Algorithms</strong>:</p>
+<ul class="simple">
+<li><p>Each algorithm is encapsulated in its own class, implementing a common interface.</p></li>
+<li><p>The client does not need to know which algorithm is being used.</p></li>
+</ul>
+</li>
+<li><p><strong>Runtime Flexibility</strong>:</p>
+<ul class="simple">
+<li><p>The behavior of a class can be changed dynamically by swapping strategies during execution.</p></li>
+</ul>
+</li>
+<li><p><strong>Separation of Concerns</strong>:</p>
+<ul class="simple">
+<li><p>The context class is decoupled from the specific implementation of algorithms, allowing it to focus on its core responsibilities.</p></li>
+</ul>
+</li>
+<li><p><strong>Adherence to the Open-Closed Principle</strong>:</p>
+<ul class="simple">
+<li><p>New strategies can be added without modifying the existing code.</p></li>
+</ul>
+</li>
+<li><p><strong>Elimination of Conditional Logic</strong>:</p>
+<ul class="simple">
+<li><p>Replaces long conditional statements with polymorphism, improving maintainability.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="uml-diagram">
+<h2><strong>UML Diagram</strong><a class="headerlink" href="#uml-diagram" title="Link to this heading"></a></h2>
+<p>The UML diagram below illustrates the Strategy Pattern, where the <code class="docutils literal notranslate"><span class="pre">Context</span></code> class delegates algorithm execution to a <code class="docutils literal notranslate"><span class="pre">Strategy</span></code> object.</p>
+<p><img alt="UML Diagram" src="http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/MangaD/Design-Patterns-Case-Study/refs/heads/main/Behavioral/Strategy/strategy.puml" /></p>
+</section>
+<hr class="docutils" />
+<section id="implementation-walkthrough">
+<h2><strong>Implementation Walkthrough</strong><a class="headerlink" href="#implementation-walkthrough" title="Link to this heading"></a></h2>
+<section id="participants">
+<h3><strong>Participants</strong><a class="headerlink" href="#participants" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>Strategy (Interface)</strong>:</p>
+<ul class="simple">
+<li><p>Defines a common interface for all supported algorithms or behaviors.</p></li>
+<li><p>Example: <code class="docutils literal notranslate"><span class="pre">Strategy</span></code> interface with a <code class="docutils literal notranslate"><span class="pre">execute()</span></code> method.</p></li>
+</ul>
+</li>
+<li><p><strong>Concrete Strategies</strong>:</p>
+<ul class="simple">
+<li><p>Implement the <code class="docutils literal notranslate"><span class="pre">Strategy</span></code> interface to provide specific algorithms or behaviors.</p></li>
+<li><p>Example: <code class="docutils literal notranslate"><span class="pre">ConcreteStrategyA</span></code> and <code class="docutils literal notranslate"><span class="pre">ConcreteStrategyB</span></code>.</p></li>
+</ul>
+</li>
+<li><p><strong>Context</strong>:</p>
+<ul class="simple">
+<li><p>Maintains a reference to a <code class="docutils literal notranslate"><span class="pre">Strategy</span></code> object and delegates the execution of behavior to it.</p></li>
+<li><p>Example: A <code class="docutils literal notranslate"><span class="pre">Context</span></code> class that uses a <code class="docutils literal notranslate"><span class="pre">Strategy</span></code> object to perform operations.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="example-payment-processing-system">
+<h3><strong>Example: Payment Processing System</strong><a class="headerlink" href="#example-payment-processing-system" title="Link to this heading"></a></h3>
+<p>In a payment system, you might have different payment methods such as credit card, PayPal, and cryptocurrency. Each payment method implements a common interface (<code class="docutils literal notranslate"><span class="pre">PaymentStrategy</span></code>), and the client (the payment processor) uses the appropriate strategy at runtime.</p>
+<section id="strategy-interface">
+<h4><strong>1. Strategy Interface</strong><a class="headerlink" href="#strategy-interface" title="Link to this heading"></a></h4>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm"> * @brief Interface for payment strategies.</span>
+<span class="cm"> */</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">PaymentStrategy</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">pay</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">amount</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="concrete-strategies">
+<h4><strong>2. Concrete Strategies</strong><a class="headerlink" href="#concrete-strategies" title="Link to this heading"></a></h4>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm"> * @brief Concrete strategy for credit card payments.</span>
+<span class="cm"> */</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">CreditCardPayment</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">PaymentStrategy</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">cardNumber</span><span class="p">;</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">CreditCardPayment</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">cardNumber</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">cardNumber</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cardNumber</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">pay</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">amount</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Paid &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">amount</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; using credit card: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">cardNumber</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * @brief Concrete strategy for PayPal payments.</span>
+<span class="cm"> */</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">PayPalPayment</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">PaymentStrategy</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">email</span><span class="p">;</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">PayPalPayment</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">email</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">email</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">email</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">pay</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">amount</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Paid &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">amount</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; using PayPal: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">email</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="context-class">
+<h4><strong>3. Context Class</strong><a class="headerlink" href="#context-class" title="Link to this heading"></a></h4>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm"> * @brief Context class for managing payment strategies.</span>
+<span class="cm"> */</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">PaymentProcessor</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">PaymentStrategy</span><span class="w"> </span><span class="n">paymentStrategy</span><span class="p">;</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">setPaymentStrategy</span><span class="p">(</span><span class="n">PaymentStrategy</span><span class="w"> </span><span class="n">paymentStrategy</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">paymentStrategy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">paymentStrategy</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">processPayment</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">amount</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">paymentStrategy</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">IllegalStateException</span><span class="p">(</span><span class="s">&quot;Payment strategy not set&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="n">paymentStrategy</span><span class="p">.</span><span class="na">pay</span><span class="p">(</span><span class="n">amount</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="client-code">
+<h4><strong>4. Client Code</strong><a class="headerlink" href="#client-code" title="Link to this heading"></a></h4>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm"> * @brief Demonstrates the Strategy Pattern.</span>
+<span class="cm"> */</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">StrategyPatternDemo</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">PaymentProcessor</span><span class="w"> </span><span class="n">processor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">PaymentProcessor</span><span class="p">();</span>
+
+<span class="w">        </span><span class="c1">// Pay using credit card</span>
+<span class="w">        </span><span class="n">processor</span><span class="p">.</span><span class="na">setPaymentStrategy</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">CreditCardPayment</span><span class="p">(</span><span class="s">&quot;1234-5678-9012-3456&quot;</span><span class="p">));</span>
+<span class="w">        </span><span class="n">processor</span><span class="p">.</span><span class="na">processPayment</span><span class="p">(</span><span class="mf">100.0</span><span class="p">);</span>
+
+<span class="w">        </span><span class="c1">// Pay using PayPal</span>
+<span class="w">        </span><span class="n">processor</span><span class="p">.</span><span class="na">setPaymentStrategy</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">PayPalPayment</span><span class="p">(</span><span class="s">&quot;user@example.com&quot;</span><span class="p">));</span>
+<span class="w">        </span><span class="n">processor</span><span class="p">.</span><span class="na">processPayment</span><span class="p">(</span><span class="mf">200.0</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="output">
+<h4><strong>Output</strong><a class="headerlink" href="#output" title="Link to this heading"></a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Paid</span> <span class="mf">100.0</span> <span class="n">using</span> <span class="n">credit</span> <span class="n">card</span><span class="p">:</span> <span class="mi">1234</span><span class="o">-</span><span class="mi">5678</span><span class="o">-</span><span class="mi">9012</span><span class="o">-</span><span class="mi">3456</span>
+<span class="n">Paid</span> <span class="mf">200.0</span> <span class="n">using</span> <span class="n">PayPal</span><span class="p">:</span> <span class="n">user</span><span class="nd">@example</span><span class="o">.</span><span class="n">com</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+<hr class="docutils" />
+<section id="applications">
+<h2><strong>Applications</strong><a class="headerlink" href="#applications" title="Link to this heading"></a></h2>
+<section id="when-to-use-the-strategy-pattern">
+<h3><strong>When to Use the Strategy Pattern</strong><a class="headerlink" href="#when-to-use-the-strategy-pattern" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>Multiple Algorithms</strong>:</p>
+<ul class="simple">
+<li><p>When a class needs to support multiple algorithms or behaviors, and these can vary at runtime.</p></li>
+<li><p>Example: Sorting algorithms, payment methods.</p></li>
+</ul>
+</li>
+<li><p><strong>Avoiding Conditional Logic</strong>:</p>
+<ul class="simple">
+<li><p>When complex conditional statements are used to determine which behavior to execute.</p></li>
+<li><p>Example: Using polymorphism to replace <code class="docutils literal notranslate"><span class="pre">if-else</span></code> or <code class="docutils literal notranslate"><span class="pre">switch-case</span></code> constructs.</p></li>
+</ul>
+</li>
+<li><p><strong>Adherence to Open-Closed Principle</strong>:</p>
+<ul class="simple">
+<li><p>When you need to add new algorithms or behaviors without modifying existing code.</p></li>
+<li><p>Example: Adding new shipping methods to an e-commerce platform.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+</section>
+<hr class="docutils" />
+<section id="advantages-and-disadvantages">
+<h2><strong>Advantages and Disadvantages</strong><a class="headerlink" href="#advantages-and-disadvantages" title="Link to this heading"></a></h2>
+<section id="advantages">
+<h3><strong>Advantages</strong><a class="headerlink" href="#advantages" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>Flexibility</strong>:</p>
+<ul class="simple">
+<li><p>Allows dynamic switching of algorithms or behaviors at runtime.</p></li>
+</ul>
+</li>
+<li><p><strong>Code Reusability</strong>:</p>
+<ul class="simple">
+<li><p>Encapsulated strategies are reusable across different contexts.</p></li>
+</ul>
+</li>
+<li><p><strong>Testability</strong>:</p>
+<ul class="simple">
+<li><p>Strategies can be tested independently of the context.</p></li>
+</ul>
+</li>
+<li><p><strong>Extensibility</strong>:</p>
+<ul class="simple">
+<li><p>New strategies can be added without modifying existing code.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="disadvantages">
+<h3><strong>Disadvantages</strong><a class="headerlink" href="#disadvantages" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>Increased Complexity</strong>:</p>
+<ul class="simple">
+<li><p>Introduces additional classes for each strategy, increasing codebase size.</p></li>
+</ul>
+</li>
+<li><p><strong>Overhead</strong>:</p>
+<ul class="simple">
+<li><p>Requires careful management of strategy objects, especially if they involve state.</p></li>
+</ul>
+</li>
+<li><p><strong>Tight Coupling with Context</strong>:</p>
+<ul class="simple">
+<li><p>The context must be aware of the <code class="docutils literal notranslate"><span class="pre">Strategy</span></code> interface, which can create dependencies.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+</section>
+<hr class="docutils" />
+<section id="comparison-with-related-patterns">
+<h2><strong>Comparison with Related Patterns</strong><a class="headerlink" href="#comparison-with-related-patterns" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><strong>State vs. Strategy</strong>:</p>
+<ul>
+<li><p>Both patterns encapsulate behavior in separate classes and use composition to delegate functionality, but their <strong>intent</strong> and <strong>usage</strong> differ:</p>
+<ul>
+<li><p><strong>State Pattern</strong> focuses on modeling <strong>state-dependent behavior</strong> where the object’s behavior changes automatically based on its internal state. Transitions between states are managed within the states themselves.</p></li>
+<li><p><strong>Strategy Pattern</strong> emphasizes defining <strong>interchangeable algorithms</strong> or behaviors. The client explicitly selects and assigns the desired strategy to the context, and there are no automatic transitions.</p></li>
+</ul>
+</li>
+<li><p><strong>Key Difference</strong>: The <strong>State Pattern</strong> manages transitions between states internally, while the <strong>Strategy Pattern</strong> requires the client to choose and assign behaviors explicitly.</p></li>
+</ul>
+</li>
+<li><p><strong>Decorator Pattern</strong>:</p>
+<ul>
+<li><p>Both promote flexibility and adherence to the Open-Closed Principle.</p></li>
+<li><p><strong>Difference</strong>: The <code class="docutils literal notranslate"><span class="pre">Decorator</span></code> pattern dynamically adds responsibilities to objects, while the <code class="docutils literal notranslate"><span class="pre">Strategy</span></code> pattern dynamically swaps algorithms.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="key-takeaways">
+<h2><strong>Key Takeaways</strong><a class="headerlink" href="#key-takeaways" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>The <strong>Strategy Pattern</strong> is ideal for systems requiring multiple interchangeable behaviors.</p></li>
+<li><p>It simplifies code by encapsulating algorithms into separate classes, improving flexibility and adherence to SOLID principles.</p></li>
+<li><p>Proper use of the pattern can make systems more modular and extensible, but care should be taken to avoid unnecessary complexity.</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="state_pattern.gen.html" class="btn btn-neutral float-left" title="State Pattern" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="templatemethod_pattern.gen.html" class="btn btn-neutral float-right" title="Template Method Pattern" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, David Gonçalves.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,470 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>State Pattern &mdash; Design Patterns Case Study 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=8d563738"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/custom.js?v=f12ea912"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Strategy Pattern" href="strategy_pattern.gen.html" />
+    <link rel="prev" title="Observer Pattern" href="observer_pattern.gen.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Design Patterns Case Study
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.gen.html">Design Patterns Case Study</a></li>
+<li class="toctree-l1"><a class="reference internal" href="creational_patterns.gen.html">Creational Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="structural_patterns.gen.html">Structural Patterns</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="behavioral_patterns.gen.html">Behavioral Patterns</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="chainofresponsibility_pattern.gen.html">Chain of Responsibility Pattern</a></li>
+<li class="toctree-l2"><a class="reference internal" href="command_pattern.gen.html">Command Pattern</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interpreter_pattern.gen.html">Interpreter Pattern</a></li>
+<li class="toctree-l2"><a class="reference internal" href="iterator_pattern.gen.html">Iterator Pattern</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mediator_pattern.gen.html">Mediator Pattern</a></li>
+<li class="toctree-l2"><a class="reference internal" href="memento_pattern.gen.html">Memento Pattern</a></li>
+<li class="toctree-l2"><a class="reference internal" href="observer_pattern.gen.html">Observer Pattern</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">State Pattern</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#category">Category</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#key-characteristics">Key Characteristics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#uml-diagram">UML Diagram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#implementation-walkthrough">Implementation Walkthrough</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#participants">Participants</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#example-document-workflow">Example: Document Workflow</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#output">Output</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#applications">Applications</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#when-to-use-the-state-pattern">When to Use the State Pattern</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#common-use-cases">Common Use Cases</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#advantages-and-disadvantages">Advantages and Disadvantages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#advantages">Advantages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#disadvantages">Disadvantages</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#key-takeaways">Key Takeaways</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="strategy_pattern.gen.html">Strategy Pattern</a></li>
+<li class="toctree-l2"><a class="reference internal" href="templatemethod_pattern.gen.html">Template Method Pattern</a></li>
+<li class="toctree-l2"><a class="reference internal" href="visitor_pattern.gen.html">Visitor Pattern</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="gof.gen.html">The Gang of Four</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.gen.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cpp_api_index.gen.html">C++ API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_api.html">Python API Documentation</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Design Patterns Case Study</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="behavioral_patterns.gen.html">Behavioral Patterns</a></li>
+      <li class="breadcrumb-item active">State Pattern</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/MangaD/Design-Patterns-Case-Study/blob/main/docs/source/state_pattern.gen.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="toctree-wrapper compound">
+</div>
+<section id="state-pattern">
+<h1>State Pattern<a class="headerlink" href="#state-pattern" title="Link to this heading"></a></h1>
+<section id="category">
+<h2>Category<a class="headerlink" href="#category" title="Link to this heading"></a></h2>
+<p>Behavioral Design Pattern</p>
+</section>
+<hr class="docutils" />
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p>The <strong>State Pattern</strong> is a <strong>behavioral design pattern</strong> that allows an object to alter its behavior when its <strong>internal state</strong> changes. The object will appear to change its class by delegating the behavior to the current state object.</p>
+<p>This pattern is particularly useful when:</p>
+<ul class="simple">
+<li><p>An object’s behavior depends on its state.</p></li>
+<li><p>The object needs to change its behavior dynamically during runtime.</p></li>
+<li><p>You want to avoid complex conditional statements that determine the object’s behavior.</p></li>
+</ul>
+<p>The <strong>State Pattern</strong> promotes <strong>single responsibility</strong> by encapsulating state-specific behavior into separate classes and adhering to the <strong>Open-Closed Principle</strong>, allowing for easy addition of new states without altering existing code.</p>
+</section>
+<hr class="docutils" />
+<section id="key-characteristics">
+<h2>Key Characteristics<a class="headerlink" href="#key-characteristics" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p><strong>Encapsulation of State</strong>:</p>
+<ul class="simple">
+<li><p>The state-specific logic is encapsulated in separate classes, reducing complexity and improving maintainability.</p></li>
+</ul>
+</li>
+<li><p><strong>Dynamic Behavior</strong>:</p>
+<ul class="simple">
+<li><p>The object’s behavior changes dynamically as its internal state changes, achieved through delegation.</p></li>
+</ul>
+</li>
+<li><p><strong>Eliminates Conditionals</strong>:</p>
+<ul class="simple">
+<li><p>Removes the need for complex conditional statements (e.g., <code class="docutils literal notranslate"><span class="pre">if-else</span></code> or <code class="docutils literal notranslate"><span class="pre">switch-case</span></code>) to handle state-dependent behavior.</p></li>
+</ul>
+</li>
+<li><p><strong>Promotes Open-Closed Principle</strong>:</p>
+<ul class="simple">
+<li><p>New states can be added without modifying the existing code.</p></li>
+</ul>
+</li>
+<li><p><strong>Context-Driven</strong>:</p>
+<ul class="simple">
+<li><p>A <strong>Context</strong> class manages the current state and delegates behavior to the state objects.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="uml-diagram">
+<h2>UML Diagram<a class="headerlink" href="#uml-diagram" title="Link to this heading"></a></h2>
+<p>The UML diagram below illustrates the <strong>State Pattern</strong>. The <strong>Context</strong> interacts with the <strong>State</strong> interface, which is implemented by various concrete state classes to provide state-specific behavior.</p>
+<p><img alt="UML Diagram" src="http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/MangaD/Design-Patterns-Case-Study/refs/heads/main/Behavioral/State/state.puml" /></p>
+</section>
+<hr class="docutils" />
+<section id="implementation-walkthrough">
+<h2>Implementation Walkthrough<a class="headerlink" href="#implementation-walkthrough" title="Link to this heading"></a></h2>
+<section id="participants">
+<h3>Participants<a class="headerlink" href="#participants" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>State</strong>:</p>
+<ul class="simple">
+<li><p>Defines the interface for all concrete states.</p></li>
+</ul>
+</li>
+<li><p><strong>Concrete States</strong>:</p>
+<ul class="simple">
+<li><p>Implement state-specific behavior.</p></li>
+<li><p>Handle requests and may transition the context to a different state.</p></li>
+</ul>
+</li>
+<li><p><strong>Context</strong>:</p>
+<ul class="simple">
+<li><p>Maintains a reference to the current state.</p></li>
+<li><p>Delegates requests to the current state object.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="example-document-workflow">
+<h3>Example: Document Workflow<a class="headerlink" href="#example-document-workflow" title="Link to this heading"></a></h3>
+<p>A document transitions through various states such as <strong>Draft</strong>, <strong>Moderation</strong>, and <strong>Published</strong>. Each state defines behavior for actions like <code class="docutils literal notranslate"><span class="pre">publish()</span></code> and <code class="docutils literal notranslate"><span class="pre">reject()</span></code>.</p>
+<hr class="docutils" />
+<section id="state-interface">
+<h4>State Interface<a class="headerlink" href="#state-interface" title="Link to this heading"></a></h4>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm"> * @brief State interface that declares actions.</span>
+<span class="cm"> */</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">State</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">publish</span><span class="p">(</span><span class="n">Document</span><span class="w"> </span><span class="n">context</span><span class="p">);</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">reject</span><span class="p">(</span><span class="n">Document</span><span class="w"> </span><span class="n">context</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="concrete-states">
+<h4>Concrete States<a class="headerlink" href="#concrete-states" title="Link to this heading"></a></h4>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm"> * @brief Draft state implementation.</span>
+<span class="cm"> */</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">DraftState</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">State</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">publish</span><span class="p">(</span><span class="n">Document</span><span class="w"> </span><span class="n">context</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Draft is now under moderation.&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">context</span><span class="p">.</span><span class="na">setState</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">ModerationState</span><span class="p">());</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">reject</span><span class="p">(</span><span class="n">Document</span><span class="w"> </span><span class="n">context</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Draft has been rejected.&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * @brief Moderation state implementation.</span>
+<span class="cm"> */</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ModerationState</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">State</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">publish</span><span class="p">(</span><span class="n">Document</span><span class="w"> </span><span class="n">context</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Document is now published.&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">context</span><span class="p">.</span><span class="na">setState</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">PublishedState</span><span class="p">());</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">reject</span><span class="p">(</span><span class="n">Document</span><span class="w"> </span><span class="n">context</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Document has been sent back to draft.&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">context</span><span class="p">.</span><span class="na">setState</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">DraftState</span><span class="p">());</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * @brief Published state implementation.</span>
+<span class="cm"> */</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">PublishedState</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">State</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">publish</span><span class="p">(</span><span class="n">Document</span><span class="w"> </span><span class="n">context</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Document is already published.&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">reject</span><span class="p">(</span><span class="n">Document</span><span class="w"> </span><span class="n">context</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Published document cannot be rejected.&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="context">
+<h4>Context<a class="headerlink" href="#context" title="Link to this heading"></a></h4>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm"> * @brief Document context that manages states.</span>
+<span class="cm"> */</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Document</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">State</span><span class="w"> </span><span class="n">state</span><span class="p">;</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">Document</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">DraftState</span><span class="p">();</span><span class="w"> </span><span class="c1">// Default state</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">setState</span><span class="p">(</span><span class="n">State</span><span class="w"> </span><span class="n">state</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">state</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">publish</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">state</span><span class="p">.</span><span class="na">publish</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">reject</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">state</span><span class="p">.</span><span class="na">reject</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="client-code">
+<h4>Client Code<a class="headerlink" href="#client-code" title="Link to this heading"></a></h4>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm"> * @brief Demonstrates the State Pattern.</span>
+<span class="cm"> */</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">StatePatternDemo</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Document</span><span class="w"> </span><span class="n">document</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Document</span><span class="p">();</span>
+
+<span class="w">        </span><span class="n">document</span><span class="p">.</span><span class="na">publish</span><span class="p">();</span><span class="w"> </span><span class="c1">// Transition to Moderation</span>
+<span class="w">        </span><span class="n">document</span><span class="p">.</span><span class="na">publish</span><span class="p">();</span><span class="w"> </span><span class="c1">// Transition to Published</span>
+<span class="w">        </span><span class="n">document</span><span class="p">.</span><span class="na">reject</span><span class="p">();</span><span class="w">  </span><span class="c1">// Invalid action</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="output">
+<h3>Output<a class="headerlink" href="#output" title="Link to this heading"></a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Draft</span> <span class="ow">is</span> <span class="n">now</span> <span class="n">under</span> <span class="n">moderation</span><span class="o">.</span>
+<span class="n">Document</span> <span class="ow">is</span> <span class="n">now</span> <span class="n">published</span><span class="o">.</span>
+<span class="n">Published</span> <span class="n">document</span> <span class="n">cannot</span> <span class="n">be</span> <span class="n">rejected</span><span class="o">.</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="applications">
+<h2>Applications<a class="headerlink" href="#applications" title="Link to this heading"></a></h2>
+<section id="when-to-use-the-state-pattern">
+<h3>When to Use the State Pattern<a class="headerlink" href="#when-to-use-the-state-pattern" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>Dynamic State Changes</strong>:</p>
+<ul class="simple">
+<li><p>When an object’s behavior changes based on its internal state.</p></li>
+<li><p>Example: Document workflow systems, video game characters.</p></li>
+</ul>
+</li>
+<li><p><strong>Avoiding Complex Conditionals</strong>:</p>
+<ul class="simple">
+<li><p>When you want to eliminate large conditional statements to manage state transitions.</p></li>
+</ul>
+</li>
+<li><p><strong>Encapsulation of Behavior</strong>:</p>
+<ul class="simple">
+<li><p>When state-specific behavior needs to be isolated for clarity and reusability.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="common-use-cases">
+<h3>Common Use Cases<a class="headerlink" href="#common-use-cases" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>Workflow Systems</strong>:</p>
+<ul class="simple">
+<li><p>Document states: Draft, Moderation, Published.</p></li>
+<li><p>Order states: New, Processing, Shipped, Delivered.</p></li>
+</ul>
+</li>
+<li><p><strong>Game Development</strong>:</p>
+<ul class="simple">
+<li><p>Character states: Idle, Running, Jumping, Attacking.</p></li>
+</ul>
+</li>
+<li><p><strong>UI Components</strong>:</p>
+<ul class="simple">
+<li><p>Button states: Enabled, Disabled, Hovered, Clicked.</p></li>
+</ul>
+</li>
+<li><p><strong>Finite State Machines</strong>:</p>
+<ul class="simple">
+<li><p>Devices with distinct modes of operation (e.g., On/Off, Standby, Sleep).</p></li>
+</ul>
+</li>
+</ol>
+</section>
+</section>
+<hr class="docutils" />
+<section id="advantages-and-disadvantages">
+<h2>Advantages and Disadvantages<a class="headerlink" href="#advantages-and-disadvantages" title="Link to this heading"></a></h2>
+<section id="advantages">
+<h3>Advantages<a class="headerlink" href="#advantages" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>Improved Readability</strong>:</p>
+<ul class="simple">
+<li><p>Encapsulates state-specific behavior in distinct classes, making the code easier to read and maintain.</p></li>
+</ul>
+</li>
+<li><p><strong>Extensibility</strong>:</p>
+<ul class="simple">
+<li><p>New states can be added without modifying existing code, adhering to the <strong>Open-Closed Principle</strong>.</p></li>
+</ul>
+</li>
+<li><p><strong>Encapsulation</strong>:</p>
+<ul class="simple">
+<li><p>Reduces coupling by isolating state logic from the context.</p></li>
+</ul>
+</li>
+<li><p><strong>Dynamic Behavior</strong>:</p>
+<ul class="simple">
+<li><p>Allows objects to change their behavior dynamically at runtime.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="disadvantages">
+<h3>Disadvantages<a class="headerlink" href="#disadvantages" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>Increased Class Count</strong>:</p>
+<ul class="simple">
+<li><p>Introduces multiple state classes, increasing code complexity.</p></li>
+</ul>
+</li>
+<li><p><strong>Context Awareness</strong>:</p>
+<ul class="simple">
+<li><p>States need to be aware of the context to perform transitions, potentially increasing coupling.</p></li>
+</ul>
+</li>
+<li><p><strong>Overhead</strong>:</p>
+<ul class="simple">
+<li><p>May introduce overhead if the application has simple state transitions.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+</section>
+<hr class="docutils" />
+<section id="key-takeaways">
+<h2>Key Takeaways<a class="headerlink" href="#key-takeaways" title="Link to this heading"></a></h2>
+<p>The <strong>State Pattern</strong> is ideal for managing objects with dynamic behavior driven by internal states. By encapsulating state-specific logic into separate classes, this pattern improves maintainability and simplifies code. However, it may introduce complexity in scenarios with simple state transitions.</p>
+<ul class="simple">
+<li><p><strong>Use it when</strong>: An object’s behavior needs to change dynamically based on its state.</p></li>
+<li><p><strong>Avoid it when</strong>: The number of states is fixed and minimal, or the transitions are straightforward.</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="observer_pattern.gen.html" class="btn btn-neutral float-left" title="Observer Pattern" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="strategy_pattern.gen.html" class="btn btn-neutral float-right" title="Strategy Pattern" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, David Gonçalves.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

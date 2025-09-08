@@ -1,0 +1,14 @@
+Test  Mediator  Source
+======================
+
+.. doxygenfile:: test_mediator.cpp
+   :project: Design Patterns C++
+   :no-link:
+
+Inner Classes
+-------------
+
+.. toctree::
+   :maxdepth: 1
+
+   classMediatorTest.gen

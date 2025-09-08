@@ -1,0 +1,24 @@
+Template  Method  Header
+========================
+
+.. doxygenfile:: template_method.hpp
+   :project: Design Patterns C++
+   :no-link:
+
+Inner Classes
+-------------
+
+.. toctree::
+   :maxdepth: 1
+
+   classtemplate__method__pattern_1_1AbstractClass.gen
+   classtemplate__method__pattern_1_1ConcreteClass1.gen
+   classtemplate__method__pattern_1_1ConcreteClass2.gen
+
+Inner Namespaces
+----------------
+
+.. toctree::
+   :maxdepth: 1
+
+   namespacetemplate__method__pattern.gen

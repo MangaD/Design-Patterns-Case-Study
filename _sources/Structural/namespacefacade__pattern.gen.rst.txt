@@ -1,0 +1,6 @@
+facade_pattern
+==============
+
+.. doxygennamespace:: facade_pattern
+   :project: Design Patterns C++
+   :members:

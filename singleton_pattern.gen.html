@@ -1,0 +1,415 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Singleton Pattern &mdash; Design Patterns Case Study 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=8d563738"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/custom.js?v=f12ea912"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Structural Patterns" href="structural_patterns.gen.html" />
+    <link rel="prev" title="Prototype Pattern" href="prototype_pattern.gen.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Design Patterns Case Study
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.gen.html">Design Patterns Case Study</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="creational_patterns.gen.html">Creational Patterns</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="abstractfactory_pattern.gen.html">Abstract Factory Pattern</a></li>
+<li class="toctree-l2"><a class="reference internal" href="builder_pattern.gen.html">Builder Pattern</a></li>
+<li class="toctree-l2"><a class="reference internal" href="factorymethod_pattern.gen.html">Factory Method Pattern</a></li>
+<li class="toctree-l2"><a class="reference internal" href="objectpool_pattern.gen.html">Object Pool Pattern</a></li>
+<li class="toctree-l2"><a class="reference internal" href="prototype_pattern.gen.html">Prototype Pattern</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Singleton Pattern</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#category">Category</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#key-characteristics">Key Characteristics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#uml-diagram">UML Diagram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#implementation-variations">Implementation Variations</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#eager-initialization">1. Eager Initialization</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#lazy-initialization">2. Lazy Initialization</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#thread-safe-initialization">3. Thread-Safe Initialization</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#enum-singleton">4. Enum Singleton</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#example-logging-system">Example: Logging System</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#implementation">Implementation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#client-code">Client Code</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#output">Output</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#use-cases">Use Cases</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#advantages-and-disadvantages">Advantages and Disadvantages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#advantages">Advantages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#disadvantages">Disadvantages</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#key-takeaways">Key Takeaways</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="structural_patterns.gen.html">Structural Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="behavioral_patterns.gen.html">Behavioral Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gof.gen.html">The Gang of Four</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.gen.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cpp_api_index.gen.html">C++ API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_api.html">Python API Documentation</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Design Patterns Case Study</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="creational_patterns.gen.html">Creational Patterns</a></li>
+      <li class="breadcrumb-item active">Singleton Pattern</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/MangaD/Design-Patterns-Case-Study/blob/main/docs/source/singleton_pattern.gen.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="toctree-wrapper compound">
+</div>
+<section id="singleton-pattern">
+<h1>Singleton Pattern<a class="headerlink" href="#singleton-pattern" title="Link to this heading"></a></h1>
+<section id="category">
+<h2>Category<a class="headerlink" href="#category" title="Link to this heading"></a></h2>
+<p>Creational Design Pattern</p>
+</section>
+<hr class="docutils" />
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p>The <strong>Singleton Pattern</strong> is a <strong>creational design pattern</strong> that ensures a class has only <strong>one instance</strong> throughout the lifetime of an application. It provides a <strong>global point of access</strong> to that instance, ensuring consistency and centralized control over shared resources or global states.</p>
+<p>This pattern is particularly useful when:</p>
+<ul class="simple">
+<li><p>A shared resource needs to be accessed globally.</p></li>
+<li><p>It is critical to maintain a single state across the application.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="key-characteristics">
+<h2>Key Characteristics<a class="headerlink" href="#key-characteristics" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p><strong>Global Access</strong>:</p>
+<ul class="simple">
+<li><p>Provides a single access point to the instance through a static method.</p></li>
+</ul>
+</li>
+<li><p><strong>Controlled Instantiation</strong>:</p>
+<ul class="simple">
+<li><p>Ensures that only one instance exists by making the constructor private.</p></li>
+</ul>
+</li>
+<li><p><strong>Lazy or Eager Initialization</strong>:</p>
+<ul class="simple">
+<li><p>Controls when the instance is created:</p>
+<ul>
+<li><p><strong>Lazy Initialization</strong>: The instance is created only when accessed for the first time.</p></li>
+<li><p><strong>Eager Initialization</strong>: The instance is created during class loading.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Thread Safety</strong>:</p>
+<ul class="simple">
+<li><p>Ensures that the Singleton instance is safely shared across threads using synchronization or modern static initialization techniques.</p></li>
+</ul>
+</li>
+<li><p><strong>Encapsulation</strong>:</p>
+<ul class="simple">
+<li><p>The Singleton class encapsulates its own instantiation logic, adhering to the <strong>Single Responsibility Principle</strong>.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="uml-diagram">
+<h2>UML Diagram<a class="headerlink" href="#uml-diagram" title="Link to this heading"></a></h2>
+<p>The UML diagram below illustrates the Singleton Pattern. The static <code class="docutils literal notranslate"><span class="pre">getInstance</span></code> method ensures a single instance of the class is created and shared.</p>
+<p><img alt="UML Diagram" src="http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/MangaD/Design-Patterns-Case-Study/refs/heads/main/Creational/Singleton/singleton.puml" /></p>
+</section>
+<hr class="docutils" />
+<section id="implementation-variations">
+<h2>Implementation Variations<a class="headerlink" href="#implementation-variations" title="Link to this heading"></a></h2>
+<section id="eager-initialization">
+<h3>1. Eager Initialization<a class="headerlink" href="#eager-initialization" title="Link to this heading"></a></h3>
+<p>The instance is created at the time of class loading, ensuring simplicity but potentially wasting resources if unused.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">EagerSingleton</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">EagerSingleton</span><span class="w"> </span><span class="n">INSTANCE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">EagerSingleton</span><span class="p">();</span>
+
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="nf">EagerSingleton</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="n">EagerSingleton</span><span class="w"> </span><span class="nf">getInstance</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">INSTANCE</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="lazy-initialization">
+<h3>2. Lazy Initialization<a class="headerlink" href="#lazy-initialization" title="Link to this heading"></a></h3>
+<p>The instance is created only when it is first accessed, saving resources if it is not immediately needed.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">LazySingleton</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="n">LazySingleton</span><span class="w"> </span><span class="n">instance</span><span class="p">;</span>
+
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="nf">LazySingleton</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="n">LazySingleton</span><span class="w"> </span><span class="nf">getInstance</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">instance</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">instance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">LazySingleton</span><span class="p">();</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">instance</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="thread-safe-initialization">
+<h3>3. Thread-Safe Initialization<a class="headerlink" href="#thread-safe-initialization" title="Link to this heading"></a></h3>
+<p>Ensures that the Singleton instance is safely shared across multiple threads.</p>
+<section id="double-checked-locking">
+<h4>Double-Checked Locking<a class="headerlink" href="#double-checked-locking" title="Link to this heading"></a></h4>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ThreadSafeSingleton</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">volatile</span><span class="w"> </span><span class="n">ThreadSafeSingleton</span><span class="w"> </span><span class="n">instance</span><span class="p">;</span>
+
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="nf">ThreadSafeSingleton</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="n">ThreadSafeSingleton</span><span class="w"> </span><span class="nf">getInstance</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">instance</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="kd">synchronized</span><span class="w"> </span><span class="p">(</span><span class="n">ThreadSafeSingleton</span><span class="p">.</span><span class="na">class</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">instance</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="n">instance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ThreadSafeSingleton</span><span class="p">();</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">instance</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="enum-singleton">
+<h3>4. Enum Singleton<a class="headerlink" href="#enum-singleton" title="Link to this heading"></a></h3>
+<p>Provides a thread-safe and serialization-safe Singleton implementation. This approach is unique to Java.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">enum</span><span class="w"> </span><span class="n">EnumSingleton</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">INSTANCE</span><span class="p">;</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">doSomething</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Enum Singleton is working!&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="example-logging-system">
+<h2>Example: Logging System<a class="headerlink" href="#example-logging-system" title="Link to this heading"></a></h2>
+<p>A <strong>logger</strong> is a common use case for the Singleton Pattern. It ensures that all parts of the application log messages through the same instance.</p>
+<section id="implementation">
+<h3>Implementation<a class="headerlink" href="#implementation" title="Link to this heading"></a></h3>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Logger</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="n">Logger</span><span class="w"> </span><span class="n">instance</span><span class="p">;</span>
+
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="nf">Logger</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="n">Logger</span><span class="w"> </span><span class="nf">getInstance</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">instance</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="kd">synchronized</span><span class="w"> </span><span class="p">(</span><span class="n">Logger</span><span class="p">.</span><span class="na">class</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">instance</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="n">instance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Logger</span><span class="p">();</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">instance</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">log</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">message</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Log: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">message</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="client-code">
+<h3>Client Code<a class="headerlink" href="#client-code" title="Link to this heading"></a></h3>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Logger</span><span class="w"> </span><span class="n">logger</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Logger</span><span class="p">.</span><span class="na">getInstance</span><span class="p">();</span>
+<span class="n">logger</span><span class="p">.</span><span class="na">log</span><span class="p">(</span><span class="s">&quot;Singleton logger example.&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+<section id="output">
+<h3>Output<a class="headerlink" href="#output" title="Link to this heading"></a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Log</span><span class="p">:</span> <span class="n">Singleton</span> <span class="n">logger</span> <span class="n">example</span><span class="o">.</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="use-cases">
+<h2>Use Cases<a class="headerlink" href="#use-cases" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p><strong>Logging Service</strong>:</p>
+<ul class="simple">
+<li><p>A single logging instance ensures consistent formatting and centralized log output.</p></li>
+</ul>
+</li>
+<li><p><strong>Configuration Manager</strong>:</p>
+<ul class="simple">
+<li><p>Centralized access to application settings or configuration.</p></li>
+</ul>
+</li>
+<li><p><strong>Resource Management</strong>:</p>
+<ul class="simple">
+<li><p>Manages shared resources such as database connections or thread pools.</p></li>
+</ul>
+</li>
+<li><p><strong>State Tracking</strong>:</p>
+<ul class="simple">
+<li><p>Centralizes and maintains a global state, such as an application session or cache.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="advantages-and-disadvantages">
+<h2>Advantages and Disadvantages<a class="headerlink" href="#advantages-and-disadvantages" title="Link to this heading"></a></h2>
+<section id="advantages">
+<h3>Advantages<a class="headerlink" href="#advantages" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>Controlled Access</strong>:</p>
+<ul class="simple">
+<li><p>Simplifies and centralizes access to a shared resource or state.</p></li>
+</ul>
+</li>
+<li><p><strong>Resource Efficiency</strong>:</p>
+<ul class="simple">
+<li><p>Prevents redundant object creation.</p></li>
+</ul>
+</li>
+<li><p><strong>Global Consistency</strong>:</p>
+<ul class="simple">
+<li><p>Ensures a single, shared instance across the application.</p></li>
+</ul>
+</li>
+<li><p><strong>Thread Safety</strong>:</p>
+<ul class="simple">
+<li><p>Modern implementations ensure safe access in concurrent environments.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="disadvantages">
+<h3>Disadvantages<a class="headerlink" href="#disadvantages" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>Global State Dependency</strong>:</p>
+<ul class="simple">
+<li><p>Overuse can lead to tightly coupled code, making testing and maintenance more challenging.</p></li>
+</ul>
+</li>
+<li><p><strong>Difficulty in Testing</strong>:</p>
+<ul class="simple">
+<li><p>Mocking or replacing Singletons in unit tests can be complex.</p></li>
+</ul>
+</li>
+<li><p><strong>Potential Resource Waste</strong>:</p>
+<ul class="simple">
+<li><p>An eagerly initialized Singleton may consume resources even if it’s never used.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+</section>
+<hr class="docutils" />
+<section id="key-takeaways">
+<h2>Key Takeaways<a class="headerlink" href="#key-takeaways" title="Link to this heading"></a></h2>
+<p>The <strong>Singleton Pattern</strong> is a powerful tool for ensuring global consistency and controlled access to shared resources. However, it should be used judiciously to avoid pitfalls like tightly coupled code or hidden dependencies.</p>
+<ul class="simple">
+<li><p><strong>Use it when</strong>: A single instance is needed to manage a shared resource or maintain a global state.</p></li>
+<li><p><strong>Avoid it when</strong>: Simpler solutions suffice, or when testing flexibility is paramount.</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="prototype_pattern.gen.html" class="btn btn-neutral float-left" title="Prototype Pattern" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="structural_patterns.gen.html" class="btn btn-neutral float-right" title="Structural Patterns" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, David Gonçalves.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

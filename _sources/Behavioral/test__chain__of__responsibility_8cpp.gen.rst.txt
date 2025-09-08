@@ -1,0 +1,7 @@
+Test  Chain  Of  Responsibility  Source
+=======================================
+
+.. doxygenfile:: test_chain_of_responsibility.cpp
+   :project: Design Patterns C++
+   :no-link:
+

@@ -1,0 +1,6 @@
+memento_pattern::Originator
+===========================
+
+.. doxygenclass:: memento_pattern::Originator
+   :project: Design Patterns C++
+   :members:

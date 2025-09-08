@@ -1,0 +1,6 @@
+facade_pattern::Subsystem3
+==========================
+
+.. doxygenclass:: facade_pattern::Subsystem3
+   :project: Design Patterns C++
+   :members:

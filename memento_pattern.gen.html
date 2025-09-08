@@ -1,0 +1,442 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Memento Pattern &mdash; Design Patterns Case Study 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=8d563738"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/custom.js?v=f12ea912"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Observer Pattern" href="observer_pattern.gen.html" />
+    <link rel="prev" title="Mediator Pattern" href="mediator_pattern.gen.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Design Patterns Case Study
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.gen.html">Design Patterns Case Study</a></li>
+<li class="toctree-l1"><a class="reference internal" href="creational_patterns.gen.html">Creational Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="structural_patterns.gen.html">Structural Patterns</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="behavioral_patterns.gen.html">Behavioral Patterns</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="chainofresponsibility_pattern.gen.html">Chain of Responsibility Pattern</a></li>
+<li class="toctree-l2"><a class="reference internal" href="command_pattern.gen.html">Command Pattern</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interpreter_pattern.gen.html">Interpreter Pattern</a></li>
+<li class="toctree-l2"><a class="reference internal" href="iterator_pattern.gen.html">Iterator Pattern</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mediator_pattern.gen.html">Mediator Pattern</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Memento Pattern</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#category">Category</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#key-characteristics">Key Characteristics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#uml-diagram">UML Diagram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#implementation-walkthrough">Implementation Walkthrough</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#participants">Participants</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#example-undo-redo-in-a-text-editor">Example: Undo/Redo in a Text Editor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#output">Output</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#applications">Applications</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#when-to-use-the-memento-pattern">When to Use the Memento Pattern</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#common-use-cases">Common Use Cases</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#advantages-and-disadvantages">Advantages and Disadvantages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#advantages">Advantages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#disadvantages">Disadvantages</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#key-takeaways">Key Takeaways</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="observer_pattern.gen.html">Observer Pattern</a></li>
+<li class="toctree-l2"><a class="reference internal" href="state_pattern.gen.html">State Pattern</a></li>
+<li class="toctree-l2"><a class="reference internal" href="strategy_pattern.gen.html">Strategy Pattern</a></li>
+<li class="toctree-l2"><a class="reference internal" href="templatemethod_pattern.gen.html">Template Method Pattern</a></li>
+<li class="toctree-l2"><a class="reference internal" href="visitor_pattern.gen.html">Visitor Pattern</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="gof.gen.html">The Gang of Four</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.gen.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cpp_api_index.gen.html">C++ API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_api.html">Python API Documentation</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Design Patterns Case Study</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="behavioral_patterns.gen.html">Behavioral Patterns</a></li>
+      <li class="breadcrumb-item active">Memento Pattern</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/MangaD/Design-Patterns-Case-Study/blob/main/docs/source/memento_pattern.gen.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="toctree-wrapper compound">
+</div>
+<section id="memento-pattern">
+<h1>Memento Pattern<a class="headerlink" href="#memento-pattern" title="Link to this heading"></a></h1>
+<section id="category">
+<h2>Category<a class="headerlink" href="#category" title="Link to this heading"></a></h2>
+<p>Behavioral Design Pattern</p>
+</section>
+<hr class="docutils" />
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p>The <strong>Memento Pattern</strong> is a <strong>behavioral design pattern</strong> that provides the ability to restore an object to its previous state without exposing its implementation details. This is achieved by creating a <strong>memento object</strong> that captures and stores the internal state of another object (referred to as the originator).</p>
+<p>This pattern is particularly useful when:</p>
+<ul class="simple">
+<li><p>You need to implement an undo/redo mechanism.</p></li>
+<li><p>You want to isolate and protect the internal state of an object from direct access by other parts of the system.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="key-characteristics">
+<h2>Key Characteristics<a class="headerlink" href="#key-characteristics" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p><strong>State Preservation</strong>:</p>
+<ul class="simple">
+<li><p>Enables saving and restoring an object’s internal state at a specific point in time.</p></li>
+</ul>
+</li>
+<li><p><strong>Encapsulation</strong>:</p>
+<ul class="simple">
+<li><p>Protects the internal state of the originator by encapsulating it within a memento object, which can only be accessed by the originator.</p></li>
+</ul>
+</li>
+<li><p><strong>Undo/Redo Operations</strong>:</p>
+<ul class="simple">
+<li><p>Commonly used in systems requiring undo/redo functionality, such as text editors or games.</p></li>
+</ul>
+</li>
+<li><p><strong>Role Separation</strong>:</p>
+<ul class="simple">
+<li><p>Defines three key participants:</p>
+<ul>
+<li><p><strong>Originator</strong>: The object whose state needs saving.</p></li>
+<li><p><strong>Memento</strong>: The object storing the saved state.</p></li>
+<li><p><strong>Caretaker</strong>: Manages mementos and interacts with the originator to save or restore states.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Non-Intrusive</strong>:</p>
+<ul class="simple">
+<li><p>The memento object does not interfere with the originator’s behavior; it merely stores state data.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="uml-diagram">
+<h2>UML Diagram<a class="headerlink" href="#uml-diagram" title="Link to this heading"></a></h2>
+<p>The UML diagram below illustrates the relationships between the Originator, Memento, and Caretaker in the Memento Pattern.</p>
+<p><img alt="UML Diagram" src="http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/MangaD/Design-Patterns-Case-Study/refs/heads/main/Behavioral/Memento/memento.puml" /></p>
+</section>
+<hr class="docutils" />
+<section id="implementation-walkthrough">
+<h2>Implementation Walkthrough<a class="headerlink" href="#implementation-walkthrough" title="Link to this heading"></a></h2>
+<section id="participants">
+<h3>Participants<a class="headerlink" href="#participants" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>Originator</strong>:</p>
+<ul class="simple">
+<li><p>The main object whose state needs to be saved and restored.</p></li>
+<li><p>Creates and restores mementos.</p></li>
+</ul>
+</li>
+<li><p><strong>Memento</strong>:</p>
+<ul class="simple">
+<li><p>A storage object that holds the internal state of the originator.</p></li>
+<li><p>Provides controlled access to the stored state.</p></li>
+</ul>
+</li>
+<li><p><strong>Caretaker</strong>:</p>
+<ul class="simple">
+<li><p>Manages mementos and coordinates the saving and restoring of the originator’s state.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="example-undo-redo-in-a-text-editor">
+<h3>Example: Undo/Redo in a Text Editor<a class="headerlink" href="#example-undo-redo-in-a-text-editor" title="Link to this heading"></a></h3>
+<section id="originator-texteditor">
+<h4>Originator: TextEditor<a class="headerlink" href="#originator-texteditor" title="Link to this heading"></a></h4>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm"> * @brief The Originator that maintains the state to be saved or restored.</span>
+<span class="cm"> */</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">TextEditor</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">content</span><span class="p">;</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">setContent</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">content</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">content</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">content</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">getContent</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">content</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="cm">/**</span>
+<span class="cm">     * @brief Creates a memento containing the current state.</span>
+<span class="cm">     * @return A new Memento instance.</span>
+<span class="cm">     */</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">Memento</span><span class="w"> </span><span class="nf">save</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Memento</span><span class="p">(</span><span class="n">content</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="cm">/**</span>
+<span class="cm">     * @brief Restores the state from a given memento.</span>
+<span class="cm">     * @param memento The memento containing the saved state.</span>
+<span class="cm">     */</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">restore</span><span class="p">(</span><span class="n">Memento</span><span class="w"> </span><span class="n">memento</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">content</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">memento</span><span class="p">.</span><span class="na">getContent</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="memento">
+<h4>Memento<a class="headerlink" href="#memento" title="Link to this heading"></a></h4>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm"> * @brief The Memento storing the state of the Originator.</span>
+<span class="cm"> */</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Memento</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">content</span><span class="p">;</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">Memento</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">content</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">content</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">content</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">getContent</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">content</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="caretaker-historymanager">
+<h4>Caretaker: HistoryManager<a class="headerlink" href="#caretaker-historymanager" title="Link to this heading"></a></h4>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm"> * @brief The Caretaker that manages the memento lifecycle.</span>
+<span class="cm"> */</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Stack</span><span class="p">;</span>
+
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">HistoryManager</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Stack</span><span class="o">&lt;</span><span class="n">Memento</span><span class="o">&gt;</span><span class="w"> </span><span class="n">history</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Stack</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">save</span><span class="p">(</span><span class="n">Memento</span><span class="w"> </span><span class="n">memento</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">history</span><span class="p">.</span><span class="na">push</span><span class="p">(</span><span class="n">memento</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">Memento</span><span class="w"> </span><span class="nf">undo</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">history</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">history</span><span class="p">.</span><span class="na">pop</span><span class="p">();</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="client-code">
+<h4>Client Code<a class="headerlink" href="#client-code" title="Link to this heading"></a></h4>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm"> * @brief Demonstrates the Memento Pattern with undo functionality.</span>
+<span class="cm"> */</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MementoPatternDemo</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">TextEditor</span><span class="w"> </span><span class="n">editor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">TextEditor</span><span class="p">();</span>
+<span class="w">        </span><span class="n">HistoryManager</span><span class="w"> </span><span class="n">history</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HistoryManager</span><span class="p">();</span>
+
+<span class="w">        </span><span class="n">editor</span><span class="p">.</span><span class="na">setContent</span><span class="p">(</span><span class="s">&quot;Version 1&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">history</span><span class="p">.</span><span class="na">save</span><span class="p">(</span><span class="n">editor</span><span class="p">.</span><span class="na">save</span><span class="p">());</span>
+
+<span class="w">        </span><span class="n">editor</span><span class="p">.</span><span class="na">setContent</span><span class="p">(</span><span class="s">&quot;Version 2&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">history</span><span class="p">.</span><span class="na">save</span><span class="p">(</span><span class="n">editor</span><span class="p">.</span><span class="na">save</span><span class="p">());</span>
+
+<span class="w">        </span><span class="n">editor</span><span class="p">.</span><span class="na">setContent</span><span class="p">(</span><span class="s">&quot;Version 3&quot;</span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Current content: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">editor</span><span class="p">.</span><span class="na">getContent</span><span class="p">());</span>
+<span class="w">        </span><span class="n">editor</span><span class="p">.</span><span class="na">restore</span><span class="p">(</span><span class="n">history</span><span class="p">.</span><span class="na">undo</span><span class="p">());</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;After undo: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">editor</span><span class="p">.</span><span class="na">getContent</span><span class="p">());</span>
+<span class="w">        </span><span class="n">editor</span><span class="p">.</span><span class="na">restore</span><span class="p">(</span><span class="n">history</span><span class="p">.</span><span class="na">undo</span><span class="p">());</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;After another undo: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">editor</span><span class="p">.</span><span class="na">getContent</span><span class="p">());</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="output">
+<h3>Output<a class="headerlink" href="#output" title="Link to this heading"></a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Current</span> <span class="n">content</span><span class="p">:</span> <span class="n">Version</span> <span class="mi">3</span>
+<span class="n">After</span> <span class="n">undo</span><span class="p">:</span> <span class="n">Version</span> <span class="mi">2</span>
+<span class="n">After</span> <span class="n">another</span> <span class="n">undo</span><span class="p">:</span> <span class="n">Version</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="applications">
+<h2>Applications<a class="headerlink" href="#applications" title="Link to this heading"></a></h2>
+<section id="when-to-use-the-memento-pattern">
+<h3>When to Use the Memento Pattern<a class="headerlink" href="#when-to-use-the-memento-pattern" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>When you need to implement undo/redo functionality.</p></li>
+<li><p>When you want to save and restore the state of an object without exposing its implementation details.</p></li>
+<li><p>When you want to minimize coupling between the state-saving logic and the object itself.</p></li>
+</ol>
+</section>
+<section id="common-use-cases">
+<h3>Common Use Cases<a class="headerlink" href="#common-use-cases" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>Text Editors</strong>:</p>
+<ul class="simple">
+<li><p>Undo/redo functionality for editing text.</p></li>
+</ul>
+</li>
+<li><p><strong>Games</strong>:</p>
+<ul class="simple">
+<li><p>Saving and loading game progress.</p></li>
+</ul>
+</li>
+<li><p><strong>Configuration Systems</strong>:</p>
+<ul class="simple">
+<li><p>Restoring system settings or configurations.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+</section>
+<hr class="docutils" />
+<section id="advantages-and-disadvantages">
+<h2>Advantages and Disadvantages<a class="headerlink" href="#advantages-and-disadvantages" title="Link to this heading"></a></h2>
+<section id="advantages">
+<h3>Advantages<a class="headerlink" href="#advantages" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>Encapsulation</strong>:</p>
+<ul class="simple">
+<li><p>Protects the originator’s internal state from external modification.</p></li>
+</ul>
+</li>
+<li><p><strong>Flexibility</strong>:</p>
+<ul class="simple">
+<li><p>Allows saving and restoring an object’s state at runtime.</p></li>
+</ul>
+</li>
+<li><p><strong>Scalability</strong>:</p>
+<ul class="simple">
+<li><p>The caretaker can manage multiple mementos, enabling complex state transitions.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="disadvantages">
+<h3>Disadvantages<a class="headerlink" href="#disadvantages" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>Memory Overhead</strong>:</p>
+<ul class="simple">
+<li><p>Maintaining multiple mementos can consume significant memory.</p></li>
+</ul>
+</li>
+<li><p><strong>Complexity</strong>:</p>
+<ul class="simple">
+<li><p>Managing mementos and ensuring proper lifecycle management can be challenging.</p></li>
+</ul>
+</li>
+<li><p><strong>Limited Access</strong>:</p>
+<ul class="simple">
+<li><p>If not designed properly, the caretaker may inadvertently expose the originator’s state.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+</section>
+<hr class="docutils" />
+<section id="key-takeaways">
+<h2>Key Takeaways<a class="headerlink" href="#key-takeaways" title="Link to this heading"></a></h2>
+<p>The <strong>Memento Pattern</strong> provides a structured way to save and restore the state of objects, enabling powerful features like undo/redo and checkpointing. While it introduces additional components and complexity, its benefits in preserving state and encapsulation make it an essential pattern in behavioral design.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="mediator_pattern.gen.html" class="btn btn-neutral float-left" title="Mediator Pattern" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="observer_pattern.gen.html" class="btn btn-neutral float-right" title="Observer Pattern" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, David Gonçalves.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

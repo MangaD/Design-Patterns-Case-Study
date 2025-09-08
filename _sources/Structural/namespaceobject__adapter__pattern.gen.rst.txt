@@ -1,0 +1,6 @@
+object_adapter_pattern
+======================
+
+.. doxygennamespace:: object_adapter_pattern
+   :project: Design Patterns C++
+   :members:

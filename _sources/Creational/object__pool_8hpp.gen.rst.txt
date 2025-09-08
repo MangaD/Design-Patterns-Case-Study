@@ -1,0 +1,23 @@
+Object  Pool  Header
+====================
+
+.. doxygenfile:: object_pool.hpp
+   :project: Design Patterns C++
+   :no-link:
+
+Inner Classes
+-------------
+
+.. toctree::
+   :maxdepth: 1
+
+   classobject__pool__pattern_1_1Reusable.gen
+   classobject__pool__pattern_1_1ObjectPool.gen
+
+Inner Namespaces
+----------------
+
+.. toctree::
+   :maxdepth: 1
+
+   namespaceobject__pool__pattern.gen

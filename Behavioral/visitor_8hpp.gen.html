@@ -1,0 +1,422 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Visitor Header &mdash; Design Patterns Case Study 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/custom.js?v=f12ea912"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="visitor_pattern::Visitor" href="classvisitor__pattern_1_1Visitor.gen.html" />
+    <link rel="prev" title="Test Visitor Source" href="test__visitor_8cpp.gen.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Design Patterns Case Study
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction.gen.html">Design Patterns Case Study</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../creational_patterns.gen.html">Creational Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../structural_patterns.gen.html">Structural Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../behavioral_patterns.gen.html">Behavioral Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gof.gen.html">The Gang of Four</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../references.gen.html">References</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../cpp_api_index.gen.html">C++ API Documentation</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="behavioral_patterns.gen.html">Behavioral Patterns</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="behavioral_patterns.gen.html#namespaces">Namespaces</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="behavioral_patterns.gen.html#files">Files</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="chain__of__responsibility_8hpp.gen.html">Chain  Of  Responsibility  Header</a></li>
+<li class="toctree-l4"><a class="reference internal" href="command_8hpp.gen.html">Command  Header</a></li>
+<li class="toctree-l4"><a class="reference internal" href="interpreter_8hpp.gen.html">Interpreter  Header</a></li>
+<li class="toctree-l4"><a class="reference internal" href="iterator_8hpp.gen.html">Iterator  Header</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mediator_8hpp.gen.html">Mediator  Header</a></li>
+<li class="toctree-l4"><a class="reference internal" href="memento_8hpp.gen.html">Memento  Header</a></li>
+<li class="toctree-l4"><a class="reference internal" href="observer_8hpp.gen.html">Observer  Header</a></li>
+<li class="toctree-l4"><a class="reference internal" href="state_8cpp.gen.html">State  Source</a></li>
+<li class="toctree-l4"><a class="reference internal" href="state_8hpp.gen.html">State  Header</a></li>
+<li class="toctree-l4"><a class="reference internal" href="strategy_8hpp.gen.html">Strategy  Header</a></li>
+<li class="toctree-l4"><a class="reference internal" href="template__method_8hpp.gen.html">Template  Method  Header</a></li>
+<li class="toctree-l4"><a class="reference internal" href="test__chain__of__responsibility_8cpp.gen.html">Test  Chain  Of  Responsibility  Source</a></li>
+<li class="toctree-l4"><a class="reference internal" href="test__command_8cpp.gen.html">Test  Command  Source</a></li>
+<li class="toctree-l4"><a class="reference internal" href="test__interpreter_8cpp.gen.html">Test  Interpreter  Source</a></li>
+<li class="toctree-l4"><a class="reference internal" href="test__iterator_8cpp.gen.html">Test  Iterator  Source</a></li>
+<li class="toctree-l4"><a class="reference internal" href="test__mediator_8cpp.gen.html">Test  Mediator  Source</a></li>
+<li class="toctree-l4"><a class="reference internal" href="test__memento_8cpp.gen.html">Test  Memento  Source</a></li>
+<li class="toctree-l4"><a class="reference internal" href="test__observer_8cpp.gen.html">Test  Observer  Source</a></li>
+<li class="toctree-l4"><a class="reference internal" href="test__state_8cpp.gen.html">Test  State  Source</a></li>
+<li class="toctree-l4"><a class="reference internal" href="test__strategy_8cpp.gen.html">Test  Strategy  Source</a></li>
+<li class="toctree-l4"><a class="reference internal" href="test__template__method_8cpp.gen.html">Test  Template  Method  Source</a></li>
+<li class="toctree-l4"><a class="reference internal" href="test__visitor_8cpp.gen.html">Test  Visitor  Source</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Visitor  Header</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="behavioral_patterns.gen.html#classes">Classes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Creational/creational_patterns.gen.html">Creational Patterns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Structural/structural_patterns.gen.html">Structural Patterns</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../python_api.html">Python API Documentation</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Design Patterns Case Study</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../cpp_api_index.gen.html">C++ API Documentation</a></li>
+          <li class="breadcrumb-item"><a href="behavioral_patterns.gen.html">Behavioral Patterns</a></li>
+      <li class="breadcrumb-item active">Visitor  Header</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/MangaD/Design-Patterns-Case-Study/blob/main/docs/source/Behavioral/visitor_8hpp.gen.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="visitor-header">
+<h1>Visitor  Header<a class="headerlink" href="#visitor-header" title="Link to this heading"></a></h1>
+<dl class="cpp type">
+<dt class="sig sig-object cpp">
+<span class="k"><span class="pre">namespace</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">visitor_pattern</span></span></span><br /></dt>
+<dd><p>Namespace for the <a class="reference internal" href="namespacevisitor__pattern.gen.html#classvisitor__pattern_1_1Visitor"><span class="std std-ref">Visitor</span></a> pattern. </p>
+<dl class="cpp class">
+<dt class="sig sig-object cpp">
+<span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ConcreteVisitorA</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><a class="reference internal" href="namespacevisitor__pattern.gen.html#_CPPv415visitor_pattern" title="visitor_pattern"><span class="n"><span class="pre">visitor_pattern</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="classvisitor__pattern_1_1Visitor.gen.html#_CPPv4N15visitor_pattern7VisitorE" title="visitor_pattern::Visitor"><span class="n"><span class="pre">Visitor</span></span></a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;visitor.hpp&gt;</em></div>
+<p>Concrete VisitorA implements operations for <a class="reference internal" href="namespacevisitor__pattern.gen.html#classvisitor__pattern_1_1ElementA"><span class="std std-ref">ElementA</span></a> and <a class="reference internal" href="namespacevisitor__pattern.gen.html#classvisitor__pattern_1_1ElementB"><span class="std std-ref">ElementB</span></a>. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp">
+<span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">visitElementA</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="classvisitor__pattern_1_1ElementA.gen.html#_CPPv4N15visitor_pattern8ElementAE" title="visitor_pattern::ElementA"><span class="n"><span class="pre">ElementA</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">elementA</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><br /></dt>
+<dd><p>Visit an <a class="reference internal" href="namespacevisitor__pattern.gen.html#classvisitor__pattern_1_1ElementA"><span class="std std-ref">ElementA</span></a> instance. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>elementA</strong> – The <a class="reference internal" href="namespacevisitor__pattern.gen.html#classvisitor__pattern_1_1ElementA"><span class="std std-ref">ElementA</span></a> instance to visit. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp">
+<span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">visitElementB</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="classvisitor__pattern_1_1ElementB.gen.html#_CPPv4N15visitor_pattern8ElementBE" title="visitor_pattern::ElementB"><span class="n"><span class="pre">ElementB</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">elementB</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><br /></dt>
+<dd><p>Visit an <a class="reference internal" href="namespacevisitor__pattern.gen.html#classvisitor__pattern_1_1ElementB"><span class="std std-ref">ElementB</span></a> instance. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>elementB</strong> – The <a class="reference internal" href="namespacevisitor__pattern.gen.html#classvisitor__pattern_1_1ElementB"><span class="std std-ref">ElementB</span></a> instance to visit. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp">
+<span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ConcreteVisitorB</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><a class="reference internal" href="namespacevisitor__pattern.gen.html#_CPPv415visitor_pattern" title="visitor_pattern"><span class="n"><span class="pre">visitor_pattern</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="classvisitor__pattern_1_1Visitor.gen.html#_CPPv4N15visitor_pattern7VisitorE" title="visitor_pattern::Visitor"><span class="n"><span class="pre">Visitor</span></span></a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;visitor.hpp&gt;</em></div>
+<p>Concrete VisitorB implements operations for <a class="reference internal" href="namespacevisitor__pattern.gen.html#classvisitor__pattern_1_1ElementA"><span class="std std-ref">ElementA</span></a> and <a class="reference internal" href="namespacevisitor__pattern.gen.html#classvisitor__pattern_1_1ElementB"><span class="std std-ref">ElementB</span></a>. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp">
+<span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">visitElementA</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="classvisitor__pattern_1_1ElementA.gen.html#_CPPv4N15visitor_pattern8ElementAE" title="visitor_pattern::ElementA"><span class="n"><span class="pre">ElementA</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">elementA</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><br /></dt>
+<dd><p>Visit an <a class="reference internal" href="namespacevisitor__pattern.gen.html#classvisitor__pattern_1_1ElementA"><span class="std std-ref">ElementA</span></a> instance. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>elementA</strong> – The <a class="reference internal" href="namespacevisitor__pattern.gen.html#classvisitor__pattern_1_1ElementA"><span class="std std-ref">ElementA</span></a> instance to visit. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp">
+<span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">visitElementB</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="classvisitor__pattern_1_1ElementB.gen.html#_CPPv4N15visitor_pattern8ElementBE" title="visitor_pattern::ElementB"><span class="n"><span class="pre">ElementB</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">elementB</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><br /></dt>
+<dd><p>Visit an <a class="reference internal" href="namespacevisitor__pattern.gen.html#classvisitor__pattern_1_1ElementB"><span class="std std-ref">ElementB</span></a> instance. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>elementB</strong> – The <a class="reference internal" href="namespacevisitor__pattern.gen.html#classvisitor__pattern_1_1ElementB"><span class="std std-ref">ElementB</span></a> instance to visit. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp">
+<span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Element</span></span></span><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;visitor.hpp&gt;</em></div>
+<p>Abstract base class for elements. </p>
+<p>Subclassed by <a class="reference internal" href="namespacevisitor__pattern.gen.html#classvisitor__pattern_1_1ElementA"><span class="std std-ref">visitor_pattern::ElementA</span></a>, <a class="reference internal" href="namespacevisitor__pattern.gen.html#classvisitor__pattern_1_1ElementB"><span class="std std-ref">visitor_pattern::ElementB</span></a></p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp">
+<span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">~Element</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">default</span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp">
+<span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">accept</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="classvisitor__pattern_1_1Visitor.gen.html#_CPPv4N15visitor_pattern7VisitorE" title="visitor_pattern::Visitor"><span class="n"><span class="pre">Visitor</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">visitor</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><br /></dt>
+<dd><p>Accept a <a class="reference internal" href="namespacevisitor__pattern.gen.html#classvisitor__pattern_1_1Visitor"><span class="std std-ref">Visitor</span></a>. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>visitor</strong> – The <a class="reference internal" href="namespacevisitor__pattern.gen.html#classvisitor__pattern_1_1Visitor"><span class="std std-ref">Visitor</span></a> to accept. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp">
+<span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ElementA</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><a class="reference internal" href="namespacevisitor__pattern.gen.html#_CPPv415visitor_pattern" title="visitor_pattern"><span class="n"><span class="pre">visitor_pattern</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="classvisitor__pattern_1_1Element.gen.html#_CPPv4N15visitor_pattern7ElementE" title="visitor_pattern::Element"><span class="n"><span class="pre">Element</span></span></a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;visitor.hpp&gt;</em></div>
+<p>Concrete <a class="reference internal" href="namespacevisitor__pattern.gen.html#classvisitor__pattern_1_1ElementA"><span class="std std-ref">ElementA</span></a> class. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp">
+<span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">operationA</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><br /></dt>
+<dd><p>Perform ElementA-specific behavior. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A message describing the operation. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp">
+<span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">accept</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="classvisitor__pattern_1_1Visitor.gen.html#_CPPv4N15visitor_pattern7VisitorE" title="visitor_pattern::Visitor"><span class="n"><span class="pre">Visitor</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">visitor</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><br /></dt>
+<dd><p>Accept a <a class="reference internal" href="namespacevisitor__pattern.gen.html#classvisitor__pattern_1_1Visitor"><span class="std std-ref">Visitor</span></a>.   </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>visitor</strong> – The <a class="reference internal" href="namespacevisitor__pattern.gen.html#classvisitor__pattern_1_1Visitor"><span class="std std-ref">Visitor</span></a> to accept.   </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp">
+<span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ElementB</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><a class="reference internal" href="namespacevisitor__pattern.gen.html#_CPPv415visitor_pattern" title="visitor_pattern"><span class="n"><span class="pre">visitor_pattern</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="classvisitor__pattern_1_1Element.gen.html#_CPPv4N15visitor_pattern7ElementE" title="visitor_pattern::Element"><span class="n"><span class="pre">Element</span></span></a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;visitor.hpp&gt;</em></div>
+<p>Concrete <a class="reference internal" href="namespacevisitor__pattern.gen.html#classvisitor__pattern_1_1ElementB"><span class="std std-ref">ElementB</span></a> class. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp">
+<span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">operationB</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><br /></dt>
+<dd><p>Perform ElementB-specific behavior. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A message describing the operation. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp">
+<span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">accept</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="classvisitor__pattern_1_1Visitor.gen.html#_CPPv4N15visitor_pattern7VisitorE" title="visitor_pattern::Visitor"><span class="n"><span class="pre">Visitor</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">visitor</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><br /></dt>
+<dd><p>Accept a <a class="reference internal" href="namespacevisitor__pattern.gen.html#classvisitor__pattern_1_1Visitor"><span class="std std-ref">Visitor</span></a>.   </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>visitor</strong> – The <a class="reference internal" href="namespacevisitor__pattern.gen.html#classvisitor__pattern_1_1Visitor"><span class="std std-ref">Visitor</span></a> to accept.   </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp">
+<span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ObjectStructure</span></span></span><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;visitor.hpp&gt;</em></div>
+<p><a class="reference internal" href="namespacevisitor__pattern.gen.html#classvisitor__pattern_1_1ObjectStructure"><span class="std std-ref">ObjectStructure</span></a> manages a collection of elements. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp">
+<span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">addElement</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">shared_ptr</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="classvisitor__pattern_1_1Element.gen.html#_CPPv4N15visitor_pattern7ElementE" title="visitor_pattern::Element"><span class="n"><span class="pre">Element</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">element</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p>Add an element to the structure. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>element</strong> – The <a class="reference internal" href="namespacevisitor__pattern.gen.html#classvisitor__pattern_1_1Element"><span class="std std-ref">Element</span></a> to add. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp">
+<span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">accept</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="classvisitor__pattern_1_1Visitor.gen.html#_CPPv4N15visitor_pattern7VisitorE" title="visitor_pattern::Visitor"><span class="n"><span class="pre">Visitor</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">visitor</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><br /></dt>
+<dd><p>Accept a visitor for all elements. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>visitor</strong> – The <a class="reference internal" href="namespacevisitor__pattern.gen.html#classvisitor__pattern_1_1Visitor"><span class="std std-ref">Visitor</span></a> to accept. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-members">Private Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp">
+<span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">shared_ptr</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="classvisitor__pattern_1_1Element.gen.html#_CPPv4N15visitor_pattern7ElementE" title="visitor_pattern::Element"><span class="n"><span class="pre">Element</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">elements</span></span></span><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp">
+<span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Visitor</span></span></span><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;visitor.hpp&gt;</em></div>
+<p><a class="reference internal" href="namespacevisitor__pattern.gen.html#classvisitor__pattern_1_1Visitor"><span class="std std-ref">Visitor</span></a> interface declares operations for different types of Elements. </p>
+<p>Subclassed by <a class="reference internal" href="namespacevisitor__pattern.gen.html#classvisitor__pattern_1_1ConcreteVisitorA"><span class="std std-ref">visitor_pattern::ConcreteVisitorA</span></a>, <a class="reference internal" href="namespacevisitor__pattern.gen.html#classvisitor__pattern_1_1ConcreteVisitorB"><span class="std std-ref">visitor_pattern::ConcreteVisitorB</span></a></p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp">
+<span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">~Visitor</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">default</span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp">
+<span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">visitElementA</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="classvisitor__pattern_1_1ElementA.gen.html#_CPPv4N15visitor_pattern8ElementAE" title="visitor_pattern::ElementA"><span class="n"><span class="pre">ElementA</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">elementA</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><br /></dt>
+<dd><p>Visit an <a class="reference internal" href="namespacevisitor__pattern.gen.html#classvisitor__pattern_1_1ElementA"><span class="std std-ref">ElementA</span></a> instance. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>elementA</strong> – The <a class="reference internal" href="namespacevisitor__pattern.gen.html#classvisitor__pattern_1_1ElementA"><span class="std std-ref">ElementA</span></a> instance to visit. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp">
+<span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">visitElementB</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="classvisitor__pattern_1_1ElementB.gen.html#_CPPv4N15visitor_pattern8ElementBE" title="visitor_pattern::ElementB"><span class="n"><span class="pre">ElementB</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">elementB</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><br /></dt>
+<dd><p>Visit an <a class="reference internal" href="namespacevisitor__pattern.gen.html#classvisitor__pattern_1_1ElementB"><span class="std std-ref">ElementB</span></a> instance. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>elementB</strong> – The <a class="reference internal" href="namespacevisitor__pattern.gen.html#classvisitor__pattern_1_1ElementB"><span class="std std-ref">ElementB</span></a> instance to visit. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<section id="inner-classes">
+<h2>Inner Classes<a class="headerlink" href="#inner-classes" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="classvisitor__pattern_1_1Visitor.gen.html">visitor_pattern::Visitor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="classvisitor__pattern_1_1Element.gen.html">visitor_pattern::Element</a></li>
+<li class="toctree-l1"><a class="reference internal" href="classvisitor__pattern_1_1ElementA.gen.html">visitor_pattern::ElementA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="classvisitor__pattern_1_1ElementB.gen.html">visitor_pattern::ElementB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="classvisitor__pattern_1_1ConcreteVisitorA.gen.html">visitor_pattern::ConcreteVisitorA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="classvisitor__pattern_1_1ConcreteVisitorB.gen.html">visitor_pattern::ConcreteVisitorB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="classvisitor__pattern_1_1ObjectStructure.gen.html">visitor_pattern::ObjectStructure</a></li>
+</ul>
+</div>
+</section>
+<section id="inner-namespaces">
+<h2>Inner Namespaces<a class="headerlink" href="#inner-namespaces" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="namespacevisitor__pattern.gen.html">visitor_pattern</a></li>
+</ul>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="test__visitor_8cpp.gen.html" class="btn btn-neutral float-left" title="Test Visitor Source" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="classvisitor__pattern_1_1Visitor.gen.html" class="btn btn-neutral float-right" title="visitor_pattern::Visitor" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, David Gonçalves.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

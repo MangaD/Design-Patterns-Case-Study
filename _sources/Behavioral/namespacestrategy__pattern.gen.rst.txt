@@ -1,0 +1,6 @@
+strategy_pattern
+================
+
+.. doxygennamespace:: strategy_pattern
+   :project: Design Patterns C++
+   :members:

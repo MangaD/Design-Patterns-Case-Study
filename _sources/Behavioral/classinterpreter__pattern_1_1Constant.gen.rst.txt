@@ -1,0 +1,6 @@
+interpreter_pattern::Constant
+=============================
+
+.. doxygenclass:: interpreter_pattern::Constant
+   :project: Design Patterns C++
+   :members:

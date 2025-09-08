@@ -1,0 +1,299 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>object_pool_pattern &mdash; Design Patterns Case Study 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/custom.js?v=f12ea912"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="prototype_pattern" href="namespaceprototype__pattern.gen.html" />
+    <link rel="prev" title="factory_method_pattern" href="namespacefactory__method__pattern.gen.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Design Patterns Case Study
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction.gen.html">Design Patterns Case Study</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../creational_patterns.gen.html">Creational Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../structural_patterns.gen.html">Structural Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../behavioral_patterns.gen.html">Behavioral Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gof.gen.html">The Gang of Four</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../references.gen.html">References</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../cpp_api_index.gen.html">C++ API Documentation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../Behavioral/behavioral_patterns.gen.html">Behavioral Patterns</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="creational_patterns.gen.html">Creational Patterns</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="creational_patterns.gen.html#namespaces">Namespaces</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="namespaceabstract__factory__pattern.gen.html">abstract_factory_pattern</a></li>
+<li class="toctree-l4"><a class="reference internal" href="namespacebuilder__pattern.gen.html">builder_pattern</a></li>
+<li class="toctree-l4"><a class="reference internal" href="namespacefactory__method__pattern.gen.html">factory_method_pattern</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">object_pool_pattern</a></li>
+<li class="toctree-l4"><a class="reference internal" href="namespaceprototype__pattern.gen.html">prototype_pattern</a></li>
+<li class="toctree-l4"><a class="reference internal" href="namespacesingleton__pattern.gen.html">singleton_pattern</a></li>
+</ul>
+</li>
+<li class="toctree-l3 current"><a class="reference internal" href="creational_patterns.gen.html#files">Files</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="abstract__factory_8cpp.gen.html">Abstract  Factory  Source</a></li>
+<li class="toctree-l4"><a class="reference internal" href="abstract__factory_8hpp.gen.html">Abstract  Factory  Header</a></li>
+<li class="toctree-l4"><a class="reference internal" href="builder_8cpp.gen.html">Builder  Source</a></li>
+<li class="toctree-l4"><a class="reference internal" href="builder_8hpp.gen.html">Builder  Header</a></li>
+<li class="toctree-l4"><a class="reference internal" href="concrete__reusable_8cpp.gen.html">Concrete  Reusable  Source</a></li>
+<li class="toctree-l4"><a class="reference internal" href="concrete__reusable_8hpp.gen.html">Concrete  Reusable  Header</a></li>
+<li class="toctree-l4"><a class="reference internal" href="factory__method_8cpp.gen.html">Factory  Method  Source</a></li>
+<li class="toctree-l4"><a class="reference internal" href="factory__method_8hpp.gen.html">Factory  Method  Header</a></li>
+<li class="toctree-l4"><a class="reference internal" href="object__pool_8cpp.gen.html">Object  Pool  Source</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="object__pool_8hpp.gen.html">Object  Pool  Header</a></li>
+<li class="toctree-l4"><a class="reference internal" href="prototype_8cpp.gen.html">Prototype  Source</a></li>
+<li class="toctree-l4"><a class="reference internal" href="prototype_8hpp.gen.html">Prototype  Header</a></li>
+<li class="toctree-l4"><a class="reference internal" href="singleton_8cpp.gen.html">Singleton  Source</a></li>
+<li class="toctree-l4"><a class="reference internal" href="singleton_8hpp.gen.html">Singleton  Header</a></li>
+<li class="toctree-l4"><a class="reference internal" href="test__abstract__factory_8cpp.gen.html">Test  Abstract  Factory  Source</a></li>
+<li class="toctree-l4"><a class="reference internal" href="test__builder_8cpp.gen.html">Test  Builder  Source</a></li>
+<li class="toctree-l4"><a class="reference internal" href="test__factory__method_8cpp.gen.html">Test  Factory  Method  Source</a></li>
+<li class="toctree-l4"><a class="reference internal" href="test__object__pool_8cpp.gen.html">Test  Object  Pool  Source</a></li>
+<li class="toctree-l4"><a class="reference internal" href="test__prototype_8cpp.gen.html">Test  Prototype  Source</a></li>
+<li class="toctree-l4"><a class="reference internal" href="test__singleton_8cpp.gen.html">Test  Singleton  Source</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="creational_patterns.gen.html#classes">Classes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Structural/structural_patterns.gen.html">Structural Patterns</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../python_api.html">Python API Documentation</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Design Patterns Case Study</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../cpp_api_index.gen.html">C++ API Documentation</a></li>
+          <li class="breadcrumb-item"><a href="creational_patterns.gen.html">Creational Patterns</a></li>
+      <li class="breadcrumb-item active">object_pool_pattern</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/MangaD/Design-Patterns-Case-Study/blob/main/docs/source/Creational/namespaceobject__pool__pattern.gen.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="object-pool-pattern">
+<h1>object_pool_pattern<a class="headerlink" href="#object-pool-pattern" title="Link to this heading"></a></h1>
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv419object_pool_pattern">
+<span id="_CPPv319object_pool_pattern"></span><span id="_CPPv219object_pool_pattern"></span><span id="object_pool_pattern"></span><span class="target" id="namespaceobject__pool__pattern"></span><span class="k"><span class="pre">namespace</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">object_pool_pattern</span></span></span><br /></dt>
+<dd><p>Namespace for the Object Pool pattern. </p>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N19object_pool_pattern16ConcreteReusableE">
+<span id="_CPPv3N19object_pool_pattern16ConcreteReusableE"></span><span id="_CPPv2N19object_pool_pattern16ConcreteReusableE"></span><span id="object_pool_pattern::ConcreteReusable"></span><span class="target" id="classobject__pool__pattern_1_1ConcreteReusable"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ConcreteReusable</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><a class="reference internal" href="concrete__reusable_8hpp.gen.html#_CPPv419object_pool_pattern" title="object_pool_pattern"><span class="n"><span class="pre">object_pool_pattern</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="classobject__pool__pattern_1_1Reusable.gen.html#_CPPv4N19object_pool_pattern8ReusableE" title="object_pool_pattern::Reusable"><span class="n"><span class="pre">Reusable</span></span></a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;concrete_reusable.hpp&gt;</em></div>
+<p>Concrete implementation of the <a class="reference internal" href="#classobject__pool__pattern_1_1Reusable"><span class="std std-ref">Reusable</span></a> interface. </p>
+<p>Represents an object that can be managed by an object pool. Each <code class="docutils literal notranslate"><a class="reference internal" href="#classobject__pool__pattern_1_1ConcreteReusable"><span class="std std-ref"><span class="pre">ConcreteReusable</span></span></a></code> object has a unique identifier and maintains an internal state indicating whether it is currently in use.</p>
+<p>This class provides functionality to “use” the object and reset it to its initial state when returned to the pool. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N19object_pool_pattern16ConcreteReusable16ConcreteReusableERKNSt6stringE">
+<span id="_CPPv3N19object_pool_pattern16ConcreteReusable16ConcreteReusableERKNSt6stringE"></span><span id="_CPPv2N19object_pool_pattern16ConcreteReusable16ConcreteReusableERKNSt6stringE"></span><span id="object_pool_pattern::ConcreteReusable::ConcreteReusable__ssCR"></span><span class="target" id="classobject__pool__pattern_1_1ConcreteReusable_1af65c324ffdf6be3ef30b39ca92443c7e"></span><span class="k"><span class="pre">explicit</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ConcreteReusable</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">id</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p>Constructs a reusable object with a unique identifier. </p>
+<p>
+This identifier helps distinguish between different instances and is used in messages to indicate which object is being used or reset. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>id</strong> – A unique identifier for the reusable object.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N19object_pool_pattern16ConcreteReusable3useEv">
+<span id="_CPPv3N19object_pool_pattern16ConcreteReusable3useEv"></span><span id="_CPPv2N19object_pool_pattern16ConcreteReusable3useEv"></span><span id="object_pool_pattern::ConcreteReusable::use"></span><span class="target" id="classobject__pool__pattern_1_1ConcreteReusable_1a5e5c295a52f0bf545681556cbdcff192"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">use</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">override</span></span><br /></dt>
+<dd><p>Simulates using the object. </p>
+<p>Marks the object as in use and performs its functionality.</p>
+<p>This method marks the object as “in use” and prints a message indicating the object is being used. If the object is already in use, it prints an error message to the console.</p>
+<p>Overridden from the <code class="docutils literal notranslate"><a class="reference internal" href="#classobject__pool__pattern_1_1Reusable"><span class="std std-ref"><span class="pre">Reusable</span></span></a></code> interface.</p>
+<p>This method demonstrates how the object is used. If the object is already in use, a message is printed to indicate that it cannot be reused until it is reset.</p>
+<p><ul class="simple">
+<li><p>If the object is not in use, it transitions to the “in use” state and prints a message to indicate it is being used.</p></li>
+<li><p>If the object is already in use, an error message is printed. </p></li>
+</ul>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N19object_pool_pattern16ConcreteReusable5resetEv">
+<span id="_CPPv3N19object_pool_pattern16ConcreteReusable5resetEv"></span><span id="_CPPv2N19object_pool_pattern16ConcreteReusable5resetEv"></span><span id="object_pool_pattern::ConcreteReusable::reset"></span><span class="target" id="classobject__pool__pattern_1_1ConcreteReusable_1a32e4085618b7f9a92f285522ff6b443c"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">reset</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">override</span></span><br /></dt>
+<dd><p>Resets the object to its initial state. </p>
+<p>This method marks the object as “not in use” and clears any state associated with the previous usage. A message is printed to indicate that the object has been reset and is ready for reuse.</p>
+<p>Overridden from the <code class="docutils literal notranslate"><a class="reference internal" href="#classobject__pool__pattern_1_1Reusable"><span class="std std-ref"><span class="pre">Reusable</span></span></a></code> interface.</p>
+<p>This method clears the “in use” state of the object, making it available for reuse in the object pool. A message is printed to indicate the object has been reset. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N19object_pool_pattern10ObjectPoolE">
+<span id="_CPPv3N19object_pool_pattern10ObjectPoolE"></span><span id="_CPPv2N19object_pool_pattern10ObjectPoolE"></span><span id="object_pool_pattern::ObjectPool"></span><span class="target" id="classobject__pool__pattern_1_1ObjectPool"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ObjectPool</span></span></span><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;object_pool.hpp&gt;</em></div>
+<p>Generic Object Pool for managing reusable objects. </p>
+<p>This class provides a mechanism to borrow and return objects of type <code class="docutils literal notranslate"><a class="reference internal" href="#classobject__pool__pattern_1_1Reusable"><span class="std std-ref"><span class="pre">Reusable</span></span></a></code>. By reusing objects, the Object Pool reduces the overhead of frequent object creation and destruction, especially in performance-critical systems. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N19object_pool_pattern10ObjectPool12borrowObjectEv">
+<span id="_CPPv3N19object_pool_pattern10ObjectPool12borrowObjectEv"></span><span id="_CPPv2N19object_pool_pattern10ObjectPool12borrowObjectEv"></span><span id="object_pool_pattern::ObjectPool::borrowObject"></span><span class="target" id="classobject__pool__pattern_1_1ObjectPool_1a1434153da9a9b76b4ad85f6522bc9bf5"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">unique_ptr</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="classobject__pool__pattern_1_1Reusable.gen.html#_CPPv4N19object_pool_pattern8ReusableE" title="object_pool_pattern::Reusable"><span class="n"><span class="pre">Reusable</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">borrowObject</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><br /></dt>
+<dd><p>Borrow an object from the pool. </p>
+<p>Retrieves an object from the pool for use. If no objects are available, the method throws a <code class="docutils literal notranslate"><span class="pre">std::runtime_error</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Throws<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">std</span><span class="p">::</span><span class="n">runtime_error</span></span></span> – if the pool is empty and no objects are available. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A unique pointer to a <code class="docutils literal notranslate"><a class="reference internal" href="#classobject__pool__pattern_1_1Reusable"><span class="std std-ref"><span class="pre">Reusable</span></span></a></code> object. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N19object_pool_pattern10ObjectPool12returnObjectENSt10unique_ptrI8ReusableEE">
+<span id="_CPPv3N19object_pool_pattern10ObjectPool12returnObjectENSt10unique_ptrI8ReusableEE"></span><span id="_CPPv2N19object_pool_pattern10ObjectPool12returnObjectENSt10unique_ptrI8ReusableEE"></span><span id="object_pool_pattern::ObjectPool::returnObject__std::unique_ptr:Reusable:"></span><span class="target" id="classobject__pool__pattern_1_1ObjectPool_1ac81d7461c54c6bd1e6fefc899694996a"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">returnObject</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">unique_ptr</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="classobject__pool__pattern_1_1Reusable.gen.html#_CPPv4N19object_pool_pattern8ReusableE" title="object_pool_pattern::Reusable"><span class="n"><span class="pre">Reusable</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">obj</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p>Return an object to the pool. </p>
+<p>Returns a previously borrowed object back to the pool. The object is reset to its initial state before being made available for reuse.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>obj</strong> – A unique pointer to the reusable object being returned. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N19object_pool_pattern10ObjectPool9addObjectENSt10unique_ptrI8ReusableEE">
+<span id="_CPPv3N19object_pool_pattern10ObjectPool9addObjectENSt10unique_ptrI8ReusableEE"></span><span id="_CPPv2N19object_pool_pattern10ObjectPool9addObjectENSt10unique_ptrI8ReusableEE"></span><span id="object_pool_pattern::ObjectPool::addObject__std::unique_ptr:Reusable:"></span><span class="target" id="classobject__pool__pattern_1_1ObjectPool_1a5a9c1bdee9d6cf1522541e4c8c0ddf48"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">addObject</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">unique_ptr</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="classobject__pool__pattern_1_1Reusable.gen.html#_CPPv4N19object_pool_pattern8ReusableE" title="object_pool_pattern::Reusable"><span class="n"><span class="pre">Reusable</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">obj</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p>Add a new object to the pool. </p>
+<p>Allows new objects to be added to the pool for reuse. This is useful for dynamically expanding the pool size as needed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>obj</strong> – A unique pointer to the reusable object being added. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N19object_pool_pattern8ReusableE">
+<span id="_CPPv3N19object_pool_pattern8ReusableE"></span><span id="_CPPv2N19object_pool_pattern8ReusableE"></span><span id="object_pool_pattern::Reusable"></span><span class="target" id="classobject__pool__pattern_1_1Reusable"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Reusable</span></span></span><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;object_pool.hpp&gt;</em></div>
+<p>Abstract interface for reusable objects in the Object Pool Pattern. </p>
+<p>Classes implementing this interface represent objects that can be managed by an object pool. These objects must define how they are used and reset to their initial state. </p>
+<p>Subclassed by <a class="reference internal" href="#classobject__pool__pattern_1_1ConcreteReusable"><span class="std std-ref">object_pool_pattern::ConcreteReusable</span></a></p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N19object_pool_pattern8ReusableD0Ev">
+<span id="_CPPv3N19object_pool_pattern8ReusableD0Ev"></span><span id="_CPPv2N19object_pool_pattern8ReusableD0Ev"></span><span id="object_pool_pattern::Reusable::~Reusable"></span><span class="target" id="classobject__pool__pattern_1_1Reusable_1aa8bda282dbf72749763867856839f24e"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">~Reusable</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">default</span></span><br /></dt>
+<dd><p>Virtual destructor for proper cleanup in derived classes. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N19object_pool_pattern8Reusable3useEv">
+<span id="_CPPv3N19object_pool_pattern8Reusable3useEv"></span><span id="_CPPv2N19object_pool_pattern8Reusable3useEv"></span><span id="object_pool_pattern::Reusable::use"></span><span class="target" id="classobject__pool__pattern_1_1Reusable_1a4121454a76998efa2b9ca2da20d43837"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">use</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><br /></dt>
+<dd><p>Use the reusable object for its intended purpose. </p>
+<p>Derived classes should provide concrete implementations of this method to define how the object is used. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N19object_pool_pattern8Reusable5resetEv">
+<span id="_CPPv3N19object_pool_pattern8Reusable5resetEv"></span><span id="_CPPv2N19object_pool_pattern8Reusable5resetEv"></span><span id="object_pool_pattern::Reusable::reset"></span><span class="target" id="classobject__pool__pattern_1_1Reusable_1ae19fb458db2eed04d7cc502923325565"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">reset</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><br /></dt>
+<dd><p>Reset the reusable object to its initial state. </p>
+<p>This method ensures that objects can be safely reused by the pool, clearing any state or data from previous usage. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="namespacefactory__method__pattern.gen.html" class="btn btn-neutral float-left" title="factory_method_pattern" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="namespaceprototype__pattern.gen.html" class="btn btn-neutral float-right" title="prototype_pattern" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, David Gonçalves.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

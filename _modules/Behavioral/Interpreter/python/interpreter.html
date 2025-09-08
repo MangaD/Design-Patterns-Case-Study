@@ -1,0 +1,416 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Behavioral.Interpreter.python.interpreter &mdash; Design Patterns Case Study 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../../../_static/custom.js?v=f12ea912"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../index.html" class="icon icon-home">
+            Design Patterns Case Study
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../introduction.gen.html">Design Patterns Case Study</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../creational_patterns.gen.html">Creational Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../structural_patterns.gen.html">Structural Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../behavioral_patterns.gen.html">Behavioral Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../gof.gen.html">The Gang of Four</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../references.gen.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../cpp_api_index.gen.html">C++ API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../python_api.html">Python API Documentation</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Design Patterns Case Study</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">Behavioral.Interpreter.python.interpreter</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for Behavioral.Interpreter.python.interpreter</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Dict</span>
+
+<div class="viewcode-block" id="Expression">
+<a class="viewcode-back" href="../../../../interpreter_api.html#Behavioral.Interpreter.python.interpreter.Expression">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">Expression</span><span class="p">:</span>
+<span class="w">	</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">	Represents an expression in a simple boolean grammar.</span>
+<span class="sd">	All concrete expressions must implement the interpret method.</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+<div class="viewcode-block" id="Expression.interpret">
+<a class="viewcode-back" href="../../../../interpreter_api.html#Behavioral.Interpreter.python.interpreter.Expression.interpret">[docs]</a>
+	<span class="k">def</span><span class="w"> </span><span class="nf">interpret</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ctx</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">bool</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">		</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Interprets the expression under the provided context.</span>
+
+<span class="sd">		:param ctx: A dictionary mapping variable names to boolean values.</span>
+<span class="sd">		:return: The boolean result of evaluating the expression.</span>
+<span class="sd">		:raises NotImplementedError: If not implemented in a subclass.</span>
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;Subclasses must implement interpret().&quot;</span><span class="p">)</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="Constant">
+<a class="viewcode-back" href="../../../../interpreter_api.html#Behavioral.Interpreter.python.interpreter.Constant">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">Constant</span><span class="p">(</span><span class="n">Expression</span><span class="p">):</span>
+<span class="w">	</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">	Terminal expression representing a boolean constant.</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+<div class="viewcode-block" id="Constant.__init__">
+<a class="viewcode-back" href="../../../../interpreter_api.html#Behavioral.Interpreter.python.interpreter.Constant.__init__">[docs]</a>
+	<span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">bool</span><span class="p">):</span>
+<span class="w">		</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Initializes a constant expression.</span>
+
+<span class="sd">		:param value: The boolean literal value.</span>
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">_value</span> <span class="o">=</span> <span class="n">value</span></div>
+
+
+<div class="viewcode-block" id="Constant.interpret">
+<a class="viewcode-back" href="../../../../interpreter_api.html#Behavioral.Interpreter.python.interpreter.Constant.interpret">[docs]</a>
+	<span class="k">def</span><span class="w"> </span><span class="nf">interpret</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ctx</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">bool</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">		</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Returns the stored literal value (context is ignored).</span>
+
+<span class="sd">		:param ctx: The interpretation context (unused).</span>
+<span class="sd">		:return: The stored boolean literal.</span>
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_value</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="Variable">
+<a class="viewcode-back" href="../../../../interpreter_api.html#Behavioral.Interpreter.python.interpreter.Variable">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">Variable</span><span class="p">(</span><span class="n">Expression</span><span class="p">):</span>
+<span class="w">	</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">	Terminal expression representing a variable lookup.</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+<div class="viewcode-block" id="Variable.__init__">
+<a class="viewcode-back" href="../../../../interpreter_api.html#Behavioral.Interpreter.python.interpreter.Variable.__init__">[docs]</a>
+	<span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">		</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Initializes a variable expression.</span>
+
+<span class="sd">		:param name: The variable name to look up in the context.</span>
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">_name</span> <span class="o">=</span> <span class="n">name</span></div>
+
+
+<div class="viewcode-block" id="Variable.interpret">
+<a class="viewcode-back" href="../../../../interpreter_api.html#Behavioral.Interpreter.python.interpreter.Variable.interpret">[docs]</a>
+	<span class="k">def</span><span class="w"> </span><span class="nf">interpret</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ctx</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">bool</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">		</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Looks up the variable value in the context.</span>
+
+<span class="sd">		:param ctx: The interpretation context.</span>
+<span class="sd">		:return: The boolean value bound to the variable.</span>
+<span class="sd">		:raises KeyError: If the variable is not present in the context.</span>
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">ctx</span><span class="p">:</span>
+			<span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unbound variable: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+		<span class="k">return</span> <span class="n">ctx</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_name</span><span class="p">]</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="Not">
+<a class="viewcode-back" href="../../../../interpreter_api.html#Behavioral.Interpreter.python.interpreter.Not">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">Not</span><span class="p">(</span><span class="n">Expression</span><span class="p">):</span>
+<span class="w">	</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">	Nonterminal expression for logical NOT.</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+<div class="viewcode-block" id="Not.__init__">
+<a class="viewcode-back" href="../../../../interpreter_api.html#Behavioral.Interpreter.python.interpreter.Not.__init__">[docs]</a>
+	<span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">expr</span><span class="p">:</span> <span class="n">Expression</span><span class="p">):</span>
+<span class="w">		</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Initializes a NOT expression.</span>
+
+<span class="sd">		:param expr: The operand to negate.</span>
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">_expr</span> <span class="o">=</span> <span class="n">expr</span></div>
+
+
+<div class="viewcode-block" id="Not.interpret">
+<a class="viewcode-back" href="../../../../interpreter_api.html#Behavioral.Interpreter.python.interpreter.Not.interpret">[docs]</a>
+	<span class="k">def</span><span class="w"> </span><span class="nf">interpret</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ctx</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">bool</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">		</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Evaluates logical negation of the operand.</span>
+
+<span class="sd">		:param ctx: The interpretation context.</span>
+<span class="sd">		:return: The negated boolean value.</span>
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="k">return</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_expr</span><span class="o">.</span><span class="n">interpret</span><span class="p">(</span><span class="n">ctx</span><span class="p">)</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="And">
+<a class="viewcode-back" href="../../../../interpreter_api.html#Behavioral.Interpreter.python.interpreter.And">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">And</span><span class="p">(</span><span class="n">Expression</span><span class="p">):</span>
+<span class="w">	</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">	Nonterminal expression for logical AND.</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+<div class="viewcode-block" id="And.__init__">
+<a class="viewcode-back" href="../../../../interpreter_api.html#Behavioral.Interpreter.python.interpreter.And.__init__">[docs]</a>
+	<span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">left</span><span class="p">:</span> <span class="n">Expression</span><span class="p">,</span> <span class="n">right</span><span class="p">:</span> <span class="n">Expression</span><span class="p">):</span>
+<span class="w">		</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Initializes an AND expression.</span>
+
+<span class="sd">		:param left: The left operand.</span>
+<span class="sd">		:param right: The right operand.</span>
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">_left</span> <span class="o">=</span> <span class="n">left</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">_right</span> <span class="o">=</span> <span class="n">right</span></div>
+
+
+<div class="viewcode-block" id="And.interpret">
+<a class="viewcode-back" href="../../../../interpreter_api.html#Behavioral.Interpreter.python.interpreter.And.interpret">[docs]</a>
+	<span class="k">def</span><span class="w"> </span><span class="nf">interpret</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ctx</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">bool</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">		</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Evaluates logical conjunction of both operands.</span>
+
+<span class="sd">		:param ctx: The interpretation context.</span>
+<span class="sd">		:return: The result of left AND right.</span>
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_left</span><span class="o">.</span><span class="n">interpret</span><span class="p">(</span><span class="n">ctx</span><span class="p">)</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_right</span><span class="o">.</span><span class="n">interpret</span><span class="p">(</span><span class="n">ctx</span><span class="p">)</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="Or">
+<a class="viewcode-back" href="../../../../interpreter_api.html#Behavioral.Interpreter.python.interpreter.Or">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">Or</span><span class="p">(</span><span class="n">Expression</span><span class="p">):</span>
+<span class="w">	</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">	Nonterminal expression for logical OR.</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+<div class="viewcode-block" id="Or.__init__">
+<a class="viewcode-back" href="../../../../interpreter_api.html#Behavioral.Interpreter.python.interpreter.Or.__init__">[docs]</a>
+	<span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">left</span><span class="p">:</span> <span class="n">Expression</span><span class="p">,</span> <span class="n">right</span><span class="p">:</span> <span class="n">Expression</span><span class="p">):</span>
+<span class="w">		</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Initializes an OR expression.</span>
+
+<span class="sd">		:param left: The left operand.</span>
+<span class="sd">		:param right: The right operand.</span>
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">_left</span> <span class="o">=</span> <span class="n">left</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">_right</span> <span class="o">=</span> <span class="n">right</span></div>
+
+
+<div class="viewcode-block" id="Or.interpret">
+<a class="viewcode-back" href="../../../../interpreter_api.html#Behavioral.Interpreter.python.interpreter.Or.interpret">[docs]</a>
+	<span class="k">def</span><span class="w"> </span><span class="nf">interpret</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ctx</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">bool</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">		</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Evaluates logical disjunction of both operands.</span>
+
+<span class="sd">		:param ctx: The interpretation context.</span>
+<span class="sd">		:return: The result of left OR right.</span>
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_left</span><span class="o">.</span><span class="n">interpret</span><span class="p">(</span><span class="n">ctx</span><span class="p">)</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">_right</span><span class="o">.</span><span class="n">interpret</span><span class="p">(</span><span class="n">ctx</span><span class="p">)</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="Parser">
+<a class="viewcode-back" href="../../../../interpreter_api.html#Behavioral.Interpreter.python.interpreter.Parser">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">Parser</span><span class="p">:</span>
+<span class="w">	</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">	A minimal recursive-descent parser for a boolean DSL.</span>
+
+<span class="sd">	Grammar (EBNF):</span>
+<span class="sd">		Expr    := OrExpr</span>
+<span class="sd">		OrExpr  := AndExpr { &#39;|&#39; AndExpr }</span>
+<span class="sd">		AndExpr := NotExpr { &#39;&amp;&#39; NotExpr }</span>
+<span class="sd">		NotExpr := &#39;!&#39; NotExpr | Primary</span>
+<span class="sd">		Primary := &#39;true&#39; | &#39;false&#39; | Identifier | &#39;(&#39; Expr &#39;)&#39;</span>
+<span class="sd">		Identifier := [A-Za-z_][A-Za-z0-9_]*</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+<div class="viewcode-block" id="Parser.__init__">
+<a class="viewcode-back" href="../../../../interpreter_api.html#Behavioral.Interpreter.python.interpreter.Parser.__init__">[docs]</a>
+	<span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">		</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Initializes the parser with the input string.</span>
+
+<span class="sd">		:param source: The source string to parse.</span>
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">_s</span> <span class="o">=</span> <span class="n">source</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">_i</span> <span class="o">=</span> <span class="mi">0</span></div>
+
+
+<div class="viewcode-block" id="Parser.parse">
+<a class="viewcode-back" href="../../../../interpreter_api.html#Behavioral.Interpreter.python.interpreter.Parser.parse">[docs]</a>
+	<span class="k">def</span><span class="w"> </span><span class="nf">parse</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Expression</span><span class="p">:</span>
+<span class="w">		</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">		Parses the entire input as an expression.</span>
+
+<span class="sd">		:return: The root Expression AST node.</span>
+<span class="sd">		:raises ValueError: If there is leftover input or a syntax error.</span>
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="n">expr</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_parse_or</span><span class="p">()</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">_skip_ws</span><span class="p">()</span>
+		<span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_i</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_s</span><span class="p">):</span>
+			<span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unexpected trailing input at position </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_i</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+		<span class="k">return</span> <span class="n">expr</span></div>
+
+
+	<span class="c1"># ----- Recursive-descent helpers -----</span>
+
+	<span class="k">def</span><span class="w"> </span><span class="nf">_parse_or</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Expression</span><span class="p">:</span>
+		<span class="n">left</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_parse_and</span><span class="p">()</span>
+		<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+			<span class="bp">self</span><span class="o">.</span><span class="n">_skip_ws</span><span class="p">()</span>
+			<span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_consume</span><span class="p">(</span><span class="s1">&#39;|&#39;</span><span class="p">):</span>
+				<span class="n">right</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_parse_and</span><span class="p">()</span>
+				<span class="n">left</span> <span class="o">=</span> <span class="n">Or</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">)</span>
+			<span class="k">else</span><span class="p">:</span>
+				<span class="k">break</span>
+		<span class="k">return</span> <span class="n">left</span>
+
+	<span class="k">def</span><span class="w"> </span><span class="nf">_parse_and</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Expression</span><span class="p">:</span>
+		<span class="n">left</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_parse_not</span><span class="p">()</span>
+		<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+			<span class="bp">self</span><span class="o">.</span><span class="n">_skip_ws</span><span class="p">()</span>
+			<span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_consume</span><span class="p">(</span><span class="s1">&#39;&amp;&#39;</span><span class="p">):</span>
+				<span class="n">right</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_parse_not</span><span class="p">()</span>
+				<span class="n">left</span> <span class="o">=</span> <span class="n">And</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">)</span>
+			<span class="k">else</span><span class="p">:</span>
+				<span class="k">break</span>
+		<span class="k">return</span> <span class="n">left</span>
+
+	<span class="k">def</span><span class="w"> </span><span class="nf">_parse_not</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Expression</span><span class="p">:</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">_skip_ws</span><span class="p">()</span>
+		<span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_consume</span><span class="p">(</span><span class="s1">&#39;!&#39;</span><span class="p">):</span>
+			<span class="k">return</span> <span class="n">Not</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_parse_not</span><span class="p">())</span>
+		<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_parse_primary</span><span class="p">()</span>
+
+	<span class="k">def</span><span class="w"> </span><span class="nf">_parse_primary</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Expression</span><span class="p">:</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">_skip_ws</span><span class="p">()</span>
+		<span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_i</span> <span class="o">&gt;=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_s</span><span class="p">):</span>
+			<span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Unexpected end of input while parsing primary.&quot;</span><span class="p">)</span>
+		<span class="n">c</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_s</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_i</span><span class="p">]</span>
+		<span class="k">if</span> <span class="n">c</span> <span class="o">==</span> <span class="s1">&#39;(&#39;</span><span class="p">:</span>
+			<span class="bp">self</span><span class="o">.</span><span class="n">_i</span> <span class="o">+=</span> <span class="mi">1</span>
+			<span class="n">e</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_parse_or</span><span class="p">()</span>
+			<span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_consume</span><span class="p">(</span><span class="s1">&#39;)&#39;</span><span class="p">):</span>
+				<span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Expected &#39;)&#39; to close group.&quot;</span><span class="p">)</span>
+			<span class="k">return</span> <span class="n">e</span>
+		<span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_ident_start</span><span class="p">(</span><span class="n">c</span><span class="p">):</span>
+			<span class="n">ident</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_parse_identifier</span><span class="p">()</span>
+			<span class="k">if</span> <span class="n">ident</span> <span class="o">==</span> <span class="s2">&quot;true&quot;</span><span class="p">:</span>
+				<span class="k">return</span> <span class="n">Constant</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+			<span class="k">if</span> <span class="n">ident</span> <span class="o">==</span> <span class="s2">&quot;false&quot;</span><span class="p">:</span>
+				<span class="k">return</span> <span class="n">Constant</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+			<span class="k">return</span> <span class="n">Variable</span><span class="p">(</span><span class="n">ident</span><span class="p">)</span>
+		<span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unexpected character &#39;</span><span class="si">{</span><span class="n">c</span><span class="si">}</span><span class="s2">&#39; at position </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_i</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+
+	<span class="c1"># ----- Lexical helpers -----</span>
+
+	<span class="k">def</span><span class="w"> </span><span class="nf">_skip_ws</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+		<span class="k">while</span> <span class="bp">self</span><span class="o">.</span><span class="n">_i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_s</span><span class="p">)</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_s</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_i</span><span class="p">]</span><span class="o">.</span><span class="n">isspace</span><span class="p">():</span>
+			<span class="bp">self</span><span class="o">.</span><span class="n">_i</span> <span class="o">+=</span> <span class="mi">1</span>
+
+	<span class="k">def</span><span class="w"> </span><span class="nf">_consume</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ch</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">_skip_ws</span><span class="p">()</span>
+		<span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_s</span><span class="p">)</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_s</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_i</span><span class="p">]</span> <span class="o">==</span> <span class="n">ch</span><span class="p">:</span>
+			<span class="bp">self</span><span class="o">.</span><span class="n">_i</span> <span class="o">+=</span> <span class="mi">1</span>
+			<span class="k">return</span> <span class="kc">True</span>
+		<span class="k">return</span> <span class="kc">False</span>
+
+	<span class="k">def</span><span class="w"> </span><span class="nf">_is_ident_start</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">c</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+		<span class="k">return</span> <span class="n">c</span><span class="o">.</span><span class="n">isalpha</span><span class="p">()</span> <span class="ow">or</span> <span class="n">c</span> <span class="o">==</span> <span class="s1">&#39;_&#39;</span>
+
+	<span class="k">def</span><span class="w"> </span><span class="nf">_is_ident_char</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">c</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+		<span class="k">return</span> <span class="n">c</span><span class="o">.</span><span class="n">isalnum</span><span class="p">()</span> <span class="ow">or</span> <span class="n">c</span> <span class="o">==</span> <span class="s1">&#39;_&#39;</span>
+
+	<span class="k">def</span><span class="w"> </span><span class="nf">_parse_identifier</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">_skip_ws</span><span class="p">()</span>
+		<span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_i</span> <span class="o">&gt;=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_s</span><span class="p">)</span> <span class="ow">or</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_ident_start</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_s</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_i</span><span class="p">]):</span>
+			<span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Expected identifier at position </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_i</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+		<span class="n">start</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_i</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">_i</span> <span class="o">+=</span> <span class="mi">1</span>
+		<span class="k">while</span> <span class="bp">self</span><span class="o">.</span><span class="n">_i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_s</span><span class="p">)</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_ident_char</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_s</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_i</span><span class="p">]):</span>
+			<span class="bp">self</span><span class="o">.</span><span class="n">_i</span> <span class="o">+=</span> <span class="mi">1</span>
+		<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_s</span><span class="p">[</span><span class="n">start</span><span class="p">:</span><span class="bp">self</span><span class="o">.</span><span class="n">_i</span><span class="p">]</span></div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, David Gonçalves.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

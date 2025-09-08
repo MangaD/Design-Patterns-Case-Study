@@ -1,0 +1,316 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Composite Header &mdash; Design Patterns Case Study 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/custom.js?v=f12ea912"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="composite_pattern::Component" href="classcomposite__pattern_1_1Component.gen.html" />
+    <link rel="prev" title="class_adapter_pattern::Adapter" href="classclass__adapter__pattern_1_1Adapter.gen.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Design Patterns Case Study
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction.gen.html">Design Patterns Case Study</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../creational_patterns.gen.html">Creational Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../structural_patterns.gen.html">Structural Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../behavioral_patterns.gen.html">Behavioral Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gof.gen.html">The Gang of Four</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../references.gen.html">References</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../cpp_api_index.gen.html">C++ API Documentation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../Behavioral/behavioral_patterns.gen.html">Behavioral Patterns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Creational/creational_patterns.gen.html">Creational Patterns</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="structural_patterns.gen.html">Structural Patterns</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="structural_patterns.gen.html#namespaces">Namespaces</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="structural_patterns.gen.html#files">Files</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="bridge_8cpp.gen.html">Bridge  Source</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bridge_8hpp.gen.html">Bridge  Header</a></li>
+<li class="toctree-l4"><a class="reference internal" href="class__adapter_8hpp.gen.html">Class  Adapter  Header</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Composite  Header</a></li>
+<li class="toctree-l4"><a class="reference internal" href="decorator_8hpp.gen.html">Decorator  Header</a></li>
+<li class="toctree-l4"><a class="reference internal" href="facade_8hpp.gen.html">Facade  Header</a></li>
+<li class="toctree-l4"><a class="reference internal" href="flyweight_8hpp.gen.html">Flyweight  Header</a></li>
+<li class="toctree-l4"><a class="reference internal" href="object__adapter_8hpp.gen.html">Object  Adapter  Header</a></li>
+<li class="toctree-l4"><a class="reference internal" href="proxy_8hpp.gen.html">Proxy  Header</a></li>
+<li class="toctree-l4"><a class="reference internal" href="test__bridge_8cpp.gen.html">Test  Bridge  Source</a></li>
+<li class="toctree-l4"><a class="reference internal" href="test__class__adapter_8cpp.gen.html">Test  Class  Adapter  Source</a></li>
+<li class="toctree-l4"><a class="reference internal" href="test__composite_8cpp.gen.html">Test  Composite  Source</a></li>
+<li class="toctree-l4"><a class="reference internal" href="test__decorator_8cpp.gen.html">Test  Decorator  Source</a></li>
+<li class="toctree-l4"><a class="reference internal" href="test__facade_8cpp.gen.html">Test  Facade  Source</a></li>
+<li class="toctree-l4"><a class="reference internal" href="test__flyweight_8cpp.gen.html">Test  Flyweight  Source</a></li>
+<li class="toctree-l4"><a class="reference internal" href="test__object__adapter_8cpp.gen.html">Test  Object  Adapter  Source</a></li>
+<li class="toctree-l4"><a class="reference internal" href="test__proxy_8cpp.gen.html">Test  Proxy  Source</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="structural_patterns.gen.html#classes">Classes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../python_api.html">Python API Documentation</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Design Patterns Case Study</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../cpp_api_index.gen.html">C++ API Documentation</a></li>
+          <li class="breadcrumb-item"><a href="structural_patterns.gen.html">Structural Patterns</a></li>
+      <li class="breadcrumb-item active">Composite  Header</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/MangaD/Design-Patterns-Case-Study/blob/main/docs/source/Structural/composite_8hpp.gen.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="composite-header">
+<h1>Composite  Header<a class="headerlink" href="#composite-header" title="Link to this heading"></a></h1>
+<dl class="cpp type">
+<dt class="sig sig-object cpp">
+<span class="k"><span class="pre">namespace</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">composite_pattern</span></span></span><br /></dt>
+<dd><p>Namespace for the <a class="reference internal" href="namespacecomposite__pattern.gen.html#classcomposite__pattern_1_1Composite"><span class="std std-ref">Composite</span></a> pattern. </p>
+<dl class="cpp class">
+<dt class="sig sig-object cpp">
+<span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Component</span></span></span><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;composite.hpp&gt;</em></div>
+<p>The <a class="reference internal" href="namespacecomposite__pattern.gen.html#classcomposite__pattern_1_1Component"><span class="std std-ref">Component</span></a> interface declares common operations for both simple and complex objects. </p>
+<p>Subclassed by <a class="reference internal" href="namespacecomposite__pattern.gen.html#classcomposite__pattern_1_1Composite"><span class="std std-ref">composite_pattern::Composite</span></a>, <a class="reference internal" href="namespacecomposite__pattern.gen.html#classcomposite__pattern_1_1Leaf"><span class="std std-ref">composite_pattern::Leaf</span></a></p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp">
+<span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">~Component</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">default</span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp">
+<span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">operation</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><br /></dt>
+<dd><p>Performs the operation for the component. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp">
+<span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">add</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">shared_ptr</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="classcomposite__pattern_1_1Component.gen.html#_CPPv4N17composite_pattern9ComponentE" title="composite_pattern::Component"><span class="n"><span class="pre">Component</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p>Adds a child component (only meaningful for <a class="reference internal" href="namespacecomposite__pattern.gen.html#classcomposite__pattern_1_1Composite"><span class="std std-ref">Composite</span></a>). </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp">
+<span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">remove</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">shared_ptr</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="classcomposite__pattern_1_1Component.gen.html#_CPPv4N17composite_pattern9ComponentE" title="composite_pattern::Component"><span class="n"><span class="pre">Component</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p>Removes a child component (only meaningful for <a class="reference internal" href="namespacecomposite__pattern.gen.html#classcomposite__pattern_1_1Composite"><span class="std std-ref">Composite</span></a>). </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp">
+<span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isComposite</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><br /></dt>
+<dd><p>Checks if the component is a composite. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if composite, otherwise false. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp">
+<span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Composite</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv417composite_pattern" title="composite_pattern"><span class="n"><span class="pre">composite_pattern</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="classcomposite__pattern_1_1Component.gen.html#_CPPv4N17composite_pattern9ComponentE" title="composite_pattern::Component"><span class="n"><span class="pre">Component</span></span></a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;composite.hpp&gt;</em></div>
+<p>The <a class="reference internal" href="namespacecomposite__pattern.gen.html#classcomposite__pattern_1_1Composite"><span class="std std-ref">Composite</span></a> class represents the complex components that may have children. </p>
+<p>A <a class="reference internal" href="namespacecomposite__pattern.gen.html#classcomposite__pattern_1_1Composite"><span class="std std-ref">Composite</span></a> object can have both <a class="reference internal" href="namespacecomposite__pattern.gen.html#classcomposite__pattern_1_1Leaf"><span class="std std-ref">Leaf</span></a> and other <a class="reference internal" href="namespacecomposite__pattern.gen.html#classcomposite__pattern_1_1Composite"><span class="std std-ref">Composite</span></a> objects as children. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp">
+<span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">add</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">shared_ptr</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="classcomposite__pattern_1_1Component.gen.html#_CPPv4N17composite_pattern9ComponentE" title="composite_pattern::Component"><span class="n"><span class="pre">Component</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">component</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">override</span></span><br /></dt>
+<dd><p>Adds a child component to the composite. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>component</strong> – The child component to add. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp">
+<span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">remove</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">shared_ptr</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="classcomposite__pattern_1_1Component.gen.html#_CPPv4N17composite_pattern9ComponentE" title="composite_pattern::Component"><span class="n"><span class="pre">Component</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">component</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">override</span></span><br /></dt>
+<dd><p>Removes a child component from the composite. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>component</strong> – The child component to remove. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp">
+<span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isComposite</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><br /></dt>
+<dd><p>Checks if the component is a composite. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True, as this is a <a class="reference internal" href="namespacecomposite__pattern.gen.html#classcomposite__pattern_1_1Composite"><span class="std std-ref">Composite</span></a>. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp">
+<span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">operation</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><br /></dt>
+<dd><p>Performs the operation for the composite and delegates to child components. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-members">Private Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp">
+<span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">shared_ptr</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="classcomposite__pattern_1_1Component.gen.html#_CPPv4N17composite_pattern9ComponentE" title="composite_pattern::Component"><span class="n"><span class="pre">Component</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">children</span></span></span><br /></dt>
+<dd><p>List of child components. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp">
+<span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Leaf</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv417composite_pattern" title="composite_pattern"><span class="n"><span class="pre">composite_pattern</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="classcomposite__pattern_1_1Component.gen.html#_CPPv4N17composite_pattern9ComponentE" title="composite_pattern::Component"><span class="n"><span class="pre">Component</span></span></a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;composite.hpp&gt;</em></div>
+<p>The <a class="reference internal" href="namespacecomposite__pattern.gen.html#classcomposite__pattern_1_1Leaf"><span class="std std-ref">Leaf</span></a> class represents the end objects of a composition. </p>
+<p>A <a class="reference internal" href="namespacecomposite__pattern.gen.html#classcomposite__pattern_1_1Leaf"><span class="std std-ref">Leaf</span></a> cannot have any children. It implements the base <a class="reference internal" href="namespacecomposite__pattern.gen.html#classcomposite__pattern_1_1Component"><span class="std std-ref">Component</span></a> interface. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp">
+<span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">explicit</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Leaf</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">name</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p>Constructs a <a class="reference internal" href="namespacecomposite__pattern.gen.html#classcomposite__pattern_1_1Leaf"><span class="std std-ref">Leaf</span></a> with a given name. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>name</strong> – The name of the leaf. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp">
+<span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">operation</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><br /></dt>
+<dd><p>Performs the operation specific to the <a class="reference internal" href="namespacecomposite__pattern.gen.html#classcomposite__pattern_1_1Leaf"><span class="std std-ref">Leaf</span></a>. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-members">Private Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp">
+<span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">name</span></span></span><br /></dt>
+<dd><p>The name of the leaf for identification. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<section id="inner-classes">
+<h2>Inner Classes<a class="headerlink" href="#inner-classes" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="classcomposite__pattern_1_1Component.gen.html">composite_pattern::Component</a></li>
+<li class="toctree-l1"><a class="reference internal" href="classcomposite__pattern_1_1Leaf.gen.html">composite_pattern::Leaf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="classcomposite__pattern_1_1Composite.gen.html">composite_pattern::Composite</a></li>
+</ul>
+</div>
+</section>
+<section id="inner-namespaces">
+<h2>Inner Namespaces<a class="headerlink" href="#inner-namespaces" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="namespacecomposite__pattern.gen.html">composite_pattern</a></li>
+</ul>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="classclass__adapter__pattern_1_1Adapter.gen.html" class="btn btn-neutral float-left" title="class_adapter_pattern::Adapter" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="classcomposite__pattern_1_1Component.gen.html" class="btn btn-neutral float-right" title="composite_pattern::Component" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, David Gonçalves.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
