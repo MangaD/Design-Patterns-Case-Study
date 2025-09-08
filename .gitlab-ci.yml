@@ -44,7 +44,7 @@ build-java:
 
 test-java:
   stage: test
-  image: gradle:8.11.1-jdk23-alpine
+  image: gradle:9.0.0-jdk24-alpine
   dependencies:
     - build-java
   script:
